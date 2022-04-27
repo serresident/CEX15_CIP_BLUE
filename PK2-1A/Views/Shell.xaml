@@ -1,0 +1,127 @@
+﻿<Window x:Class="cip_blue.Views.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:WPF="clr-namespace:AITSW.PCPANEL.WPF;assembly=PCPANEL_WPF_Controls"
+        xmlns:converters="clr-namespace:AITSW.WPFValueConverters;assembly=WPFValueConverters"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+
+        prism:ViewModelLocator.AutoWireViewModel="True"
+      WindowStyle="ToolWindow"  Title="{Binding Title}" Height="1050" Width="1930" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing">
+    
+    <Window.Resources>
+        <converters:BooleanNegateConverter x:Key="BooleanNegateConverter" />
+        <Style  TargetType="{x:Type WPF:Label}" >
+            <Setter Property="Content" Value="status" />
+
+
+        </Style>
+    </Window.Resources>
+
+
+    <Grid Background="Azure">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="DarkGray" BorderThickness="1" Grid.Row="0" Grid.ColumnSpan="5"/>
+        
+        <WPF:Label Grid.Column="0" DefaultText="Работает" Content="Программа:" Design="Simple" ItemDeterminationValue="{Binding PlcStatus}" HorizontalAlignment="Left" Height="40"  Width="75" Margin="5,5,0,5" LightEmittingUpToState="3" CornerRadius="0" >
+
+            <WPF:Label.Style>
+                <Style TargetType="WPF:Label">
+                    <Setter Property="Foreground" Value="Blue"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="ItemDeterminationValue" Value="0">
+                            <Setter Property="Foreground" Value="Yellow" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </WPF:Label.Style>
+
+            <WPF:Label.States>
+                
+                <WPF:StatesStandard Critical="{Binding PlcStatus, Converter={StaticResource BooleanNegateConverter}}" Active="{Binding PlcStatus}"/>
+            </WPF:Label.States>
+
+            <WPF:Label.Items>
+                <WPF:ValueTextItem Text="Работает" Value="1"/>
+                <WPF:ValueTextItem Text="Остановлена" Value="0"/>
+            </WPF:Label.Items>
+
+            <WPF:Label.Colors>
+                <WPF:ControlColors>
+                    <WPF:ControlColors.State1Coloring>
+                        <WPF:ColoringColor Frequency="0.5" Color1="Red" />
+                    </WPF:ControlColors.State1Coloring>
+                    <WPF:ControlColors.State4Coloring>
+                        <WPF:ColoringColor Frequency="0.5" Color1="#FFACE0AC" />
+                    </WPF:ControlColors.State4Coloring>
+                </WPF:ControlColors>
+            </WPF:Label.Colors>
+
+        </WPF:Label>
+        <WPF:Label Grid.Column="1" DefaultText="Работает" Content="Связь с ПЛК:" Design="Simple" ItemDeterminationValue="{Binding IPStatus}" HorizontalAlignment="Left" Height="40"  Width="75" Margin="5,5,0,5" LightEmittingUpToState="3" CornerRadius="0" >
+
+            <WPF:Label.Style>
+                <Style TargetType="WPF:Label">
+                    <Setter Property="Foreground" Value="Blue"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="ItemDeterminationValue" Value="0">
+                            <Setter Property="Foreground" Value="Yellow" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </WPF:Label.Style>
+
+            <WPF:Label.States>
+
+                <WPF:StatesStandard Critical="{Binding IPStatus, Converter={StaticResource BooleanNegateConverter}}" Active="{Binding IPStatus}"/>
+            </WPF:Label.States>
+
+            <WPF:Label.Items>
+                <WPF:ValueTextItem Text="Ок" Value="1"/>
+                <WPF:ValueTextItem Text="Нет связи" Value="0"/>
+            </WPF:Label.Items>
+
+            <WPF:Label.Colors>
+                <WPF:ControlColors>
+                    <WPF:ControlColors.State1Coloring>
+                        <WPF:ColoringColor Frequency="0.5" Color1="Red" />
+                    </WPF:ControlColors.State1Coloring>
+                    <WPF:ControlColors.State4Coloring>
+                        <WPF:ColoringColor Frequency="0.5" Color1="#FFACE0AC" />
+                    </WPF:ControlColors.State4Coloring>
+                </WPF:ControlColors>
+            </WPF:Label.Colors>
+
+        </WPF:Label>
+
+        <ContentControl prism:RegionManager.RegionName="ToolRegion"  Grid.Row="0" Grid.Column="2" Margin="10,0,0,0" />
+
+        <ItemsControl prism:RegionManager.RegionName="NavigationRegion" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin="5,0" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+
+        <!--<xctk:MaterialButton Grid.Row="0" Grid.Column="3" Content="Настройки" Command="{Binding ShowSettingsDialogCommand}" Margin="0,6,6,6" Padding="5,0" IsRaisedActive="True" IsInkEffectActive="True" InkEffectBrush="White" InkEffectOpacity="0.25" Mode="Rectangle" HorizontalAlignment="Center" />-->
+
+
+        <ContentControl prism:RegionManager.RegionName="ContentRegion"  Grid.Row="1" Grid.ColumnSpan="4"  />
+
+    </Grid>
+
+</Window>

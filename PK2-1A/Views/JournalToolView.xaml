@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="cip_blue.Views.JournalToolView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:cip_blue.Views"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:helpers="clr-namespace:cip_blue.Helpers"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1800" Loaded="{helpers:MethodBinding OnLoading}">
+    <Grid HorizontalAlignment="Left" IsEnabled="{c:Binding '!IsBusy' }">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--<ComboBox Grid.Column="0" ItemsSource="{Binding ArchivItems}" SelectedItem="{Binding SelectedArchivItem}" DisplayMemberPath="Title" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="200" Margin="0,0,5,0"/>-->
+        <xctk:CheckComboBox Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Delimiter="+"  ItemsSource="{Binding JournalItems}" DisplayMemberPath="Message" Width="400" Margin="0,0,5,0"/>
+        <DatePicker Grid.Column="1" SelectedDate="{Binding SelectedDTS, TargetNullValue={x:Static sys:DateTime.Now}}" DisplayDateEnd="{Binding MaxDTS}" DisplayDateStart="{Binding MinDTS}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,5,0">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <Button Content="Сформировать" Command="{Binding MakeChartCommand}" Grid.Column="2" Width="95" Height="25" HorizontalAlignment="Center"/>
+
+
+
+    </Grid>
+</UserControl>

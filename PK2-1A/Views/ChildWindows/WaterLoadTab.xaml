@@ -1,0 +1,213 @@
+﻿<xctk:ChildWindow x:Class="cip_blue.Views.ChildWindows.WaterLoadingTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:cip_blue.Views.ChildWindows"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:behaviors="clr-namespace:cip_blue.Behaviors"         
+             xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:controls="clr-namespace:cip_blue.Controls"
+             xmlns:WPF="clr-namespace:AITSW.PCPANEL.WPF;assembly=PCPANEL_WPF_Controls"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             xmlns:convertors="clr-namespace:AITSW.WPFValueConverters;assembly=WPFValueConverters"
+             xmlns:conv="clr-namespace:cip_blue.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="220" d:DesignWidth="290" WindowBackground="LightGray" Background="Wheat" ResizeMode="NoResize">
+
+    <xctk:ChildWindow.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FF48E01B"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <conv:BoolToNumConverter x:Key="BoolToNumConverter" />
+        <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
+
+    </xctk:ChildWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+       
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+          
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="18" Text="Куда грузить" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Blue"/>
+        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"   >
+            <RadioButton IsChecked="{Binding PD.ZagrVodaComm_Nemk, Mode=TwoWay, Converter={StaticResource BoolToNumConverter}, ConverterParameter=0}" Content="R521" GroupName="two"  FontSize="18" Style="{StaticResource {x:Type ToggleButton}}"  />
+            <RadioButton IsChecked="{Binding PD.ZagrVodaComm_Nemk, Mode=TwoWay, Converter={StaticResource BoolToNumConverter}, ConverterParameter=1}" Content="R603" GroupName="two"  FontSize="18" Style="{StaticResource {x:Type ToggleButton}}" />
+            <RadioButton IsChecked="{Binding PD.ZagrVodaComm_Nemk, Mode=TwoWay, Converter={StaticResource BoolToNumConverter}, ConverterParameter=2}" Content="R631" GroupName="two" FontSize="18" Style="{StaticResource {x:Type ToggleButton}}"  />
+
+
+           
+        </StackPanel>-->
+
+        <TextBlock Text="{Binding PD.FQ_R521_in_count, StringFormat=\{0:0.0##\}, FallbackValue=???}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Grid.Row="2" Grid.ColumnSpan="2" FontWeight="Bold" Foreground="DarkGreen"/>
+        <!--<TextBlock Text="41A" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Foreground="#FF646464" Margin="5" />-->
+        <!--<WPF:TextBox IsEnabled="{c:Binding '!PD.In_SOST_OTS_KL_WV_59A_SQH'}" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Grid.Row="1" Grid.Column="1" Height="33" Text="0" SpinTargetValue="{Binding RelativeSource={RelativeSource Self}, Path=Text}" TextWrapping="Wrap" Width="100" SpinButtonsLeftRight="True" SpinButtonsVisible="True" SpinMinValue="0" SpinMaxValue="10000" AcceptedInput="Digits" FontSize="16" SpinIncrementValue="5">
+                            <Behaviors:Interaction.Behaviors>
+                                <behaviors:BindingBehavior  Value="{Binding PD.Weight_water_for_loading_59A, StringFormat=\{0:0.###\}, Mode=TwoWay}" />
+                            </Behaviors:Interaction.Behaviors>
+                        </WPF:TextBox>-->
+        <controls:NumPadUpDown FontSize="16" FontWeight="Bold" EnterClosesNumPad="True" UpdateValueOnEnterKey="True" Precision="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="120" Height="30" Increment="1" Minimum="-1"  Grid.Column="0" Grid.Row="3" Margin="15,0,0,0">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrVodaComm_DozaZad}" />
+            </Behaviors:Interaction.Behaviors>
+        </controls:NumPadUpDown>
+
+      
+        <TextBlock Text="{Binding PD.ZagrVodaComm_doza,  StringFormat=\{0:0.0##\}, FallbackValue=???}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="3" Grid.Column="1" FontWeight="Bold" Foreground="#FF646464" Margin="5" >
+            <DoubleAnimation Storyboard.TargetName="rectangle"
+     Storyboard.TargetProperty="Opacity"
+     From="0"
+     To="1"
+     Duration="0:0:0.25"
+     AutoReverse="True"
+     RepeatBehavior="Forever">
+    <DoubleAnimation.EasingFunction>
+        <ElasticEase EasingMode="EaseInOut" />
+    </DoubleAnimation.EasingFunction>    
+</DoubleAnimation></TextBlock>
+
+        <DockPanel Grid.Row="4" Grid.ColumnSpan="3" LastChildFill="False" Background="Goldenrod" Margin="0,10" >
+            <DockPanel.Resources>
+                <Style TargetType="{x:Type xctk:IconButton}">
+                    <Setter Property="Margin" Value="0,3,10,3"/>
+                </Style>
+            </DockPanel.Resources>
+
+            <xctk:IconButton Content="     Стоп" DockPanel.Dock="Right" Command="{Binding WaterLoadingTabStopCommand}" IconLocation="Left" Padding="3,3,20,3" HorizontalAlignment="Center">
+                <xctk:IconButton.Icon>
+                    <Image Source="/PK2-1A;component/Assest/Stop-red.png">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </xctk:IconButton.Icon>
+            </xctk:IconButton>
+
+            <xctk:IconButton Content="     Пуск"  DockPanel.Dock="Right" Command="{Binding WaterLoadingTabStartCommand}" IconLocation="Left" Padding="3,3,20,3" HorizontalAlignment="Center">
+                <xctk:IconButton.Icon>
+                    <Image Source="/PK2-1A;component/Assest/Start.png">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </xctk:IconButton.Icon>
+            </xctk:IconButton>
+        </DockPanel>
+
+        <TabControl Grid.Row="1" Grid.ColumnSpan="2"  Style="{StaticResource SelectTabControlStyle}" SelectedIndex="{Binding PD.ZagrVodaComm_Nemk}" IsEnabled="{Binding PD.ZagrVodaComm_Nemk, Converter={StaticResource BooleanNegateConverter}}" >
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <Grid DataContext="{Binding Path=DataContext, RelativeSource={ RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}} }">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--<TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Время[мин]" VerticalAlignment="Center" FontSize="16"/>
+
+                        <controls:NumPadUpDown Grid.Column="1" AutoMoveFocus="True" TabIndex="-1" FormatString="F0" Width="80" Height="25" Increment="1" Minimum="0" Maximum="50" EnterClosesNumPad="True" UpdateValueOnEnterKey="True"  FontSize="14" FontWeight="Bold" >
+                            <Behaviors:Interaction.Behaviors>
+                                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Time_Nitrogen_Purge_41D}" />
+                            </Behaviors:Interaction.Behaviors>
+                        </controls:NumPadUpDown>
+
+                        <TextBlock Text="{Binding PD.Fakt_Time_Nitrogen_Purge_41D,  FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Column="2" FontWeight="Bold" Foreground="#FF646464" />-->
+                    </Grid>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+            <TabItem Header="R521" Width="100" Style="{StaticResource SelectTabItemStyle}">
+            </TabItem>
+            <TabItem Header="R603" Width="100" Style="{StaticResource SelectTabItemStyle}">
+            </TabItem>
+            <TabItem Header="R631" Width="100" Style="{StaticResource SelectTabItemStyle}">
+            </TabItem>
+
+
+
+        </TabControl>
+
+
+
+
+
+    </Grid>
+</xctk:ChildWindow>

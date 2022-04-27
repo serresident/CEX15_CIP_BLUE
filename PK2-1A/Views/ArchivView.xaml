@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="cip_blue.Views.ArchivView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+              xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+             xmlns:helpers="clr-namespace:cip_blue.Helpers"
+             xmlns:local="clr-namespace:cip_blue.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <xctk:BusyIndicator IsBusy="{Binding ProxyArchivTool.IsBusy}" >
+        
+                <!--<oxy:Plot x:Name="plot" ClipToBounds="True" Margin="0,5,0,0" Background="Transparent" BorderBrush="DarkGray" BorderThickness="1"  LegendPlacement="Inside" LegendPosition="TopRight" LegendOrientation="Horizontal" LegendBackground="Transparent" 
+                          Loaded="{helpers:MethodBinding OnLoadingChart, {Binding ElementName=plot}}">
+                    --><!--<Behaviors:Interaction.Triggers>
+                        <Behaviors:EventTrigger EventName="Loaded" SourceObject="{Binding}">
+                            <Behaviors:InvokeCommandAction Command="{Binding Path=LoadPlotCommand}" CommandParameter="{Binding ElementName=plot}" />
+                        </Behaviors:EventTrigger>
+                    </Behaviors:Interaction.Triggers>--><!--
+
+                    <oxy:Plot.Axes>
+                        <oxy:DateTimeAxis Position="Bottom" StringFormat="HH:mm" IntervalType ="Hours" MinorIntervalType="Hours"  MajorGridlineStyle="Dot" MajorGridlineColor="LightGray" IsZoomEnabled="False" IsPanEnabled="False"/>
+                        <oxy:LinearAxis   Position="Left" MajorGridlineStyle="Dot" MajorGridlineColor="LightGray"  IsZoomEnabled="True" IsPanEnabled="True" Minimum="0" Maximum="{Binding ProxyArchivTool.MaxY}" />
+                    </oxy:Plot.Axes>
+                </oxy:Plot>-->
+       
+                <DockPanel>
+                <DockPanel DockPanel.Dock="Top">
+                    <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseBack">Back</Button>
+                    <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Forward</Button>
+                    <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">Refresh</Button>
+                    <!-- We want the address bar to update based on the WebView's Source, but we don't want the WebView to navigate just from the user typing into the address bar.   Therefore we use the OneWay binding mode. -->
+                </DockPanel>
+                <wv2:WebView2 Name = "webView"  
+                  Source = "http://stp10"/>
+            </DockPanel>
+
+    
+    </xctk:BusyIndicator>
+</UserControl>

@@ -1,0 +1,264 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:cip_blue.Controls"
+    xmlns:themes="clr-namespace:Xceed.Wpf.Toolkit.Themes;assembly=Xceed.Wpf.Toolkit">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Xceed.Wpf.Toolkit;component/Themes/Aero2/Common.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+    <Style x:Key="NumPadOperatorButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <Style x:Key="NumPadEnterButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="#FF81F586" />
+    </Style>
+
+    <Style x:Key="NumPadClearButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="Pink" />
+    </Style>
+
+    <Style x:Key="NumPadDigitButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="#FFE8E8E8" />
+    </Style>
+
+
+    <ControlTemplate x:Key="NumPadButtonPanel" TargetType="{x:Type ContentControl}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+                <RowDefinition />
+                <RowDefinition Height="3" />
+            </Grid.RowDefinitions>
+
+            <Button
+                Grid.Row="0"
+                Grid.RowSpan="1"
+                Grid.Column="0"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Back"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadOperatorButtonStyle}" />
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Cancel"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadClearButtonStyle}" />
+
+            <Button
+                Grid.Row="0"
+                Grid.RowSpan="1"
+                Grid.Column="4"
+                Grid.ColumnSpan="1"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Clear"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadClearButtonStyle}" />
+
+            <Button
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="6"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Negate"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadOperatorButtonStyle}" />
+
+            <Button
+                Grid.Row="2"
+                Grid.Column="0"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Seven"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="2"
+                Grid.Column="2"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Eight"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="2"
+                Grid.Column="4"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Nine"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Four"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="4"
+                Grid.Column="2"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Five"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="4"
+                Grid.Column="4"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Six"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="6"
+                Grid.Column="0"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="One"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="6"
+                Grid.Column="2"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Two"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="6"
+                Grid.Column="4"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Three"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="4"
+                Grid.RowSpan="5"
+                Grid.Column="6"
+                MinWidth="28"
+                MinHeight="55"
+                local:NumPad.NumPadButtonType="Enter"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadEnterButtonStyle}" />
+
+            <Button
+                Grid.Row="8"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                MinWidth="59"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Zero"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+            <Button
+                Grid.Row="8"
+                Grid.Column="4"
+                MinWidth="28"
+                MinHeight="26"
+                local:NumPad.NumPadButtonType="Decimal"
+                Command="local:NumPadCommands.NumPadButtonClick"
+                Style="{StaticResource NumPadDigitButtonStyle}" />
+
+        </Grid>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type local:NumPad}">
+        <Setter Property="Background" Value="{StaticResource PanelBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static themes:ResourceKeys.ControlNormalBorderKey}}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:NumPad}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="0">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Border
+                                x:Name="PART_Display"
+                                Margin="0,0,0,10"
+                                Background="White"
+                                BorderBrush="{DynamicResource {x:Static themes:ResourceKeys.ControlNormalBorderKey}}"
+                                BorderThickness="1">
+
+                                <TextBlock
+                                    Margin="0,0,4,0"
+                                    HorizontalAlignment="Right"
+                                    FontSize="18"
+                                    Text="{Binding DisplayText, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                            </Border>
+                            <ContentControl
+                                x:Name="PART_NumPadButtonPanel"
+                                Grid.Row="1"
+                                DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                Template="{Binding NumPadButtonPanelTemplate, RelativeSource={RelativeSource TemplatedParent}, TargetNullValue={StaticResource NumPadButtonPanel}}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="PART_Display" Property="Background" Value="Azure" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

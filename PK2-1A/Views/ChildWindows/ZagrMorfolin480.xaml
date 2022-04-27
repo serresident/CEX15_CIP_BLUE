@@ -1,0 +1,422 @@
+﻿<xctk:ChildWindow
+    x:Class="cip_blue.Views.ChildWindows.ZagrMorfolin480"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:WPF="clr-namespace:AITSW.PCPANEL.WPF;assembly=PCPANEL_WPF_Controls"
+    xmlns:behaviors="clr-namespace:cip_blue.Behaviors"
+    xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+    xmlns:controls="clr-namespace:cip_blue.Controls"
+    xmlns:conv="clr-namespace:cip_blue.Converters"
+    xmlns:convertors="clr-namespace:AITSW.WPFValueConverters;assembly=WPFValueConverters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:cip_blue.Views.ChildWindows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Background="AliceBlue"
+    ResizeMode="NoResize"
+    WindowBackground="LightGray"
+    mc:Ignorable="d" Width="240" Height="290">
+
+    <xctk:ChildWindow.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle
+                            Margin="2"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+        <Style TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.MouseOver.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF48E01B" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF245A83" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <conv:BoolToNumConverter x:Key="BoolToNumConverter" />
+        <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
+
+    </xctk:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+       
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+
+        </Grid.ColumnDefinitions>
+        
+        <Grid Margin="0,0,4,0" Grid.Row="0"   IsEnabled="{Binding PD.ZagrMorfolinK480_Start, Converter={StaticResource BooleanNegateConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="18"
+            Foreground="Blue"
+            Margin="0,0,0,4"
+            Text="Куда грузить"
+            TextWrapping="Wrap" />
+        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"   >
+            <RadioButton IsChecked="{Binding PD.ZagrVodaComm_Nemk, Mode=TwoWay, Converter={StaticResource BoolToNumConverter}, ConverterParameter=0}" Content="R521" GroupName="two"  FontSize="18" Style="{StaticResource {x:Type ToggleButton}}"  />
+            <RadioButton IsChecked="{Binding PD.ZagrVodaComm_Nemk, Mode=TwoWay, Converter={StaticResource BoolToNumConverter}, ConverterParameter=1}" Content="R603" GroupName="two"  FontSize="18" Style="{StaticResource {x:Type ToggleButton}}" />
+            <RadioButton IsChecked="{Binding PD.ZagrVodaComm_Nemk, Mode=TwoWay, Converter={StaticResource BoolToNumConverter}, ConverterParameter=2}" Content="R631" GroupName="two" FontSize="18" Style="{StaticResource {x:Type ToggleButton}}"  />
+
+
+
+        </StackPanel>-->
+        <TabControl
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Height="48"
+            VerticalAlignment="Bottom"
+            IsEnabled="{Binding PD.ZagrMorfolinK480_Start, Converter={StaticResource BooleanNegateConverter}}"
+            SelectedIndex="{Binding PD.ZagrMorfolinK480_Nemk}"
+            Style="{StaticResource SelectTabControlStyle}">
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <Grid DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <!--<TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Время[мин]" VerticalAlignment="Center" FontSize="16"/>
+
+                        <controls:NumPadUpDown Grid.Column="1" AutoMoveFocus="True" TabIndex="-1" FormatString="F0" Width="80" Height="25" Increment="1" Minimum="0" Maximum="50" EnterClosesNumPad="True" UpdateValueOnEnterKey="True"  FontSize="14" FontWeight="Bold" >
+                            <Behaviors:Interaction.Behaviors>
+                                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Time_Nitrogen_Purge_41D}" />
+                            </Behaviors:Interaction.Behaviors>
+                        </controls:NumPadUpDown>
+
+                        <TextBlock Text="{Binding PD.Fakt_Time_Nitrogen_Purge_41D,  FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Column="2" FontWeight="Bold" Foreground="#FF646464" />-->
+                    </Grid>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+            <TabItem
+                Width="100"
+                Header="480A"
+                Style="{StaticResource SelectTabItemStyle}" />
+            <TabItem
+                Width="100"
+                Header="480B"
+                Style="{StaticResource SelectTabItemStyle}" />
+
+
+
+
+        </TabControl>
+
+
+
+
+        <TextBlock
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="DarkGreen"
+            Text="{Binding PD.WE_R404A, StringFormat=\{0:0.0##\}, FallbackValue=???}" />
+        <!--<TextBlock Text="41A" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Foreground="#FF646464" Margin="5" />-->
+        <!--<WPF:TextBox IsEnabled="{c:Binding '!PD.In_SOST_OTS_KL_WV_59A_SQH'}" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Grid.Row="1" Grid.Column="1" Height="33" Text="0" SpinTargetValue="{Binding RelativeSource={RelativeSource Self}, Path=Text}" TextWrapping="Wrap" Width="100" SpinButtonsLeftRight="True" SpinButtonsVisible="True" SpinMinValue="0" SpinMaxValue="10000" AcceptedInput="Digits" FontSize="16" SpinIncrementValue="5">
+                            <Behaviors:Interaction.Behaviors>
+                                <behaviors:BindingBehavior  Value="{Binding PD.Weight_water_for_loading_59A, StringFormat=\{0:0.###\}, Mode=TwoWay}" />
+                            </Behaviors:Interaction.Behaviors>
+                        </WPF:TextBox>-->
+        <controls:NumPadUpDown
+            
+            Grid.Row="3"
+            Grid.Column="0"
+            Width="120"
+            Height="30"
+            Margin="15,0,0,0"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            
+            Increment="1"
+            Minimum="-1"
+            Precision="1"
+            UpdateValueOnEnterKey="True">
+            <Behaviors:Interaction.Behaviors>
+                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrMorfolinK480_DozaZad}" />
+            </Behaviors:Interaction.Behaviors>
+        </controls:NumPadUpDown>
+
+            <controls:NumPadUpDown
+            Grid.Row="4"
+            Grid.Column="0"
+            Width="120"
+            Height="30"
+            Margin="15,0,0,0"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            
+            Increment="1"
+            Minimum="-1"
+            Precision="1"
+            UpdateValueOnEnterKey="True" CultureInfo="ru-RU">
+                <Behaviors:Interaction.Behaviors>
+                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrMorfolinK480_Xnom}" />
+                </Behaviors:Interaction.Behaviors>
+            </controls:NumPadUpDown>
+            <TextBlock
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="20"
+            FontWeight="Bold"
+            Foreground="Blue"
+            Text="% откр" />
+
+
+
+            <TextBlock
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="20"
+            FontWeight="Bold"
+            Foreground="#FF646464"
+            Text="{Binding PD.ZagrMorfolinK480_Doza, StringFormat=\{0:0.0##\}, FallbackValue=???}" />
+
+       
+         
+        <Expander  Grid.ColumnSpan="2"   Grid.Row="5" Header="Дополнительные параметры">
+
+            <ScrollViewer>
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="94" />
+                 <ColumnDefinition Width="Auto" />
+
+                </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="106"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Предвар. закр-е :"></TextBlock>
+                        <xctk:ToggleSwitch Width="64" Margin="0,0,0,5" Height="25" Grid.Row="0" Grid.Column="1"    
+                  CornerRadius="2"
+                 IsChecked="{Binding PD.ZagrMorfolinK480_IsEnablePredictClose ,Mode=TwoWay}"
+                ThumbHeight = "25"
+                ThumbWidth = "24"
+              VerticalAlignment="Center"
+               CheckedContent = "ВКЛ"
+                UncheckedContent = "ВЫКЛ"
+                CheckedBackground="DarkSeaGreen"
+                UncheckedBackground ="LightPink"></xctk:ToggleSwitch>
+                            
+                            </Grid>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="12"  Foreground="Blue" Text="Ост. вес закр-я :"></TextBlock>
+            <controls:NumPadUpDown
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="100"
+            Height="30"
+            Margin="0,0,0,5"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            
+            Increment="1"
+            Minimum="-1"
+            Precision="1"
+            UpdateValueOnEnterKey="True">
+            <Behaviors:Interaction.Behaviors>
+                                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrMorfolinK480_percentSurplus}" />
+            </Behaviors:Interaction.Behaviors>
+            </controls:NumPadUpDown>
+
+             <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="12"  Foreground="Blue" Text="Мин. % закр-я :"></TextBlock>
+
+                        <controls:NumPadUpDown
+            Grid.Row="3"
+            Grid.Column="1"
+            Width="120"
+            Height="30"
+           Margin="0,0,0,5"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            
+            Increment="1"
+            Minimum="-1"
+            Precision="1"
+            UpdateValueOnEnterKey="True">
+                            <Behaviors:Interaction.Behaviors>
+                                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrMorfol_setDeegrePredictClose}" />
+                            </Behaviors:Interaction.Behaviors>
+                        </controls:NumPadUpDown>
+                 </Grid>
+                </ScrollViewer>
+        </Expander>
+
+
+    </Grid>
+        <DockPanel
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Margin="0,10"
+            Background="Goldenrod"
+            LastChildFill="False">
+            <DockPanel.Resources>
+                <Style TargetType="{x:Type xctk:IconButton}">
+                    <Setter Property="Margin" Value="0,3,10,3" />
+                </Style>
+            </DockPanel.Resources>
+
+            <xctk:IconButton
+                Padding="3,3,20,3"
+                HorizontalAlignment="Center"
+                Command="{Binding ZagrMorfolin480StopCommand}"
+                Content="     Стоп"
+                DockPanel.Dock="Right"
+                IconLocation="Left">
+                <xctk:IconButton.Icon>
+                    <Image Source="/belofor;component/Assest/Stop-red.png">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </xctk:IconButton.Icon>
+            </xctk:IconButton>
+
+            <xctk:IconButton
+                Padding="3,3,20,3"
+                HorizontalAlignment="Center"
+                Command="{Binding ZagrMorfolin480StartCommand}"
+                Content="     Пуск"
+                DockPanel.Dock="Right"
+                IconLocation="Left">
+                <xctk:IconButton.Icon>
+                    <Image Source="/belofor;component/Assest/Start.png">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </xctk:IconButton.Icon>
+            </xctk:IconButton>
+        </DockPanel>
+    </Grid>
+</xctk:ChildWindow>
