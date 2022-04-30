@@ -205,40 +205,40 @@ namespace cip_blue.ViewModels
             PD = pd;
             this.archivRepository = archivRepository;
 
-            WaterLoadingStartCommand = new DelegateCommand(waterLoadingStart, canWaterLoadingStart);
-            WaterLoadingStopCommand = new DelegateCommand(waterLoadingStop, canWaterLoadingStop);
+            //WaterLoadingStartCommand = new DelegateCommand(waterLoadingStart, canWaterLoadingStart);
+            //WaterLoadingStopCommand = new DelegateCommand(waterLoadingStop, canWaterLoadingStop);
 
-            HotWaterLoadingStartCommand = new DelegateCommand(hotwaterLoadingStart, canHotWaterLoadingStart);
-            HotWaterLoadingStopCommand = new DelegateCommand(hotwaterLoadingStop, canHotWaterLoadingStop);
+            //HotWaterLoadingStartCommand = new DelegateCommand(hotwaterLoadingStart, canHotWaterLoadingStart);
+            //HotWaterLoadingStopCommand = new DelegateCommand(hotwaterLoadingStop, canHotWaterLoadingStop);
 
-            Hot480WaterLoadingStartCommand = new DelegateCommand(hot480waterLoadingStart, canHot480WaterLoadingStart);
-            Hot480WaterLoadingStopCommand = new DelegateCommand(hot480waterLoadingStop, canHot480WaterLoadingStop);
+            //Hot480WaterLoadingStartCommand = new DelegateCommand(hot480waterLoadingStart, canHot480WaterLoadingStart);
+            //Hot480WaterLoadingStopCommand = new DelegateCommand(hot480waterLoadingStop, canHot480WaterLoadingStop);
 
-            UnloadFromR422StartCommand = new DelegateCommand(unloadFromR422Start, canUnloadFromR422Start);
-            UnloadFromR422StopCommand = new DelegateCommand(unloadFromR422stop, canUnloadFromR422Stop);
+            //UnloadFromR422StartCommand = new DelegateCommand(unloadFromR422Start, canUnloadFromR422Start);
+            //UnloadFromR422StopCommand = new DelegateCommand(unloadFromR422stop, canUnloadFromR422Stop);
 
-            Ohlagd480StartCommand = new DelegateCommand(Ohlagd480Start, canOhlagd480Start);
-            Ohlagd480StopCommand = new DelegateCommand(Ohlagd480stop, canOhlagd480Stop);
+            //Ohlagd480StartCommand = new DelegateCommand(Ohlagd480Start, canOhlagd480Start);
+            //Ohlagd480StopCommand = new DelegateCommand(Ohlagd480stop, canOhlagd480Stop);
 
-            RegPhK480aStartCommand = new DelegateCommand(RegPh480aStart, canRegPh480aStart);
-            RegPhK480aStopCommand = new DelegateCommand(RegPh480astop, canRegPh480aStop);
+            //RegPhK480aStartCommand = new DelegateCommand(RegPh480aStart, canRegPh480aStart);
+            //RegPhK480aStopCommand = new DelegateCommand(RegPh480astop, canRegPh480aStop);
 
-            RegPhK480bStartCommand = new DelegateCommand(RegPh480bStart, canRegPh480bStart);
-            RegPhK480bStopCommand = new DelegateCommand(RegPh480bstop, canRegPh480bStop);
-
-
-            ZagrMorfolin480StartCommand = new DelegateCommand(ZagrMorfolin480Start, canZagrMorfolin480Start);
-            ZagrMorfolin480StopCommand = new DelegateCommand(ZagrMorfolin480stop, canZagrMorfolin480Stop);
-
-            ZagrDietil480StartCommand = new DelegateCommand(ZagrDietil480Start, canZagrDietil480Start);
-            ZagrDietil480StopCommand = new DelegateCommand(ZagrDietil480stop, canZagrDietil480Stop);
+            //RegPhK480bStartCommand = new DelegateCommand(RegPh480bStart, canRegPh480bStart);
+            //RegPhK480bStopCommand = new DelegateCommand(RegPh480bstop, canRegPh480bStop);
 
 
-            ZagrDietilAmin480StartCommand = new DelegateCommand(ZagrDietilAmin480Start, canZagrDietilAmin480Start);
-            ZagrDietilAmin480StopCommand = new DelegateCommand(ZagrDietilAmin480stop, canZagrDietilAmin480Stop);
+            //ZagrMorfolin480StartCommand = new DelegateCommand(ZagrMorfolin480Start, canZagrMorfolin480Start);
+            //ZagrMorfolin480StopCommand = new DelegateCommand(ZagrMorfolin480stop, canZagrMorfolin480Stop);
 
-            ZagrAnilin480StartCommand = new DelegateCommand(ZagrAnilin480Start, canZagrAnilin480Start);
-            ZagrAnilin480StopCommand = new DelegateCommand(ZagrAnilin480stop, canZagrAnilin480Stop);
+            //ZagrDietil480StartCommand = new DelegateCommand(ZagrDietil480Start, canZagrDietil480Start);
+            //ZagrDietil480StopCommand = new DelegateCommand(ZagrDietil480stop, canZagrDietil480Stop);
+
+
+            //ZagrDietilAmin480StartCommand = new DelegateCommand(ZagrDietilAmin480Start, canZagrDietilAmin480Start);
+            //ZagrDietilAmin480StopCommand = new DelegateCommand(ZagrDietilAmin480stop, canZagrDietilAmin480Stop);
+
+            //ZagrAnilin480StartCommand = new DelegateCommand(ZagrAnilin480Start, canZagrAnilin480Start);
+            //ZagrAnilin480StopCommand = new DelegateCommand(ZagrAnilin480stop, canZagrAnilin480Stop);
 
 
 
@@ -249,63 +249,63 @@ namespace cip_blue.ViewModels
 
         }
         //команды на кнопким
-        private bool canWaterLoadingStart() {return !PD.ZagrVodaComm_Start ; }// проверяем доступность кнопким
-        private void waterLoadingStart() =>  PD.ZagrVodaComm_Start = true; // предаем старт  на плк
-        private bool canWaterLoadingStop() { return PD.ZagrVodaComm_Start; } // проверяем доступность кнопким
-        private void waterLoadingStop() => PD.ZagrVodaComm_Start = false;// предаем стоп  на плк
+        //private bool canWaterLoadingStart() {return !PD.ZagrVodaComm_Start ; }// проверяем доступность кнопким
+        //private void waterLoadingStart() =>  PD.ZagrVodaComm_Start = true; // предаем старт  на плк
+        //private bool canWaterLoadingStop() { return PD.ZagrVodaComm_Start; } // проверяем доступность кнопким
+        //private void waterLoadingStop() => PD.ZagrVodaComm_Start = false;// предаем стоп  на плк
 
-        private bool canHotWaterLoadingStart() { return !PD.ZagrKond460Comm_Start; }
-        private void hotwaterLoadingStart() =>  PD.ZagrKond460Comm_Start = true;
-        private bool canHotWaterLoadingStop() {return PD.ZagrKond460Comm_Start; } 
-        private void hotwaterLoadingStop() => PD.ZagrKond460Comm_Start = false;
+        //private bool canHotWaterLoadingStart() { return !PD.ZagrKond460Comm_Start; }
+        //private void hotwaterLoadingStart() =>  PD.ZagrKond460Comm_Start = true;
+        //private bool canHotWaterLoadingStop() {return PD.ZagrKond460Comm_Start; } 
+        //private void hotwaterLoadingStop() => PD.ZagrKond460Comm_Start = false;
 
-        private bool canHot480WaterLoadingStart() { return !PD.ZagrKond480Comm_Start; }
-        private void hot480waterLoadingStart() =>  PD.ZagrKond480Comm_Start = true;
-        private bool canHot480WaterLoadingStop() {return PD.ZagrKond480Comm_Start; } 
-        private void hot480waterLoadingStop() => PD.ZagrKond480Comm_Start = false;
+        //private bool canHot480WaterLoadingStart() { return !PD.ZagrKond480Comm_Start; }
+        //private void hot480waterLoadingStart() =>  PD.ZagrKond480Comm_Start = true;
+        //private bool canHot480WaterLoadingStop() {return PD.ZagrKond480Comm_Start; } 
+        //private void hot480waterLoadingStop() => PD.ZagrKond480Comm_Start = false;
 
-        private bool canUnloadFromR422Start() { return !PD.fromR422_xStart; }
-        private void unloadFromR422Start() =>  PD.fromR422_xStart = true;
-        private bool canUnloadFromR422Stop() {return PD.fromR422_xStart; } 
-        private void unloadFromR422stop() => PD.fromR422_xStart = false;
+        //private bool canUnloadFromR422Start() { return !PD.fromR422_xStart; }
+        //private void unloadFromR422Start() =>  PD.fromR422_xStart = true;
+        //private bool canUnloadFromR422Stop() {return PD.fromR422_xStart; } 
+        //private void unloadFromR422stop() => PD.fromR422_xStart = false;
 
-        private bool canOhlagd480Start() { return !PD.Ohlagd480_Start; }
-        private void Ohlagd480Start() => PD.Ohlagd480_Start = true;
-        private bool canOhlagd480Stop() { return PD.Ohlagd480_Start; }
-        private void Ohlagd480stop() => PD.Ohlagd480_Start = false;
-
-
-        private bool canRegPh480aStart() { return !PD.RegPH480A_Start; }
-        private void RegPh480aStart() => PD.RegPH480A_Start = true;
-        private bool canRegPh480aStop() { return PD.RegPH480A_Start; }
-        private void RegPh480astop() => PD.RegPH480A_Start = false;
-
-        private bool canRegPh480bStart() { return !PD.RegPH480B_Start; }
-        private void RegPh480bStart() => PD.RegPH480B_Start = true;
-        private bool canRegPh480bStop() { return PD.RegPH480B_Start; }
-        private void RegPh480bstop() => PD.RegPH480B_Start = false;
-
-        private bool canZagrMorfolin480Start() { return !PD.ZagrMorfolinK480_Start; }
-        private void ZagrMorfolin480Start() => PD.ZagrMorfolinK480_Start = true;
-        private bool canZagrMorfolin480Stop() { return PD.ZagrMorfolinK480_Start; }
-        private void ZagrMorfolin480stop() => PD.ZagrMorfolinK480_Start = false;
+        //private bool canOhlagd480Start() { return !PD.Ohlagd480_Start; }
+        //private void Ohlagd480Start() => PD.Ohlagd480_Start = true;
+        //private bool canOhlagd480Stop() { return PD.Ohlagd480_Start; }
+        //private void Ohlagd480stop() => PD.Ohlagd480_Start = false;
 
 
-        private bool canZagrDietil480Start() { return !PD.ZagrDietilK480_Start; }
-        private void ZagrDietil480Start() => PD.ZagrDietilK480_Start = true;
-        private bool canZagrDietil480Stop() { return PD.ZagrDietilK480_Start; }
-        private void ZagrDietil480stop() => PD.ZagrDietilK480_Start = false;
+        //private bool canRegPh480aStart() { return !PD.RegPH480A_Start; }
+        //private void RegPh480aStart() => PD.RegPH480A_Start = true;
+        //private bool canRegPh480aStop() { return PD.RegPH480A_Start; }
+        //private void RegPh480astop() => PD.RegPH480A_Start = false;
+
+        //private bool canRegPh480bStart() { return !PD.RegPH480B_Start; }
+        //private void RegPh480bStart() => PD.RegPH480B_Start = true;
+        //private bool canRegPh480bStop() { return PD.RegPH480B_Start; }
+        //private void RegPh480bstop() => PD.RegPH480B_Start = false;
+
+        //private bool canZagrMorfolin480Start() { return !PD.ZagrMorfolinK480_Start; }
+        //private void ZagrMorfolin480Start() => PD.ZagrMorfolinK480_Start = true;
+        //private bool canZagrMorfolin480Stop() { return PD.ZagrMorfolinK480_Start; }
+        //private void ZagrMorfolin480stop() => PD.ZagrMorfolinK480_Start = false;
 
 
-        private bool canZagrDietilAmin480Start() { return !PD.ZagrDietilAminK480_Start; }
-        private void ZagrDietilAmin480Start() => PD.ZagrDietilAminK480_Start = true;
-        private bool canZagrDietilAmin480Stop() { return PD.ZagrDietilAminK480_Start; }
-        private void ZagrDietilAmin480stop() => PD.ZagrDietilAminK480_Start = false;
+        //private bool canZagrDietil480Start() { return !PD.ZagrDietilK480_Start; }
+        //private void ZagrDietil480Start() => PD.ZagrDietilK480_Start = true;
+        //private bool canZagrDietil480Stop() { return PD.ZagrDietilK480_Start; }
+        //private void ZagrDietil480stop() => PD.ZagrDietilK480_Start = false;
 
-        private bool canZagrAnilin480Start() { return !PD.ZagrAnilin480_Start; }
-        private void ZagrAnilin480Start() => PD.ZagrAnilin480_Start = true;
-        private bool canZagrAnilin480Stop() { return PD.ZagrAnilin480_Start; }
-        private void ZagrAnilin480stop() => PD.ZagrAnilin480_Start = false;
+
+        //private bool canZagrDietilAmin480Start() { return !PD.ZagrDietilAminK480_Start; }
+        //private void ZagrDietilAmin480Start() => PD.ZagrDietilAminK480_Start = true;
+        //private bool canZagrDietilAmin480Stop() { return PD.ZagrDietilAminK480_Start; }
+        //private void ZagrDietilAmin480stop() => PD.ZagrDietilAminK480_Start = false;
+
+        //private bool canZagrAnilin480Start() { return !PD.ZagrAnilin480_Start; }
+        //private void ZagrAnilin480Start() => PD.ZagrAnilin480_Start = true;
+        //private bool canZagrAnilin480Stop() { return PD.ZagrAnilin480_Start; }
+        //private void ZagrAnilin480stop() => PD.ZagrAnilin480_Start = false;
 
 
         public void OnLoading()
@@ -675,534 +675,7 @@ namespace cip_blue.ViewModels
 
     private void updateChart()
         {
-            switch (n)
-            {
-                case 0:
-                    if (Start_recept)
-                    {
-                        stop_recept();
-                         PD.NC_K480A_mode = false;
-                         PD.NC_K480BA_ain_auto = 50;
-                      
-                        PD.RegPH480A_pH_zad = SetPh_st1_1_A;
-                        PD.RegPH480A_DozaZad = SetPh_zadDoza_st1_1_A;
-                        RegPh480aStart();
-
-                        n = 1;
-                        State = 1;
-                        time_last = DateTime.Now;
-                        Send_Log(StatusOut = "Запущен алгорит белофор оцд апп.K480А");
-                        Send_Log("ШАГ 1. Параметры рег. PH. старт \n" +
-                          "Уставка ph:" + SetPh_st1_1_A + "\n" +
-                          "Доза щел.:" + SetPh_zadDoza_st1_1_A + "\n" +
-                          "Время фикс. стаб.:" + Set_time_Ph_st1_A + "\n"
-                          );
-
-
-                    }
-                       
-                    break;
-
-                case 1 :
-
-                    if (PD.RegPH480A_pH_zad != SetPh_st1_1_A) PD.RegPH480A_pH_zad = SetPh_st1_1_A;
-                    if (PD.RegPH480A_DozaZad != SetPh_zadDoza_st1_1_A) PD.RegPH480A_DozaZad = SetPh_zadDoza_st1_1_A;
-
-
-
-                    if (!(SetPh_st1_1_A - 0.5f <= PD.QIY_K480A && PD.QIY_K480A <= SetPh_st1_1_A + 0.5f))
-
-                    {
-                        time_last = DateTime.Now;
-                      
-                        Send_Log(StatusOut = "ШАГ 1.Выполняется  доведение ph");
-                    }
-                    else
-                    {
-                        
-                        if ((DateTime.Now - time_last).TotalSeconds >= Set_time_Ph_st1_A * 60)
-                        {
-                            StatusOut = "ШАГ 1.1 Завершение, по истечению " + ((DateTime.Now - exposur_time).TotalSeconds).ToString(" 0 ") + " секунд переход к шагу 2";
-                            if ((DateTime.Now - exposur_time).TotalSeconds > 0)
-                            {
-                                n = 2;
-                               // Send_Log(StatusOut = "ШАГ 1.1 Завершение переход к шагу 2");
-
-
-                                // предварительные дествия для перехода
-                                if (PD.ZagrAnilin480_Nemk != 0) PD.ZagrAnilin480_Nemk = 0;
-                                if (PD.ZagrAnilin480_DozaZad != Doza_anilin_st2_A) PD.ZagrAnilin480_DozaZad = Doza_anilin_st2_A;
-                                if (PD.ZagrAnilin480_Xnom != Percent_valve_Anilin) PD.ZagrAnilin480_Xnom = Percent_valve_Anilin;
-                                if (PD.ZagrAnilin480_Start != true) PD.ZagrAnilin480_Start = true;
-
-
-
-
-
-                                State = 2;
-                            StatusOut = "ШАГ 1.2 Загрузка Анилина. Ожидание окончания";
-                                Send_Log("ШАГ 1.2 Загрузка Анилина. Ожидание заверш. \n" +
-                     "Уставка ph:" + SetPh_st2_1_A + "\n" +
-                     "Процент кл.:" + Percent_valve_Anilin + "\n" +
-                     "Доза Анилина.:" + Doza_anilin_st2_A + "\n" +
-                     "Время фикс. стаб.:" + Set_time_Ph_st1_A + "\n"
-                     );
-                            }
-                        }
-                        else
-                        {
-                            StatusOut = "ШАГ 1.1 Фиксация стабилизации ph, осталось" + ((Set_time_Ph_st1_A * 60) - (DateTime.Now - time_last).TotalSeconds).ToString(" 0 ") + "секунд";
-                           // Send_Log("ШАГ 1.1 Фиксация стабилизации ph");
-                            Send_Log( "ШАГ 1.1 Фиксация стабилизации pH \n" +
-                          "Уставка ph:" + SetPh_st1_1_A + "\n" +
-                          "Доза щел.:" + SetPh_zadDoza_st1_1_A + "\n" +
-                          "Время фикс. стаб.:" + Set_time_Ph_st1_A + "\n"
-                          );
-                            exposur_time = DateTime.Now;
-                        }
-                    }
-                       
-
-                   
-
-                    break;
-                case 2:
-                   
-                    if (PD.ZagrAnilin480_DozaZad != Doza_anilin_st2_A) PD.ZagrAnilin480_DozaZad = Doza_anilin_st2_A;
-                    if (PD.ZagrAnilin480_Xnom != Percent_valve_Anilin) PD.ZagrAnilin480_Xnom = Percent_valve_Anilin;
-
-                    if (PD.RegPH480A_pH_zad != SetPh_st2_1_A) PD.RegPH480A_pH_zad = SetPh_st2_1_A;
-
-                    if (tr_state_1_4.Check(PD.ZagrAnilin480_Start))
-                    {
-                        Send_Log("ШАГ 1.2 Загрузка Анилина завершена. Ожидание Фиксация стабилизации ph \n" +
-                           "Уставка ph:" + SetPh_st2_1_A + "\n" +
-                           "Процент кл.:" + Percent_valve_Anilin + "\n" +
-                           "Доза Анилина.:" + Doza_anilin_st2_A + "\n" +
-                           "Время фикс. стаб.:" + Set_time_Ph_st1_A + "\n");
-                        StatusOut = "ШАГ 1.2 Загрузка Анилина завершена.Ожидание фиксация стабилизации ph";
-                    }
-
-                    if (!(SetPh_st2_1_A - 0.5f <= PD.QIY_K480A && PD.QIY_K480A <= SetPh_st2_1_A + 0.5f) || PD.ZagrAnilin480_Start)
-                    {
-                        time_last = DateTime.Now;
-                       
-                        if (!PD.ZagrAnilin480_Start)
-                        {
-                            StatusOut = "ШАГ 1.2 Ожидание фиксация стабилизации ph";
-                           
-                        }
-                       
-                    }
-                    else
-                        if (!PD.ZagrAnilin480_Start)
-                    {
-                        //Send_Log(StatusOut = "ШАГ 1.2 Фиксация стабилизации ph");
-                        Send_Log("ШАГ 1.2  Фиксация стабилизации ph ");
-                        StatusOut = "ШАГ 1.2   Фиксация стабилизации ph, осталось" + ((Set_time_Ph_st1_A * 60) - (DateTime.Now - time_last).TotalSeconds).ToString(" 0 ") + "секунд";
-                    }
-                        
-                   
-                        
-
-                    if ((DateTime.Now - time_last).TotalSeconds >= Set_time_Ph_st1_A * 60 && !PD.ZagrAnilin480_Start)
-                    {
-                        // Send_Log(StatusOut = "ШАГ 1.2 Завершение, идет выстой, по истечению " + ((60-(DateTime.Now - exposur_time).TotalSeconds)).ToString(" 0 ") + " секунд переход к шагу 3");
-                        if ((DateTime.Now - exposur_time).TotalSeconds > 0)
-                        {
-                           // Send_Log("ШАГ 1.2 Произведена Фиксация стабилизации ph ");
-                            n = 3;
-                            State = 3;
-
-
-                            // предварительные дествия для перехода
-                            if (PD.RegPH480A_pH_zad != SetPh_st3_1_A) PD.RegPH480A_pH_zad = SetPh_st3_1_A;
-                            if (PD.ZagrDietilAminK480_Nemk != 0) PD.ZagrDietilAminK480_Nemk = 0;
-                            if (PD.ZagrDietilAminK480_DozaZad1 != DietilAmin_doza1) PD.ZagrDietilAminK480_DozaZad1 = DietilAmin_doza1;
-                            if (PD.ZagrDietilAminK480_DozaZad2 != DietilAmin_doza2) PD.ZagrDietilAminK480_DozaZad2 = DietilAmin_doza2;
-                            if (PD.ZagrDietilAminK480_Tnagr != 60) PD.ZagrDietilAminK480_Tnagr = 60;
-                            if (PD.ZagrDietilAminK480_Start != true) PD.ZagrDietilAminK480_Start = true;
-                            StatusOut = "ШАГ 1.3 Загр.  дозы1 ДЭА";
-                            Send_Log( "ШАГ 1.3 Загр.  дозы1 ДЭА: \n" +
-                            "Уставка ph:" + SetPh_st3_1_A + "\n" +
-                            "ДЭА Доза1.:" + DietilAmin_doza1 + "\n" +
-                            "Т. нагрева .:" + DietilAmin_Tnagr + "\n" 
-);
-
-                        }
-                    }
-                    else
-                    exposur_time = DateTime.Now;
-
-                    break;
-
-                case 3:
-                    // Send_Log(StatusOut = "ШАГ 1.3 Загр. первой дозы ДиэтилАмина, (контроль уставки " + DietilAmin_doza1 + ")");
-                    if (PD.RegPH480A_pH_zad != SetPh_st3_1_A) PD.RegPH480A_pH_zad = SetPh_st3_1_A;
-                    if (PD.ZagrDietilAminK480_DozaZad1 != DietilAmin_doza1) PD.ZagrDietilAminK480_DozaZad1 = DietilAmin_doza1;
-
-                    if (PD.ZagrDietilAminK480_status == 3)
-                    {
-                        if (PD.ZagrDietilAminK480_Start != false) PD.ZagrDietilAminK480_Start = false;
-
-                    }
-                    
-                    if (!PD.ZagrDietilAminK480_Start)
-                            {
-                        //  Send_Log(StatusOut = "ШАГ 1.4 Нагрев  ,ожидание достижения уставки (контроль уставки "+ DietilAmin_Tnagr+")");
-                        StatusOut = "ШАГ 1.4 Заверш. загр. дозы2 ДЭА. Нагрев  ,ожидание достижения Т.";
-                            Send_Log("ШАГ 1.4 Заверш. загр. дозы2 ДЭА. Нагрев  ,ожидание достижения Т.: \n" +
-                            "Уставка ph:" + SetPh_st4_1_A + "\n" +
-                            "Доза1.:" + DietilAmin_doza1 + "\n" +
-                            "Т. загр 2й дозы.:" + DietilAmin_Tnagr + "\n"
-                             );
-                        n = 4;
-                                State = 4;
-                            // переход на следущий шаг
-                            PD.VK480A_2_mode = false;           // открытие слива  конденсата
-                            PD.VK480A_2_control_auto = true;
-
-                            PD.TVK480A_mode = false;
-                            PD.TVK480A_ain_auto = 100;
-
-                             }
-                         
-                    break;
-                case 4: // ожидание 60гр. после первой дозы ДЭА
-
-                    //if(PD.TE_K480A_1>= DietilAmin_Tnagr)
-                    //{
-
-                    //    n = 5;
-                    //    State = 5;
-                    //}
-                    //else
-                    if (PD.RegPH480A_pH_zad != SetPh_st4_1_A) PD.RegPH480A_pH_zad = SetPh_st4_1_A;
-                    if (PD.ZagrDietilAminK480_Tnagr != DietilAmin_Tnagr) PD.ZagrDietilAminK480_Tnagr = 60; // заглушка для запуска загрузки ДЭА
-                   //  Send_Log(StatusOut = "ШАГ 1.4. Нагрев 2 ,ожидание достижения уставки.");
-
-                  
-
-                   // if ( PD.TE_K480A_1 >= DietilAmin_Tnagr)
-                        if (PD.TE_K480A_1 >= DietilAmin_Tnagr)
-                        {
-                        StatusOut = "ШАГ 1.4 Завершен Нагрев.";
-                        Send_Log("ШАГ 1.4 Завершен Нагрев. : \n" +
-                        "Уставка ph:" + SetPh_st4_1_A + "\n" +                 
-                        "Т. загр 2й дозы.:" + DietilAmin_Tnagr + "\n"
-                         );
-                        Send_Log(StatusOut = "ШАГ 2.1 Загр. второй дозы ДиэтилАмина, (контроль уставки " + DietilAmin_doza2 + ")");
-
-
-                        n = 5;
-                            State = 5;
-                            // предварительные дествия для перехода
-                            if (PD.RegPH480A_pH_zad != SetPh_st5_1_A) PD.RegPH480A_pH_zad = SetPh_st5_1_A;
-                            if (PD.ZagrDietilAminK480_Nemk != 0) PD.ZagrDietilAminK480_Nemk = 0;
-                            if (PD.ZagrDietilAminK480_DozaZad1 != DietilAmin_doza2) PD.ZagrDietilAminK480_DozaZad1 = DietilAmin_doza2;
-                            //if (PD.ZagrDietilAminK480_DozaZad2 != DietilAmin_doza2) PD.ZagrDietilAminK480_DozaZad2 = DietilAmin_doza2;
-                          //  if (PD.ZagrDietilAminK480_Tnagr != DietilAmin_Tnagr) PD.ZagrDietilAminK480_Tnagr = DietilAmin_Tnagr;
-                            if (PD.ZagrDietilAminK480_Start != true) PD.ZagrDietilAminK480_Start = true;
-                        StatusOut = "ШАГ 2.1 Загр. второй дозы ДиэтилАмина ";
-                        Send_Log( "ШАГ 2.1 Загр. второй дозы ДиэтилАмина : \n" +
-"Уставка ph:" + SetPh_st5_1_A + "\n" +
-"Доза 2.:" + DietilAmin_doza2 + "\n"
-);
-
-                    }
-
-
-                    break;
-                   
-                case 5:// загр второй дозы ДЭА
-
-                    if (PD.ZagrDietilAminK480_DozaZad1 != DietilAmin_doza2) PD.ZagrDietilAminK480_DozaZad1 = DietilAmin_doza2;
-
-                    
-
-                    if (PD.RegPH480A_pH_zad != SetPh_st5_1_A) PD.RegPH480A_pH_zad = SetPh_st5_1_A;
-
-                    if (PD.ZagrDietilAminK480_status == 3)
-                    {
-                        if (PD.ZagrDietilAminK480_Start != false) PD.ZagrDietilAminK480_Start = false;
-                    }
-
-                    if (PD.TE_K480A_1 >= T_On_per_A && !PD.ZagrDietilAminK480_Start)
-                    {
-
-                        if (!PD.ZagrDietilAminK480_Start)
-                        {
-                             Send_Log(StatusOut = "ШАГ 2.2 Нагрев ,ожидание достижения уставки.");
-                            n = 6;
-                            State = 6;
-
-                            // переход на следущий шаг
-                            PD.PID_ON_Tperegon_A = true;
-                            PD.start_LoadWater_perA = true;
-                            State = 6;
-                        }
-                    }
-                    else
-                    {
-                        StatusOut = PD.ZagrDietilAminK480_Start ? "ШАГ 2.1 Ожидание заверш. загрузки ДЭА доза2" :
-                           "ШАГ 2.1 Ожидание  нагрева до "+ T_On_per_A+" гр.";
-                       if (!(PD.TE_K480A_1 >= T_degaz)) Send_Log(StatusOut);
-
-                    }
-                        
-
-                    
-                        // PD.TVK480A_ain_auto = (PD.TE_K480A_1 >= 67)? set_ValveSteam: 100f;
-
-                    if(PD.TE_K480A_1 >= T_degaz)
-                    {
-                        if (PD.TVK480A_ain_auto != Set_ValveSteam)
-                            PD.TVK480A_ain_auto = Set_ValveSteam;
-                        Send_Log(StatusOut = " ШАГ 2.1 Ожидание  нагрева до 72 гр. Дегазация. клапана пара " + Set_ValveSteam+"%");
-                    }
-                    else
-                    {
-                        if (PD.TVK480A_ain_auto != 100)
-                            PD.TVK480A_ain_auto = 100;
-
-                    }
-
-
-
-
-
-
-                    break;
-
-                case 6:
-
-                   
-
-                    if (PD.QIY_K480A < PH_avar_per_A)
-                    {
-                        Start_recept = false;
-                        Send_Log(StatusOut = "Алгорит белофор оцд апп.K480А, аварийное завершение, падение ph ниже 7,8");
-
-                    }
-                        
-
-                    if(PD.TE_480A_1< T_off_per_A)
-                    {
-                        if (PD.TE_K480A_2 >= PD.TE_480A_1 + 0.5f)
-                        {
-                            if (PD.PID_ON_Tperegon_A) PD.PID_ON_Tperegon_A = false;
-                            Send_Log(StatusOut = " ШАГ 2.2 Превышение Темп. паров, отключение подачи пара ");
-                        }
-                        else
-                          if (!PD.PID_ON_Tperegon_A) PD.PID_ON_Tperegon_A = true;
-
-                    }
-                    else
-                    {
-                        if (!check_one)
-                        {
-                            DialogTitle = "Для продолжения работы алгоритма  НЕОБХОДИМО перевести отгон в емкость промфракции R481! \n Для подтверждения перевода отгонав в емкость  R481  нажмите \'Продолжить\' \n или завершите выполнение алгоритма,  нажав  \'Завершить\' .";
-                            Application.Current.Dispatcher.InvokeAsync(() =>
-                            {
-                                ShowDialog();
-                            });
-                            check_one = true;
-                        }
-                        if (PD.PID_ON_Tperegon_A) PD.PID_ON_Tperegon_A = false;
-
-                        if (PD.start_LoadWater_perA) PD.start_LoadWater_perA = false;
-
-                        Send_Log(StatusOut = "ШАГ 2.2 Достижение темп. 97гр, оповещение оператора о НЕОБХОДИМОСТИ перевода отгона в емкость промфракции R481 ");
-
-                        if (Dialog_return == 1)
-                        {
-                            
-                            Next = false;
-                            check_one = false;
-                            Dialog_return = 0;// сброс  обратной связи диалогового окна
-                            Send_Log(StatusOut = "ШАГ 2.3 подтвержден перевод на R481 ");
-                            DialogTitle = "Продолжить регулирование PH ?";
-                            Application.Current.Dispatcher.InvokeAsync(() =>
-                            {
-                                ShowDialog();
-                            });
-                            n = 7;
-                        }
-                        else if (Dialog_return > 1)
-                            Start_recept = false;
-                    }
-                    break;
-
-                case 7:
-
-                    if(Dialog_return == 1)
-                    {
-                        PD.RegPH480A_Start = true;
-                        Send_Log(StatusOut = "ШАГ 2.3 подтверждено продолжение ph регулирования");
-                        PD.TVK480A_mode = false;
-                        PD.TVK480A_ain_auto = 100;
-                        n = 8;
-                        State = 8;
-                    }
-                    else if(Dialog_return > 1)
-                    {
-                        PD.RegPH480A_Start = false;
-                        Send_Log(StatusOut = "ШАГ 2.3 подтверждено завершение ph регулирования");
-                        PD.TVK480A_mode = false;
-                        PD.TVK480A_ain_auto = 100;
-                        n = 8;
-                        State = 8;
-                    }
-                     
-
-                  
-
-
-                    break;
-
-                case 8:
-                    if (PD.LE_R481 >= SetLevel_R481)
-                    {
-                        Send_Log(StatusOut = "ШАГ 2.3 достижение заданного  значения уровня R481, переход на шаг 2.4");
-                        PD.TVK480A_mode = false; // пар
-                        PD.TVK480A_ain_auto = 0;
-
-                        PD.FV_K480B_mode = false;  // подача воды
-                        PD.FV_K480B_reg_ain_auto = 0;
-
-                        PD.VK480A_2_mode = false;  // конденсат
-                        PD.VK480A_2_control_auto = true;
-                        n = 9;
-                        time_mem=DateTime.Now;
-                        Send_Log(StatusOut = "ШАГ 2.4 Выдержка. Заданное время выдержки "+ SetTime_viderzhA + " минут");
-                        State = 9;
-                    }
-                    else
-                        Send_Log(StatusOut = "ШАГ 2.3 ожидание достижения заданного  значения уровня R481");
-
-                    break;
-
-                case 9:
-                    LastTime_viderzhA = SetTime_viderzhA - (DateTime.Now - time_mem).TotalMinutes;
-                  if (  (DateTime.Now - time_mem).TotalMinutes> SetTime_viderzhA)
-                    {
-                        Send_Log(StatusOut = "ШАГ 2.4 Выдержка завершение, контроль устаки,заданное время выдержки " + SetTime_viderzhA + " минут");
-                        LastTime_viderzhA = 0;
-
-                        //переход на следущий шаг охлаждение
-
-                        PD.VK480A_2_mode = false;  // конденсат
-                        PD.VK480A_2_control_auto = false;
-
-                        PD.VK480A_3_mode=false;  // вход в рубашку
-                        PD.VK480A_3_control_auto = true;
-                        
-                        PD.VK480A_5_mode = false; // выход с рубашки
-                        PD.VK480A_5_control_auto = true;
-                        Send_Log(StatusOut = "ШАГ 2.5 Охлаждение, контроль устаки,Т охл " + T_ohlazhd_A + " гр.");
-
-                        time_mem = DateTime.Now;
-
-                        n = 10;
-                        State =10;
-                    }    
-                    break;
-
-                case 10:
-
-                   
-                    if (PD.TE_480A_1 < T_ohlazhd_A)
-                    {
-                        Send_Log(StatusOut = "ШАГ 2.5 Охлаждение,завершение контроль устаки,Т охл " + T_ohlazhd_A + " гр.");
-                        PD.NC_K480A_mode = false; 
-                        PD.NC_K480BA_ain_auto = 0;
-
-                        PD.VK480A_3_mode = false;  // вход в рубашку
-                        PD.VK480A_3_control_auto = false;
-
-                        PD.VK480A_5_mode = false; // выход с рубашки
-                        PD.VK480A_5_control_auto = false;
-                        n = 11;
-                        State = 11;
-                        time_mem=DateTime.Now;
-
-                        Send_Log(StatusOut = "ШАГ 2.6 Отстаивание, контроль устаки,Время  " + SetTime_otstoi_A + " мин.");
-                    }
-                    break;
-                case 11:
-
-                    LastTime_otstoi_A = SetTime_otstoi_A - (DateTime.Now - time_mem).TotalMinutes;
-                    if ((DateTime.Now - time_mem).TotalMinutes > SetTime_otstoi_A)
-                    {
-                        Send_Log( "ШАГ 2.6 Отстаивание.Завершение, контроль устаки,Время  " + SetTime_otstoi_A + " мин.");
-                        LastTime_otstoi_A = 0;
-                        DialogTitle = "Завершены 2-3 конденсации производства Белофора ОЦД, разрешается разделение массы на слои";
-                        Application.Current.Dispatcher.InvokeAsync(() =>
-                        {
-                            ShowDialog();
-                        });
-                        StatusOut = "Завершены 2-3 конденсации производства Белофора ОЦД, разрешается разделение массы на слои";
-                        Start_recept = false;
-
-                    }
-                        break;
-
-                   
-
-
-            }
            
-
-            //if (Start_recept && n != 0)
-            //{
-            //    PD.RegPH480A_DozaZad = SetPh_zadDoza_st1_1_A;
-            //}
-            if (!Start_recept && n != 0)
-            {
-                PD.RegPH480A_Start = false;    // шаг1
-                PD.NC_K480A_mode = false;
-                PD.NC_K480BA_ain_auto = 0;
-
-                PD.ZagrAnilin480_Start = false;// шаг2
-                PD.ZagrDietilAminK480_Start = false; // шаг3
-              
-               
-                PD.VK480A_2_mode = false;           // шаг4
-                PD.VK480A_2_control_auto = false;
-                PD.TVK480A_mode = false;
-                PD.TVK480A_ain_auto = 0;
-
-                PD.PID_ON_Tperegon_A = false;
-                PD.start_LoadWater_perA = false;
-
-                PD.VK480A_2_mode = false;  // конденсат
-                PD.VK480A_2_control_auto = false;
-
-                PD.VK480A_3_mode = false;  // вход в рубашку
-                PD.VK480A_3_control_auto = false;
-
-                PD.VK480A_5_mode = false; // выход с рубашки
-                PD.VK480A_5_control_auto = false;
-
-
-                State = 0;
-                if(!(n == 6 && Dialog_return > 1) && (PD.QIY_K480A < PH_avar_per_A))
-                Send_Log(StatusOut = "Алгорит белофор оцд апп.K480А  прерван оператором (шаг алгоритма n="+n+")");
-
-                //if(n==6&& Dialog_return<1)
-                //Send_Log(StatusOut = "Алгорит белофор оцд апп.K480А, аварийное завершение, падение ph ниже 7,8");
-                if (n == 6 && Dialog_return > 1)
-                Send_Log(StatusOut = "Алгорит завершен оператором ,  по окончанию  шага 2.2");
-                n = 0;
-                check_one = false;
-                Dialog_return = 0;
-            }
-            // аварийные блокировки
-            //if (Start_recept)
-            //{
-            //    if ((PD.TE_K480A_2 - PD.TE_K480A_1) >= 0.5)
-            //       if (PD.TVK480A_ain_auto !=0) PD.TVK480A_ain_auto = 0;
-            //}
           
         }
 
@@ -1301,30 +774,7 @@ namespace cip_blue.ViewModels
            // dialogService.ShowDialog("password");
         }
 
-        public  void stop_recept()
-        {
-
-
-          
-;                PD.RegPH480A_Start = false;    // шаг1
-                PD.NC_K480A_mode = false;
-                PD.NC_K480BA_ain_auto = 0;
-
-                PD.ZagrAnilin480_Start = false;// шаг2
-                PD.ZagrDietilAminK480_Start = false; // шаг3
-
-
-                PD.VK480A_2_mode = false;           // шаг4
-                PD.VK480A_2_control_auto = false;
-                PD.TVK480A_mode = false;
-                PD.TVK480A_ain_auto = 0;
-
-                n = 0;
-                State = 0;
-                Send_Log(StatusOut = "Алгорит белофор оцд апп.K480А авт.сброс");
-                Thread.Sleep(500);
-            
-        }
+      
 
         private void internalUpdate()
         {
@@ -1368,7 +818,7 @@ namespace cip_blue.ViewModels
         {
             internalUpdater.Stop();
             chartUpdater.Stop();
-            stop_recept();
+
         }
     }
 
