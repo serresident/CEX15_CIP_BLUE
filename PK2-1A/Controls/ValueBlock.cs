@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace cip_blue.Controls
 {
-    [TemplatePart(Name = "PART_Caption", Type = typeof(TextBlock))]
+    [TemplatePart(Name = "PART_Caption", Type = typeof(TextBox))]
     public class ValueBlock : Control
     {
         public string Caption
@@ -33,9 +33,14 @@ namespace cip_blue.Controls
         private static void onValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
 
-            //if (e.NewValue.ToString() != "???")
-            //    if(e.NewValue.ToString() !="NaN")
-            //    if (float.Parse(e.NewValue.ToString()) < float.Parse("-100")) (d as ValueBlock).Value = "???";
+            if (e.NewValue.ToString() != "???")
+                if (e.NewValue.ToString() != "NaN")
+                    if (float.Parse(e.NewValue.ToString()) < float.Parse("-100"))
+                    {
+                        (d as ValueBlock).Value = "???";
+                        (d as ValueBlock).ToolTip = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
+                    }
+                         
         }
 
         public string Unit
@@ -61,6 +66,7 @@ namespace cip_blue.Controls
             HeightProperty.OverrideMetadata(typeof(ValueBlock), new FrameworkPropertyMetadata((double)50));
 
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ValueBlock), new FrameworkPropertyMetadata(typeof(ValueBlock)));
+
         }
 
         private static void OnForegroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

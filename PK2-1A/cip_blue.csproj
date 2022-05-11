@@ -283,6 +283,7 @@
     <Compile Include="Behaviors\DigitalActuatorStatusBehavior.cs" />
     <Compile Include="Behaviors\DigitalOnStatusBehavior.cs" />
     <Compile Include="Behaviors\ModbusBindingBehavior.cs" />
+    <Compile Include="Controls\DigitalClock.cs" />
     <Compile Include="Controls\DraggablePopup.cs" />
     <Compile Include="Controls\KeyboardUtilities.cs" />
     <Compile Include="Controls\NumPad.cs" />
@@ -412,6 +413,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Simple horizontal conveyor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Spherical storage tank.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
