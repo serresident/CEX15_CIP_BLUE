@@ -55,6 +55,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="ToolTip">
+            <Setter Property = "HorizontalOffset" Value="10"/>
+            <Setter Property = "VerticalOffset" Value="10"/>
+            <Setter Property = "Background" Value="Black"/>
+            <Setter Property = "Foreground" Value="AliceBlue"/>
+            <Setter Property = "FontSize" Value="14"/>
+            <Setter Property = "FontWeight" Value="Bold"/>
+        </Style>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Control.FontFamily" Value=" "/>
             <Setter Property="Control.FontSize" Value="12"/>
@@ -788,7 +796,7 @@
 
 
         <Style TargetType="{x:Type WPF:Valve}">
-            <Setter Property="ToolTip" Value="Зеленый=  сигнал на открытие &#xA; Если Красный= сигнал на закрытие  "/>
+            <Setter Property="ToolTip" Value="Зеленый=  сигнал на открытие &#xA; Если Красный= сигнал на закрытие  &#xA; Если Оранжевый= модуль управления не отвечает, обратитесь за диагностикой В КИПиА  "/>
         </Style>
         <Style TargetType="{x:Type WPF:Label}">
             <Setter Property="ToolTip" Value="Зеленый=сигнал c обратной связью &#xA; Серый= текущая уставка  "/>
@@ -1862,18 +1870,18 @@
         </TextBlock>
         <WPF:Valve Height="40" Canvas.Left="717" Canvas.Top="255" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_V4101_vozduh}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}" OnStatus="{c:Binding PD.out_V4101_vozduh}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_3_mode}" Out="{Binding PD.out_V4101_vozduh}"/>
-                <behaviors:Valve_status HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4101_vozduh}" isCloseValve="{Binding PD.SQL_V4101_vozduh}" />
+                <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}"  HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4101_vozduh}" isCloseValve="{Binding PD.SQL_V4101_vozduh}" />
             </Behaviors:Interaction.Behaviors>
 
 
         </WPF:Valve>
         <WPF:Valve Height="40" Canvas.Left="775" Canvas.Top="255" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_V4101_voda}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}" OnStatus="{c:Binding PD.out_V4101_voda}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_4_mode}" Out="{Binding PD.out_V4101_voda}"/>
-                <behaviors:Valve_status HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4101_voda}" isCloseValve="{Binding PD.SQL_V4101_voda}" />
+                <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}" HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4101_voda}" isCloseValve="{Binding PD.SQL_V4101_voda}" />
             </Behaviors:Interaction.Behaviors>
 
 
@@ -2035,9 +2043,9 @@
         </WPF:Lamp>
         <WPF:Valve Height="40" Canvas.Left="599" Canvas.Top="699" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-3.17550636385741E+18,1.02361766361803E+26" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_VB4103_voda}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}" OnStatus="{c:Binding PD.out_VB4103_voda}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_4_mode}" Out="{Binding PD.out_VB4103_voda}"/>
-                <behaviors:Valve_status HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4103_voda}" isCloseValve="{Binding PD.SQL_V4103_voda}" />
+                <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}" HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4103_voda}" isCloseValve="{Binding PD.SQL_V4103_voda}" />
             </Behaviors:Interaction.Behaviors>
 
 
@@ -2885,18 +2893,18 @@
         <TextBlock Canvas.Left="1446" TextWrapping="Wrap" Text="воздух" Canvas.Top="196" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <WPF:Valve Height="40" Canvas.Left="1463" Canvas.Top="247" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_V4201_vozduh}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}" OnStatus="{c:Binding PD.out_V4201_vozduh}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_3_mode}" Out="{Binding PD.out_V4201_vozduh}"/>
-                <behaviors:Valve_status HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4201_vozduh}" isCloseValve="{Binding PD.SQL_V4201_vozduh}" />
+                <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}"  HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4201_vozduh}" isCloseValve="{Binding PD.SQL_V4201_vozduh}" />
             </Behaviors:Interaction.Behaviors>
 
 
         </WPF:Valve>
         <WPF:Valve Height="40" Canvas.Left="1520" Canvas.Top="247" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_V4201_voda}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}" OnStatus="{c:Binding PD.out_V4201_voda}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_4_mode}" Out="{Binding PD.out_V4201_voda}"/>
-                <behaviors:Valve_status HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4201_voda}" isCloseValve="{Binding PD.SQL_V4201_voda}" />
+                <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}"  HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4201_voda}" isCloseValve="{Binding PD.SQL_V4201_voda}" />
             </Behaviors:Interaction.Behaviors>
 
 
@@ -2966,11 +2974,12 @@
 
         </WPF:Tube>
         <TextBlock Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="715" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <WPF:Valve Height="40" Canvas.Left="58" Canvas.Top="702" Width="30" Actor="Piston"  RotateAngle="90" RenderTransformOrigin="-3.17550636385741E+18,1.02361766361803E+26" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <WPF:Valve  Height="40" Canvas.Left="58" Canvas.Top="702" Width="30" Actor="Piston"  RotateAngle="90" RenderTransformOrigin="-3.17550636385741E+18,1.02361766361803E+26" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_VB4305_voda}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}"  OnStatus="{c:Binding PD.out_VB4305_voda}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_4_mode}" Out="{Binding PD.out_VB4305_voda}"/>
-                <behaviors:Valve_status HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4305_voda}" isCloseValve="{Binding PD.SQL_V4305_voda}" />
+                <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}"  HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4305_voda}" isCloseValve="{Binding PD.SQL_V4305_voda}" />
+           
             </Behaviors:Interaction.Behaviors>
 
 
@@ -3072,9 +3081,9 @@
         </WPF:Valve>
         <WPF:Valve Height="40" Canvas.Left="1034" Canvas.Top="702" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_V160a_voda}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}"  OnStatus="{c:Binding PD.out_V160a_voda}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_4_mode}" Out="{Binding PD.out_V160a_voda}"/>
-                <behaviors:Valve_status HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V160a_voda}" isCloseValve="{Binding PD.SQL_V160a_voda}" />
+                <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}"  HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V160a_voda}" isCloseValve="{Binding PD.SQL_V160a_voda}" />
             </Behaviors:Interaction.Behaviors>
 
 

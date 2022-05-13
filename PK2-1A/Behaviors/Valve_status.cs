@@ -29,7 +29,7 @@ namespace cip_blue.Behaviors
         private ColoringColor red = new ColoringColor() { Color1 = System.Windows.Media.Colors.Red };
         private ColoringColor green = new ColoringColor() { Color1 = System.Windows.Media.Colors.Green };
         private ColoringColor darkSlateGray = new ColoringColor() { Color1 = System.Windows.Media.Colors.DarkSlateGray };
-
+        private ColoringColor WarningColor = new ColoringColor() { Color1 = System.Windows.Media.Colors.DarkOrange };
         public static readonly DependencyProperty isOpenValveProperty = DependencyProperty.Register("isOpenValve", typeof(bool), typeof(Valve_status), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits, (d, e) => ((Valve_status)d).Update()));
         public bool isOpenValve
         {
@@ -42,6 +42,12 @@ namespace cip_blue.Behaviors
         {
             get { return (bool)GetValue(isCloseValveProperty); }
             set { SetValue(isCloseValveProperty, value); }
+        }
+        public static readonly DependencyProperty isNotFeedbackProperty = DependencyProperty.Register("isNotFeedback", typeof(bool), typeof(Valve_status), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits, (d, e) => ((Valve_status)d).Update()));
+        public bool isNotFeedback
+        {
+            get { return (bool)GetValue(isNotFeedbackProperty); }
+            set { SetValue(isNotFeedbackProperty, value); }
         }
 
         private System.Windows.Controls.Primitives.PlacementMode placementMode = System.Windows.Controls.Primitives.PlacementMode.MousePoint;
@@ -177,11 +183,11 @@ namespace cip_blue.Behaviors
                 //open.Colors.DefaultColoring = new ColoringColor() { Color1 = System.Windows.Media.Colors.Green };
                 open.Width = 18;
                 open.Height = 18;
-                open .ToolTip = "Состояние концевика клапана \n на ОТКРЫТИЕ \n ( ЗЕЛЕНЫЙ = Сигнал подается /СЕРЫЙ= Сигнала не подается)";
+                open .ToolTip = "Состояние концевика клапана \n на ОТКРЫТИЕ \n ( ЗЕЛЕНЫЙ = Сигнал подается /СЕРЫЙ= Сигнала не подается)\n Если ОРАНЖЕВЫЙ - нет связи с модулем ,  за устранением в обратитесь службу КИПиА ";
                 
                 close = new Arrow();
                 close.RotateAngle = RotareAnggeClose;
-                close.ToolTip = "Состояние концевика клапана \n на ЗАКРЫТИЕ \n ( КРАСНЫЙ =  Сигнал подается/СЕРЫЙ= Сигнала не подается)";
+                close.ToolTip = "Состояние концевика клапана \n на ЗАКРЫТИЕ \n ( КРАСНЫЙ =  Сигнал подается/СЕРЫЙ= Сигнала не подается) \n Если ОРАНЖЕВЫЙ нет связи с модулем, за устранением в обратитесь службу КИПиА";
                 close.Colors = new ControlColors();
                 //open.Colors.DefaultColoring = new ColoringColor() { Color1 = System.Windows.Media.Colors.Green };
                 close.Width = 18;
@@ -246,15 +252,24 @@ namespace cip_blue.Behaviors
                 {
 
                     open.Colors.DefaultColoring = green;
-
+                    open.ToolTip = "Состояние концевика открытия: контакт  замкнут"; 
 
 
                 }
                 else
                 {
-
-
-                    open.Colors.DefaultColoring = darkSlateGray;
+                    if (!isNotFeedback)
+                    {
+                        open.Colors.DefaultColoring = darkSlateGray;
+                        open.ToolTip = "Состояние концевика открытия: контакт  разомкнут";
+                    }
+                       
+                    else
+                    {
+                        open.Colors.DefaultColoring = WarningColor;
+                        open.ToolTip = "Состояние концевика открытия:нет связи с модулем ,  за устранением в обратитесь службу КИПиА ";
+                    }
+                        
                 }
 
 
@@ -265,15 +280,16 @@ namespace cip_blue.Behaviors
 
 
                     close.Colors.DefaultColoring = red;
-
+                    close.ToolTip = "Состояние концевика закрытия: контакт  замкнут";
 
 
                 }
                 else
                 {
-
+                    if(!isNotFeedback)
                     close.Colors.DefaultColoring = darkSlateGray;
-
+                    else
+                        close.Colors.DefaultColoring = WarningColor;
                 }
 
 
