@@ -162,8 +162,8 @@ namespace cip_blue
             regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("MnemonicView", "MnemonicToolView", "Мнемосхема"));
             //regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("ArchivView", "ArchivToolView", "Архив"));
             //regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("JournalView", "JournalToolView", "Журнал"));
-            regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("LogicView","LogicToolView","Стадии"));
-            regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("SettingView", "SettingToolView", "Настройки"));
+            //regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("LogicView","LogicToolView","Стадии"));
+            //regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("SettingView", "SettingToolView", "Настройки"));
             regionManager.RequestNavigate("ContentRegion", "MnemonicView");
         }
 

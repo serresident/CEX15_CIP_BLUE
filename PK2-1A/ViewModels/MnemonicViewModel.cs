@@ -207,11 +207,11 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref сount_fq450_mek, value); }
         }
 
-        private bool reset_fq450 = true;
-        public bool Reset_fq450
+        private bool alarm_notanswerModule = true;
+        public bool Alarm_notanswerModule
         {
-            get { return reset_fq450; }
-            set { SetProperty(ref reset_fq450, value); }
+            get { return alarm_notanswerModule; }
+            set { SetProperty(ref alarm_notanswerModule, value); }
         }
 
         private ProcessDataTcp _pd;
@@ -444,8 +444,8 @@ namespace cip_blue.ViewModels
         private void internalUpdate()
         {
             PingHost("192.168.120.139");
+            Alarm_notanswerModule = PD.err_module_ad2 || PD.err_module_ad3 || PD.err_module_ad4 || PD.err_module_ad5 || PD.err_module_ad6;
 
-          
 
             //WaterLoadingStartCommand.RaiseCanExecuteChanged();
             //WaterLoadingStopCommand.RaiseCanExecuteChanged();

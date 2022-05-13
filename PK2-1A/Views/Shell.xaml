@@ -105,7 +105,7 @@
             </WPF:Label.Colors>
 
         </WPF:Label>
-
+        
         <ContentControl prism:RegionManager.RegionName="ToolRegion"  Grid.Row="0" Grid.Column="2" Margin="10,0,0,0" />
 
         <ItemsControl prism:RegionManager.RegionName="NavigationRegion" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin="5,0" >

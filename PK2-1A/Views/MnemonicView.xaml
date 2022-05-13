@@ -788,7 +788,7 @@
 
 
         <Style TargetType="{x:Type WPF:Valve}">
-            <Setter Property="ToolTip" Value="Зеленый=  сигнал на открытие &#xA; Красный= сигнал на закрытие  "/>
+            <Setter Property="ToolTip" Value="Зеленый=  сигнал на открытие &#xA; Если Красный= сигнал на закрытие  "/>
         </Style>
         <Style TargetType="{x:Type WPF:Label}">
             <Setter Property="ToolTip" Value="Зеленый=сигнал c обратной связью &#xA; Серый= текущая уставка  "/>
@@ -1948,7 +1948,91 @@
 
         </WPF:Tube>
         <TextBlock Canvas.Left="561" TextWrapping="Wrap" Canvas.Top="712" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Expander  IsExpanded="True" Header="Статус опроса модулей ввода-вывода" Grid.Column="2" Canvas.Left="44" Canvas.Top="11">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <WPF:Lamp Header=" модуль адрес 2 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad2}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
+                    <WPF:Lamp Header=" модуль адрес 3 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad3}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
+                    <WPF:Lamp Header=" модуль адрес 4 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad4}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
+                    <WPF:Lamp Header=" модуль адрес 5 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad5}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
+                    <WPF:Lamp Header=" модуль адрес 6 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad6}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
 
+                </StackPanel>
+
+            </Grid>
+
+        </Expander>
+        <WPF:Lamp Header="" Canvas.Left="24" Design="LEDSquare" Width="16" Height="16" Canvas.Top="14" HorizontalAlignment="Left" VerticalAlignment="Top" DividerSize="Auto" LidSize="Auto"  >
+            <WPF:Lamp.States>
+                <WPF:StatesBitmask State4Bitmask="1" Value="{Binding Alarm_notanswerModule}" />
+            </WPF:Lamp.States>
+            <WPF:Lamp.Colors>
+                <WPF:ControlColors>
+                    <WPF:ControlColors.State4Coloring>
+                        <WPF:ColoringColor Color1="Red" />
+                    </WPF:ControlColors.State4Coloring>
+                </WPF:ControlColors>
+            </WPF:Lamp.Colors>
+        </WPF:Lamp>
         <WPF:Valve Height="40" Canvas.Left="599" Canvas.Top="699" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-3.17550636385741E+18,1.02361766361803E+26" >
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_VB4103_voda}" OnColor1="Green" DefaultColor="Red"/>
@@ -3036,6 +3120,9 @@
             UncheckedBackground ="LightPink" Canvas.Left="283" Canvas.Top="905" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock    Canvas.Left="173" TextWrapping="Wrap" Canvas.Top="932"  Text="ПУСК" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBlock    Canvas.Left="294" TextWrapping="Wrap" Canvas.Top="931"  Text="СТОП" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="294" TextWrapping="Wrap" Canvas.Top="931"  Text="СТОП" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock    Canvas.Left="345" TextWrapping="Wrap" Canvas.Top="600" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="360"><Run Text="Интерактивные элементы "/><Run Language="ru-ru" Text="  имеют вспылывающие подсказки."/><LineBreak/><Run Language="ru-ru" Text="Для вызова подсказски навидите курсор на элемент и удерживайте его неподвижно"/></TextBlock>
+
 
 
 
