@@ -35,10 +35,27 @@ namespace cip_blue.Controls
 
             if (e.NewValue.ToString() != "???")
                 if (e.NewValue.ToString() != "NaN")
-                    if (float.Parse(e.NewValue.ToString()) < float.Parse("-100"))
+                    if (float.Parse(e.NewValue.ToString()) < float.Parse("-9998"))
                     {
-                        (d as ValueBlock).Value = "???";
-                        (d as ValueBlock).ToolTip = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
+                     
+                       (d as ValueBlock).ValueColor = Brushes.Gray;
+                        (d as ValueBlock).SetCurrentValue(ValueProperty, "???");
+                      //  (d as ValueBlock).ToolTip = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
+                        ToolTip tt = new ToolTip();
+
+                        tt.Content = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
+
+                        (d as ValueBlock).ToolTip = tt;
+
+                        tt.StaysOpen = true;
+                    }
+                 else
+                    {
+                        (d as ValueBlock).ValueColor = Brushes.LawnGreen;
+                        (d as ValueBlock).ToolTip = "Значение получаемое с модуля";
+                       
+
+
                     }
                          
         }

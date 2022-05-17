@@ -74,7 +74,7 @@ namespace cip_blue.Models
         //public Single WE_D470 { get { return getValue<Single>(); } }// ad= 1 _ch 1
 
         //line1_1       
-        // mds8ui ad=54      
+        // mds8ui ad=5     
         public Single PIT_F4101_davlSuspenz{ get { return getValue<Single>(); } }// ad= 1 _ch 1 давление подаваемой суспензии +
         public Single TE2_F4101_tempSuspenz{ get { return getValue<Single>(); } }// ad= 3 _ch 2  температура подаваемой суспензии +
         public Single PIT2_F4101_davlGydroPrivoda{ get { return getValue<Single>(); } }// ad= 5 _ch 3  давление гидропривода
