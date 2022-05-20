@@ -1896,7 +1896,7 @@
             </WPF:Arrow.Colors>
         </WPF:Arrow>
         <TextBlock Canvas.Left="762" TextWrapping="Wrap" Text="вода" Canvas.Top="203" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="858" Canvas.Top="464" Caption="QE_F4101_PhFiltrata" Unit="PH"  ValueColor="LawnGreen" Foreground="LightGreen"  Width="76" Height="40" Value="{Binding PD.QIY_F4101_PhFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1020" Canvas.Top="456" Caption="QE_F4101" Unit="PH"  ValueColor="LawnGreen" Foreground="LightGreen"  Width="81" Height="40" Value="{Binding PD.QIY_F4101_PhFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="246" Canvas.Top="293" Caption="PE_F4101" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT_F4101_davlSuspenz, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="237"  TextWrapping="Wrap" Text="Давл.суспензии" Canvas.Top="337" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Arrow" Height="Auto" Width="Auto" />
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="366" Canvas.Top="293" Caption="2TE_F4101" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="92" Height="40" Value="{Binding PD.TE2_F4101_tempSuspenz, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -2945,9 +2945,9 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1032" Canvas.Top="460" Caption="QE_F4201_PhFiltrata"  ValueColor="LawnGreen" Foreground="Yellow"  Width="76" Height="40" Value="{Binding PD.QIY_F4201_electrFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox Canvas.Left="843" TextWrapping="Wrap" Text="Ph фильтрата" Canvas.Top="506" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBox Canvas.Left="994" TextWrapping="Wrap" Text="эл. пр. фильтрата" Canvas.Top="508" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="855" Canvas.Top="458" Unit="См/м" Caption="QE_F4201"  ValueColor="LawnGreen" Foreground="Yellow"  Width="84" Height="40" Value="{Binding PD.QIY_F4201_electrFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Canvas.Left="1014" TextWrapping="Wrap" Text="Ph фильтрата" Canvas.Top="503" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBox Canvas.Left="843" TextWrapping="Wrap" Text="эл. пр. фильтрата" Canvas.Top="509" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1064" Canvas.Top="372" Caption="2PE_F4201" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT2_F4201_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox Canvas.Left="1057"  TextWrapping="Wrap" Text="Давл.гидр.пр-да" Canvas.Top="415" Cursor="Arrow" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="331" Canvas.Top="387" Caption="2PE_F4101" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT2_F4101_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -2979,7 +2979,7 @@
                 <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}"  OnStatus="{c:Binding PD.out_VB4305_voda}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_4_mode}" Out="{Binding PD.out_VB4305_voda}"/>
                 <behaviors:Valve_status isNotFeedback="{Binding PD.err_module_ad2}"  HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.SQH_V4305_voda}" isCloseValve="{Binding PD.SQL_V4305_voda}" />
-           
+
             </Behaviors:Interaction.Behaviors>
 
 
@@ -3072,7 +3072,7 @@
         <TextBlock Canvas.Left="1422" TextWrapping="Wrap" Text="воздух" Canvas.Top="641" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <WPF:Valve Height="40" Canvas.Left="1439" Canvas.Top="692" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" ActorSize="2*" ValveSize="2*" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.out_V160d_vozduh}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior   NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}"  OnStatus="{c:Binding PD.out_V160d_vozduh}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_3_mode}" Out="{Binding PD.out_V160d_vozduh}"/>
 
             </Behaviors:Interaction.Behaviors>

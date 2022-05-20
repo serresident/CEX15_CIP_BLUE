@@ -252,7 +252,7 @@ namespace cip_blue.Behaviors
                 {
 
                     open.Colors.DefaultColoring = green;
-                    open.ToolTip = "Состояние концевика открытия: контакт  замкнут"; 
+                    open.ToolTip = "Состояние концевика ОТКРЫТИЯ: контакт  ЗАМКНУТ"; 
 
 
                 }
@@ -261,13 +261,13 @@ namespace cip_blue.Behaviors
                     if (!isNotFeedback)
                     {
                         open.Colors.DefaultColoring = darkSlateGray;
-                        open.ToolTip = "Состояние концевика открытия: контакт  разомкнут";
+                        open.ToolTip = "Состояние концевика ОТКРЫТИЯ: контакт  РАЗОМКНУТ";
                     }
                        
                     else
                     {
                         open.Colors.DefaultColoring = WarningColor;
-                        open.ToolTip = "Состояние концевика открытия:нет связи с модулем ,  за устранением в обратитесь службу КИПиА ";
+                        open.ToolTip = "Состояние концевика ОТКРЫТИЯ:нет связи с модулем ,  за устранением в обратитесь службу КИПиА ";
                     }
                         
                 }
@@ -280,16 +280,24 @@ namespace cip_blue.Behaviors
 
 
                     close.Colors.DefaultColoring = red;
-                    close.ToolTip = "Состояние концевика закрытия: контакт  замкнут";
+                    close.ToolTip = "Состояние концевика ЗАКРЫТИЯ: контакт  ЗАМКНУТ";
 
 
                 }
                 else
                 {
                     if(!isNotFeedback)
-                    close.Colors.DefaultColoring = darkSlateGray;
+                    {
+                        close.ToolTip = "Состояние концевика ЗАКРЫТИЯ: контакт  РАЗОМКНУТ";
+                        close.Colors.DefaultColoring = darkSlateGray;
+                    }
                     else
+                    {
                         close.Colors.DefaultColoring = WarningColor;
+                        open.ToolTip = "Состояние концевика ЗАКРЫТИЯ: НЕТ связи с модулем ,  за устранением в обратитесь службу КИПиА ";
+                        
+                    }
+                        
                 }
 
 

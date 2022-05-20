@@ -106,13 +106,17 @@ namespace cip_blue.Behaviors
                 {
                     this.AssociatedObject.Colors.State7Coloring = new ColoringColor() { Color1 = NotConnectColoring };
                     this.AssociatedObject.Colors.State4Coloring = new ColoringColor() { Color1 = NotConnectColoring };
-
+                    this.AssociatedObject.ToolTip = "нет связи с модулем, управление НЕВОЗМОЖНО,  за устранением в обратитесь службу КИПиА";
                 }
                     
                 else
                 {
                     this.AssociatedObject.Colors.State7Coloring = new ColoringColor() { Color1 = DefaultColor };
                     this.AssociatedObject.Colors.State4Coloring = new ColoringColor() { Color1 = OnColor1 };
+                    if(OnStatus)
+                    this.AssociatedObject.ToolTip = "Состояние Выхода: Подается сигнал управления";
+                    else
+                        this.AssociatedObject.ToolTip = "Состояние Выхода: Не подается сигнал управления";
                 }
                     
             }

@@ -36,7 +36,7 @@ namespace cip_blue.ViewModels
 
         public User User { get; set; }
 
-        const string title = "Схема производства Белофоров";
+        const string title = "Схема ЦИП ФЦМ пресс 4101/4201";
         private string _title;
         public string Title
         {

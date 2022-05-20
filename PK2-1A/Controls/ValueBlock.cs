@@ -30,6 +30,7 @@ namespace cip_blue.Controls
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
           "Value", typeof(string), typeof(ValueBlock), new UIPropertyMetadata("0.0", onValueChanged));
 
+
         private static void onValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
 
@@ -40,20 +41,19 @@ namespace cip_blue.Controls
                      
                        (d as ValueBlock).ValueColor = Brushes.Gray;
                         (d as ValueBlock).SetCurrentValue(ValueProperty, "???");
+
                       //  (d as ValueBlock).ToolTip = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
                         ToolTip tt = new ToolTip();
-
                         tt.Content = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
-
                         (d as ValueBlock).ToolTip = tt;
-
-                        tt.StaysOpen = true;
+                        tt.Foreground = Brushes.Red;
+                        //    tt.StaysOpen = true;
                     }
                  else
                     {
                         (d as ValueBlock).ValueColor = Brushes.LawnGreen;
                         (d as ValueBlock).ToolTip = "Значение получаемое с модуля";
-                       
+                        //(d as ValueBlock).BeginStoryboard
 
 
                     }

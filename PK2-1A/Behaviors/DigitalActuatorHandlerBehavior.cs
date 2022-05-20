@@ -166,7 +166,7 @@ namespace cip_blue.Behaviors
 
 
                 layout.Children.Add(popupCloseButton);
-                layout.Children.Add(popupCheckBox);
+              //  layout.Children.Add(popupCheckBox);
                 layout.Children.Add(popupToggleSwitch);
                 popupBorder.Child = layout;
 
