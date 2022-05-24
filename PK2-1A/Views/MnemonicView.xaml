@@ -1886,6 +1886,33 @@
 
 
         </WPF:Valve>
+        <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="782" Canvas.Top="105">
+            <GroupBox.Header>
+                <TextBlock Text="FQ_4101, Л"/>
+            </GroupBox.Header>
+            <StackPanel>
+
+
+                <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+
+                <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+
+                <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4101}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
+                <xctk:ToggleSwitch Width="64" Height="24"    
+            CornerRadius="2"
+            IsChecked="{Binding PD.Reset_WaterCount_4101, Mode=TwoWay}"
+            ThumbHeight = "25"
+            ThumbWidth = "20"
+            CheckedContent = "Успешно"
+            UncheckedContent = "Сброс"
+            CheckedBackground="Green"
+            UncheckedBackground ="LightPink" Margin="0,3,0,0"/>
+
+            </StackPanel>
+        </GroupBox>
         <WPF:Arrow Height="12" Canvas.Left="771"  RotateAngle="90" Canvas.Top="218" Width="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
             <WPF:Arrow.Colors>
                 <WPF:ControlColors >
@@ -1896,7 +1923,7 @@
             </WPF:Arrow.Colors>
         </WPF:Arrow>
         <TextBlock Canvas.Left="762" TextWrapping="Wrap" Text="вода" Canvas.Top="203" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1020" Canvas.Top="456" Caption="QE_F4101" Unit="PH"  ValueColor="LawnGreen" Foreground="LightGreen"  Width="81" Height="40" Value="{Binding PD.QIY_F4101_PhFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1020" Canvas.Top="456" Caption="QE_F4101" Unit="PH"  ValueColor="LawnGreen" Foreground="LightGreen"  Width="81" Height="40" Value="{Binding PD.QIY_F4101_PhFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="246" Canvas.Top="293" Caption="PE_F4101" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT_F4101_davlSuspenz, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="237"  TextWrapping="Wrap" Text="Давл.суспензии" Canvas.Top="337" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Arrow" Height="Auto" Width="Auto" />
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="366" Canvas.Top="293" Caption="2TE_F4101" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="92" Height="40" Value="{Binding PD.TE2_F4101_tempSuspenz, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -2014,6 +2041,18 @@
                     <WPF:Lamp Header=" модуль адрес 6 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
                         <WPF:Lamp.States>
                             <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad6}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
+                    <WPF:Lamp Header=" модуль адрес 7 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad7}" />
                         </WPF:Lamp.States>
                         <WPF:Lamp.Colors>
                             <WPF:ControlColors>
@@ -2945,9 +2984,9 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="855" Canvas.Top="458" Unit="См/м" Caption="QE_F4201"  ValueColor="LawnGreen" Foreground="Yellow"  Width="84" Height="40" Value="{Binding PD.QIY_F4201_electrFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Canvas.Left="1014" TextWrapping="Wrap" Text="Ph фильтрата" Canvas.Top="503" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBox Canvas.Left="843" TextWrapping="Wrap" Text="эл. пр. фильтрата" Canvas.Top="509" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="855" Canvas.Top="456" Unit="См/м" Caption="QE_F4201"  ValueColor="LawnGreen" Foreground="Yellow"  Width="84" Height="40" Value="{Binding PD.QIY_F4201_electrFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Canvas.Left="1014" TextWrapping="Wrap" Text="Ph фильтрата" Canvas.Top="503" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <TextBox Canvas.Left="843" TextWrapping="Wrap" Text="эл. пр. фильтрата" Canvas.Top="503" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1064" Canvas.Top="372" Caption="2PE_F4201" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT2_F4201_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox Canvas.Left="1057"  TextWrapping="Wrap" Text="Давл.гидр.пр-да" Canvas.Top="415" Cursor="Arrow" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="331" Canvas.Top="387" Caption="2PE_F4101" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT2_F4101_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -3131,6 +3170,59 @@
         <TextBlock    Canvas.Left="294" TextWrapping="Wrap" Canvas.Top="931"  Text="СТОП" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock    Canvas.Left="294" TextWrapping="Wrap" Canvas.Top="931"  Text="СТОП" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock    Canvas.Left="345" TextWrapping="Wrap" Canvas.Top="600" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="360"><Run Text="Интерактивные элементы "/><Run Language="ru-ru" Text="  имеют вспылывающие подсказки."/><LineBreak/><Run Language="ru-ru" Text="Для вызова подсказски навидите курсор на элемент и удерживайте его неподвижно"/></TextBlock>
+        <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="1507" Canvas.Top="95" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <GroupBox.Header>
+                <TextBlock Text="FQ_4201, Л"/>
+            </GroupBox.Header>
+            <StackPanel>
+
+
+                <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+
+                <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+
+                <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4201}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
+                <xctk:ToggleSwitch Width="64" Height="24"    
+                    CornerRadius="2"
+                    IsChecked="{Binding PD.Reset_WaterCount_4201, Mode=TwoWay}"
+                    ThumbHeight = "25"
+                    ThumbWidth = "20"
+                    CheckedContent = "Успешно"
+                    UncheckedContent = "Сброс"
+                    CheckedBackground="Green"
+                    UncheckedBackground ="LightPink" Margin="0,3,0,0"/>
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="1075" Canvas.Top="614" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <GroupBox.Header>
+                <TextBlock Text="FQ_160б , Л"/>
+            </GroupBox.Header>
+            <StackPanel>
+
+
+                <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+
+                <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_160b}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
+                <xctk:ToggleSwitch Width="64" Height="24"    
+                    CornerRadius="2"
+                    IsChecked="{Binding PD.Reset_WaterCount_160b, Mode=TwoWay}"
+                    ThumbHeight = "25"
+                    ThumbWidth = "20"
+                    CheckedContent = "Успешно"
+                    UncheckedContent = "Сброс"
+                    CheckedBackground="Green"
+                    UncheckedBackground ="LightPink" Margin="0,3,0,0"/>
+
+            </StackPanel>
+        </GroupBox>
 
 
 

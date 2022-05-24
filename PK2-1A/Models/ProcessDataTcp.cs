@@ -35,7 +35,7 @@ namespace cip_blue.Models
         public bool err_module_ad4{ get { return getValue<bool>(); } }
         public bool err_module_ad5{ get { return getValue<bool>(); } }
         public bool err_module_ad6{ get { return getValue<bool>(); } }
-
+        public bool err_module_ad7 { get { return getValue<bool>(); } }
 
 
 
@@ -47,7 +47,7 @@ namespace cip_blue.Models
 
         //line1_1  (ttyS2)       
         //owen mv110 16r ad=3                                                                                             
-       public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
+        public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
        public bool out_V4101_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=2 ch2
        public bool out_V4201_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=3 ch3
        public bool out_V4201_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=4 ch4
@@ -64,12 +64,17 @@ namespace cip_blue.Models
        public bool rezerv14_2{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=14 ch14
        public bool rezerv15_2{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=15 ch15
        public bool rezerv16_2{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=16 ch16
+       public bool Reset_WaterCount_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=17
+        public bool Reset_WaterCount_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=18
+        public bool Reset_WaterCount_160b { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=19
+
+        bool Logging = true;
         #endregion
 
         // Inputs Registers
         #region Inputs Registers
 
-    
+
         //[ArchivAttribute("Вес мерника WE_D470")]
         //public Single WE_D470 { get { return getValue<Single>(); } }// ad= 1 _ch 1
 
@@ -104,7 +109,16 @@ namespace cip_blue.Models
         public Single ch6{ get { return getValue<Single>(); } } //ad= 43 _ch 6
         public Single ch7{ get { return getValue<Single>(); } } //ad= 45 _ch 7 
         public Single ch8{ get { return getValue<Single>(); } } //ad= 47 _ch 8 
-      
+        public Single WaterCount_4201 { get { return getValue<Single>(); } }//ad=49
+        public Single WaterCount_4101 { get { return getValue<Single>(); } }//ad=51
+        public Single WaterCount_160b { get { return getValue<Single>(); } }//ad=53
+        public UInt32 WaterCount_4201_32 { get { return getValue<UInt32>(); } }//ad=55
+        public UInt32 WaterCount_4101_32 { get { return getValue<UInt32>(); } }//ad=57
+        public UInt32 WaterCount_160b_32 { get { return getValue<UInt32>(); } }//ad=59
+
+        public UInt16 WaterCount_4201_16 { get { return getValue<UInt16>(); } }//ad=61
+        public UInt16 WaterCount_4101_16 { get { return getValue<UInt16>(); } }//ad=62
+        public UInt16 WaterCount_160b_16 { get { return getValue<UInt16>(); } }//ad=63
 
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
