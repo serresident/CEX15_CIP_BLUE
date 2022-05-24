@@ -67,8 +67,10 @@ namespace cip_blue.Models
        public bool Reset_WaterCount_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=17
         public bool Reset_WaterCount_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=18
         public bool Reset_WaterCount_160b { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=19
+        public bool switch_promivka4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool switch_promivka4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
-        bool Logging = true;
+        public bool Logging = true;
         #endregion
 
         // Inputs Registers

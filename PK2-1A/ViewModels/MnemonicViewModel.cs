@@ -23,39 +23,8 @@ namespace cip_blue.ViewModels
 
         private readonly ArchivRepository archivRepository;
 
-        public DelegateCommand WaterLoadingStartCommand { get; private set; }
-        public DelegateCommand WaterLoadingStopCommand { get; private set; }
-
-        public DelegateCommand HotWaterLoadingStartCommand { get; private set; }
-        public DelegateCommand HotWaterLoadingStopCommand { get; private set; }
-
-        public DelegateCommand Hot480WaterLoadingStartCommand { get; private set; }
-        public DelegateCommand Hot480WaterLoadingStopCommand { get; private set; }
-
-        public DelegateCommand UnloadFromR422StartCommand { get; private set; }
-        public DelegateCommand UnloadFromR422StopCommand { get; private set; }
 
 
-        public DelegateCommand Ohlagd480StartCommand { get; private set; }
-        public DelegateCommand Ohlagd480StopCommand { get; private set; }
-
-        public DelegateCommand RegPhK480aStartCommand { get; private set; }
-        public DelegateCommand RegPhK480aStopCommand { get; private set; }
-
-        public DelegateCommand RegPhK480bStartCommand { get; private set; }
-        public DelegateCommand RegPhK480bStopCommand { get; private set; }
-
-        public DelegateCommand ZagrMorfolin480StartCommand { get; private set; }
-        public DelegateCommand ZagrMorfolin480StopCommand { get; private set; }
-
-        public DelegateCommand ZagrDietil480StartCommand { get; private set; }
-        public DelegateCommand ZagrDietil480StopCommand { get; private set; }
-
-        public DelegateCommand ZagrDietilAmin480StartCommand { get; private set; }
-        public DelegateCommand ZagrDietilAmin480StopCommand { get; private set; }
-
-        public DelegateCommand ZagrAnilin480StartCommand { get; private set; }
-        public DelegateCommand ZagrAnilin480StopCommand { get; private set; }
 
 
 
@@ -228,14 +197,22 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
+        public DelegateCommand Promivka_4101_StartCommand { get; private set; }
+        public DelegateCommand Promivka_4101_StopCommand { get; private set; }
+        private WindowState promivka_4101WndStatus = WindowState.Closed;
+        public WindowState Promivka_4101WndStatus
+        {
+            get { return promivka_4101WndStatus; }
+            set { SetProperty(ref promivka_4101WndStatus, value); }
+        }
 
         public MnemonicViewModel(ProcessDataTcp pd, ArchivRepository archivRepository)
         {
             PD = pd;
             this.archivRepository = archivRepository;
 
-            //WaterLoadingStartCommand = new DelegateCommand(waterLoadingStart, canWaterLoadingStart);
-            //WaterLoadingStopCommand = new DelegateCommand(waterLoadingStop, canWaterLoadingStop);
+            Promivka_4101_StartCommand = new DelegateCommand(promivka_4101_Start, canPromivka_4101_Start);
+            Promivka_4101_StopCommand = new DelegateCommand(promivka_4101_Stop, canPromivka_4101_Stop);
 
             //HotWaterLoadingStartCommand = new DelegateCommand(hotwaterLoadingStart, canHotWaterLoadingStart);
             //HotWaterLoadingStopCommand = new DelegateCommand(hotwaterLoadingStop, canHotWaterLoadingStop);
@@ -272,11 +249,15 @@ namespace cip_blue.ViewModels
 
 
 
-              chartUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
+            chartUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
             internalUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
         }
 
-        //private bool canWaterLoadingStart() { return !PD.ZagrVodaComm_Start; }
+        private bool canPromivka_4101_Start() { return !PD.switch_promivka4101; }
+        private void promivka_4101_Start() => PD.switch_promivka4101 = true;
+        private bool canPromivka_4101_Stop() { return PD.switch_promivka4101; }
+        private void promivka_4101_Stop() => PD.switch_promivka4101 = false;
+
         //private void waterLoadingStart() => PD.ZagrVodaComm_Start = true;
         //private bool canWaterLoadingStop() { return PD.ZagrVodaComm_Start; }
         //private void waterLoadingStop() => PD.ZagrVodaComm_Start = false;
@@ -446,6 +427,8 @@ namespace cip_blue.ViewModels
             PingHost("192.168.120.139");
             Alarm_notanswerModule = PD.err_module_ad2 || PD.err_module_ad3 || PD.err_module_ad4 || PD.err_module_ad5 || PD.err_module_ad6 || PD.err_module_ad7;
 
+            Promivka_4101_StartCommand.RaiseCanExecuteChanged();
+            Promivka_4101_StopCommand.RaiseCanExecuteChanged();
 
             //WaterLoadingStartCommand.RaiseCanExecuteChanged();
             //WaterLoadingStopCommand.RaiseCanExecuteChanged();

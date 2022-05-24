@@ -1780,20 +1780,7 @@
         <Controls:ValueBlock FontFamily="Proxy 1" Visibility="Hidden" Canvas.Left="1089" Canvas.Top="895" Caption="QE K460B" Unit="PH"  ValueColor="LawnGreen" Foreground="#FF09F509"  Width="64" Height="36" Value="{Binding PD.QIY_K460B, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black"/>
         <Controls:ValueBlock FontFamily="Proxy 1"  Visibility="Hidden" Canvas.Left="977" Canvas.Top="894" Caption="QE K460A" Unit="PH"  ValueColor="LawnGreen" Foreground="#FF09F509"  Width="64" Height="36" Value="{Binding PD.QIY_K460A, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="124" Canvas.Top="741" Caption="TT_B4305" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="78" Height="36" Value="{Binding PD.TT_B4305_tempKond, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Collapsed"  >
-            <child:WaterLoading  Left="100" Top="30" Height="250" Width="300" Caption="Загр. арт.воды"  WindowState="{Binding WaterLoadingWndStatus}" Canvas.Left="535" Canvas.Top="30" />
-            <child:HotWaterLoading  Left="405" Top="30" Height="250" Width="406" Caption="Загр. гор. воды в 460-е "  WindowState="{Binding HotWaterLoadingWndStatus}" Canvas.Left="433" Canvas.Top="30" />
-            <child:Hot480WaterLoading  Left="815" Top="30" Height="250" Width="210" Caption="Загр.гор. воды в 480-е "  WindowState="{Binding Hot480WaterLoadingWndStatus}" Canvas.Left="882" Canvas.Top="30" />
-            <child:UnloadR422  Left="1000" Top="30" Height="400" Width="560" Caption="Выгр. из R422"  WindowState="{Binding UnloadFromR422WndStatus}" Canvas.Left="882" Canvas.Top="30" />
-            <child:Ohlagd480  Left="1000" Top="30" Height="250" Width="250" Caption="Охлаждение К480A/B"  WindowState="{Binding Ohlagd480WndStatus}" Canvas.Left="882" Canvas.Top="30" />
-            <child:ThermoCycl_1A Left="50" Top="500" Height="400" Width="560" Caption="Термоцикл 1А"  WindowState="{Binding ThermoCycl_1AWndStatus}" Canvas.Left="444" Canvas.Top="210" />
-            <child:RegPh480A Left="400" Top="500" Height="280" Width="280" Caption="Загр. щел./рег. pH K480A"  WindowState="{Binding RegPh480aWndStatus}" Canvas.Left="332" Canvas.Top="309" />
-            <child:RegPh480B Left="700" Top="500" Height="280" Width="280" Caption="Загр. щел./рег. pH K480B"  WindowState="{Binding RegPh480bWndStatus}" Canvas.Left="646" Canvas.Top="309" />
-            <child:ZagrMorfolin480 Left="50" Top="500" Height="Auto" Width="240" Caption="Загр. Морфолина K480A/B"  WindowState="{Binding ZagrMorfolin480WndStatus}" Canvas.Left="536" Canvas.Top="553" />
-            <child:ZagrDietil480 Left="50" Top="500" Height="Auto" Width="240" Caption="Загр. Диэтила K480A/B"  WindowState="{Binding ZagrDietil480WndStatus}" Canvas.Left="1605" Canvas.Top="45" />
-            <child:ZagrDietilAmin480 Left="50" Top="500" Height="Auto" Width="240" Caption="Загр. ДЭА K480A/B"  WindowState="{Binding ZagrDietilAmin480WndStatus}" Canvas.Left="985" Canvas.Top="514" />
-            <child:ZagrAnilin480 Left="50" Top="500" Height="Auto" Width="240" Caption="Загр. Анилина K480A/B"  WindowState="{Binding ZagrAnilin480WndStatus}" Canvas.Left="60" Canvas.Top="293" />
-        </xctk:WindowContainer>
+       
         <WPF:Tube Height="18" Canvas.Left="763" Canvas.Top="362" Width="24" RotateAngle="90" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
@@ -3224,7 +3211,9 @@
             </StackPanel>
         </GroupBox>
 
-
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
+            <child:Promivka_4101  Left="100" Top="30" Height="250" Width="300" Caption="Загр. арт.воды"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="358" Canvas.Top="33" />
+        </xctk:WindowContainer>
 
 
     </Canvas>

@@ -27,9 +27,9 @@
 
     </UserControl.Resources>
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"> 
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 
-        <ToggleButton Content="____  &#10; ______" IsChecked="{Binding WaterLoadingWndStatus, Mode=TwoWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="74" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" >
+        <ToggleButton Content="Промывка  &#10; F4101" IsChecked="{Binding Promivka_4101WndStatus, Mode=TwoWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="74" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" >
             <!--<ToggleButton Content="Загрузка воды в &#xa;       мерники" IsChecked="{Binding ProxyMnemonic1Tool.WaterLoadingWnd, Mode=OneWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="130" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" >-->
             <ToggleButton.Style>
                 <Style TargetType="ToggleButton">
