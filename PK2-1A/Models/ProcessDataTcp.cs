@@ -121,6 +121,9 @@ namespace cip_blue.Models
         public UInt16 WaterCount_4201_16 { get { return getValue<UInt16>(); } }//ad=61
         public UInt16 WaterCount_4101_16 { get { return getValue<UInt16>(); } }//ad=62
         public UInt16 WaterCount_160b_16 { get { return getValue<UInt16>(); } }//ad=63
+        public UInt16 empty1 { get { return getValue<UInt16>(); } }; //ad=64
+        public Single Fakt_Vodi_160b { get { return getValue<Single>(); } }//ad=65
+        public UInt16 Load_water_160b_status { get { return getValue<UInt16>(); } } //ad=67
 
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
@@ -134,10 +137,13 @@ namespace cip_blue.Models
         #region Holdings Registers
         //******************line1_1 ********************      
         //mu 110 8i ad=5       
-    //    public UInt16 NC_P412_aout { get { return getValue<UInt16>(); } set { setValue<UInt16>(value); } }  // ad= 1 _ch 1 
-          //mu 110 8i ad=5        //mu 110 8i ad=5        //mu 110 8i ad=5       	//mu 110 8i ad=5       
-       
+        //    public UInt16 NC_P412_aout { get { return getValue<UInt16>(); } set { setValue<UInt16>(value); } }  // ad= 1 _ch 1 
+        //mu 110 8i ad=5        //mu 110 8i ad=5        //mu 110 8i ad=5       	//mu 110 8i ad=5       
 
+        public Single time_delay { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad1
+        public Single time_imp { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad3
+        public Single Doza_Vodi_160b { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad5
+        public Single predvaritel_zakr_160b { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad5
 
         #endregion
     }
