@@ -183,6 +183,13 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref alarm_notanswerModule, value); }
         }
 
+        private string status_4101 ;
+        public string Status_4101
+        {
+            get { return status_4101; }
+            set { SetProperty(ref status_4101, value); }
+        }
+
         private ProcessDataTcp _pd;
         public ProcessDataTcp PD
         {
@@ -206,6 +213,18 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref promivka_4101WndStatus, value); }
         }
 
+        /// <summary>
+        /// Pfuheprf djls 
+        /// </summary>
+        public DelegateCommand ZagrVodi160a_StartCommand { get; private set; }
+        public DelegateCommand  ZagrVodi160a_StopCommand { get; private set; }
+        private WindowState  zagrVodi160aWndStatus = WindowState.Closed;
+        public WindowState  ZagrVodi160aWndStatus
+        {
+            get { return zagrVodi160aWndStatus; }
+            set { SetProperty(ref zagrVodi160aWndStatus, value); }
+        }
+        public Dictionary<int, string> Dictionary_Status;
         public MnemonicViewModel(ProcessDataTcp pd, ArchivRepository archivRepository)
         {
             PD = pd;
@@ -214,39 +233,19 @@ namespace cip_blue.ViewModels
             Promivka_4101_StartCommand = new DelegateCommand(promivka_4101_Start, canPromivka_4101_Start);
             Promivka_4101_StopCommand = new DelegateCommand(promivka_4101_Stop, canPromivka_4101_Stop);
 
-            //HotWaterLoadingStartCommand = new DelegateCommand(hotwaterLoadingStart, canHotWaterLoadingStart);
-            //HotWaterLoadingStopCommand = new DelegateCommand(hotwaterLoadingStop, canHotWaterLoadingStop);
+             ZagrVodi160a_StartCommand = new DelegateCommand( ZagrVodi160a_Start, canZagrVodi160a_Start);
+             ZagrVodi160a_StopCommand = new DelegateCommand( ZagrVodi160a_Stop, canZagrVodi160a_Stop);
 
-            //Hot480WaterLoadingStartCommand = new DelegateCommand(hot480waterLoadingStart, canHot480WaterLoadingStart);
-            //Hot480WaterLoadingStopCommand = new DelegateCommand(hot480waterLoadingStop, canHot480WaterLoadingStop);
-
-            //UnloadFromR422StartCommand = new DelegateCommand(unloadFromR422Start, canUnloadFromR422Start);
-            //UnloadFromR422StopCommand = new DelegateCommand(unloadFromR422stop, canUnloadFromR422Stop);
-
-            //Ohlagd480StartCommand = new DelegateCommand(Ohlagd480Start, canOhlagd480Start);
-            //Ohlagd480StopCommand = new DelegateCommand(Ohlagd480stop, canOhlagd480Stop);
-
-            //RegPhK480aStartCommand = new DelegateCommand(RegPh480aStart, canRegPh480aStart);
-            //RegPhK480aStopCommand = new DelegateCommand(RegPh480astop, canRegPh480aStop);
-
-            //RegPhK480bStartCommand = new DelegateCommand(RegPh480bStart, canRegPh480bStart);
-            //RegPhK480bStopCommand = new DelegateCommand(RegPh480bstop, canRegPh480bStop);
-
-
-            //ZagrMorfolin480StartCommand = new DelegateCommand(ZagrMorfolin480Start, canZagrMorfolin480Start);
-            //ZagrMorfolin480StopCommand = new DelegateCommand(ZagrMorfolin480stop, canZagrMorfolin480Stop);
-
-            //ZagrDietil480StartCommand = new DelegateCommand(ZagrDietil480Start, canZagrDietil480Start);
-            //ZagrDietil480StopCommand = new DelegateCommand(ZagrDietil480stop, canZagrDietil480Stop);
-
-
-            //ZagrDietilAmin480StartCommand = new DelegateCommand(ZagrDietilAmin480Start, canZagrDietilAmin480Start);
-            //ZagrDietilAmin480StopCommand = new DelegateCommand(ZagrDietilAmin480stop, canZagrDietilAmin480Stop);
-
-
-            //ZagrAnilin480StartCommand = new DelegateCommand(ZagrAnilin480Start, canZagrAnilin480Start);
-            //ZagrAnilin480StopCommand = new DelegateCommand(ZagrAnilin480stop, canZagrAnilin480Stop);
-
+            Dictionary_Status = new Dictionary<int, string>() {
+                {0, "НЕ бЫЛО ЗАПУСКА"},
+                { 1, "Цикл промывки:1. Клапан воды открыт. Ожидание таймера на закрытие" }, 
+                { 2, "Цикл промывки:2. Клапан воды закрыт. Ожидание таймера паузы 1" },
+                { 3, "Цикл промывки:3. Клапан воздуха открыт. Ожидание таймера на закрытие" }, 
+                { 4, "Цикл промывки:4. Клапан воздуха закрыт. Ожидание таймера на перезапуск" },
+                { 5, "5. Финальная продувка воздухом" },
+                { 7, "Завершение по условию" },
+                 { 10, "Условие выполнено" },
+                { 11, "Остановлено оператором" } };
 
 
             chartUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
@@ -257,6 +256,11 @@ namespace cip_blue.ViewModels
         private void promivka_4101_Start() => PD.switch_promivka4101 = true;
         private bool canPromivka_4101_Stop() { return PD.switch_promivka4101; }
         private void promivka_4101_Stop() => PD.switch_promivka4101 = false;
+
+        private bool canZagrVodi160a_Start() { return !PD.switch_ZagrVodi_160a; }
+        private void  ZagrVodi160a_Start() => PD.switch_ZagrVodi_160a = true;
+        private bool canZagrVodi160a_Stop() { return PD.switch_ZagrVodi_160a; }
+        private void ZagrVodi160a_Stop() => PD.switch_ZagrVodi_160a = false;
 
         //private void waterLoadingStart() => PD.ZagrVodaComm_Start = true;
         //private bool canWaterLoadingStop() { return PD.ZagrVodaComm_Start; }
@@ -327,7 +331,7 @@ namespace cip_blue.ViewModels
                     IsBusy = true;
 
                     internalUpdater.Start(() => internalUpdate(), null);
-
+                    
                     List<ThermoChartPoint> _points = new List<ThermoChartPoint>();
                     DateTime dt = DateTime.MinValue;
 
@@ -421,14 +425,32 @@ namespace cip_blue.ViewModels
             //});
         }
         Single save=0;
-       
+        int t;
+
+
         private void internalUpdate()
         {
-            PingHost("192.168.120.139");
+        //    PingHost("192.168.101.117");
             Alarm_notanswerModule = PD.err_module_ad2 || PD.err_module_ad3 || PD.err_module_ad4 || PD.err_module_ad5 || PD.err_module_ad6 || PD.err_module_ad7;
 
             Promivka_4101_StartCommand.RaiseCanExecuteChanged();
             Promivka_4101_StopCommand.RaiseCanExecuteChanged();
+
+            ZagrVodi160a_StartCommand.RaiseCanExecuteChanged();
+            ZagrVodi160a_StopCommand.RaiseCanExecuteChanged();
+            try
+            {
+                t = Convert.ToInt32(PD.cip4101_status);
+               Status_4101 = Dictionary_Status[t];
+              
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+         
+
 
             //WaterLoadingStartCommand.RaiseCanExecuteChanged();
             //WaterLoadingStopCommand.RaiseCanExecuteChanged();

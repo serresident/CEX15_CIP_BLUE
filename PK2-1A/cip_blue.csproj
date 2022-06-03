@@ -175,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\ChildWindows\ZagrVodi160a.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ChildWindows\ZagrDietilAmin480.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -352,6 +356,9 @@
     <Compile Include="Views\ChildWindows\Promivka_4101.xaml.cs">
       <DependentUpon>Promivka_4101.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChildWindows\ZagrVodi160a.xaml.cs">
+      <DependentUpon>ZagrVodi160a.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChildWindows\ZagrDietilAmin480.xaml.cs">
       <DependentUpon>ZagrDietilAmin480.xaml</DependentUpon>
     </Compile>
@@ -500,13 +507,19 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assest\Start.png" />
+    <Resource Include="Assest\Start.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assest\Stop-red.png" />
+    <Resource Include="Assest\Stop-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assest\WhitePen.png" />
+    <Resource Include="Assest\WhitePen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

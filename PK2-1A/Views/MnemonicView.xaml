@@ -1780,7 +1780,7 @@
         <Controls:ValueBlock FontFamily="Proxy 1" Visibility="Hidden" Canvas.Left="1089" Canvas.Top="895" Caption="QE K460B" Unit="PH"  ValueColor="LawnGreen" Foreground="#FF09F509"  Width="64" Height="36" Value="{Binding PD.QIY_K460B, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black"/>
         <Controls:ValueBlock FontFamily="Proxy 1"  Visibility="Hidden" Canvas.Left="977" Canvas.Top="894" Caption="QE K460A" Unit="PH"  ValueColor="LawnGreen" Foreground="#FF09F509"  Width="64" Height="36" Value="{Binding PD.QIY_K460A, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="124" Canvas.Top="741" Caption="TT_B4305" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="78" Height="36" Value="{Binding PD.TT_B4305_tempKond, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-       
+
         <WPF:Tube Height="18" Canvas.Left="763" Canvas.Top="362" Width="24" RotateAngle="90" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
@@ -1873,11 +1873,12 @@
 
 
         </WPF:Valve>
-        <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="782" Canvas.Top="105">
+        <GroupBox    
+            Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="782" Canvas.Top="105">
             <GroupBox.Header>
                 <TextBlock Text="FQ_4101, Л"/>
             </GroupBox.Header>
-            <StackPanel>
+            <StackPanel >
 
 
                 <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
@@ -1889,6 +1890,7 @@
                 <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4101}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
                 <xctk:ToggleSwitch Width="64" Height="24"    
+          Visibility="{c:Binding '( switch_promivka4101) ', FalseToVisibility=Collapsed}" 
             CornerRadius="2"
             IsChecked="{Binding PD.Reset_WaterCount_4101, Mode=TwoWay}"
             ThumbHeight = "25"
@@ -3172,6 +3174,7 @@
 
                 <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4201}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding PD.WaterCount_4201_virtual}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
                 <xctk:ToggleSwitch Width="64" Height="24"    
                     CornerRadius="2"
                     IsChecked="{Binding PD.Reset_WaterCount_4201, Mode=TwoWay}"
@@ -3186,7 +3189,7 @@
         </GroupBox>
         <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="1075" Canvas.Top="614" HorizontalAlignment="Left" VerticalAlignment="Top">
             <GroupBox.Header>
-                <TextBlock Text="FQ_160б , Л"/>
+                <TextBlock Text="FQ_160a , Л"/>
             </GroupBox.Header>
             <StackPanel>
 
@@ -3197,10 +3200,10 @@
                 <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
 
 
-                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_160b}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_160a}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
                 <xctk:ToggleSwitch Width="64" Height="24"    
                     CornerRadius="2"
-                    IsChecked="{Binding PD.Reset_WaterCount_160b, Mode=TwoWay}"
+                    IsChecked="{Binding PD.Reset_WaterCount_160a, Mode=TwoWay}"
                     ThumbHeight = "25"
                     ThumbWidth = "20"
                     CheckedContent = "Успешно"
@@ -3211,8 +3214,10 @@
             </StackPanel>
         </GroupBox>
 
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
-            <child:Promivka_4101  Left="100" Top="30" Height="250" Width="300" Caption="Загр. арт.воды"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="358" Canvas.Top="33" />
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible" Canvas.Left="74" Canvas.Top="-37"  >
+            <child:Promivka_4101  Left="100" Top="30" Height="330" Width="300" Caption="Загр. арт.воды"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="468" Canvas.Top="55" />
+            <child:ZagrVodi160a  Left="100" Top="30" Height="250" Width="300" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="544" Canvas.Top="27" />
+
         </xctk:WindowContainer>
 
 

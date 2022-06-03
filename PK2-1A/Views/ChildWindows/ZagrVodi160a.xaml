@@ -1,5 +1,5 @@
 ﻿<xctk:ChildWindow
-    x:Class="cip_blue.Views.ChildWindows.Promivka_4101"
+    x:Class="cip_blue.Views.ChildWindows.ZagrVodi160a"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
@@ -17,7 +17,7 @@
     Background="Wheat"
     ResizeMode="NoResize"
     WindowBackground="LightGray"
-    mc:Ignorable="d" Height="Auto">
+    mc:Ignorable="d" Height="258">
 
     <xctk:ChildWindow.Resources>
         <Style x:Key="FocusVisual">
@@ -107,13 +107,12 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
 
         </Grid.ColumnDefinitions>
@@ -122,8 +121,8 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             FontSize="18"
-            Foreground="Green"
-            Text="Выберите режим"
+            Foreground="Blue"
+            Text="Загрузка воды в 160a "
             TextWrapping="Wrap" />
         <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"   >
             <RadioButton IsChecked="{Binding PD.ZagrVodaComm_Nemk, Mode=TwoWay, Converter={StaticResource BoolToNumConverter}, ConverterParameter=0}" Content="R521" GroupName="two"  FontSize="18" Style="{StaticResource {x:Type ToggleButton}}"  />
@@ -137,17 +136,19 @@
             Grid.Row="1"
             Grid.ColumnSpan="2"
             Height="48"
+            Visibility="Collapsed"
             VerticalAlignment="Bottom"
-            IsEnabled="{Binding PD.switch_promivka4101, Converter={StaticResource BooleanNegateConverter}}"
-            SelectedIndex="{Binding PD.choice_rejim_4101}"
+            IsEnabled="{Binding PD.ZagrVodaComm_Start, Converter={StaticResource BooleanNegateConverter}}"
+            SelectedIndex="{Binding PD.ZagrVodaComm_Nemk}"
             Style="{StaticResource SelectTabControlStyle}">
-            <TabControl.ContentTemplate>
+            
+            <TabControl.ContentTemplate >
                 <DataTemplate>
                     <Grid DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
-
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <!--<TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Время[мин]" VerticalAlignment="Center" FontSize="16"/>
@@ -161,17 +162,19 @@
                         <TextBlock Text="{Binding PD.Fakt_Time_Nitrogen_Purge_41D,  FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Column="2" FontWeight="Bold" Foreground="#FF646464" />-->
                     </Grid>
                 </DataTemplate>
-            </TabControl.ContentTemplate>
-            <TabItem 
-            
+            </TabControl.ContentTemplate >
+            <TabItem
                 Width="100"
-                Header="Режим 1"
+                Header="R521"
                 Style="{StaticResource SelectTabItemStyle}" />
             <TabItem
                 Width="100"
-                Header="Режим 2"
+                Header="R603"
                 Style="{StaticResource SelectTabItemStyle}" />
-
+            <TabItem
+                Width="100"
+                Header="R631"
+                Style="{StaticResource SelectTabItemStyle}" />
 
 
 
@@ -186,45 +189,23 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="24"
+            ToolTip="Текущие показания счетчика "
             FontWeight="Bold"
-            ToolTip="Счетчик воды"
-            Foreground="Blue"
-            Text="{Binding PD.WaterCount_4101_virtual, StringFormat=\{0:0.0##\}, FallbackValue=???}" />
+            Foreground="DarkGreen"
+            Text="{Binding PD.WaterCount_160a, StringFormat=\{0:0.0##\}, FallbackValue=???}" />
         <!--<TextBlock Text="41A" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Foreground="#FF646464" Margin="5" />-->
         <!--<WPF:TextBox IsEnabled="{c:Binding '!PD.In_SOST_OTS_KL_WV_59A_SQH'}" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Grid.Row="1" Grid.Column="1" Height="33" Text="0" SpinTargetValue="{Binding RelativeSource={RelativeSource Self}, Path=Text}" TextWrapping="Wrap" Width="100" SpinButtonsLeftRight="True" SpinButtonsVisible="True" SpinMinValue="0" SpinMaxValue="10000" AcceptedInput="Digits" FontSize="16" SpinIncrementValue="5">
                             <Behaviors:Interaction.Behaviors>
                                 <behaviors:BindingBehavior  Value="{Binding PD.Weight_water_for_loading_59A, StringFormat=\{0:0.###\}, Mode=TwoWay}" />
                             </Behaviors:Interaction.Behaviors>
                         </WPF:TextBox>-->
-        <StackPanel Grid.Row="3"
-            Grid.Column="0">
-            <controls:NumPadUpDown
+        <controls:NumPadUpDown
             Grid.Row="3"
             Grid.Column="0"
             Width="120"
+            ToolTip="Доза воды в литрах"
             Height="30"
-            Margin="0,0,0,2"
-            VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
-            EnterClosesNumPad="True"
-            FontSize="16"
-            FontWeight="Bold"
-             
-            
-            Increment="1"
-            Minimum="-1"
-            Precision="0"
-            UpdateValueOnEnterKey="True">
-                <Behaviors:Interaction.Behaviors>
-                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_Fq_4101}" />
-                </Behaviors:Interaction.Behaviors>
-            </controls:NumPadUpDown>
-            <controls:NumPadUpDown 
-            Grid.Row="3"
-            Grid.Column="0"
-            Width="120"
-            Height="30"
-            Margin="0,0,0,2"
+            Margin="15,0,0,0"
             VerticalAlignment="Center"
             VerticalContentAlignment="Center"
             EnterClosesNumPad="True"
@@ -235,25 +216,32 @@
             Minimum="-1"
             Precision="0"
             UpdateValueOnEnterKey="True">
-                <Behaviors:Interaction.Behaviors>
-                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_qe_4101}" />
-                </Behaviors:Interaction.Behaviors>
-            </controls:NumPadUpDown>
-        </StackPanel>
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Doza_Vodi_160a}" />
+            </Behaviors:Interaction.Behaviors>
+        </controls:NumPadUpDown>
+
 
         <TextBlock
-              Visibility="{c:Binding '( switch_promivka4101) ', FalseToVisibility=Collapsed}" 
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="1"
-            ToolTip="Оставшийся объем воды на промывку "
             Margin="5"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="20"
+            ToolTip="Загружено воды"
             FontWeight="Bold"
             Foreground="#FF646464"
-            Text="{c:Binding PD.sp_Fq_4101 - PD.WaterCount_4101_virtual, StringFormat=\{0:0.0##\}, FallbackValue=???}" />
-
+            Text="{Binding PD.Fakt_Vodi_160a, StringFormat=\{0:0.0##\}, FallbackValue=???}" />
+        <TextBlock Grid.Row="5"  HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="20"
+            FontWeight="Bold"
+            Grid.ColumnSpan="2"     
+            Foreground="#FF646464"
+            Text="{c:Binding '( PD.Load_water_160a_status == 2) ? загрузка завершена : 0 '}"
+            Visibility="{c:Binding '( PD.ZagrARtVoda_TimeLeft > 0) ', FalseToVisibility=Collapsed}"/>
+        
         <TextBlock  HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="20"
@@ -276,7 +264,7 @@
             <xctk:IconButton
                 Padding="3,3,20,3"
                 HorizontalAlignment="Center"
-                Command="{Binding Promivka_4101_StopCommand}"
+                Command="{Binding ZagrVodi160a_StopCommand}"
                 Content="     Стоп"
                 DockPanel.Dock="Right"
                 IconLocation="Left">
@@ -298,7 +286,7 @@
             <xctk:IconButton
                 Padding="3,3,20,3"
                 HorizontalAlignment="Center"
-                Command="{Binding Promivka_4101_StartCommand}"
+                Command="{Binding ZagrVodi160a_StartCommand}"
                 Content="     Пуск"
                 DockPanel.Dock="Right"
                 IconLocation="Left">
@@ -317,205 +305,8 @@
                 </xctk:IconButton.Icon>
             </xctk:IconButton>
         </DockPanel>
-        <StackPanel Grid.Row="3" Grid.Column="1">
-            <TextBlock
-           Margin="5,0,0,18"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            FontSize="14"
-             
-            FontWeight="Bold"
-            Foreground="DarkCyan"
-            Text="Доза промывки, л" 
-            ToolTip="Уставка, отключение при достижении указанного значения"/>
-
-            <TextBlock
-            Margin="5,0,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            FontSize="14"
-            FontWeight="Bold"
-            Foreground="DarkCyan"
-            ToolTip="Уставка, отключение при достижении указанного значения"
-            Text="Эл. проводность" />
-
-        </StackPanel>
-        <TextBlock TextWrapping="Wrap"  Grid.Row="5"  Grid.ColumnSpan="2" Text="{Binding Status_4101}"></TextBlock>
-
-        <TextBlock Grid.Row="6"  HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="16"
-            FontWeight="Bold"
-            Foreground="#FF646464" Text="Осталось ,мин:"
-            Visibility="{c:Binding '( PD.cip4101_time > 0) ', FalseToVisibility=Collapsed}"/>
-        <TextBlock  Grid.Row="6" HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="20"
-            FontWeight="Bold"
-            Foreground="#FF646464" Grid.Column="1" Text="{c:Binding '( PD.cip4101_time > 0) ? PD.cip4101_time : 0 '}"  Visibility="{c:Binding '( PD.cip4101_time > 0) ', FalseToVisibility=Collapsed}"/>
-        <Expander  Grid.ColumnSpan="2"   Grid.Row="5" Header="Дополнительные параметры">
-
-            <ScrollViewer>
-                <Expander   Header="Режим 1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="13.345"/>
-                        <ColumnDefinition Width="159.382"/>
-                        <ColumnDefinition Width="Auto" />
-
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Row="0" Grid.ColumnSpan="4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Условие по Эл.пр-ти:"></TextBlock>
-
-                        <xctk:ToggleSwitch Width="64" Margin="0,0,0,5" Height="25" Grid.Row="0" Grid.Column="1"    
-                  CornerRadius="2"
-                 IsChecked="{Binding PD.ZagrAnilin480_IsEnablePredictClose ,Mode=TwoWay}"
-                ThumbHeight = "25"
-                ThumbWidth = "24"
-              VerticalAlignment="Center"
-               CheckedContent = "ВКЛ"
-                UncheckedContent = "ВЫКЛ"
-                CheckedBackground="DarkSeaGreen"
-                UncheckedBackground ="LightPink"></xctk:ToggleSwitch>
-
-                    </Grid>
 
 
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="12"  Foreground="Blue" Text="ТАЙМЕРЫ: 1. пром-ка,мин. :" Grid.ColumnSpan="4" Margin="0,0,120,0"></TextBlock>
-                    <controls:NumPadUpDown
-            Grid.Row="1"
-            Grid.Column="3"
-            Width="80"
-            Height="30"
-            Margin="20,0,20,0"
-            VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
-            EnterClosesNumPad="True"
-            FontSize="16"
-            FontWeight="Bold"
-            
-            Increment="1"
-            Minimum="-1"
-            Precision="1"
-            UpdateValueOnEnterKey="True">
-                        <Behaviors:Interaction.Behaviors>
-                            <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrAnilin_weightPredictClose}" />
-                        </Behaviors:Interaction.Behaviors>
-                    </controls:NumPadUpDown>
-
-                    <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="12"  Foreground="Blue" Text="2.Пауза после пр-ки,мин.:" Grid.ColumnSpan="4" Margin="0,0,120,0"></TextBlock>
-
-                    <controls:NumPadUpDown
-            Grid.Row="3"
-            Grid.Column="3"
-            Width="80"
-            Height="30"
-            VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
-            EnterClosesNumPad="True"
-            FontSize="16"
-            FontWeight="Bold"
-            
-            Increment="1"
-            Minimum="-1"
-            Precision="1"
-            UpdateValueOnEnterKey="True" Margin="20,0,20,0">
-                        <Behaviors:Interaction.Behaviors>
-                            <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrAnilin480_setDeegrePredictClose}" />
-                        </Behaviors:Interaction.Behaviors>
-                    </controls:NumPadUpDown>
-
-                    <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="12"  Foreground="Blue" Text="3.Продувка ,мин.:" Grid.ColumnSpan="4" Margin="0,0,120,0"></TextBlock>
-
-                    <controls:NumPadUpDown
-            Grid.Row="4"
-            Grid.Column="3"
-            Width="80"
-            Height="30"
-            VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
-            EnterClosesNumPad="True"
-            FontSize="16"
-            FontWeight="Bold"
-            
-            Increment="1"
-            Minimum="-1"
-            Precision="1"
-            UpdateValueOnEnterKey="True" Margin="20,0,20,0">
-                        <Behaviors:Interaction.Behaviors>
-                            <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrAnilin480_setDeegrePredictClose}" />
-                        </Behaviors:Interaction.Behaviors>
-                    </controls:NumPadUpDown>
-
-                    <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" FontWeight="Bold" FontSize="12"  Foreground="Blue" Text="4.Пауза после прод-ки ,мин.:" Grid.ColumnSpan="4" Margin="0,0,120,0"></TextBlock>
-
-                    <controls:NumPadUpDown
-            Grid.Row="5"
-            Grid.Column="3"
-            Width="80"
-            Height="30"
-            VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
-            EnterClosesNumPad="True"
-            FontSize="16"
-            FontWeight="Bold"
-            
-            Increment="1"
-            Minimum="-1"
-            Precision="1"
-            UpdateValueOnEnterKey="True" Margin="20,0,20,0">
-                        <Behaviors:Interaction.Behaviors>
-                            <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrAnilin480_setDeegrePredictClose}" />
-                        </Behaviors:Interaction.Behaviors>
-                    </controls:NumPadUpDown>
-                    <TextBlock VerticalAlignment="Center" Grid.Row="6" Grid.Column="0" FontWeight="Bold" FontSize="12"  Foreground="Blue" Text="5.Финальная продувка ,мин.:" Grid.ColumnSpan="4" Margin="0,0,120,0"></TextBlock>
-
-                    <controls:NumPadUpDown
-            Grid.Row="6"
-            Grid.Column="3"
-            Width="80"
-            Height="30"
-            VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
-            EnterClosesNumPad="True"
-            FontSize="16"
-            FontWeight="Bold"
-            
-            Increment="1"
-            Minimum="-1"
-            Precision="1"
-            UpdateValueOnEnterKey="True" Margin="20,0,20,0">
-                        <Behaviors:Interaction.Behaviors>
-                            <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrAnilin480_setDeegrePredictClose}" />
-                        </Behaviors:Interaction.Behaviors>
-                    </controls:NumPadUpDown>
-
-
-                </Grid>
-                </Expander>
-                
-               
-
-            </ScrollViewer>
-
-        </Expander>
-     
 
 
     </Grid>

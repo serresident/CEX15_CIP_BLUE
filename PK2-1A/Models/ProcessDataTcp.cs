@@ -66,9 +66,11 @@ namespace cip_blue.Models
        public bool rezerv16_2{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=16 ch16
        public bool Reset_WaterCount_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=17
         public bool Reset_WaterCount_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=18
-        public bool Reset_WaterCount_160b { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=19
+        public bool Reset_WaterCount_160a { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=19
         public bool switch_promivka4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool switch_promivka4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool switch_ZagrVodi_160a { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool choice_rejim_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
         public bool Logging = true;
         #endregion
@@ -113,18 +115,40 @@ namespace cip_blue.Models
         public Single ch8{ get { return getValue<Single>(); } } //ad= 47 _ch 8 
         public Single WaterCount_4201 { get { return getValue<Single>(); } }//ad=49
         public Single WaterCount_4101 { get { return getValue<Single>(); } }//ad=51
-        public Single WaterCount_160b { get { return getValue<Single>(); } }//ad=53
+        public Single WaterCount_160a { get { return getValue<Single>(); } }//ad=53
         public UInt32 WaterCount_4201_32 { get { return getValue<UInt32>(); } }//ad=55
         public UInt32 WaterCount_4101_32 { get { return getValue<UInt32>(); } }//ad=57
-        public UInt32 WaterCount_160b_32 { get { return getValue<UInt32>(); } }//ad=59
+        public UInt32 WaterCount_160a_32 { get { return getValue<UInt32>(); } }//ad=59
 
         public UInt16 WaterCount_4201_16 { get { return getValue<UInt16>(); } }//ad=61
         public UInt16 WaterCount_4101_16 { get { return getValue<UInt16>(); } }//ad=62
-        public UInt16 WaterCount_160b_16 { get { return getValue<UInt16>(); } }//ad=63
-        public UInt16 empty1 { get { return getValue<UInt16>(); } }; //ad=64
-        public Single Fakt_Vodi_160b { get { return getValue<Single>(); } }//ad=65
-        public UInt16 Load_water_160b_status { get { return getValue<UInt16>(); } } //ad=67
+        public UInt16 WaterCount_160a_16 { get { return getValue<UInt16>(); } }//ad=63
+        public UInt16 empty1 { get { return getValue<UInt16>(); } } //ad=64
+        public Single Fakt_Vodi_160a { get { return getValue<Single>(); } }//ad=65
+        public UInt16 Load_water_160a_status { get { return getValue<UInt16>(); } } //ad=67
+        public UInt16 JOURNAL2 { get { return getValue<UInt16>(); } }  //ad=68
+        public Single vremya_promivki_4101_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_pause1_4101_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_air_4101_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_pause2_4101_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_produvki_4101_n1_status { get { return getValue<Single>(); } }
 
+        public Single vremya_promivki_4101_n2_status { get { return getValue<Single>(); } }
+        public Single vremya_pause1_4101_n2_status { get { return getValue<Single>(); } }
+        public Single vremya_air_4101_n2_status { get { return getValue<Single>(); } }
+        public Single vremya_pause2_4101_n2_status { get { return getValue<Single>(); } }
+        public Single vremya_produvki_4101_n2_status { get { return getValue<Single>(); } }
+
+        public Single vremya_promivki_4201_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_pause1_4201_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_air_4201_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_pause2_4201_n1_status { get { return getValue<Single>(); } }
+        public Single vremya_produvki_4201_n1_status { get { return getValue<Single>(); } }
+        public Single cip4101_status{ get { return getValue<Single>(); } } //ad=
+        public Single cip4101_time { get { return getValue<Single>(); } } //ad=
+        public Single WaterCount_4201_virtual { get { return getValue<Single>(); } }//ad=
+        public Single WaterCount_4101_virtual { get { return getValue<Single>(); } }//ad=
+        public Single WaterCount_160a_virtual { get { return getValue<Single>(); } }//ad=
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
                                    //ad108  должен быть последним ,служит для определения успешного чтения регистров
@@ -142,8 +166,31 @@ namespace cip_blue.Models
 
         public Single time_delay { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad1
         public Single time_imp { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad3
-        public Single Doza_Vodi_160b { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad5
-        public Single predvaritel_zakr_160b { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad5
+        public Single Doza_Vodi_160a { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad5
+        public Single predvaritel_zakr_160a { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad5
+
+
+        public Single vremya_promivki_4101_n1{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad7
+        public Single vremya_pauzi1_4101_n1{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad9
+        public Single vremya_vozduha_4101_n1{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad11
+        public Single vremya_pauzi2_4101_n1{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad13
+        public Single vremya_produvki_4101_n1{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad15
+
+        public Single sp_qe_4101{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad17
+        public Single sp_Fq_4101{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad19
+
+
+        public Single sp_qe_4201{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad21
+        public Single sp_Fq_4201{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad23
+
+        public Single sp_qe_4101_n2{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad25
+        public Single sp_Fq_4101_n2{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad27
+
+        public Single vremya_promivki_4101_n2{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad29
+        public Single vremya_pauzi1_4101_n2{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad31
+        public Single vremya_vozduha_4101_n2{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad33
+        public Single vremya_pauzi2_4101_n2{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad35
+        public Single vremya_produvki_4101_n2{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad37
 
         #endregion
     }

@@ -321,7 +321,7 @@
                         DockPanel.Dock="Right"
                         IconLocation="Left">
                     <xctk:IconButton.Icon>
-                        <Image Source="/belofor;component/Assest/Stop-red.png">
+                        <Image Source="/cip_blue;component/Assest/Stop-red.png">
                             <Image.Style>
                                 <Style TargetType="Image">
                                     <Style.Triggers>
@@ -343,7 +343,7 @@
                         DockPanel.Dock="Right"
                         IconLocation="Left">
                     <xctk:IconButton.Icon>
-                        <Image Source="/belofor;component/Assest/Start.png">
+                        <Image Source="/cip_blue;component/Assest/Start.png">
                             <Image.Style>
                                 <Style TargetType="Image">
                                     <Style.Triggers>

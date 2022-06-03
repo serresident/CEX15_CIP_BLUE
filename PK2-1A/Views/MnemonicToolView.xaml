@@ -29,7 +29,7 @@
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 
-        <ToggleButton Content="Промывка  &#10; F4101" IsChecked="{Binding Promivka_4101WndStatus, Mode=TwoWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="74" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" >
+        <ToggleButton Content="Загрузка воды  &#10; в 160a" IsChecked="{Binding ZagrVodi160aWndStatus, Mode=TwoWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="89" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" >
             <!--<ToggleButton Content="Загрузка воды в &#xa;       мерники" IsChecked="{Binding ProxyMnemonic1Tool.WaterLoadingWnd, Mode=OneWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="130" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" >-->
             <ToggleButton.Style>
                 <Style TargetType="ToggleButton">
@@ -45,7 +45,7 @@
                     <Setter Property="Template" Value="{StaticResource SimpleToggleButtonTemplate}"/>
 
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding PD.ZagrVodaComm_Start}" Value="true" >
+                        <DataTrigger Binding="{Binding PD.ZagrVodi160a_StartCommand}" Value="true" >
                             <Setter Property="OverridesDefaultStyle" Value="true"/>
                             <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
                             <Setter Property="Foreground" Value="{StaticResource GreenTextForegroundBrush}"/>
@@ -62,7 +62,8 @@
             </ToggleButton.Style>
 
         </ToggleButton>
-        <ToggleButton  Visibility="Collapsed" Content="Выгрузка из  &#10;  R422" IsChecked="{Binding UnloadFromR422WndStatus, Mode=TwoWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="74" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" Checked="ToggleButton_Checked" >
+
+        <ToggleButton  Visibility="Visible" Content="Промывка   &#10; 4101 " IsChecked="{Binding Promivka_4101WndStatus, Mode=TwoWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="74" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" Checked="ToggleButton_Checked" >
             <!--<ToggleButton Content="Загрузка воды в &#xa;       мерники" IsChecked="{Binding ProxyMnemonic1Tool.WaterLoadingWnd, Mode=OneWay, Converter={StaticResource WindowsStatetToBoolConverter}}" Width="130" HorizontalContentAlignment="Center" Height="40" Margin="0,0,5,0" >-->
             <ToggleButton.Style>
                 <Style TargetType="ToggleButton">
@@ -78,7 +79,7 @@
                     <Setter Property="Template" Value="{StaticResource SimpleToggleButtonTemplate}"/>
 
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding PD.ZagrKond480Comm_Start}" Value="true" >
+                        <DataTrigger Binding="{Binding PD.switch_promivka4101}" Value="true" >
                             <Setter Property="OverridesDefaultStyle" Value="true"/>
                             <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
                             <Setter Property="Foreground" Value="{StaticResource GreenTextForegroundBrush}"/>

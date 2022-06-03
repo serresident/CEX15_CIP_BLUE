@@ -110,17 +110,17 @@ namespace cip_blue.Services
                             }
                             // You can generate a Token from the "Tokens Tab" in the UI
                             const string token = "mHucveNRwLyyPprDcHlGTjtXAE3B6aV3hRGW61Q3UfvT0_G6plFQvpJwS62jFrNK2g4fGEEDNU1HCAJzKoajlQ==";
-                            const string bucket_journal = "belofor_detail";
-                            const string bucket_serias = "belofor";
-                            const string org = "belofor";
+                            const string bucket_journal = "cip_blue_detail";
+                            const string bucket_serias = "cip_blue";
+                            const string org = "cip_blue";
 
                             var client = InfluxDBClientFactory.Create("http://192.168.120.143:8086", token.ToCharArray());
-                            string data_journal = "Log_Action,title=belofor_hmi log_mnemonic=" + "\"" + JsonConvert.SerializeObject(values) + "\"";
+                            string data_journal = "Log_Action,title=cip_blue_hmi log_mnemonic=" + "\"" + JsonConvert.SerializeObject(values) + "\"";
                             string replace = JsonConvert.SerializeObject(values).Replace("{", "")
                                  .Replace("\"", "")
                                  .Replace(":", "=")
                                  .Replace("}", "");
-                            string data_serias = "belofor,title=mnemonic_seria_10s ";
+                            string data_serias = "cip_blue,title=mnemonic_seria_10s ";
                             var writeApi = client.GetWriteApiAsync();
 
                             // writeApi.WriteRecord(bucket_journal, org, WritePrecision.Ns, data_journal);
