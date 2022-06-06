@@ -183,7 +183,7 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref alarm_notanswerModule, value); }
         }
 
-        private string status_4101 ;
+        private string status_4101="0" ;
         public string Status_4101
         {
             get { return status_4101; }
