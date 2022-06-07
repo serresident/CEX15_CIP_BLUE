@@ -190,6 +190,14 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref status_4101, value); }
         }
 
+
+        private string status_4201 = "0";
+        public string Status_4201
+        {
+            get { return status_4201; }
+            set { SetProperty(ref status_4201, value); }
+        }
+
         private ProcessDataTcp _pd;
         public ProcessDataTcp PD
         {
@@ -446,7 +454,7 @@ namespace cip_blue.ViewModels
             //});
         }
         Single save=0;
-        int t;
+        
 
 
         private void internalUpdate()
@@ -465,9 +473,9 @@ namespace cip_blue.ViewModels
 
             try
             {
-                t = Convert.ToInt32(PD.cip4101_status);
-               Status_4101 = Dictionary_Status[t];
-              
+               
+               Status_4101 = Dictionary_Status[Convert.ToInt32(PD.cip4101_status)];
+                Status_4201 = Dictionary_Status[Convert.ToInt32(PD.cip4201_status)];
             }
             catch(Exception ex)
             {
