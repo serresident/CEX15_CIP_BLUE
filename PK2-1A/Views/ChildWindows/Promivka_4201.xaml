@@ -1,5 +1,5 @@
 ﻿<xctk:ChildWindow
-    x:Class="cip_blue.Views.ChildWindows.Promivka_4101"
+    x:Class="cip_blue.Views.ChildWindows.Promivka_4201"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"

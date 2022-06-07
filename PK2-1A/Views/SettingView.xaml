@@ -11,7 +11,83 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1920">
-    
+    <UserControl.Resources>
+        <!--<Thickness  x:Key="CommonMargin" Left="1" Right="1" Top="2" Bottom="2" />
+        <Style TargetType="{x:Type Controls:NumPadUpDown}">
+            <Setter Property="Margin" Value="{StaticResource CommonMargin}" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="EnterClosesNumPad" Value="True" />
+            <Setter Property="Precision" Value="1" />
+            <Setter Property="Foreground" Value="LawnGreen" />
+            <Setter Property="Background" Value="LawnGreen" />
+            <Setter Property="FontSize" Value="23" />
+            -->
+        <!--VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                     
+                    FontWeight="Bold"
+                    Foreground="LawnGreen" Margin="152,0,0,0"
+                    Increment="0.1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center">-->
+        <!--
+
+        </Style>-->
+        <Style TargetType="ToolTip">
+            <Setter Property = "HorizontalOffset" Value="10"/>
+            <Setter Property = "VerticalOffset" Value="10"/>
+            <Setter Property = "Background" Value="Black"/>
+            <Setter Property = "Foreground" Value="AliceBlue"/>
+            <Setter Property = "FontSize" Value="14"/>
+            <Setter Property = "FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Control.FontFamily" Value=" "/>
+            <Setter Property="Control.FontSize" Value="12"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="AliceBlue" Opacity="0.6"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Padding" Value="5"/>
+
+        </Style>
+
+
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </Style>
+            </Style.Resources>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibri"/>
+            <Setter Property="Foreground" Value="AliceBlue"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="Black" Opacity="0.6"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Focusable" Value="false"/>
+
+            <Setter Property="Cursor" Value="Arrow"/>
+        </Style>
+
+
+
+
+
+
+
+
+
+    </UserControl.Resources>
 
     <xctk:BusyIndicator IsBusy="{Binding IsBusy}" >
         <Grid >
@@ -28,353 +104,16 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition/>
-             
+
             </Grid.RowDefinitions>
             <TextBlock  FontSize="20" Foreground="DarkBlue" FontWeight="Black" HorizontalAlignment="Center" Text="Доп. параметры ведения процессов" Grid.Row="0" Grid.ColumnSpan="6"/>
-            <Border  VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="0"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
-            
-            </Border>
-            <Grid Grid.Row="1" Grid.Column="0"  Margin="8,5,5,5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="80"/>
-
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="36"/>
-                </Grid.RowDefinitions>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Загрузка Щелочи в К480А" Grid.ColumnSpan="2" Grid.Row="0" Height="24"/>
-
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 1" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" /> 
-             
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="2"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_x1}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="3"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_pH1}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 2" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" Grid.Row="5" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="5"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_x2}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" Grid.Row="6" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="6"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_pH2}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-<!--//точка 3-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 3" Grid.ColumnSpan="2" Grid.Row="7" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" 
-                           Grid.Row="8" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="8"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_x3}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" 
-                           Grid.Row="9" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="9"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_pH3}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <!--//точка 4-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 4" Grid.ColumnSpan="2" Grid.Row="10" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" 
-                           Grid.Row="11" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="11"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_x4}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" 
-                           Grid.Row="12" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="12"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_pH4}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <!--//точка 5-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 5" Grid.ColumnSpan="2" Grid.Row="13" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" 
-                           Grid.Row="14" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="14"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_x5}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" 
-                           Grid.Row="15" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="15"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_pH5}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-
-                <!--//остальные-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  остальное" Grid.ColumnSpan="2" Grid.Row="16" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Макс. изменение pH" Grid.ColumnSpan="1" 
-                           Grid.Row="17" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="17"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_DeltaPH_max}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock ToolTip="Срабатывает при изменение pH, быстрее заданного значения(Максим. изменение pH),  клапан подачи щелочи закрывается на указанное время в секундах" FontWeight="Bold" FontSize="14"  Text="Время паузы, сек" Grid.ColumnSpan="1" 
-                           Grid.Row="18" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="18"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_Tau_pause}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Время измерения pH" Grid.ColumnSpan="1" 
-                           Grid.Row="19" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="19"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_Tau_izm}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Коэфф. масштаб. &#10; % открытия кл." Grid.ColumnSpan="1" 
-                           Grid.Row="20" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="20"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="2"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480A_Kx}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-
-            </Grid>
-<!--//k480B, ph-->
-            <Border  VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
+            <Border   VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
 
             </Border>
             <Grid Grid.Row="1" Grid.Column="1"  Margin="8,5,5,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="100"/>
 
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -400,315 +139,113 @@
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="36"/>
                 </Grid.RowDefinitions>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Загрузка Щелочи в К480B" Grid.ColumnSpan="2" Grid.Row="0" Height="24"/>
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Промывка 4201"   Grid.Row="0" Height="24"/>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воды, мин:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
 
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 1" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
-
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="2"
+                <Controls:NumPadUpDown   Grid.Row="2"
                     Height="24" 
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,1,0,1"
                     Increment="1"
                     Minimum="0"
                     Maximum="100"
                     Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_x1}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_promivki_4201_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="3"
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер паузы 1, мин:" Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" Foreground="#FF1D6762" />
+                <Controls:NumPadUpDown   Grid.Row="3" Grid.Column="1"
                     Height="24"
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
-                     
+                    
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen"
                     Increment="0.1"
                     Minimum="0"
                     Maximum="5"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_pH1}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi1_4201_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 2" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" Grid.Row="5" VerticalAlignment="Center" />
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воздуха,мин:"   Grid.Row="4" VerticalAlignment="Top" Margin="0,2,0,0"  />
                 <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="5"
+                    Grid.Column="1"   Grid.Row="4"
                     Height="24" 
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,1,0,1"
                     Increment="1"
                     Minimum="0"
                     Maximum="100"
                     Precision="0"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_x2}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_vozduha_4201_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" Grid.Row="6" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="6"
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Паузы 2, мин:"   Grid.Row="5" VerticalAlignment="Top"  Foreground="#FF205F5B" Margin="0,4,0,0" />
+                <Controls:NumPadUpDown   Grid.Row="5"
                     Height="24"
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,1,0,1"
                     Increment="0.1"
                     Minimum="0"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_pH2}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4201_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
+                <Controls:NumPadUpDown   Grid.Row="6"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                     
+                    FontWeight="Bold"
+                    Foreground="LawnGreen" Margin="0,1,0,1"
+                    Increment="0.1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    <b:Interaction.Behaviors>
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4201_n1}" />
+                    </b:Interaction.Behaviors>
+                </Controls:NumPadUpDown>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Продувки , мин:" Grid.Row="6" VerticalAlignment="Center"  />
                 <!--//точка 3-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 3" Grid.ColumnSpan="2" Grid.Row="7" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" 
-                           Grid.Row="8" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="8"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_x3}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" 
-                           Grid.Row="9" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="9"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_pH3}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
                 <!--//точка 4-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 4" Grid.ColumnSpan="2" Grid.Row="10" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" 
-                           Grid.Row="11" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="11"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_x4}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" 
-                           Grid.Row="12" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="12"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_pH4}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
                 <!--//точка 5-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  точка 5" Grid.ColumnSpan="2" Grid.Row="13" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="% открытия клапана" Grid.ColumnSpan="1" 
-                           Grid.Row="14" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="14"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_x5}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Дельта pH " Grid.ColumnSpan="1" 
-                           Grid.Row="15" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="15"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_pH5}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
 
                 <!--//остальные-->
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  остальное" Grid.ColumnSpan="2" Grid.Row="16" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Макс. изменение pH" Grid.ColumnSpan="1" 
-                           Grid.Row="17" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="17"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_DeltaPH_max}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock ToolTip="Срабатывает при изменение pH, быстрее заданного значения(Максим. изменение pH),  клапан подачи щелочи закрывается на указанное время в секундах" FontWeight="Bold" FontSize="14"  Text="Время паузы, сек" Grid.ColumnSpan="1" 
-                           Grid.Row="18" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="18"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_Tau_pause}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Время измерения pH" Grid.ColumnSpan="1" 
-                           Grid.Row="19" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="19"
-                    Height="24" 
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_Tau_izm}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Коэфф. масштаб. &#10; % открытия кл." Grid.ColumnSpan="1" 
-                           Grid.Row="20" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   
-                    Grid.Row="20"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="2"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.RegPH480B_Kx}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
 
             </Grid>
 
-            <Border  VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="2"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
+
+            <!--//k480B, ph-->
+            <Border  VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="0"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
 
             </Border>
-            <Grid Grid.Row="1" Grid.Column="2"  Margin="8,5,5,5">
+            <Grid Grid.Row="1" Grid.Column="0"  Margin="8,5,5,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -725,7 +262,7 @@
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
@@ -737,112 +274,84 @@
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="36"/>
                 </Grid.RowDefinitions>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Перегонка МЭК K480A" Grid.ColumnSpan="2" Grid.Row="0" Height="24"/>
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Промывка 4101. Режим 1"   Grid.Row="0" Height="24"/>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воды, мин:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
 
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text=" парам. ПИД рег. Т дист. МЭК" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top"  />
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Kp" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
-
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="2"
+                <Controls:NumPadUpDown   Grid.Row="2"
                     Height="24" 
+                                         Width="100"
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,3,0,1"
                     Increment="1"
                     Minimum="0"
                     Maximum="100"
                     Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1"  >
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_pregon_A}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_promivki_4101_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Ki " Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="3"
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер паузы 1, мин:" Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" Foreground="#FF19635E" />
+                <Controls:NumPadUpDown   Grid.Row="3"
                     Height="24"
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,0,0,4"
                     Increment="0.1"
                     Minimum="0"
                     Maximum="5"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1"  >
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_pregon_A}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi1_4101_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Kd " Grid.ColumnSpan="1" Grid.Row="4" VerticalAlignment="Center" />
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воздуха,мин:"   Grid.Row="4" VerticalAlignment="Top"  />
                 <Controls:NumPadUpDown  
                     Grid.Column="1"   Grid.Row="4"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
-                    Increment="0.1"
-                    Minimum="0"
-                    Maximum="5"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_pregon_A}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-
-                <TextBlock FontStyle="Italic" FontSize="14" HorizontalAlignment="Center" Text="  парам. ПИ рег. мг.расх. воды." Grid.ColumnSpan="2" Grid.Row="5" VerticalAlignment="Top"  />
-               
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Kp" Grid.ColumnSpan="1" Grid.Row="6" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="6"
                     Height="24" 
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,1,0,3"
                     Increment="1"
                     Minimum="0"
                     Maximum="100"
                     Precision="0"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Kp_fq_perA}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_vozduha_4101_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-              
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Ki " Grid.ColumnSpan="1" Grid.Row="7" VerticalAlignment="Center" />
-                <Controls:NumPadUpDown  
-                    Grid.Column="1"   Grid.Row="7"
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Паузы 2, мин:"   Grid.Row="5" VerticalAlignment="Top"  Foreground="#FF155B57" />
+                <Controls:NumPadUpDown   Grid.Row="5"
                     Height="24"
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,2,0,2"
                     Increment="0.1"
                     Minimum="0"
-                    Maximum="5"
+                    Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Ki_fq_per_A}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4101_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="time " Grid.Column="0" Grid.Row="8" VerticalAlignment="Center" />
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Left" Foreground="Blue" Text="Промывка 4101. Режим 2"   Grid.Row="7" Height="24" Margin="9,3,0,1"/>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воды, мин:"   Grid.Row="8" VerticalAlignment="Center" />
                 <Controls:NumPadUpDown  
                     Grid.Column="1"   Grid.Row="8"
                     Height="24"
@@ -851,44 +360,111 @@
                     FontSize="16"
                      
                     FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="5,0,0,0"
+                    Foreground="LawnGreen" Margin="0,1,0,3"
                     Increment="0.1"
                     Minimum="0"
-                    Maximum="5"
+                    Maximum="100"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.time_perA}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_promivki_4101_n2}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock FontSize="14" FontWeight="Black"   Foreground="Blue"  Text="PID P726 " Grid.ColumnSpan="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <StackPanel Grid.Column="0" Grid.Row="10" >
-                    <TextBlock FontWeight="Bold" FontSize="14"  Height="24" Text="Kp "  VerticalAlignment="Center" />
-                    <TextBlock FontWeight="Bold" FontSize="14"   Height="24" Text="Ki "  VerticalAlignment="Center" />
-                    <TextBlock FontWeight="Bold" FontSize="14"  Height="24" Text="Kd " VerticalAlignment="Center" />
-                </StackPanel>
-                <StackPanel Grid.Column="1" Grid.Row="10">
-                    <Controls:NumPadUpDown  Grid.Column="1"   Grid.Row="8" Height="24" VerticalContentAlignment="Center" EnterClosesNumPad="True" FontSize="16" FontWeight="Bold" Foreground="LawnGreen" Margin="5,0,0,0" Increment="0.01" Minimum="-1000" Maximum="1000" Precision="1" UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                        <b:Interaction.Behaviors>
-                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_P_OUT_P726}" />
-                        </b:Interaction.Behaviors>
-                    </Controls:NumPadUpDown>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер паузы 1, мин:" Grid.Row="9" VerticalAlignment="Top" Margin="0,6,0,0" Foreground="#FF1E5D59" />
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воздуха,мин:" Grid.Row="10" VerticalAlignment="Center"   />
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Паузы 2, мин:" Grid.Row="11" VerticalAlignment="Top" Foreground="#FF255F5B"   />
+                <Controls:NumPadUpDown   Grid.Row="9"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                     
+                    FontWeight="Bold"
+                    Foreground="LawnGreen" Margin="0,1,0,3"
+                    Increment="0.1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1"  >
+                    <b:Interaction.Behaviors>
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi1_4101_n2}" />
+                    </b:Interaction.Behaviors>
+                </Controls:NumPadUpDown>
+                <Controls:NumPadUpDown   Grid.Row="10"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                        Margin="0,1,0,1"
+                    FontWeight="Bold"
+                    Foreground="LawnGreen"
+                    Increment="0.1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center" Grid.Column="1">
+                    <b:Interaction.Behaviors>
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_vozduha_4101_n2}" />
+                    </b:Interaction.Behaviors>
+                </Controls:NumPadUpDown>
+                <Controls:NumPadUpDown   Grid.Row="11"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                     
+                    FontWeight="Bold"
+                    Foreground="LawnGreen" Margin="1,0,-1,0"
+                    Increment="0.1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Top" Grid.Column="1">
+                    <b:Interaction.Behaviors>
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4101_n2}" />
+                    </b:Interaction.Behaviors>
+                </Controls:NumPadUpDown>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Продувки , мин:" Grid.Row="6" VerticalAlignment="Top"    />
+                <Controls:NumPadUpDown   Grid.Row="6"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                     
+                    FontWeight="Bold"
+                    Foreground="LawnGreen" Margin="0,3,0,1"
+                    Increment="0.1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    <b:Interaction.Behaviors>
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4101_n1}" />
+                    </b:Interaction.Behaviors>
+                </Controls:NumPadUpDown>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Продувки , мин:" Grid.Row="12" VerticalAlignment="Center" />
+                <Controls:NumPadUpDown   Grid.Row="12"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                     
+                    FontWeight="Bold"
+                    Foreground="LawnGreen" Margin="2,0,-2,0"
+                    Increment="0.1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center" Grid.Column="1">
+                    <b:Interaction.Behaviors>
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4101_n2}" />
+                    </b:Interaction.Behaviors>
+                </Controls:NumPadUpDown>
+                <!--//точка 3-->
+                <!--//точка 4-->
+                <!--//точка 5-->
 
-                    <Controls:NumPadUpDown  Grid.Column="1"   Grid.Row="8" Height="24" VerticalContentAlignment="Center" EnterClosesNumPad="True" FontSize="16" FontWeight="Bold" Foreground="LawnGreen" Margin="5,0,0,0"  Increment="0.01" Minimum="-1000" Maximum="1000" Precision="1" UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                        <b:Interaction.Behaviors>
-                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_P_OUT_P726}" />
-                        </b:Interaction.Behaviors>
-                    </Controls:NumPadUpDown>
-
-                    <Controls:NumPadUpDown  Grid.Column="1"   Grid.Row="8" Height="24" VerticalContentAlignment="Center" EnterClosesNumPad="True" FontSize="16" FontWeight="Bold" Foreground="LawnGreen" Margin="5,0,0,0"  Increment="0.01" Minimum="-1000" Maximum="1000" UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                        <b:Interaction.Behaviors>
-                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_P_OUT_P726}" />
-                        </b:Interaction.Behaviors>
-                    </Controls:NumPadUpDown>
-
-                </StackPanel>
-              
-
+                <!--//остальные-->
 
             </Grid>
 

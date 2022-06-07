@@ -102,7 +102,7 @@ namespace cip_blue.ViewModels
             {
                 if (r.Parameters.ContainsKey("password"))
                 {
-                    if (r.Parameters.GetValue<string>("password") == "2020")
+                    if (r.Parameters.GetValue<string>("password") == "1515")
                         User.IsAuthorized = true;
                 }
             });

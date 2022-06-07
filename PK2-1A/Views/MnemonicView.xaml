@@ -816,7 +816,7 @@
 
 
 
-        <WPF:Tube Height="32" Canvas.Left="1437" Canvas.Top="720" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
+        <WPF:Tube Height="32" Canvas.Left="1104" Canvas.Top="788" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
@@ -826,7 +826,7 @@
 
 
 
-        <WPF:Tube Height="27" Canvas.Left="1032" Canvas.Top="682" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Center">
+        <WPF:Tube Height="27" Canvas.Left="849" Canvas.Top="667" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
@@ -836,7 +836,7 @@
 
 
 
-        <WPF:Tube Height="32" Canvas.Left="1032" Canvas.Top="730" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Center">
+        <WPF:Tube Height="32" Canvas.Left="849" Canvas.Top="715" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
@@ -3042,7 +3042,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <WPF:Tank Height="126"  Canvas.Left="1121" Canvas.Top="765" Width="168" GeometryParam2="4*" Design="Lying" GeometryParam1="0.25*" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <WPF:Tank Height="126"  Canvas.Left="938" Canvas.Top="750" Width="168" GeometryParam2="4*" Design="Lying" GeometryParam1="0.25*" HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <WPF:Tank.RenderTransform>
                 <TransformGroup>
@@ -3053,22 +3053,22 @@
                 </TransformGroup>
             </WPF:Tank.RenderTransform>
         </WPF:Tank>
-        <TextBlock Canvas.Left="1033" TextWrapping="Wrap" Text="160A" Canvas.Top="867" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <WPF:Tube Height="12" Canvas.Left="943" Canvas.Top="757" Width="218" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock Canvas.Left="850" TextWrapping="Wrap" Text="160A" Canvas.Top="852" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <WPF:Tube Height="12" Canvas.Left="760" Canvas.Top="742" Width="218" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
-        <WPF:Tube Height="27" Canvas.Left="1437" Canvas.Top="672" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
+        <WPF:Tube Height="26" Canvas.Left="1104" Canvas.Top="740" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
-        <TextBlock Canvas.Left="1366" TextWrapping="Wrap" Text="(Без обратной связи)" Canvas.Top="713" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <TextBlock Canvas.Left="1033" TextWrapping="Wrap" Text="(Без обратной связи)" Canvas.Top="780" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -3078,7 +3078,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Canvas.Left="998" TextWrapping="Wrap" Text="V160a" Canvas.Top="715" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <TextBlock Canvas.Left="815" TextWrapping="Wrap" Text="V160a" Canvas.Top="700" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -3088,7 +3088,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <WPF:Arrow Height="12" Canvas.Left="1436"  RotateAngle="90" Canvas.Top="656" Width="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <WPF:Arrow Height="12" Canvas.Left="1103"  RotateAngle="90" Canvas.Top="724" Width="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
             <WPF:Arrow.Colors>
                 <WPF:ControlColors >
                     <WPF:ControlColors.DefaultColoring>
@@ -3097,8 +3097,8 @@
                 </WPF:ControlColors>
             </WPF:Arrow.Colors>
         </WPF:Arrow>
-        <TextBlock Canvas.Left="1422" TextWrapping="Wrap" Text="воздух" Canvas.Top="641" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <WPF:Valve Height="40" Canvas.Left="1439" Canvas.Top="692" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" ActorSize="2*" ValveSize="2*" >
+        <TextBlock Canvas.Left="1089" TextWrapping="Wrap" Text="воздух" Canvas.Top="708" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <WPF:Valve Height="40" Canvas.Left="1106" Canvas.Top="760" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" ActorSize="2*" ValveSize="2*" >
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior   NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}"  OnStatus="{c:Binding PD.out_V160d_vozduh}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_3_mode}" Out="{Binding PD.out_V160d_vozduh}"/>
@@ -3107,7 +3107,7 @@
 
 
         </WPF:Valve>
-        <WPF:Valve Height="40" Canvas.Left="1034" Canvas.Top="702" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <WPF:Valve Height="40" Canvas.Left="851" Canvas.Top="687" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_module_ad3}"  OnStatus="{c:Binding PD.out_V160a_voda}" OnColor1="Green" DefaultColor="Red"/>
                 <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0" IsMan="{Binding PD.VK480B_4_mode}" Out="{Binding PD.out_V160a_voda}"/>
@@ -3116,7 +3116,7 @@
 
 
         </WPF:Valve>
-        <WPF:Arrow Height="12" Canvas.Left="1030"  RotateAngle="90" Canvas.Top="665" Width="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <WPF:Arrow Height="12" Canvas.Left="847"  RotateAngle="90" Canvas.Top="650" Width="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
             <WPF:Arrow.Colors>
                 <WPF:ControlColors >
                     <WPF:ControlColors.DefaultColoring>
@@ -3125,8 +3125,8 @@
                 </WPF:ControlColors>
             </WPF:Arrow.Colors>
         </WPF:Arrow>
-        <TextBlock Canvas.Left="1021" TextWrapping="Wrap" Text="вода" Canvas.Top="650" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBlock Canvas.Left="1384" TextWrapping="Wrap" Text="V160д" Canvas.Top="705" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" >
+        <TextBlock Canvas.Left="838" TextWrapping="Wrap" Text="вода" Canvas.Top="635" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Canvas.Left="1051" TextWrapping="Wrap" Text="V160д" Canvas.Top="772" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -3187,7 +3187,7 @@
 
             </StackPanel>
         </GroupBox>
-        <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="1075" Canvas.Top="614" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="892" Canvas.Top="599" HorizontalAlignment="Left" VerticalAlignment="Top">
             <GroupBox.Header>
                 <TextBlock Text="FQ_160a , Л"/>
             </GroupBox.Header>
@@ -3214,9 +3214,10 @@
             </StackPanel>
         </GroupBox>
 
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible" Canvas.Left="74" Canvas.Top="-37"  >
-            <child:Promivka_4101  Left="100" Top="30" Height="330" Width="300" Caption="Загр. арт.воды"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="468" Canvas.Top="55" />
-            <child:ZagrVodi160a  Left="100" Top="30" Height="250" Width="300" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="544" Canvas.Top="27" />
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible" Canvas.Left="0" Canvas.Top="0" HorizontalAlignment="Left" VerticalAlignment="Center"  >
+            <child:Promivka_4101  Left="100" Top="30" Height="330" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="22" Canvas.Top="345" />
+            <child:ZagrVodi160a  Left="100" Top="30" Height="184" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="766" Canvas.Top="798" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <child:Promivka_4201  Left="100" Top="30" Height="330" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1414" Canvas.Top="444" />
 
         </xctk:WindowContainer>
 

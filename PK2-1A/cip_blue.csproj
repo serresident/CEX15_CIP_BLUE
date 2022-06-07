@@ -167,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChildWindows\Promivka_4201.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ChildWindows\RegPh480B.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -349,6 +353,9 @@
     </Compile>
     <Compile Include="Views\ChildWindows\Control_P1A.xaml.cs">
       <DependentUpon>Control_P1A.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildWindows\Promivka_4201.xaml.cs">
+      <DependentUpon>Promivka_4201.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ChildWindows\RegPh480B.xaml.cs">
       <DependentUpon>RegPh480B.xaml</DependentUpon>

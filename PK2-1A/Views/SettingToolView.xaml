@@ -17,16 +17,7 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock FontWeight="Bold" FontSize="24"  Foreground="Blue" Text="ПЕРЕХВАТ управления со старой схемы:  " Canvas.Top="880" Width="552" Canvas.Left="258"/>
-        <xctk:ToggleSwitch Width="64" Height="24"    
-            CornerRadius="2"
-            IsChecked="{Binding PD.InceptControl, Mode=TwoWay}"
-            ThumbHeight = "25"
-            ThumbWidth = "24"
-            CheckedContent = "ВКЛ"
-            UncheckedContent = "ВЫКЛ"
-            CheckedBackground="Green"
-            UncheckedBackground ="Red" Canvas.Left="769" Canvas.Top="886"/>
+        <TextBlock FontWeight="Bold" FontSize="24"  Foreground="Blue" Canvas.Top="880" Width="552" Canvas.Left="258"/>
 
 
     </Grid>

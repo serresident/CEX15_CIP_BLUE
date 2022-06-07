@@ -223,7 +223,20 @@ namespace cip_blue.ViewModels
         {
             get { return zagrVodi160aWndStatus; }
             set { SetProperty(ref zagrVodi160aWndStatus, value); }
+
         }
+
+        public DelegateCommand Promivka_4201_StartCommand { get; private set; }
+        public DelegateCommand Promivka_4201_StopCommand { get; private set; }
+
+        private WindowState promivka_4201WndStatus = WindowState.Closed;
+        public WindowState Promivka_4201WndStatus
+        {
+            get { return promivka_4201WndStatus; }
+            set { SetProperty(ref promivka_4201WndStatus, value); }
+        }
+
+
         public Dictionary<int, string> Dictionary_Status;
         public MnemonicViewModel(ProcessDataTcp pd, ArchivRepository archivRepository)
         {
@@ -235,6 +248,9 @@ namespace cip_blue.ViewModels
 
              ZagrVodi160a_StartCommand = new DelegateCommand( ZagrVodi160a_Start, canZagrVodi160a_Start);
              ZagrVodi160a_StopCommand = new DelegateCommand( ZagrVodi160a_Stop, canZagrVodi160a_Stop);
+
+            Promivka_4201_StartCommand = new DelegateCommand(promivka_4201_Start, canPromivka_4201_Start);
+            Promivka_4201_StopCommand = new DelegateCommand(promivka_4201_Stop, canPromivka_4201_Stop);
 
             Dictionary_Status = new Dictionary<int, string>() {
                 {0, "НЕ бЫЛО ЗАПУСКА"},
@@ -261,6 +277,11 @@ namespace cip_blue.ViewModels
         private void  ZagrVodi160a_Start() => PD.switch_ZagrVodi_160a = true;
         private bool canZagrVodi160a_Stop() { return PD.switch_ZagrVodi_160a; }
         private void ZagrVodi160a_Stop() => PD.switch_ZagrVodi_160a = false;
+
+        private bool canPromivka_4201_Start() { return !PD.switch_promivka4201; }
+        private void promivka_4201_Start() => PD.switch_promivka4201 = true;
+        private bool canPromivka_4201_Stop() { return PD.switch_promivka4201; }
+        private void promivka_4201_Stop() => PD.switch_promivka4201 = false;
 
         //private void waterLoadingStart() => PD.ZagrVodaComm_Start = true;
         //private bool canWaterLoadingStop() { return PD.ZagrVodaComm_Start; }
@@ -438,6 +459,10 @@ namespace cip_blue.ViewModels
 
             ZagrVodi160a_StartCommand.RaiseCanExecuteChanged();
             ZagrVodi160a_StopCommand.RaiseCanExecuteChanged();
+
+            Promivka_4201_StartCommand.RaiseCanExecuteChanged();
+            Promivka_4201_StopCommand.RaiseCanExecuteChanged();
+
             try
             {
                 t = Convert.ToInt32(PD.cip4101_status);
