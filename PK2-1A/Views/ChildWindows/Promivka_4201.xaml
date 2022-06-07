@@ -166,7 +166,7 @@
             Precision="0"
             UpdateValueOnEnterKey="True">
                 <Behaviors:Interaction.Behaviors>
-                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_Fq_4201_n0}" />
+                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_Fq_4201}" />
                 </Behaviors:Interaction.Behaviors>
             </controls:NumPadUpDown>
             <controls:NumPadUpDown 
@@ -186,7 +186,7 @@
             Precision="0"
             UpdateValueOnEnterKey="True">
                 <Behaviors:Interaction.Behaviors>
-                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_qe_4201_n0}" />
+                    <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_qe_4201}" />
                 </Behaviors:Interaction.Behaviors>
             </controls:NumPadUpDown>
         </StackPanel>
@@ -202,7 +202,7 @@
             FontSize="20"
             FontWeight="Bold"
             Foreground="#FF646464"
-            Text="{c:Binding PD.sp_Fq_4201_n0 - PD.WaterCount_4201, StringFormat=\{0:0.0##\}, FallbackValue=???}" 
+            Text="{c:Binding PD.sp_Fq_4201 - PD.WaterCount_4201, StringFormat=\{0:0.0##\}, FallbackValue=???}" 
             />
 
         <TextBlock  HorizontalAlignment="Center"
@@ -335,6 +335,8 @@
                             <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Условие по Эл.пр-ти:"></TextBlock>
 
                             <xctk:ToggleSwitch Width="64" Margin="5,0,0,5" Height="25" Grid.Row="0" Grid.Column="1"    
+                                               
+                                                IsEnabled="{Binding PD.switch_promivka4201, Converter={StaticResource BooleanNegateConverter}}"
                   CornerRadius="2"
                  IsChecked="{Binding PD.dop_uslovie_4201 ,Mode=TwoWay}"
                 ThumbHeight = "25"

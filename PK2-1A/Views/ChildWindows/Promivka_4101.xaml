@@ -385,7 +385,9 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Условие по Эл.пр-ти:"></TextBlock>
 
-                            <xctk:ToggleSwitch Width="64" Margin="5,0,0,5" Height="25" Grid.Row="0" Grid.Column="1"    
+                            <xctk:ToggleSwitch Width="64" Margin="5,0,0,5" Height="25" Grid.Row="0" Grid.Column="1"   
+                                                
+                                                IsEnabled="{Binding PD.switch_promivka4101, Converter={StaticResource BooleanNegateConverter}}"
                   CornerRadius="2"
                  IsChecked="{Binding PD.dop_uslovie_4101 ,Mode=TwoWay}"
                 ThumbHeight = "25"

@@ -13,8 +13,7 @@
              xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
              xmlns:child="clr-namespace:cip_blue.Views.ChildWindows"
              
-            xmlns:System="clr-namespace:System;assembly=mscorlib" 
-             
+            xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:convertors="clr-namespace:AITSW.WPFValueConverters;assembly=WPFValueConverters"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1920" Loaded="{helpers:MethodBinding OnLoading}">
     <UserControl.Resources>
@@ -115,10 +114,13 @@
 
 
         <converters1:PowerPercentConverter x:Key="PowerPercentConverter" />
+       
+        <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
     </UserControl.Resources>
 
+    <Canvas  x:Name="ContentCanvas" Background="#FFF9EFDA"  >
 
-    <Canvas x:Name="ContentCanvas" Background="#FFF9EFDA"  >
+
 
 
 
@@ -162,7 +164,6 @@
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
-
         <WPF:Tube Height="19" Canvas.Left="597" Canvas.Top="729" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
@@ -1048,7 +1049,42 @@
             </Canvas>
         </Viewbox>
 
+        <!--<Border Background="Transparent"  BorderThickness="2" BorderBrush="black" Width="268" Height="311" Canvas.Left="445" Canvas.Top="9"/>-->
 
+
+
+
+        <!--<Border Background="Transparent"  BorderThickness="2" BorderBrush="black" Width="268" Height="311" Canvas.Left="445" Canvas.Top="9"/>-->
+
+        <!--<ToggleSwitch:HorizontalToggleSwitch CheckedContent="Вкл" UncheckedContent="Откл" IsChecked="{Binding KV_67Z.Value, 
+        e=TwoWay}" Canvas.Left="843" Canvas.Top="78" />-->
+        <!--
+                        <CheckBox IsChecked="{Binding PD.MAN_NASOS_34H_PUSK_STOP}" Content="Ручн. реж." Grid.Row="0" VerticalAlignment="Center" Margin="5,0,0,0"  />
+
+                        <toggleSwitch:HorizontalToggleSwitch Grid.Row="1" CheckedContent="Раб." UncheckedContent="Ост." IsEnabled="{Binding PD.MAN_NASOS_34H_PUSK_STOP}"  IsChecked="{Binding PD.NASOS_34H_PUSK_STOP, Mode=TwoWay}"/>
+                    </Grid>
+                </Border>
+
+            </Popup>
+        </WPF:Pump>-->
+        <!--
+                        <CheckBox IsChecked="{Binding PD.MAN_NASOS_34H_PUSK_STOP}" Content="Ручн. реж." Grid.Row="0" VerticalAlignment="Center" Margin="5,0,0,0"  />
+
+                        <toggleSwitch:HorizontalToggleSwitch Grid.Row="1" CheckedContent="Раб." UncheckedContent="Ост." IsEnabled="{Binding PD.MAN_NASOS_34H_PUSK_STOP}"  IsChecked="{Binding PD.NASOS_34H_PUSK_STOP, Mode=TwoWay}"/>
+                    </Grid>
+                </Border>
+
+            </Popup>
+        </WPF:Pump>-->
+        <!--
+                        <CheckBox IsChecked="{Binding PD.MAN_NASOS_34H_PUSK_STOP}" Content="Ручн. реж." Grid.Row="0" VerticalAlignment="Center" Margin="5,0,0,0"  />
+
+                        <toggleSwitch:HorizontalToggleSwitch Grid.Row="1" CheckedContent="Раб." UncheckedContent="Ост." IsEnabled="{Binding PD.MAN_NASOS_34H_PUSK_STOP}"  IsChecked="{Binding PD.NASOS_34H_PUSK_STOP, Mode=TwoWay}"/>
+                    </Grid>
+                </Border>
+
+            </Popup>
+        </WPF:Pump>-->
         <Controls:ValueBlock FontFamily="Proxy 1" Visibility="Hidden" Canvas.Left="1089" Canvas.Top="895" Caption="QE K460B" Unit="PH"  ValueColor="LawnGreen" Foreground="#FF09F509"  Width="64" Height="36" Value="{Binding PD.QIY_K460B, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black"/>
         <Controls:ValueBlock FontFamily="Proxy 1"  Visibility="Hidden" Canvas.Left="977" Canvas.Top="894" Caption="QE K460A" Unit="PH"  ValueColor="LawnGreen" Foreground="#FF09F509"  Width="64" Height="36" Value="{Binding PD.QIY_K460A, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="124" Canvas.Top="741" Caption="TT_B4305" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="78" Height="36" Value="{Binding PD.TT_B4305_tempKond, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -1059,6 +1095,13 @@
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Tube Height="12" Canvas.Left="733" Canvas.Top="323" Width="90" RotateAngle="90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <!--<Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.TVK480B_SQH}" OnColor1="#FFE4687E"/>
+            </Behaviors:Interaction.Behaviors>-->
+
+
+
 
         </WPF:Tube>
         <WPF:Tube Height="24" Canvas.Left="715" Canvas.Top="286" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -1155,8 +1198,9 @@
                 <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4101}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
                 <xctk:ToggleSwitch Width="64" Height="24"    
-          Visibility="{c:Binding '( switch_promivka4101) ', FalseToVisibility=Collapsed}" 
+            Visibility="{c:Binding '( switch_promivka4101) ', FalseToVisibility=Collapsed}" 
             CornerRadius="2"
+            IsEnabled="{Binding PD.switch_promivka4101, Converter={StaticResource BooleanNegateConverter}}"
             IsChecked="{Binding PD.Reset_WaterCount_4101, Mode=TwoWay}"
             ThumbHeight = "25"
             ThumbWidth = "20"
@@ -2440,6 +2484,7 @@
                 <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4201}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
                 <xctk:ToggleSwitch Width="64" Height="24"    
+                    IsEnabled="{Binding PD.switch_promivka4201, Converter={StaticResource BooleanNegateConverter}}"
                     CornerRadius="2"
                     IsChecked="{Binding PD.Reset_WaterCount_4201, Mode=TwoWay}"
                     ThumbHeight = "25"
@@ -2465,7 +2510,8 @@
 
 
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_160a}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
-                <xctk:ToggleSwitch Width="64" Height="24"    
+                <xctk:ToggleSwitch Width="64" Height="24" 
+                    IsEnabled="{Binding PD.switch_ZagrVodi_160a, Converter={StaticResource BooleanNegateConverter}}"
                     CornerRadius="2"
                     IsChecked="{Binding PD.Reset_WaterCount_160a, Mode=TwoWay}"
                     ThumbHeight = "25"
@@ -2479,14 +2525,16 @@
         </GroupBox>
 
         <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
-            <child:Promivka_4101  Left="100" Top="30" Height="330" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="501" Canvas.Top="28" />
-            <child:ZagrVodi160a  Left="100" Top="30" Height="184" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="808" Canvas.Top="822"  />
-            <child:Promivka_4201  Left="100" Top="30" Height="330" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1608" Canvas.Top="566"  />
+            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="1198" Canvas.Top="502" />
+            <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="790" Canvas.Top="786"  />
+            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
 
         </xctk:WindowContainer>
 
 
     </Canvas>
+
+
 
 
 
