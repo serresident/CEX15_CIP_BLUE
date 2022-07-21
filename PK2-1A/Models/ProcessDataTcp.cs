@@ -135,6 +135,12 @@ namespace cip_blue.Models
 
         public Single cip4201_status { get { return getValue<Single>(); } } //ad=
         public Single cip4201_time { get { return getValue<Single>(); } } //ad=
+         public Single PE1{ get { return getValue<Single>(); } }  //ad=
+         public Single PE3{ get { return getValue<Single>(); } }  //ad=
+         public Single PE2{ get { return getValue<Single>(); } }  //ad=
+         public Single TE1{ get { return getValue<Single>(); } }  //ad=
+         public Single TE3{ get { return getValue<Single>(); } }  //ad=
+         public Single TE2{ get { return getValue<Single>(); } }  //ad=
 
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
