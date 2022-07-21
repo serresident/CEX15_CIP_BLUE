@@ -124,7 +124,7 @@
 
 
 
-        <TextBlock Canvas.Left="1243" TextWrapping="Wrap" Canvas.Top="607" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="281" Width="594" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        <TextBlock Canvas.Left="1243" TextWrapping="Wrap" Canvas.Top="638" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="218" Width="559" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
 
 
 
@@ -2674,9 +2674,9 @@
         </WPF:Tube>
         <WPF:Valve Height="40" Canvas.Left="1339" Canvas.Top="746" Width="30" Actor="Diaphram1"  RotateAngle="0" ActorSize="2*" ValveSize="2*" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.VK480A_1_reg_aout_/10 &gt;\= 1}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.TV1_Aout &gt;\= 1}" OnColor1="Green" DefaultColor="Red"/>
 
-                <behaviors:AnalogActuatorHandlerBehavior HSpacing="0" VSpacing="0"  IsMan="{Binding PD.VK480A_1_reg_mode}" Out="{Binding PD.TV1_Control_man}"/>
+                <behaviors:AnalogActuatorHandlerBehavior HSpacing="0" VSpacing="0"  IsMan="{Binding PD.TV1_mode}" Out="{Binding PD.TV1_Control_man}"/>
             </Behaviors:Interaction.Behaviors>
 
 

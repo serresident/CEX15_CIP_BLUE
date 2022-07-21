@@ -74,6 +74,8 @@ namespace cip_blue.Models
         public bool dop_uslovie_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool dop_uslovie_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
+        public bool TV1_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        //ad=54 
         public bool Logging = true;
         #endregion
 
@@ -204,7 +206,7 @@ namespace cip_blue.Models
         public Single TV_pvs{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
 
         public Single TV1_Control_auto{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad// 
-        public Single TV1_Control_man{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad // 
+        public Single TV1_Control_man{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad  
         public Single TV1_Aout{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
         #endregion
     }
