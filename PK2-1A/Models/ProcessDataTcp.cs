@@ -198,6 +198,14 @@ namespace cip_blue.Models
           public Single sp_qe_4101_n1{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad17
           public Single sp_Fq_4101_n1 { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad19
 
+        public Single Tzad_pvs{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
+        public Single KP_pvs{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
+        public Single TN_pvs{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
+        public Single TV_pvs{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
+
+        public Single TV1_Control_auto{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad// 
+        public Single TV1_Control_man{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad // 
+        public Single TV1_Aout{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
         #endregion
     }
 

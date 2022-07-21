@@ -124,6 +124,12 @@
 
 
 
+        <TextBlock Canvas.Left="1243" TextWrapping="Wrap" Canvas.Top="607" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="281" Width="594" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+
+
+
+
+
         <WPF:Tube Height="8" Canvas.Left="1706" Canvas.Top="784" Width="20" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Center" VerticalAlignment="Top">
             <WPF:Tube.RenderTransform>
                 <TransformGroup>
@@ -1530,6 +1536,16 @@
                         </TransformGroup>
                     </Polygon.RenderTransform>
                 </Polygon>
+                <Polygon Points="218,27 407,395 282,395 282,971 153,971 153,395 27,395 218,27" Fill="Red" Stroke="#FF000000" StrokeThickness="3" Height="795" Canvas.Top="-3267" Canvas.Left="-5953" RenderTransformOrigin="0.5,0.5" Width="463" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Polygon.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Polygon.RenderTransform>
+                </Polygon>
             </Canvas>
         </Viewbox>
         <WPF:Tube Height="12" Canvas.Left="492" Canvas.Top="740" Width="218" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -2388,12 +2404,6 @@
         <TextBox Canvas.Left="1558" TextWrapping="Wrap" Text="Темп.воды" Canvas.Top="228" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1543" Canvas.Top="327" Caption="3PIT3_F4201" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="100" Height="40" Value="{Binding PD.PIT3_F4201_davlVodi, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="1528" TextWrapping="Wrap" Text="Давл.в трубе про-ки" Canvas.Top="369" HorizontalAlignment="Center" VerticalAlignment="Top" />
-
-        <Viewbox Stretch="Uniform" Width="34" Height="74" ToolTip="Arrows =&gt; Straight arrow 1" Canvas.Left="1556" Canvas.Top="483" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Viewbox.Tag>
-                <System:Int64>39992</System:Int64>
-            </Viewbox.Tag>
-        </Viewbox>
         <TextBox Canvas.Left="1092"  TextWrapping="Wrap" Text="Темп.суспезнии" Canvas.Top="328" Cursor="Arrow" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <TextBlock Canvas.Left="573" TextWrapping="Wrap" Text="F4101" Canvas.Top="380" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="1313" TextWrapping="Wrap" Text="F4201" Canvas.Top="367" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -2665,8 +2675,8 @@
         <WPF:Valve Height="40" Canvas.Left="1339" Canvas.Top="746" Width="30" Actor="Diaphram1"  RotateAngle="0" ActorSize="2*" ValveSize="2*" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.VK480A_1_reg_aout_/10 &gt;\= 1}" OnColor1="Green" DefaultColor="Red"/>
-                <behaviors:Valve_status isOpenValve="{Binding PD.VK480A_1_SQH}" isCloseValve="{Binding PD.VK480A_1_SQL}" />
-                <behaviors:AnalogActuatorHandlerBehavior HSpacing="0" VSpacing="0"  IsMan="{Binding PD.VK480A_1_reg_mode}" Out="{Binding PD.VK480A_1_reg_ain_man}"/>
+
+                <behaviors:AnalogActuatorHandlerBehavior HSpacing="0" VSpacing="0"  IsMan="{Binding PD.VK480A_1_reg_mode}" Out="{Binding PD.TV1_Control_man}"/>
             </Behaviors:Interaction.Behaviors>
 
 
@@ -2730,8 +2740,25 @@
                 </TransformGroup>
             </WPF:Tank.RenderTransform>
         </WPF:Tank>
-        <TextBlock Canvas.Left="1538" TextWrapping="Wrap" Canvas.Top="766" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
-
+        <TextBlock Canvas.Left="1536" TextWrapping="Wrap" Canvas.Top="766" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="43"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        <Controls:NumPadUpDown ToolTip="Уставка давления кг/см3"
+            Width="88"
+            Height="30"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="LawnGreen"
+             Background="Black"
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True" Canvas.Left="1630" Canvas.Top="683">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Tzad_pvs}" />
+            </Behaviors:Interaction.Behaviors>
+        </Controls:NumPadUpDown>
+        <TextBlock    Canvas.Left="1615" TextWrapping="Wrap" Canvas.Top="657"  Text="Уставка температуры" HorizontalAlignment="Center" VerticalAlignment="Top" Height="18"/>
 
     </Canvas>
 
