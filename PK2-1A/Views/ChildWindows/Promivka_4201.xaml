@@ -149,6 +149,9 @@
         <StackPanel Grid.Row="3"
             Grid.Column="0">
             <controls:NumPadUpDown
+                 IsEnabled="{Binding PD.switch_promivka4201, Converter={StaticResource BooleanNegateConverter}}"
+                 ToolTipService.ShowDuration="30000"
+                ToolTip="Введите Дозу воды для промывки. Доза Вводится в литрах, шаг стрелки 1000л"
             Grid.Row="3"
             Grid.Column="0"
             Width="120"
@@ -161,7 +164,7 @@
             FontWeight="Bold"
              
             
-            Increment="1"
+            Increment="1000"
             Minimum="-1"
             Precision="0"
             UpdateValueOnEnterKey="True">
@@ -170,7 +173,11 @@
                 </Behaviors:Interaction.Behaviors>
             </controls:NumPadUpDown>
             <controls:NumPadUpDown 
-            Grid.Row="3"
+                 IsEnabled="{Binding PD.switch_promivka4201, Converter={StaticResource BooleanNegateConverter}}"
+                ToolTipService.ShowDuration="30000"
+                ToolTip="Внимание, чтобы условие отработало по алгоритму,  уставка должн быть больше чем текущие показание PH &#xA; т.к. PH должно снижаться по мере промывки, &#xA; при снижении текущего значения PH меньше уставки произойдет завершение цикла промывки и начнется финальная продувка. &#xA; Вы можете отключить условия проверки PH в выпадающем меню /Дополнительные параметры/"
+          
+                Grid.Row="3"
             Grid.Column="0"
             Width="120"
             Height="30"
@@ -181,9 +188,9 @@
             FontSize="16"
             FontWeight="Bold"
             
-            Increment="1"
+            Increment="0.1"
             Minimum="-1"
-            Precision="0"
+            Precision="1"
             UpdateValueOnEnterKey="True">
                 <Behaviors:Interaction.Behaviors>
                     <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_qe_4201}" />
@@ -194,8 +201,9 @@
         <TextBlock
               Visibility="{c:Binding '( PD.switch_promivka4201) ', FalseToVisibility=Collapsed}" 
             Grid.Row="2"
+              ToolTip="Оставшийся объем воды для авт. завершения промывки"
             Grid.Column="1"
-            ToolTip="Оставшийся объем воды на промывку "
+         
             Margin="5"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -288,10 +296,10 @@
             FontWeight="Bold"
             Foreground="DarkCyan"
             ToolTip="Уставка, отключение при достижении указанного значения"
-            Text="Эл. проводность" />
+            Text="PH" />
 
         </StackPanel>
-        <TextBlock TextWrapping="Wrap"  Grid.Row="6"  Grid.ColumnSpan="2" Text="{Binding Status_4201}"></TextBlock>
+        <TextBlock ToolTip="Текущий статус функции" TextWrapping="Wrap"  Grid.Row="6"  Grid.ColumnSpan="2" Text="{Binding Status_4201}"></TextBlock>
 
         <TextBlock Grid.Row="7"  HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -304,7 +312,7 @@
             FontSize="20"
             FontWeight="Bold"
             Foreground="#FF646464" Grid.Column="1" Text="{c:Binding '( PD.cip4201_time > 0) ? PD.cip4201_time : 0 '}"  Visibility="{c:Binding '( PD.cip4201_time > 0) ', FalseToVisibility=Collapsed}"/>
-        <Expander  Grid.ColumnSpan="2"   Grid.Row="5" Header="Дополнительные параметры">
+        <Expander  IsExpanded="True" Grid.ColumnSpan="2"   Grid.Row="5" Header="Дополнительные параметры">
 
             <ScrollViewer>
               
@@ -332,7 +340,7 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Условие по Эл.пр-ти:"></TextBlock>
+                        <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Условие по PH:"></TextBlock>
 
                             <xctk:ToggleSwitch Width="64" Margin="5,0,0,5" Height="25" Grid.Row="0" Grid.Column="1"    
                                                
@@ -341,6 +349,7 @@
                  IsChecked="{Binding PD.dop_uslovie_4201 ,Mode=TwoWay}"
                 ThumbHeight = "25"
                 ThumbWidth = "24"
+                                               ToolTip=" Включение/Отключение проверки PH"
               VerticalAlignment="Center"
                CheckedContent = "ВКЛ"
                 UncheckedContent = "ВЫКЛ"

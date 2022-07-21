@@ -114,11 +114,148 @@
 
 
         <converters1:PowerPercentConverter x:Key="PowerPercentConverter" />
-       
+
         <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
     </UserControl.Resources>
 
     <Canvas  x:Name="ContentCanvas" Background="#FFF9EFDA"  >
+
+
+
+
+
+        <WPF:Tube Height="8" Canvas.Left="1706" Canvas.Top="784" Width="20" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+        <WPF:Tube Height="8" Canvas.Left="1627" Canvas.Top="786" Width="24" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+
+
+
+
+
+        <WPF:Tube Height="18" Canvas.Left="1539" Canvas.Top="707" Width="24" RotateAngle="0" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+            </Behaviors:Interaction.Behaviors>
+        </WPF:Tube>
+
+
+
+
+
+        <WPF:Tube Height="8" Canvas.Left="1450" Canvas.Top="783" Width="20" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+
+
+
+
+
+        <WPF:Tube Height="8" Canvas.Left="1369" Canvas.Top="785" Width="24" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+
+
+
+
+
+        <WPF:Tube Height="8" Canvas.Left="1416" Canvas.Top="692" Width="40" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+
+
+
+
+
+        <WPF:Tube Height="8" Canvas.Left="1341" Canvas.Top="693" Width="36" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+
+
+
+
+
+        <WPF:Tube Height="12" Canvas.Left="1363" Canvas.Top="772" Width="169" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
 
 
 
@@ -1049,33 +1186,6 @@
             </Canvas>
         </Viewbox>
 
-        <!--<Border Background="Transparent"  BorderThickness="2" BorderBrush="black" Width="268" Height="311" Canvas.Left="445" Canvas.Top="9"/>-->
-
-
-
-
-        <!--<Border Background="Transparent"  BorderThickness="2" BorderBrush="black" Width="268" Height="311" Canvas.Left="445" Canvas.Top="9"/>-->
-
-        <!--<ToggleSwitch:HorizontalToggleSwitch CheckedContent="Вкл" UncheckedContent="Откл" IsChecked="{Binding KV_67Z.Value, 
-        e=TwoWay}" Canvas.Left="843" Canvas.Top="78" />-->
-        <!--
-                        <CheckBox IsChecked="{Binding PD.MAN_NASOS_34H_PUSK_STOP}" Content="Ручн. реж." Grid.Row="0" VerticalAlignment="Center" Margin="5,0,0,0"  />
-
-                        <toggleSwitch:HorizontalToggleSwitch Grid.Row="1" CheckedContent="Раб." UncheckedContent="Ост." IsEnabled="{Binding PD.MAN_NASOS_34H_PUSK_STOP}"  IsChecked="{Binding PD.NASOS_34H_PUSK_STOP, Mode=TwoWay}"/>
-                    </Grid>
-                </Border>
-
-            </Popup>
-        </WPF:Pump>-->
-        <!--
-                        <CheckBox IsChecked="{Binding PD.MAN_NASOS_34H_PUSK_STOP}" Content="Ручн. реж." Grid.Row="0" VerticalAlignment="Center" Margin="5,0,0,0"  />
-
-                        <toggleSwitch:HorizontalToggleSwitch Grid.Row="1" CheckedContent="Раб." UncheckedContent="Ост." IsEnabled="{Binding PD.MAN_NASOS_34H_PUSK_STOP}"  IsChecked="{Binding PD.NASOS_34H_PUSK_STOP, Mode=TwoWay}"/>
-                    </Grid>
-                </Border>
-
-            </Popup>
-        </WPF:Pump>-->
         <!--
                         <CheckBox IsChecked="{Binding PD.MAN_NASOS_34H_PUSK_STOP}" Content="Ручн. реж." Grid.Row="0" VerticalAlignment="Center" Margin="5,0,0,0"  />
 
@@ -1221,7 +1331,7 @@
             </WPF:Arrow.Colors>
         </WPF:Arrow>
         <TextBlock Canvas.Left="762" TextWrapping="Wrap" Text="вода" Canvas.Top="203" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1020" Canvas.Top="456" Caption="QE_F4101" Unit="PH"  ValueColor="LawnGreen" Foreground="LightGreen"  Width="81" Height="40" Value="{Binding PD.QIY_F4101_PhFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1020" Canvas.Top="456" Caption="QE_F4201" Unit="PH"  ValueColor="LawnGreen" Foreground="LightGreen"  Width="81" Height="40" Value="{Binding PD.QIY_F4101_PhFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="246" Canvas.Top="293" Caption="PE_F4101" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT_F4101_davlSuspenz, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="237"  TextWrapping="Wrap" Text="Давл.суспензии" Canvas.Top="337" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Arrow" Height="Auto" Width="Auto" />
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="366" Canvas.Top="293" Caption="2TE_F4101" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="92" Height="40" Value="{Binding PD.TE2_F4101_tempSuspenz, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -1262,11 +1372,7 @@
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
-        <WPF:Pump  Height="54"  Canvas.Left="254" Canvas.Top="822" Width="24" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Top">
-
-
-
-        </WPF:Pump>
+        <WPF:Pump  Height="54"  Canvas.Left="254" Canvas.Top="822" Width="24" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="47" TextWrapping="Wrap" Text="B4305" Canvas.Top="788" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="572" TextWrapping="Wrap" Text="B4103" Canvas.Top="869" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="487" Canvas.Top="760" Caption="TT_B4103" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="92" Height="40" Value="{Binding PD.TT_B4103_tempEmkostiPromivVodi, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -1403,8 +1509,27 @@
                 <s:Int64>39992</s:Int64>
             </Viewbox.Tag>
             <Canvas Tag="#00000000,#FF000000,Shaded,180,None" LayoutTransform="-1,-1.22460635382238E-16,1.22460635382238E-16,-1,200,200" Width="434" Height="961">
-                <Polygon Points="218,27 407,395 282,395 282,971 153,971 153,395 27,395 218,27" Fill="#FF535353" Stroke="#FF000000" StrokeThickness="3" HorizontalAlignment="Left" Height="1007" Canvas.Top="-4" VerticalAlignment="Top" Canvas.Left="3" />
+                <Polygon Points="218,27 407,395 282,395 282,971 153,971 153,395 27,395 218,27" Fill="blue" Stroke="#FF000000" StrokeThickness="3" HorizontalAlignment="Left" Height="795" Canvas.Top="-2423" VerticalAlignment="Center" Canvas.Left="-5986" RenderTransformOrigin="0.5,0.5" Width="463" >
+                    <Polygon.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Polygon.RenderTransform>
+                </Polygon>
                 <Polygon Points="218,27 407,395 282,395 282,971 153,971 153,395 27,395 218,27" Fill="#FF535353" Stroke="#FF000000" StrokeThickness="3" Height="1007" Canvas.Top="87" Canvas.Left="-4308" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Polygon Points="218,27 407,395 282,395 282,971 153,971 153,395 27,395 218,27" Fill="Red" Stroke="#FF000000" StrokeThickness="3" Height="795" Canvas.Top="-3267" Canvas.Left="-5953" RenderTransformOrigin="0.5,0.5" Width="463" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                    <Polygon.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Polygon.RenderTransform>
+                </Polygon>
             </Canvas>
         </Viewbox>
         <WPF:Tube Height="12" Canvas.Left="492" Canvas.Top="740" Width="218" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -2282,7 +2407,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="855" Canvas.Top="456" Unit="См/м" Caption="QE_F4201"  ValueColor="LawnGreen" Foreground="Yellow"  Width="84" Height="40" Value="{Binding PD.QIY_F4201_electrFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="855" Canvas.Top="456" Unit="мСм/м" Caption="QE_F4101"  ValueColor="LawnGreen" Foreground="Yellow"  Width="99" Height="40" Value="{Binding PD.QIY_F4201_electrFiltrata, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="1014" TextWrapping="Wrap" Text="Ph фильтрата" Canvas.Top="503" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <TextBox Canvas.Left="843" TextWrapping="Wrap" Text="эл. пр. фильтрата" Canvas.Top="503" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1064" Canvas.Top="372" Caption="2PE_F4201" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="94" Height="40" Value="{Binding PD.PIT2_F4201_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -2524,12 +2649,88 @@
             </StackPanel>
         </GroupBox>
 
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Collapsed"  >
             <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="1198" Canvas.Top="502" />
             <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="790" Canvas.Top="786"  />
             <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
 
         </xctk:WindowContainer>
+        <WPF:Tube Height="12" Canvas.Left="1323" Canvas.Top="772" Width="23" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+        <WPF:Valve Height="40" Canvas.Left="1339" Canvas.Top="746" Width="30" Actor="Diaphram1"  RotateAngle="0" ActorSize="2*" ValveSize="2*" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{c:Binding PD.VK480A_1_reg_aout_/10 &gt;\= 1}" OnColor1="Green" DefaultColor="Red"/>
+                <behaviors:Valve_status isOpenValve="{Binding PD.VK480A_1_SQH}" isCloseValve="{Binding PD.VK480A_1_SQL}" />
+                <behaviors:AnalogActuatorHandlerBehavior HSpacing="0" VSpacing="0"  IsMan="{Binding PD.VK480A_1_reg_mode}" Out="{Binding PD.VK480A_1_reg_ain_man}"/>
+            </Behaviors:Interaction.Behaviors>
+
+
+        </WPF:Valve>
+        <WPF:Tube Height="12" Canvas.Left="1326" Canvas.Top="707" Width="227" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="1346" Canvas.Top="794" Caption="TE1" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="72" Height="40" Value="{Binding PD.TE2_F4101_tempSuspenz, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1428" Canvas.Top="793" Caption="PE1" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="86" Height="40" Value="{Binding PD.PIT2_F4101_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="1324" Canvas.Top="659" Caption="TE3" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="72" Height="40" Value="{Binding PD.TE2_F4101_tempSuspenz, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1401" Canvas.Top="659" Caption="PE3" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="86" Height="40" Value="{Binding PD.PIT2_F4101_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="1256" TextWrapping="Wrap" Canvas.Top="692"  Text="ВОДА" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="1258" TextWrapping="Wrap" Canvas.Top="758"  Text="ПАР" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <WPF:Tube Height="56" Canvas.Left="1551" Canvas.Top="716" Width="12"  Design="Vertical" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+        <WPF:Tube Height="12" Canvas.Left="1568" Canvas.Top="771" Width="168" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
+        <WPF:Tank Height="56" RotateAngle="90"  Canvas.Left="1586" Canvas.Top="730" Width="90" GeometryParam2="4*" Design="Lying" GeometryParam1="0.25*" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <WPF:Tank.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tank.RenderTransform>
+        </WPF:Tank>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="1604" Canvas.Top="794" Caption="TE2" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="72" Height="40" Value="{Binding PD.TE2_F4101_tempSuspenz, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1686" Canvas.Top="794" Caption="PE2" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="86" Height="40" Value="{Binding PD.PIT2_F4101_davlGydroPrivoda, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <WPF:Tank Height="56" RotateAngle="90"  Canvas.Left="1586" Canvas.Top="730" Width="90" GeometryParam2="4*" Design="Lying" GeometryParam1="0.25*" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <WPF:Tank.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tank.RenderTransform>
+        </WPF:Tank>
+        <TextBlock Canvas.Left="1538" TextWrapping="Wrap" Canvas.Top="766" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
 
 
     </Canvas>

@@ -10,6 +10,7 @@ using cip_blue.Repositories;
 using cip_blue.Services;
 using Xceed.Wpf.Toolkit;
 using System.Net.NetworkInformation;
+using System.Reflection;
 
 namespace cip_blue.ViewModels
 {
@@ -479,7 +480,7 @@ namespace cip_blue.ViewModels
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
             }
            
          

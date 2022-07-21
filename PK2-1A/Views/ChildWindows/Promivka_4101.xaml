@@ -200,6 +200,8 @@
         <StackPanel Grid.Row="3"
             Grid.Column="0">
             <controls:NumPadUpDown
+                 ToolTipService.ShowDuration="30000"
+                ToolTip="Введите Дозу воды для промывки. Доза Вводится в литрах, шаг стрелки 1000л"
             Grid.Row="3"
             Grid.Column="0"
             Width="120"
@@ -212,7 +214,7 @@
             FontWeight="Bold"
              
             
-            Increment="1"
+            Increment="1000"
             Minimum="-1"
             Precision="0"
             UpdateValueOnEnterKey="True">
@@ -231,10 +233,12 @@
             EnterClosesNumPad="True"
             FontSize="16"
             FontWeight="Bold"
-            
-            Increment="1"
+              ToolTipService.ShowDuration="30000"
+                ToolTip="Внимание, чтобы условие отработало по алгоритму,  уставка должн быть больше чем текущие показание эл.пр-ти &#xA; т.к. эл.пр-ть должна снижаться по мере промывки, &#xA; при снижении текущего значения эл.пр-ти меньше уставки произойдет завершение цикла промывки и начнется финальная продувка. &#xA; Вы можете отключить условия проверки эл.пр-ти в выпадающем меню /Дополнительные параметры/"
+          
+            Increment="0.1"
             Minimum="-1"
-            Precision="0"
+            Precision="1"
             UpdateValueOnEnterKey="True">
                 <Behaviors:Interaction.Behaviors>
                     <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_qe_4101_n0}" />
@@ -246,12 +250,13 @@
               Visibility="{c:Binding '( PD.switch_promivka4101) ', FalseToVisibility=Collapsed}" 
             Grid.Row="2"
             Grid.Column="1"
-            ToolTip="Оставшийся объем воды на промывку "
+          
             Margin="5"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="20"
             FontWeight="Bold"
+            ToolTip="Оставшийся объем воды для авт. завершения промывки"
             Foreground="#FF646464"
             Text="{c:Binding PD.sp_Fq_4101_n0 - PD.WaterCount_4101, StringFormat=\{0:0.0##\}, FallbackValue=???}" 
             />
@@ -342,7 +347,7 @@
             Text="Эл. проводность" />
 
         </StackPanel>
-        <TextBlock TextWrapping="Wrap"  Grid.Row="6"  Grid.ColumnSpan="2" Text="{Binding Status_4101}"></TextBlock>
+        <TextBlock TextWrapping="Wrap"  Grid.Row="6"  Grid.ColumnSpan="2" Text="{Binding Status_4101}" ToolTip="Текущий статус функции"></TextBlock>
 
         <TextBlock Grid.Row="7"  HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -355,7 +360,7 @@
             FontSize="20"
             FontWeight="Bold"
             Foreground="#FF646464" Grid.Column="1" Text="{c:Binding '( PD.cip4101_time > 0) ? PD.cip4101_time : 0 '}"  Visibility="{c:Binding '( PD.cip4101_time > 0) ', FalseToVisibility=Collapsed}"/>
-        <Expander  Grid.ColumnSpan="2"   Grid.Row="5" Header="Дополнительные параметры">
+        <Expander  IsExpanded="True" Grid.ColumnSpan="2"   Grid.Row="5" Header="Дополнительные параметры">
 
             <ScrollViewer>
               
@@ -387,7 +392,8 @@
 
                             <xctk:ToggleSwitch Width="64" Margin="5,0,0,5" Height="25" Grid.Row="0" Grid.Column="1"   
                                                 
-                                                IsEnabled="{Binding PD.switch_promivka4101, Converter={StaticResource BooleanNegateConverter}}"
+                          ToolTip=" Включение/Отключение проверки эл.пр-ти"
+                                               IsEnabled="{Binding PD.switch_promivka4101, Converter={StaticResource BooleanNegateConverter}}"
                   CornerRadius="2"
                  IsChecked="{Binding PD.dop_uslovie_4101 ,Mode=TwoWay}"
                 ThumbHeight = "25"
