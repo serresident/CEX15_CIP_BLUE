@@ -461,7 +461,7 @@ namespace cip_blue.ViewModels
         private void internalUpdate()
         {
         //    PingHost("192.168.101.117");
-            Alarm_notanswerModule = PD.err_module_ad2 || PD.err_module_ad3 || PD.err_module_ad4 || PD.err_module_ad5 || PD.err_module_ad6 || PD.err_module_ad7;
+            Alarm_notanswerModule = PD.err_module_ad2 || PD.err_module_ad3 || PD.err_module_ad4 || PD.err_module_ad5 || PD.err_module_ad6 || PD.err_module_ad7 || PD.ttyS3_err_module_ad1 || PD.ttyS3_err_module_ad2;
 
             Promivka_4101_StartCommand.RaiseCanExecuteChanged();
             Promivka_4101_StopCommand.RaiseCanExecuteChanged();

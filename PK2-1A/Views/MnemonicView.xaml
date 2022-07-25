@@ -297,7 +297,7 @@
 
 
 
-        <WPF:Tube Height="12" Canvas.Left="208" Canvas.Top="843" Width="33" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <WPF:Tube Height="17" Canvas.Left="208" Canvas.Top="838" Width="56" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
             <WPF:Tube.Colors>
                 <WPF:ControlColors/>
             </WPF:Tube.Colors>
@@ -1378,7 +1378,10 @@
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
-        <WPF:Pump  Height="54"  Canvas.Left="254" Canvas.Top="822" Width="24" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <WPF:Pump  Height="80"  Canvas.Left="248" Canvas.Top="806" Width="81" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <behaviors:HybridActuatorHandlerBehavior Dout="{Binding PD.NC_P412_control_man, Mode=TwoWay}"   Units="Гц" HSpacing="20" VSpacing="-10"  MaxValue="50"  IsMan="{Binding PD.NC_P412_mode}" Out="{Binding PD.NC_P412_ain_man}"/>
+
+        </WPF:Pump>/>
         <TextBlock Canvas.Left="47" TextWrapping="Wrap" Text="B4305" Canvas.Top="788" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="572" TextWrapping="Wrap" Text="B4103" Canvas.Top="869" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="487" Canvas.Top="760" Caption="TT_B4103" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="92" Height="40" Value="{Binding PD.TT_B4103_tempEmkostiPromivVodi, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -1400,6 +1403,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
+                    <TextBlock Text="Канал RS485 1" Foreground="Green"></TextBlock>
                     <WPF:Lamp Header=" модуль адрес 2 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
                         <WPF:Lamp.States>
                             <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad2}" />
@@ -1463,6 +1467,31 @@
                     <WPF:Lamp Header=" модуль адрес 7 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
                         <WPF:Lamp.States>
                             <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad7}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
+                    <TextBlock Text="Канал RS485 2" Foreground="Green"></TextBlock>
+                    <WPF:Lamp Header=" модуль адрес 1 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.ttyS3_err_module_ad1}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
+                    <WPF:Lamp Header=" модуль адрес 2 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.ttyS3_err_module_ad2}" />
                         </WPF:Lamp.States>
                         <WPF:Lamp.Colors>
                             <WPF:ControlColors>
@@ -2580,7 +2609,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Canvas.Left="236" TextWrapping="Wrap" Canvas.Top="869" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="P43"/><Run Text="10"/><Run Text=" "/><Run Language="ru-ru" Text="Б"/></TextBlock>
+        <TextBlock Canvas.Left="248" TextWrapping="Wrap" Canvas.Top="890" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="P43"/><Run Text="10"/><Run Text=" "/><Run Language="ru-ru" Text="Б"/></TextBlock>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
             IsChecked="{Binding PD.out_pusk_P4310b, Mode=TwoWay}"
@@ -2589,7 +2618,7 @@
             CheckedContent = "Нажат"
             UncheckedContent = "Отжат"
             CheckedBackground="Green"
-            UncheckedBackground ="LightPink" Canvas.Left="156" Canvas.Top="904" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            UncheckedBackground ="LightPink" Canvas.Left="194" Canvas.Top="924" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
             IsChecked="{Binding PD.out_stop_P4310b, Mode=TwoWay}"
@@ -2598,10 +2627,9 @@
             CheckedContent = "Нажат"
             UncheckedContent = "Отжат"
             CheckedBackground="Green"
-            UncheckedBackground ="LightPink" Canvas.Left="283" Canvas.Top="905" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock    Canvas.Left="173" TextWrapping="Wrap" Canvas.Top="932"  Text="ПУСК" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBlock    Canvas.Left="294" TextWrapping="Wrap" Canvas.Top="931"  Text="СТОП" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock    Canvas.Left="294" TextWrapping="Wrap" Canvas.Top="931"  Text="СТОП" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            UncheckedBackground ="LightPink" Canvas.Left="298" Canvas.Top="927" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="211" TextWrapping="Wrap" Canvas.Top="952"  Text="ПУСК" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="308" TextWrapping="Wrap" Canvas.Top="953"  Text="СТОП" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock    Canvas.Left="345" TextWrapping="Wrap" Canvas.Top="600" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="360"><Run Text="Интерактивные элементы "/><Run Language="ru-ru" Text="  имеют вспылывающие подсказки."/><LineBreak/><Run Language="ru-ru" Text="Для вызова подсказски навидите курсор на элемент и удерживайте его неподвижно"/></TextBlock>
         <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="1507" Canvas.Top="95" HorizontalAlignment="Left" VerticalAlignment="Top">
             <GroupBox.Header>
@@ -2759,6 +2787,17 @@
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
         <TextBlock    Canvas.Left="1615" TextWrapping="Wrap" Canvas.Top="657"  Text="Уставка температуры" HorizontalAlignment="Center" VerticalAlignment="Top" Height="18"/>
+        <xctk:ToggleSwitch Width="64" Height="24"    
+            CornerRadius="2"
+            IsChecked="{Binding PD.SW_Mixer, Mode=TwoWay}"
+            ThumbHeight = "25"
+            ThumbWidth = "24"
+            CheckedContent = "ВКЛ"
+            UncheckedContent = "Выкл"
+            CheckedBackground="Green"
+            UncheckedBackground ="LightPink" Canvas.Left="1642" Canvas.Top="744" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="1599" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание температуры " Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="1374" Canvas.Top="727" Caption=" выход на TV1" Unit="%"  ValueColor="Red" Foreground="White"  Width="109" Height="40" Value="{Binding PD.TV1_Aout, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
     </Canvas>
 

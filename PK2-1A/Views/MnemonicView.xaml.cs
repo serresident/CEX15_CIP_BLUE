@@ -27,9 +27,9 @@ namespace cip_blue.Views
             InitializeComponent();
         }
 
-      
+
     }
-    
+
     public partial class DraggablePopup : Popup
     {
         public DraggablePopup()

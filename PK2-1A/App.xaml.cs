@@ -144,8 +144,8 @@ namespace cip_blue
             ViewModelLocationProvider.Register<SettingView>(() => Container.Resolve<SettingViewModel>());
             ViewModelLocationProvider.Register<SettingToolView>(() => Container.Resolve<SettingViewModel>());
 
-            ViewModelLocationProvider.Register<LogicView>(() => Container.Resolve<LogicViewModel>());
-            ViewModelLocationProvider.Register<LogicToolView>(() => Container.Resolve<LogicViewModel>());
+            //ViewModelLocationProvider.Register<LogicView>(() => Container.Resolve<LogicViewModel>());
+            //ViewModelLocationProvider.Register<LogicToolView>(() => Container.Resolve<LogicViewModel>());
 
             //ViewModelLocationProvider.Register<JournalView>(() => Container.Resolve<JournalViewModel>());
             //ViewModelLocationProvider.Register<JournalToolView>(() => Container.Resolve<JournalViewModel>());

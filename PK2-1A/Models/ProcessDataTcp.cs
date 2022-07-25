@@ -36,6 +36,8 @@ namespace cip_blue.Models
         public bool err_module_ad5{ get { return getValue<bool>(); } }
         public bool err_module_ad6{ get { return getValue<bool>(); } }
         public bool err_module_ad7 { get { return getValue<bool>(); } }
+        public bool ttyS3_err_module_ad1 { get { return getValue<bool>(); } }
+        public bool ttyS3_err_module_ad2 { get { return getValue<bool>(); } }
 
 
 
@@ -44,7 +46,7 @@ namespace cip_blue.Models
         //Coils
         #region Coils
 
-
+        public bool Logging = true;
         //line1_1  (ttyS2)       
         //owen mv110 16r ad=3                                                                                             
         public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
@@ -75,8 +77,13 @@ namespace cip_blue.Models
         public bool dop_uslovie_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
         public bool TV1_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool SW_Mixer { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
+        public bool NS_B4305_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool NS_B4305_control_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool NS_B4305_control_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         //ad=54 
-        public bool Logging = true;
+
         #endregion
 
         // Inputs Registers
@@ -208,6 +215,10 @@ namespace cip_blue.Models
         public Single TV1_Control_auto{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad// 
         public Single TV1_Control_man{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad  
         public Single TV1_Aout{ get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad
+
+        public Single NSB4305_Control_auto_frq { get { return getValue<Single>(); } set { setValue<Single>(value); } }// 
+        public Single NSB4305_Control_man_frq { get { return getValue<Single>(); } set { setValue<Single>(value); } } //          
+        public Single NSB4305_Control_out_frq { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         #endregion
     }
 

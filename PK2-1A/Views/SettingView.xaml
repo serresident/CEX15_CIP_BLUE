@@ -468,10 +468,10 @@
 
             </Grid>
 
-               <Border   VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
+               <Border   VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="2"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
 
             </Border>
-            <Grid Grid.Row="1" Grid.Column="1"  Margin="8,5,5,5">
+            <Grid Grid.Row="1" Grid.Column="2"  Margin="8,5,5,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="100"/>
@@ -500,8 +500,8 @@
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="36"/>
                 </Grid.RowDefinitions>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Промывка 4201"   Grid.Row="0" Height="24"/>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воды, мин:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Пароводосмеситель"   Grid.Row="0" Height="24"/>
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="кП:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
 
                 <Controls:NumPadUpDown   Grid.Row="2"
                     Height="24" 
@@ -517,10 +517,10 @@
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_promivki_4201_n1}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_pvs}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер паузы 1, мин:" Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" Foreground="#FF1D6762" />
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="кИ:" Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" Foreground="#FF1D6762" />
                 <Controls:NumPadUpDown   Grid.Row="3" Grid.Column="1"
                     Height="24"
                     VerticalContentAlignment="Center"
@@ -535,10 +535,10 @@
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi1_4201_n1}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_pvs}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воздуха,мин:"   Grid.Row="4" VerticalAlignment="Top" Margin="0,2,0,0"  />
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="кД:"   Grid.Row="4" VerticalAlignment="Top" Margin="0,2,0,0"  />
                 <Controls:NumPadUpDown  
                     Grid.Column="1"   Grid.Row="4"
                     Height="24" 
@@ -554,45 +554,9 @@
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
                     <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_vozduha_4201_n1}" />
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_pvs}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Паузы 2, мин:"   Grid.Row="5" VerticalAlignment="Top"  Foreground="#FF205F5B" Margin="0,4,0,0" />
-                <Controls:NumPadUpDown   Grid.Row="5"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="0,1,0,1"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4201_n1}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <Controls:NumPadUpDown   Grid.Row="6"
-                    Height="24"
-                    VerticalContentAlignment="Center"
-                    EnterClosesNumPad="True"
-                    FontSize="16"
-                     
-                    FontWeight="Bold"
-                    Foreground="LawnGreen" Margin="0,1,0,1"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="100"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4201_n1}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер Продувки , мин:" Grid.Row="6" VerticalAlignment="Center"  />
                 <!--//точка 3-->
                 <!--//точка 4-->
                 <!--//точка 5-->
@@ -600,6 +564,7 @@
                 <!--//остальные-->
 
             </Grid>
+         
         </Grid>
     </xctk:BusyIndicator>
 </UserControl>
