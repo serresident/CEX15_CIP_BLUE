@@ -96,7 +96,7 @@ namespace cip_blue.Behaviors
         }
 
 
-        private string checkedLabel = "ОТКР";
+        private string checkedLabel = "ВКЛ";
         public string CheckedLabel
         {
             get { return checkedLabel; }
@@ -106,7 +106,7 @@ namespace cip_blue.Behaviors
             }
         }
 
-        private string uncheckedLabel = "ЗАКР";
+        private string uncheckedLabel = "ВЫКЛ";
         public string UncheckedLabel
         {
             get { return uncheckedLabel; }

@@ -19,9 +19,9 @@ namespace cip_blue.Views.ChildWindows
     /// <summary>
     /// Interaction logic for WaterLoading.xaml
     /// </summary>
-    public partial class ZagrMorfolin480 : ChildWindow
+    public partial class Level_4103 : ChildWindow
     {
-        public ZagrMorfolin480()
+        public Level_4103()
         {
             InitializeComponent();
         }

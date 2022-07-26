@@ -203,7 +203,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ChildWindows\ZagrMorfolin480.xaml">
+    <Page Include="Views\ChildWindows\Level_4103.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -383,8 +383,8 @@
     <Compile Include="Views\ChildWindows\ZagrAnilin480.xaml.cs">
       <DependentUpon>ZagrAnilin480.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ChildWindows\ZagrMorfolin480.xaml.cs">
-      <DependentUpon>ZagrMorfolin480.xaml</DependentUpon>
+    <Compile Include="Views\ChildWindows\Level_4103.xaml.cs">
+      <DependentUpon>Level_4103.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ChildWindows\Ohlagd480.xaml.cs">
       <DependentUpon>Ohlagd480.xaml</DependentUpon>

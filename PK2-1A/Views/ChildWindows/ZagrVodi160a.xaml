@@ -233,6 +233,18 @@
             FontWeight="Bold"
             Foreground="#FF646464"
             Text="{Binding PD.Fakt_Vodi_160a, StringFormat=\{0:0.0##\}, FallbackValue=???}" />
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="20"
+            ToolTip="Загружено воды"
+            FontWeight="Bold"
+            Foreground="#FF646464"
+            Text="зад. темпер." />
+
         <TextBlock Grid.Row="5"  HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="20"
@@ -250,7 +262,7 @@
 
 
         <DockPanel
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.ColumnSpan="3"
             Margin="0,10"
             Background="Goldenrod"
@@ -305,6 +317,48 @@
                 </xctk:IconButton.Icon>
             </xctk:IconButton>
         </DockPanel>
+        <controls:NumPadUpDown
+            Grid.Row="3"
+            Grid.Column="0"
+            Width="120"
+            ToolTip="Доза воды в литрах"
+            Height="30"
+            Margin="15,0,0,0"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Doza_Vodi_160a}" />
+            </Behaviors:Interaction.Behaviors>
+        </controls:NumPadUpDown>
+        <controls:NumPadUpDown
+            Grid.Row="4"
+            Grid.Column="0"
+            Width="120"
+            ToolTip="Доза воды в литрах"
+            Height="30"
+            Margin="15,0,0,0"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Tzad_pvs}" />
+            </Behaviors:Interaction.Behaviors>
+        </controls:NumPadUpDown>
 
 
 

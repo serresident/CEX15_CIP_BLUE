@@ -282,10 +282,10 @@ namespace cip_blue.ViewModels
         private bool canPromivka_4101_Stop() { return PD.switch_promivka4101; }
         private void promivka_4101_Stop() => PD.switch_promivka4101 = false;
 
-        private bool canZagrVodi160a_Start() { return !PD.switch_ZagrVodi_160a; }
-        private void  ZagrVodi160a_Start() => PD.switch_ZagrVodi_160a = true;
-        private bool canZagrVodi160a_Stop() { return PD.switch_ZagrVodi_160a; }
-        private void ZagrVodi160a_Stop() => PD.switch_ZagrVodi_160a = false;
+        private bool canZagrVodi160a_Start() { return !PD.SW_water160a; }
+        private void  ZagrVodi160a_Start() => PD.SW_water160a = true;
+        private bool canZagrVodi160a_Stop() { return PD.SW_water160a; }
+        private void ZagrVodi160a_Stop() => PD.SW_water160a = false;
 
         private bool canPromivka_4201_Start() { return !PD.switch_promivka4201; }
         private void promivka_4201_Start() => PD.switch_promivka4201 = true;

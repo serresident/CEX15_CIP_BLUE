@@ -46,7 +46,7 @@ namespace cip_blue.Models
         //Coils
         #region Coils
 
-        public bool Logging = true;
+        public bool Logging { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1;
         //line1_1  (ttyS2)       
         //owen mv110 16r ad=3                                                                                             
         public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
@@ -82,6 +82,13 @@ namespace cip_blue.Models
         public bool NS_B4305_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool NS_B4305_control_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool NS_B4305_control_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool SW_FQ_auto_b4305 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool SW_water160a { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
+        public bool SW_Level_b4305 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool SW_Level_b4103 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
+
         //ad=54 
 
         #endregion
@@ -151,6 +158,9 @@ namespace cip_blue.Models
          public Single TE3{ get { return getValue<Single>(); } }  //ad=
          public Single TE2{ get { return getValue<Single>(); } }  //ad=
 
+        public Single LE_B4305 { get { return getValue<Single>(); } }  //ad=
+        public Single FQ_B4305 { get { return getValue<Single>(); } }  //ad=
+
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
                                    //ad108  должен быть последним ,служит для определения успешного чтения регистров
@@ -219,6 +229,17 @@ namespace cip_blue.Models
         public Single NSB4305_Control_auto_frq { get { return getValue<Single>(); } set { setValue<Single>(value); } }// 
         public Single NSB4305_Control_man_frq { get { return getValue<Single>(); } set { setValue<Single>(value); } } //          
         public Single NSB4305_Control_out_frq { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+
+
+        public Single Fq_zad_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single KP_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single TN_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single TV_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+
+        public Single set_level_high_b4103 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single set_level_low_b4103 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single set_level_high_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single set_level_low_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         #endregion
     }
 

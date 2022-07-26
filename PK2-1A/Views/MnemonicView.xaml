@@ -124,6 +124,24 @@
 
 
 
+        <TextBlock Canvas.Left="1" TextWrapping="Wrap" Canvas.Top="644" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="320" Width="201" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="Поддержание расхода"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+
+
+
+
+        <TextBlock Canvas.Left="572" TextWrapping="Wrap" Canvas.Top="644" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="321" Width="201" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="Поддержание расхода"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+
+
+
+
+        <TextBlock Canvas.Left="225" TextWrapping="Wrap" Canvas.Top="643" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="321" Width="201" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Language="ru-ru" Text="Поддержание расхода"/><LineBreak/><Run Language="ru-ru"/><LineBreak/><Run/></TextBlock>
+
+
+
+
+
         <TextBlock Canvas.Left="1243" TextWrapping="Wrap" Canvas.Top="638" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="218" Width="559" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
 
 
@@ -1307,9 +1325,7 @@
 
                 <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
 
-
                 <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
-
 
                 <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4101}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
@@ -1345,7 +1361,7 @@
         <TextBox Canvas.Left="806" TextWrapping="Wrap" Text="Темп.воды" Canvas.Top="236" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="793" Canvas.Top="335" Caption="3PIT3_F4101" Unit="кг/см2" ValueColor="LawnGreen" Foreground="#FF9ACDF5" Width="100" Height="40" Value="{Binding PD.PIT_F4101_davlSuspenz, Mode=OneWay, StringFormat=\{0:0.0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox Canvas.Left="782" TextWrapping="Wrap" Text="Давл.в трубе про-ки" Canvas.Top="377" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="634" Canvas.Top="760" Caption="LE_B4103" Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="81" Height="40" Value="{Binding PD.LE_B4103_urovenVodi, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="634" Canvas.Top="760" Caption="LE_B4103" Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="228" Height="40" Value="{Binding PD.LE_B4103_urovenVodi, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <WPF:Frame HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Height="102" Width="41" 
             Design="SquareGlass" Foreground="White" BevelWidth="5" GlassEffectOffset="0.2" Canvas.Left="585" Canvas.Top="761" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <WPF:Frame.Colors>
@@ -1379,9 +1395,10 @@
 
         </WPF:Tube>
         <WPF:Pump  Height="80"  Canvas.Left="248" Canvas.Top="806" Width="81" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <behaviors:HybridActuatorHandlerBehavior Dout="{Binding PD.NC_P412_control_man, Mode=TwoWay}"   Units="Гц" HSpacing="20" VSpacing="-10"  MaxValue="50"  IsMan="{Binding PD.NC_P412_mode}" Out="{Binding PD.NC_P412_ain_man}"/>
-
-        </WPF:Pump>/>
+            <Behaviors:Interaction.Behaviors >
+                <behaviors:HybridActuatorHandlerBehavior Dout="{Binding PD.NS_B4305_control_man, Mode=TwoWay}"   Units="Гц" HSpacing="20"  VSpacing="-10"  MaxValue="50"  IsMan="{Binding PD.NS_B4305_mode}" Out="{Binding PD.NSB4305_Control_man_frq}"/>
+            </Behaviors:Interaction.Behaviors>
+        </WPF:Pump>
         <TextBlock Canvas.Left="47" TextWrapping="Wrap" Text="B4305" Canvas.Top="788" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="572" TextWrapping="Wrap" Text="B4103" Canvas.Top="869" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="487" Canvas.Top="760" Caption="TT_B4103" Unit="ºC"  ValueColor="LawnGreen" Foreground="#FFF9A055"  Width="92" Height="40" Value="{Binding PD.TT_B4103_tempEmkostiPromivVodi, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -1403,7 +1420,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <TextBlock Text="Канал RS485 1" Foreground="Green"></TextBlock>
+                    <TextBlock Text="Канал RS485 1" Foreground="Green"/>
                     <WPF:Lamp Header=" модуль адрес 2 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
                         <WPF:Lamp.States>
                             <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_module_ad2}" />
@@ -1476,7 +1493,7 @@
                             </WPF:ControlColors>
                         </WPF:Lamp.Colors>
                     </WPF:Lamp>
-                    <TextBlock Text="Канал RS485 2" Foreground="Green"></TextBlock>
+                    <TextBlock Text="Канал RS485 2" Foreground="Green"/>
                     <WPF:Lamp Header=" модуль адрес 1 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
                         <WPF:Lamp.States>
                             <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.ttyS3_err_module_ad1}" />
@@ -2609,28 +2626,8 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Canvas.Left="248" TextWrapping="Wrap" Canvas.Top="890" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="P43"/><Run Text="10"/><Run Text=" "/><Run Language="ru-ru" Text="Б"/></TextBlock>
-        <xctk:ToggleSwitch Width="64" Height="24"    
-            CornerRadius="2"
-            IsChecked="{Binding PD.out_pusk_P4310b, Mode=TwoWay}"
-            ThumbHeight = "25"
-            ThumbWidth = "24"
-            CheckedContent = "Нажат"
-            UncheckedContent = "Отжат"
-            CheckedBackground="Green"
-            UncheckedBackground ="LightPink" Canvas.Left="194" Canvas.Top="924" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <xctk:ToggleSwitch Width="64" Height="24"    
-            CornerRadius="2"
-            IsChecked="{Binding PD.out_stop_P4310b, Mode=TwoWay}"
-            ThumbHeight = "25"
-            ThumbWidth = "24"
-            CheckedContent = "Нажат"
-            UncheckedContent = "Отжат"
-            CheckedBackground="Green"
-            UncheckedBackground ="LightPink" Canvas.Left="298" Canvas.Top="927" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock    Canvas.Left="211" TextWrapping="Wrap" Canvas.Top="952"  Text="ПУСК" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock    Canvas.Left="308" TextWrapping="Wrap" Canvas.Top="953"  Text="СТОП" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock    Canvas.Left="345" TextWrapping="Wrap" Canvas.Top="600" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="360"><Run Text="Интерактивные элементы "/><Run Language="ru-ru" Text="  имеют вспылывающие подсказки."/><LineBreak/><Run Language="ru-ru" Text="Для вызова подсказски навидите курсор на элемент и удерживайте его неподвижно"/></TextBlock>
+        <TextBlock Canvas.Left="255" TextWrapping="Wrap" Canvas.Top="858" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="P43"/><Run Text="10"/><Run Text=" "/><Run Text="Б"/><Run Text=" управление пч нет"/><Run Language="ru-ru" Text=" "/><Run Text="в проект"/><Run Language="ru-ru" Text="е"/><LineBreak/><Run/></TextBlock>
+        <TextBlock    Canvas.Left="136" TextWrapping="Wrap" Canvas.Top="495" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="360"><Run Text="Интерактивные элементы "/><Run Language="ru-ru" Text="  имеют вспылывающие подсказки."/><LineBreak/><Run Language="ru-ru" Text="Для вызова подсказски навидите курсор на элемент и удерживайте его неподвижно"/></TextBlock>
         <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="1507" Canvas.Top="95" HorizontalAlignment="Left" VerticalAlignment="Top">
             <GroupBox.Header>
                 <TextBlock Text="FQ_4201, Л"/>
@@ -2640,9 +2637,7 @@
 
                 <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
 
-
                 <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
-
 
                 <!--<TextBlock Grid.Row="0"  TextWrapping="Wrap" Text="{Binding FQ_R521_in_count.Value, StringFormat=\{0:N0\}}"  FontSize="14"  Foreground="Blue" TextAlignment="Center"/>-->
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_4201}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
@@ -2668,7 +2663,6 @@
 
                 <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
 
-
                 <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
 
 
@@ -2687,12 +2681,7 @@
             </StackPanel>
         </GroupBox>
 
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Collapsed"  >
-            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="1198" Canvas.Top="502" />
-            <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="790" Canvas.Top="786"  />
-            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
 
-        </xctk:WindowContainer>
         <WPF:Tube Height="12" Canvas.Left="1323" Canvas.Top="772" Width="23" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
@@ -2798,6 +2787,153 @@
             UncheckedBackground ="LightPink" Canvas.Left="1642" Canvas.Top="744" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock    Canvas.Left="1599" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание температуры " Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="1374" Canvas.Top="727" Caption=" выход на TV1" Unit="%"  ValueColor="Red" Foreground="White"  Width="109" Height="40" Value="{Binding PD.TV1_Aout, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <WPF:Lamp Header="   ПУСК" Canvas.Left="245" Design="LEDSquare" Width="56" Height="19" Canvas.Top="772" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Left" VerticalAlignment="Top"  >
+            <WPF:Lamp.States>
+                <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.out_pusk_P4310b}" />
+            </WPF:Lamp.States>
+            <WPF:Lamp.Colors>
+                <WPF:ControlColors>
+                    <WPF:ControlColors.State4Coloring>
+                        <WPF:ColoringColor Color1="Green" />
+                    </WPF:ControlColors.State4Coloring>
+                </WPF:ControlColors>
+            </WPF:Lamp.Colors>
+        </WPF:Lamp>
+        <WPF:Lamp Header="   СТОП" Canvas.Left="305" Design="LEDSquare" Width="56" Height="19" Canvas.Top="772" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Left" VerticalAlignment="Top"  >
+            <WPF:Lamp.States>
+                <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.out_stop_P4310b}" />
+            </WPF:Lamp.States>
+            <WPF:Lamp.Colors>
+                <WPF:ControlColors>
+                    <WPF:ControlColors.State4Coloring>
+                        <WPF:ColoringColor Color1="Red" />
+                    </WPF:ControlColors.State4Coloring>
+                </WPF:ControlColors>
+            </WPF:Lamp.Colors>
+        </WPF:Lamp>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="242" Canvas.Top="684" Caption="FQ_нет в проекте" Unit="м.куб/час"  ValueColor="LawnGreen" Foreground="Violet"  Width="138" Height="36" Value="{Binding PD.FQ_B4305, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:NumPadUpDown ToolTip="Уставка давления кг/см3"
+            Width="88"
+            Height="30"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="LawnGreen"
+            Background="Black"
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True" Canvas.Left="335" Canvas.Top="823" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Fq_zad_b4305}" />
+            </Behaviors:Interaction.Behaviors>
+        </Controls:NumPadUpDown>
+        <TextBlock    Canvas.Left="320" TextWrapping="Wrap" Canvas.Top="797"  Text="Уставка расхода" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <xctk:ToggleSwitch Width="64" Height="24"    
+            CornerRadius="2"
+            IsChecked="{Binding PD.SW_FQ_auto_b4305, Mode=TwoWay}"
+            ThumbHeight = "25"
+            ThumbWidth = "24"
+            CheckedContent = "ВКЛ"
+            UncheckedContent = "Выкл"
+            CheckedBackground="Green"
+            UncheckedBackground ="LightPink" Canvas.Left="269" Canvas.Top="930" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="247" TextWrapping="Wrap" Canvas.Top="907"  Text="Поддержание расхода " Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="20" Canvas.Top="818" Caption="LE_B4305 нет в прокте" Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="188" Height="40" Value="{Binding PD.LE_B4103_urovenVodi, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
+            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="990" Canvas.Top="490" />
+            <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="790" Canvas.Top="786"  />
+            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
+
+        </xctk:WindowContainer>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="244" Canvas.Top="727" Caption=" выход на NS_4310B" Unit="Гц"  ValueColor="Red" Foreground="White"  Width="152" Height="40" Value="{Binding PD.NSB4305_Control_out_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <xctk:ToggleSwitch Width="64" Height="24"    
+            CornerRadius="2"
+            IsChecked="{Binding PD.SW_Level_b4103, Mode=TwoWay}"
+            ThumbHeight = "25"
+            ThumbWidth = "24"
+            CheckedContent = "ВКЛ"
+            UncheckedContent = "Выкл"
+            CheckedBackground="Green"
+            UncheckedBackground ="LightPink" Canvas.Left="624" Canvas.Top="932" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <xctk:ToggleSwitch Width="64" Height="24"    
+            CornerRadius="2"
+            IsChecked="{Binding PD.SW_Level_b4305, Mode=TwoWay}"
+            ThumbHeight = "25"
+            ThumbWidth = "24"
+            CheckedContent = "ВКЛ"
+            UncheckedContent = "Выкл"
+            CheckedBackground="Green"
+            UncheckedBackground ="LightPink" Canvas.Left="72" Canvas.Top="930" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Controls:NumPadUpDown ToolTip="Уставка давления кг/см3"
+            Width="88"
+            Height="30"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="LawnGreen"
+            Background="Black"
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True" Canvas.Left="11" Canvas.Top="884" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_low_b4305}" />
+            </Behaviors:Interaction.Behaviors>
+        </Controls:NumPadUpDown>
+        <Controls:NumPadUpDown ToolTip="Уставка давления кг/см3"
+            Width="88"
+            Height="30"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="LawnGreen"
+            Background="Black"
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True" Canvas.Left="107" Canvas.Top="883" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_high_b4305}" />
+            </Behaviors:Interaction.Behaviors>
+        </Controls:NumPadUpDown>
+        <Controls:NumPadUpDown ToolTip="Уставка давления кг/см3"
+            Width="88"
+            Height="30"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="LawnGreen"
+            Background="Black"
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True" Canvas.Left="533" Canvas.Top="906" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_high_b4103}" />
+            </Behaviors:Interaction.Behaviors>
+        </Controls:NumPadUpDown>
+        <Controls:NumPadUpDown ToolTip="Уставка давления кг/см3"
+            Width="88"
+            Height="30"
+            VerticalContentAlignment="Center"
+            EnterClosesNumPad="True"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="LawnGreen"
+            Background="Black"
+            Increment="1"
+            Minimum="-1"
+            Precision="0"
+            UpdateValueOnEnterKey="True" Canvas.Left="689" Canvas.Top="902" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Fq_zad_b4305}" />
+            </Behaviors:Interaction.Behaviors>
+        </Controls:NumPadUpDown>
 
     </Canvas>
 
