@@ -46,10 +46,11 @@ namespace cip_blue.Models
         //Coils
         #region Coils
 
-        public bool Logging { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1;
+
         //line1_1  (ttyS2)       
-        //owen mv110 16r ad=3                                                                                             
-        public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
+        //owen mv110 16r ad=3
+       public bool Logging { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1;
+       public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
        public bool out_V4101_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=2 ch2
        public bool out_V4201_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=3 ch3
        public bool out_V4201_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=4 ch4
@@ -240,6 +241,9 @@ namespace cip_blue.Models
         public Single set_level_low_b4103 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         public Single set_level_high_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         public Single set_level_low_b4305 { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single T_zagr_160b { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single T_zagr_4305b { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single T_zagr_4103b { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         #endregion
     }
 

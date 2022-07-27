@@ -242,8 +242,8 @@
             FontSize="20"
             ToolTip="Загружено воды"
             FontWeight="Bold"
-            Foreground="#FF646464"
-            Text="зад. темпер." />
+            Foreground="Green"
+            Text="зад. T." />
 
         <TextBlock Grid.Row="5"  HorizontalAlignment="Center"
             VerticalAlignment="Center"

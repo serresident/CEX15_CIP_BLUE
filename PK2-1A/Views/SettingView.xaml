@@ -102,14 +102,13 @@
 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
 
             </Grid.RowDefinitions>
+            <Border   VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="2"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 "/>
             <TextBlock  FontSize="20" Foreground="DarkBlue" FontWeight="Black" HorizontalAlignment="Center" Text="Доп. параметры ведения процессов" Grid.Row="0" Grid.ColumnSpan="6"/>
-            <Border   VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
-
-            </Border>
+            <Border   VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 "/>
             <Grid Grid.Row="1" Grid.Column="1"  Margin="8,5,5,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
@@ -242,13 +241,11 @@
 
 
             <!--//k480B, ph-->
-            <Border  VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="0"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
-
-            </Border>
+            <Border  VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="0"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 "/>
             <Grid Grid.Row="1" Grid.Column="0"  Margin="8,5,5,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="50"/>
 
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -468,22 +465,19 @@
 
             </Grid>
 
-               <Border   VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="2"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
-
-            </Border>
-            <Grid Grid.Row="1" Grid.Column="2"  Margin="8,5,5,5">
+            <Grid Grid.Row="1" Grid.Column="2"  Margin="8,5,5,5" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="100"/>
 
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
-                    <RowDefinition Height="28"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="28"/>
@@ -500,10 +494,22 @@
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="36"/>
                 </Grid.RowDefinitions>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Пароводосмеситель"   Grid.Row="0" Height="24"/>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="кП:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Visibility="Collapsed"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="100" />
 
-                <Controls:NumPadUpDown   Grid.Row="2"
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  FontSize="14" FontWeight="Black"   HorizontalAlignment="Center"  Grid.ColumnSpan="2"  Foreground="Blue" Text="Пароводосмеситель"   Grid.Row="0" Height="24"/>
+                    <TextBlock FontWeight="Bold" FontSize="14"  Text="кП:" Grid.ColumnSpan="1" Grid.Row="1" VerticalAlignment="Center" />
+
+                    <Controls:NumPadUpDown   Grid.Row="1"
                     Height="24" 
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
@@ -516,12 +522,12 @@
                     Maximum="100"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_pvs}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="кИ:" Grid.ColumnSpan="1" Grid.Row="3" VerticalAlignment="Center" Foreground="#FF1D6762" />
-                <Controls:NumPadUpDown   Grid.Row="3" Grid.Column="1"
+                        <b:Interaction.Behaviors>
+                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_pvs}" />
+                        </b:Interaction.Behaviors>
+                    </Controls:NumPadUpDown>
+                    <TextBlock FontWeight="Bold" FontSize="14"  Text="кИ:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" Foreground="#FF1D6762" />
+                    <Controls:NumPadUpDown   Grid.Row="2" Grid.Column="1"
                     Height="24"
                     VerticalContentAlignment="Center"
                     EnterClosesNumPad="True"
@@ -534,12 +540,12 @@
                     Maximum="5"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_pvs}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
-                <TextBlock FontWeight="Bold" FontSize="14"  Text="кД:"   Grid.Row="4" VerticalAlignment="Top" Margin="0,2,0,0"  />
-                <Controls:NumPadUpDown  
+                        <b:Interaction.Behaviors>
+                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_pvs}" />
+                        </b:Interaction.Behaviors>
+                    </Controls:NumPadUpDown>
+                    <TextBlock FontWeight="Bold" FontSize="14"  Text="кД:"   Grid.Row="4" VerticalAlignment="Top" Margin="0,2,0,0"  />
+                    <Controls:NumPadUpDown  
                     Grid.Column="1"   Grid.Row="4"
                     Height="24" 
                     VerticalContentAlignment="Center"
@@ -553,10 +559,83 @@
                     Maximum="100"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
-                    <b:Interaction.Behaviors>
-                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_pvs}" />
-                    </b:Interaction.Behaviors>
-                </Controls:NumPadUpDown>
+                        <b:Interaction.Behaviors>
+                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_pvs}" />
+                        </b:Interaction.Behaviors>
+                    </Controls:NumPadUpDown>
+
+                </Grid>
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock    FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Поддержание расхода NS_4310B" Grid.ColumnSpan="2"  Grid.Row="0" Height="24"/>
+
+                    <TextBlock FontWeight="Bold" FontSize="14"  Text="кП:" Grid.Row="1" VerticalAlignment="Center" Foreground="#FF1D6762" />
+                    <Controls:NumPadUpDown   Grid.Row="1" Grid.Column="1"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                    
+                    FontWeight="Bold"
+                    Foreground="LawnGreen"
+                    Increment="1"
+                    Minimum="0"
+                    Maximum="5"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                        <b:Interaction.Behaviors>
+                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_b4305}" />
+                        </b:Interaction.Behaviors>
+                    </Controls:NumPadUpDown>
+
+                    <TextBlock FontWeight="Bold" FontSize="14"  Text="кИ:" Grid.Row="2" VerticalAlignment="Center" Foreground="Black" />
+                    <Controls:NumPadUpDown   Grid.Row="2" Grid.Column="1"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                    
+                    FontWeight="Bold"
+                    Foreground="LawnGreen"
+                    Increment="1"
+                    Minimum="0"
+                    Maximum="5"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                        <b:Interaction.Behaviors>
+                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_b4305}" />
+                        </b:Interaction.Behaviors>
+                    </Controls:NumPadUpDown>
+
+                    <TextBlock FontWeight="Bold" FontSize="14"  Text="кД:" Grid.Row="3" VerticalAlignment="Center" Foreground="#FF1D6762" />
+                    <Controls:NumPadUpDown   Grid.Row="3" Grid.Column="2"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                    
+                    FontWeight="Bold"
+                    Foreground="LawnGreen"
+                    Increment="1"
+                    Minimum="0"
+                    Maximum="5"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                        <b:Interaction.Behaviors>
+                            <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_b4305}" />
+                        </b:Interaction.Behaviors>
+                    </Controls:NumPadUpDown>
+                </Grid>
+
                 <!--//точка 3-->
                 <!--//точка 4-->
                 <!--//точка 5-->
@@ -564,7 +643,7 @@
                 <!--//остальные-->
 
             </Grid>
-         
+
         </Grid>
     </xctk:BusyIndicator>
 </UserControl>
