@@ -10,6 +10,7 @@
              xmlns:Controls="clr-namespace:cip_blue.Controls"
              xmlns:media ="clr-namespace:System.Windows.Media;assembly=PresentationCore"
              xmlns:converters1="clr-namespace:cip_blue.Converters"
+    xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
              xmlns:helpers="clr-namespace:cip_blue.Helpers"
               
              xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding" xmlns:child="clr-namespace:cip_blue.Views.ChildWindows"
@@ -18,8 +19,5 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
 
-    <xctk:BusyIndicator IsBusy="{Binding IsBusy}" >
-       
 
-    </xctk:BusyIndicator>
 </UserControl>

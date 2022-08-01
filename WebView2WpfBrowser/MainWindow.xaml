@@ -19,39 +19,7 @@ found in the LICENSE file.
     >
     <Window.Resources>
     </Window.Resources>
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.New" Executed="NewCmdExecuted"/>
-        <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCmdExecuted"/>
-        <CommandBinding Command="NavigationCommands.BrowseBack" Executed="BackCmdExecuted" CanExecute="BackCmdCanExecute"/>
-        <CommandBinding Command="NavigationCommands.BrowseForward" Executed="ForwardCmdExecuted" CanExecute="ForwardCmdCanExecute"/>
-        <CommandBinding Command="NavigationCommands.Refresh" Executed="RefreshCmdExecuted" CanExecute="RefreshCmdCanExecute"/>
-        <CommandBinding Command="NavigationCommands.GoToPage" Executed="HomeCmdExecuted" CanExecute="HomeCmdCanExecute"/>
-        <CommandBinding Command="NavigationCommands.BrowseStop" Executed="BrowseStopCmdExecuted" CanExecute="BrowseStopCmdCanExecute"/>
-     
-        <CommandBinding Command="NavigationCommands.IncreaseZoom" Executed="IncreaseZoomCmdExecuted" CanExecute="WebViewRequiringCmdsCanExecute"/>
-        <CommandBinding Command="NavigationCommands.DecreaseZoom" Executed="DecreaseZoomCmdExecuted" CanExecute="DecreaseZoomCmdCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.InjectScriptCommand}" Executed="InjectScriptCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.SetUserAgentCommand}" Executed="SetUserAgentCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.GetCookiesCommand}" Executed="GetCookiesCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.DOMContentLoadedCommand}" Executed="DOMContentLoadedCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.NavigateWithWebResourceRequestCommand}" Executed="NavigateWithWebResourceRequestCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.AddOrUpdateCookieCommand}" Executed="AddOrUpdateCookieCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.DeleteCookiesCommand}" Executed="DeleteCookiesCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.DeleteAllCookiesCommand}" Executed="DeleteAllCookiesCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.PasswordAutosaveCommand}" Executed="PasswordAutosaveCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.GeneralAutofillCommand}" Executed="GeneralAutofillCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.NewBrowserVersionCommand}" Executed="NewBrowserVersionCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.SwipeNavigationCommand}" Executed="SwipeNavigationCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.PdfToolbarSaveCommand}" Executed="PdfToolbarSaveCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.PinchZoomCommand}" Executed="PinchZoomCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.CustomClientCertificateSelectionCommand}" Executed="CustomClientCertificateSelectionCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.DeferredCustomCertificateDialogCommand}" Executed="DeferredCustomCertificateDialogCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.DownloadStartingCommand}" Executed="DownloadStartingCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.BackgroundColorCommand}" Executed="BackgroundColorCmdExecuted" CanExecute="WebViewRequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.SuspendCommand}" Executed="SuspendCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.ResumeCommand}" Executed="ResumeCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.CheckUpdateCommand}" Executed="CheckUpdateCmdExecuted" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
-    </Window.CommandBindings>
+   
     <DockPanel>
 
         <DockPanel DockPanel.Dock="Top">

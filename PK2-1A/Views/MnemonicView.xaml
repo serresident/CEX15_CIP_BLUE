@@ -124,7 +124,21 @@
 
 
 
-        <TextBlock Canvas.Left="258" TextWrapping="Wrap" Canvas.Top="823" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="126" Width="206" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Поддержание расхода"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <WPF:Tube Height="8" Canvas.Left="1815" Canvas.Top="783" Width="20" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <WPF:Tube.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </WPF:Tube.RenderTransform>
+
+            <Behaviors:Interaction.Behaviors>
+                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
+            </Behaviors:Interaction.Behaviors>
+
+        </WPF:Tube>
 
 
 
@@ -142,7 +156,7 @@
 
 
 
-        <TextBlock Canvas.Left="1243" TextWrapping="Wrap" Canvas.Top="638" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="218" Width="559" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        <TextBlock Canvas.Left="1243" TextWrapping="Wrap" Canvas.Top="638" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="218" Width="707" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
 
 
 
@@ -1575,6 +1589,16 @@
                         </TransformGroup>
                     </Polygon.RenderTransform>
                 </Polygon>
+                <Polygon Points="218,27 407,395 282,395 282,971 153,971 153,395 27,395 218,27" Fill="Violet" Stroke="#FF000000" StrokeThickness="3" Height="658" Canvas.Top="-4247" Canvas.Left="-13451" RenderTransformOrigin="0.5,0.5" Width="430" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                    <Polygon.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Polygon.RenderTransform>
+                </Polygon>
             </Canvas>
         </Viewbox>
         <WPF:Tube Height="12" Canvas.Left="513" Canvas.Top="640" Width="218" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -2708,7 +2732,7 @@
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
-        <WPF:Tube Height="12" Canvas.Left="1568" Canvas.Top="771" Width="168" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <WPF:Tube Height="12" Canvas.Left="1568" Canvas.Top="771" Width="299" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
 
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.NS_P603_sost}" OnColor1="Gold"/>
@@ -2766,8 +2790,8 @@
             CheckedContent = "ВКЛ"
             UncheckedContent = "Выкл"
             CheckedBackground="Green"
-            UncheckedBackground ="LightPink" Canvas.Left="1642" Canvas.Top="744" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock    Canvas.Left="1599" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание температуры " Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            UncheckedBackground ="LightPink" Canvas.Left="1635" Canvas.Top="744" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock    Canvas.Left="1588" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание температуры " Height="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="1374" Canvas.Top="727" Caption=" выход на TV1" Unit="%"  ValueColor="Red" Foreground="White"  Width="109" Height="40" Value="{Binding PD.TV1_Aout, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <WPF:Lamp Header="   ПУСК" Canvas.Left="367" Design="LEDSquare" Width="56" Height="20" Canvas.Top="748" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Left" VerticalAlignment="Top"  >
             <WPF:Lamp.States>
@@ -2793,7 +2817,7 @@
                 </WPF:ControlColors>
             </WPF:Lamp.Colors>
         </WPF:Lamp>
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="263" Canvas.Top="626" Caption="FQ_нет в проекте" Unit="м.куб/час"  ValueColor="LawnGreen" Foreground="Violet"  Width="138" Height="36" Value="{Binding PD.FQ_B4305, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="1781" Canvas.Top="796" Caption="FQ" Unit="м.куб/час"  ValueColor="LawnGreen" Foreground="Violet"  Width="133" Height="36" Value="{Binding PD.FQ_B4305, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Controls:NumPadUpDown ToolTip="Уставка давления кг/см3"
             Width="88"
             Height="30"
@@ -2806,12 +2830,12 @@
             Increment="1"
             Minimum="-1"
             Precision="0"
-            UpdateValueOnEnterKey="True" Canvas.Left="321" Canvas.Top="858" HorizontalAlignment="Left" VerticalAlignment="Top">
+            UpdateValueOnEnterKey="True" Canvas.Left="1788" Canvas.Top="684" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Fq_zad_b4305}" />
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
-        <TextBlock    Canvas.Left="309" TextWrapping="Wrap" Canvas.Top="842"  Text="Уставка расхода" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="1784" TextWrapping="Wrap" Canvas.Top="659"  Text="Уставка расхода" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
             IsChecked="{Binding PD.SW_FQ_auto_b4305, Mode=TwoWay}"
@@ -2820,8 +2844,8 @@
             CheckedContent = "ВКЛ"
             UncheckedContent = "Выкл"
             CheckedBackground="Green"
-            UncheckedBackground ="LightPink" Canvas.Left="326" Canvas.Top="906" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="41" Canvas.Top="760" Caption="LE_B4305 нет в прокте" Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="188" Height="40" Value="{Binding PD.LE_B4103_urovenVodi, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            UncheckedBackground ="LightPink" Canvas.Left="1803" Canvas.Top="744" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="41" Canvas.Top="760" Caption="LE_B4305 " Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="83" Height="40" Value="{Binding PD.LE_B4103_urovenVodi, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <xctk:WindowContainer Width="1918" Height="1000" Visibility="Collapsed"  >
             <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="990" Canvas.Top="490" />
             <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="790" Canvas.Top="786"  />
@@ -2956,6 +2980,27 @@
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_high_b4103}" />
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
+        <Expander Canvas.Left="70" Canvas.Top="496"  Header="ЗАМЕЧАНИЯ" FontStyle="Italic" FontSize="24"  Height="230" Width="652" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <ScrollViewer Width="628">
+                <Border Height="Auto"  Width="Auto" Margin="5,5,5,5"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
+
+                    <TextBlock    Canvas.Left="1296" TextWrapping="Wrap" Canvas.Top="410" Height="Auto"  Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-1,0,0"><Run Text="1.Не подключен  датчик уровня емкостей 4305 и 4103 (отсутвует в проектной документации,"/><Run Text="влияние:"/><Run Text="невозможно проверить поддержание "/><Run Text="ур"/><Run Text="овня"/><Run Text=" в емкостях"/><Run Text=")"/><Run Text="."/><LineBreak/><Run Text="2. "/><Run Text="Отсутствует"/><Run Text=" ПЧ на насосе 4310б(отсутвует в проектной документации,"/><Run Text="влияние:"/><Run Text="невозможно проверить поддержание расхода)"/><Run Text="."/><LineBreak/><Run Text="3.О"/><Run Text="тсутвует датчик расхода воды на выходе насоса(отсутвует в проектной документации,"/><Run Text="влияние:"/><Run Text="невозможно проверить поддержание расхода)."/><LineBreak/><Run Text="4"/><Run Text=".Отсутвует управление ПВС с RS485 ( нет спецификации для  управления ПВС,влияние: невозможно проверить автоматическое поддержание температуры воды). "/><LineBreak/><Run Text="5"/><Run Text=".Нет  диапазонов  измерений датчиков давления"/><Run Text=" ПВС, отсутвуют датчики давления на ф.прессах( влияние:не принимают участие в управление контурами"/><Run Text=", невозможен мониторинг пара"/><Run Text="м"/><Run Text="етров "/><Run Text=" те"/><Run Text="х"/><Run Text="нолог. "/><Run Text="процесса"/><Run Text=")."/><LineBreak/><Run Text="6"/><Run Text=". "/><Run Text="Н"/><Run Text="е подключены по проекту датчики температуры емкостей 4305 и 4103 ( влияние:не принимают участие в управление контурами"/><Run Text=", невозможен мониторинг пара"/><Run Text="м"/><Run Text="етров "/><Run Text=" те"/><Run Text="х"/><Run Text="нолог. "/><Run Text="процесса"/><Run Text=")"/></TextBlock>
+                </Border>
+            </ScrollViewer>
+
+        </Expander>
+        <Expander Canvas.Left="306"  Header="Описание Алгоритма, автор алгоритма:  н.л. ФМП ЦЛ     Мартьянов К.И." FontStyle="Italic" FontSize="18"  Height="512" Width="1592" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-2">
+
+            <ScrollViewer Width="auto">
+                <Border Height="Auto"  Width="Auto" Margin="5,5,5,5"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
+                    <TextBox TextWrapping="Wrap"  Text="Предлагается за основу взять принципиальную схему в приложении №1 Пароводяной смеситель работает на накопительные емкости В4103 (объемом 50 м3), В4305 (объемом 20 м3) и реактор 160а (объемом 25 м3) при этом на выходе из смесителя работают три отсечных клапана (ПИМ со схем подмеса конденсата) управляющие наполнением емкостей по максимальному уровню (команда с ЦПУ по заданной температуре, объем не задается для емкостей В4103 и В4305 т.к. заполнение идет до 80% уровня), конденсат с пароводяного смесителя стекает в емкость В4103. В емкость В4305 как и ранее заложенным проектом стекает конденсат с сушильного оборудования К-37-2. Питание смесителя осуществляется смесью артезианская вода + вода с мембранной установки (соотношение 1:1 путем автоматической установки на местном щите управления) путем подачи с насоса Р4310б. ПВС согласно заданных значений (с ПК) выбирает необходимый температурный режим под программу работы, включает насос подачи, открывается необходимый клапан и вода подается потребителям. Одновременная работа на нескольких потребителей невозможна. Программа работы: &#xA;&#xA; 1. Нагретая вода до температуры 90 град из ПВС на прямую поступает в 160а (аппарат объемом 25 м3). Загрузка воды в аппарат 160а ведется порционно в количестве согласно прописи получения ФЦМ во вложении, а именно: Порция №1 – вода 90 град. объемом 4,5 м3 для суспензирования ФЦМ + добавка воды для корректировки вязкости; Порция №2 - вода 90 град. объемом 11 м3 для промывки пасты ФЦМ в фильтр-прессе через материальную линию;   &#xA;&#xA; 2. Нагретая вода до температуры 90 град. из ПВС поступает в В4103 (емкость объемом 50 м3)  Подпитка емкости идет в автоматическом режиме при уровне в емкости менее 30% включается до уровня в 80%. Оператор не участвует в работе контура. Вода расходуется на:                               &#xA; a. На промывку ФЦМ в ф.п. F4101 с расходом 25-30 м3/оп. в режиме ЦИП+СЗУ по существующему контуру управления с использованием насоса Р4109а,б, фильтрат отводится в К-37-2 в емкость сбора промвод для очистки на обратно-осмотической мембранной установки (ООМУ) и повторного использования на технологию.   &#xA;  b. Вода идет на промывку п. Голубого ФЦ в ф.п. F4201 с расходом 25-35 м3/оп. в режиме ЦИП+СЗУ+кондуктометр по существующему контуру управления с использованием насоса Р4109а,б. Промывка отводится в К-37-2 в емкость сбора промвод для очистки на обратно-осмотической мембранной установки (ООМУ) и повторного использования на технологию.  &#xA;                              &#xA; 3. Нагретая вода до температуры 50 град. из ПВС поступает в В4305 (емкость объемом 20 м3).  Подпитка емкости идет в автоматическом режиме при уровне в емкости менее 30% включается до уровня в 80%. Оператор не участвует в работе контура. a. Вода идет на фильтр-пресса в К-37-2 с помощью насоса Р4310а потребление неравномерное до 60-70 м3/смену в течении 2-3 часов (15-22,5 м3/ч) в режиме ЦИП+СЗУ по существующему контуру управления на каждом фильтр-прессе. b. Вода идет на промывку ФЦМ в ф.п. F4101 с расходом 25-30 м3/оп. в режиме ЦИП+СЗУ+рН по существующему контуру управления с использованием насоса Р4310а, фильтрат отводится в К-37-2 в емкость сбора промвод для очистки на обратно-осмотической мембранной установки (ООМУ) и повторного использования на технологию.   " Margin="-0,0,0,0"/>
+
+                </Border>
+            </ScrollViewer>
+
+        </Expander>
+        <TextBlock    Canvas.Left="1770" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание расхода " Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
     </Canvas>
 

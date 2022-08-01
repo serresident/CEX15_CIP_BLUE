@@ -548,5 +548,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebView2WpfBrowser\WebView2WpfBrowser.csproj">
+      <Project>{a29a0b27-358b-4baa-ada5-c4deb8b09d3e}</Project>
+      <Name>WebView2WpfBrowser</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

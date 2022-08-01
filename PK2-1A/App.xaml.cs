@@ -144,8 +144,8 @@ namespace cip_blue
             ViewModelLocationProvider.Register<SettingView>(() => Container.Resolve<SettingViewModel>());
             ViewModelLocationProvider.Register<SettingToolView>(() => Container.Resolve<SettingViewModel>());
 
-            //ViewModelLocationProvider.Register<LogicView>(() => Container.Resolve<LogicViewModel>());
-            //ViewModelLocationProvider.Register<LogicToolView>(() => Container.Resolve<LogicViewModel>());
+            ViewModelLocationProvider.Register<LogicView>(() => Container.Resolve<LogicViewModel>());
+            ViewModelLocationProvider.Register<LogicToolView>(() => Container.Resolve<LogicViewModel>());
 
             //ViewModelLocationProvider.Register<JournalView>(() => Container.Resolve<JournalViewModel>());
             //ViewModelLocationProvider.Register<JournalToolView>(() => Container.Resolve<JournalViewModel>());
@@ -162,7 +162,7 @@ namespace cip_blue
             regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("MnemonicView", "MnemonicToolView", "Мнемосхема"));
             //regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("ArchivView", "ArchivToolView", "Архив"));
             //regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("JournalView", "JournalToolView", "Журнал"));
-            //regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("LogicView","LogicToolView","Стадии"));
+            regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("LogicView", "LogicToolView", "Стадии"));
             regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("SettingView", "SettingToolView", "Настройки"));
             regionManager.RequestNavigate("ContentRegion", "MnemonicView");
         }
