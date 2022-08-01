@@ -2846,12 +2846,7 @@
             CheckedBackground="Green"
             UncheckedBackground ="LightPink" Canvas.Left="1803" Canvas.Top="744" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="41" Canvas.Top="760" Caption="LE_B4305 " Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="83" Height="40" Value="{Binding PD.LE_B4103_urovenVodi, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Collapsed"  >
-            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="990" Canvas.Top="490" />
-            <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="790" Canvas.Top="786"  />
-            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
-
-        </xctk:WindowContainer>
+       
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="265" Canvas.Top="670" Caption=" выход на NS_4310B" Unit="Гц"  ValueColor="Red" Foreground="White"  Width="147" Height="36" Value="{Binding PD.NSB4305_Control_out_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
@@ -3001,7 +2996,12 @@
 
         </Expander>
         <TextBlock    Canvas.Left="1770" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание расхода " Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
+            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="990" Canvas.Top="490" />
+            <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="790" Canvas.Top="786"  />
+            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
 
+        </xctk:WindowContainer>
     </Canvas>
 
 
