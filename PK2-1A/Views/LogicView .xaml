@@ -10,15 +10,69 @@
              xmlns:Controls="clr-namespace:cip_blue.Controls"
              xmlns:media ="clr-namespace:System.Windows.Media;assembly=PresentationCore"
              xmlns:converters1="clr-namespace:cip_blue.Converters"
+    xmlns:local="clr-namespace:cip_blue"
     xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
              xmlns:helpers="clr-namespace:cip_blue.Helpers"
               
              xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding" xmlns:child="clr-namespace:cip_blue.Views.ChildWindows"
     x:Class="cip_blue.Views.LogicView"
-              
+               x:Name="MyWindow"
+       
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
-    
+    <UserControl.Resources>
+    </UserControl.Resources>
+
+    <UserControl.CommandBindings>
+     
+        <CommandBinding Command="NavigationCommands.BrowseBack" Executed="BackCmdExecuted" CanExecute="BackCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.BrowseForward" Executed="ForwardCmdExecuted" CanExecute="ForwardCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.Refresh" Executed="RefreshCmdExecuted" CanExecute="RefreshCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.GoToPage" Executed="HomeCmdExecuted" CanExecute="HomeCmdCanExecute"/>
+        
+    </UserControl.CommandBindings>
+    <DockPanel>
+
+        <DockPanel DockPanel.Dock="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Command="NavigationCommands.BrowseBack">Назад</Button>
+                <Button Grid.Column="1" DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Вперед</Button>
+                <Button Grid.Column="2" DockPanel.Dock="Left"  Command="NavigationCommands.Refresh">Обновить</Button>
+                <Button Grid.Column="3"  Command="NavigationCommands.GoToPage" Content="Домой" Margin="10,0,0,0"/>
+            </Grid>
+
+
+
+            <!-- We want the address bar to update based on the WebView's Source, but we don't want the WebView to navigate just from the user typing into the address bar.   Therefore we use the OneWay binding mode. -->
+
+        </DockPanel>
+        <Grid x:Name="Layout">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="81*"/>
+            </Grid.ColumnDefinitions>
+     
+
+            <!-- If you want to use a specific version of WebView2 Runtime change EvergreenWebView2CreationProperties
+            to BYOWebView2CreationProperties and follow the steps in MainWindow.xaml
+            -->
+            <wv2:WebView2
+                x:Name="webView"
+              
+                Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102?orgId=1" Grid.ColumnSpan="2"
+            />
+            <!-- The control event handlers are set in code behind so they can be reused when replacing the control after
+            a WebView2 Runtime's browser process failure
+            -->
+        </Grid>
+    </DockPanel>
 
 
 </UserControl>
