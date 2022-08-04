@@ -778,39 +778,39 @@ namespace cip_blue.ViewModels
 
         private void internalUpdate()
         {
-            WaterLoadingStartCommand.RaiseCanExecuteChanged();
-            WaterLoadingStopCommand.RaiseCanExecuteChanged(); 
+        //    WaterLoadingStartCommand.RaiseCanExecuteChanged();
+        //    WaterLoadingStopCommand.RaiseCanExecuteChanged(); 
 
-            HotWaterLoadingStartCommand.RaiseCanExecuteChanged();
-            HotWaterLoadingStopCommand.RaiseCanExecuteChanged();  
+        //    HotWaterLoadingStartCommand.RaiseCanExecuteChanged();
+        //    HotWaterLoadingStopCommand.RaiseCanExecuteChanged();  
 
-            Hot480WaterLoadingStartCommand.RaiseCanExecuteChanged();
-            Hot480WaterLoadingStopCommand.RaiseCanExecuteChanged();
+        //    Hot480WaterLoadingStartCommand.RaiseCanExecuteChanged();
+        //    Hot480WaterLoadingStopCommand.RaiseCanExecuteChanged();
 
-            UnloadFromR422StartCommand.RaiseCanExecuteChanged();
-            UnloadFromR422StopCommand.RaiseCanExecuteChanged();
+        //    UnloadFromR422StartCommand.RaiseCanExecuteChanged();
+        //    UnloadFromR422StopCommand.RaiseCanExecuteChanged();
 
-            Ohlagd480StartCommand.RaiseCanExecuteChanged();
-            Ohlagd480StopCommand.RaiseCanExecuteChanged();
+        //    Ohlagd480StartCommand.RaiseCanExecuteChanged();
+        //    Ohlagd480StopCommand.RaiseCanExecuteChanged();
 
-            RegPhK480aStartCommand.RaiseCanExecuteChanged();
-            RegPhK480aStopCommand.RaiseCanExecuteChanged();
+        //    RegPhK480aStartCommand.RaiseCanExecuteChanged();
+        //    RegPhK480aStopCommand.RaiseCanExecuteChanged();
 
 
-            RegPhK480bStartCommand.RaiseCanExecuteChanged();
-            RegPhK480bStopCommand.RaiseCanExecuteChanged();
+        //    RegPhK480bStartCommand.RaiseCanExecuteChanged();
+        //    RegPhK480bStopCommand.RaiseCanExecuteChanged();
 
-            ZagrMorfolin480StartCommand.RaiseCanExecuteChanged();
-            ZagrMorfolin480StopCommand.RaiseCanExecuteChanged();
+        //    ZagrMorfolin480StartCommand.RaiseCanExecuteChanged();
+        //    ZagrMorfolin480StopCommand.RaiseCanExecuteChanged();
 
-            ZagrDietil480StartCommand.RaiseCanExecuteChanged();
-            ZagrDietil480StopCommand.RaiseCanExecuteChanged();
+        //    ZagrDietil480StartCommand.RaiseCanExecuteChanged();
+        //    ZagrDietil480StopCommand.RaiseCanExecuteChanged();
 
-            ZagrDietilAmin480StartCommand.RaiseCanExecuteChanged();
-            ZagrDietilAmin480StopCommand.RaiseCanExecuteChanged();
+        //    ZagrDietilAmin480StartCommand.RaiseCanExecuteChanged();
+        //    ZagrDietilAmin480StopCommand.RaiseCanExecuteChanged();
 
-            ZagrAnilin480StartCommand.RaiseCanExecuteChanged();
-            ZagrAnilin480StopCommand.RaiseCanExecuteChanged();
+        //    ZagrAnilin480StartCommand.RaiseCanExecuteChanged();
+        //    ZagrAnilin480StopCommand.RaiseCanExecuteChanged();
 
         }
 

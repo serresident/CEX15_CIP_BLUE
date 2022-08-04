@@ -1,12 +1,16 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
+using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Json;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Interop;
 
 namespace cip_blue.Views
 {
@@ -16,6 +20,7 @@ namespace cip_blue.Views
     /// </summary>
     public partial class LogicView : UserControl
     {
+       
 
         public Uri home;
         public static RoutedCommand InjectScriptCommand = new RoutedCommand();
@@ -40,7 +45,7 @@ namespace cip_blue.Views
         public static RoutedCommand PinchZoomCommand = new RoutedCommand();
         public static RoutedCommand SwipeNavigationCommand = new RoutedCommand();
         bool _isNavigating = false;
-
+        
         CoreWebView2Settings _webViewSettings;
         CoreWebView2Settings WebViewSettings
         {
@@ -67,11 +72,30 @@ namespace cip_blue.Views
         }
         public LogicView()
         {
+            
             InitializeComponent();
+           
             AttachControlEventHandlers(webView);
+
+           
             home = new Uri("http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102?orgId=1");
         }
 
+       
+    private async void WebView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
+        {
+           
+            webView.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+            string script = File.ReadAllText("Mouse.js");
+            await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(script);
+          //  IntPtr windowHandle = new WindowInteropHelper(sampleWindow).EnsureHandle();
+
+            //webView2.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+
+            //  webView2.CoreWebView2.Settings.IsScriptEnabled = false;
+            // webView2.CoreWebView2.Navigate("");
+
+        }
 
         void AttachControlEventHandlers(WebView2 control)
         {
@@ -84,6 +108,7 @@ namespace cip_blue.Views
                 try
                 {
                     return webView != null && webView.CoreWebView2 != null;
+                
                 }
                 catch (Exception ex) when (ex is ObjectDisposedException || ex is InvalidOperationException)
                 {
@@ -665,6 +690,45 @@ namespace cip_blue.Views
             // worth it, especially given that the WebView API explicitly documents which events
             // signal the property value changes.
             CommandManager.InvalidateRequerySuggested();
+        }
+
+        
+      private const int WM_LBUTTONDOWN = 0x0201;
+
+      private const int WM_RBUTTONDOWN = 0x0204;
+        private const int WM_PARENTNOTIFY = 0x0210;
+        protected IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            if (msg == WM_LBUTTONDOWN || msg == WM_RBUTTONDOWN || msg == WM_PARENTNOTIFY)
+            {
+                handled = true;
+                return IntPtr.Zero;
+            }
+
+            return IntPtr.Zero;
+        }
+
+        private void webView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            //HwndSource hwnd = (HwndSource)PresentationSource.FromVisual(this);
+
+            //if (hwnd != null)
+            //{
+            //    hwnd.AddHook(new HwndSourceHook(WndProc));
+            //}
+           
+
+            JsonObject jsonObject = JsonConvert.DeserializeObject<JsonObject>(e.WebMessageAsJson);
+
+            //switch (jsonObject[0].ToString())
+            //{
+            //    case "click":
+            //        //MessageBox.Show(jsonObject.Value);
+            //        break;
+
+            //}
+
+
         }
     }
 

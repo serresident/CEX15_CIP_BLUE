@@ -2975,17 +2975,7 @@
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_high_b4103}" />
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
-        <Expander Canvas.Left="70" Canvas.Top="496"  Header="ЗАМЕЧАНИЯ" FontStyle="Italic" FontSize="24"  Height="230" Width="652" HorizontalAlignment="Left" VerticalAlignment="Top">
-
-            <ScrollViewer Width="628">
-                <Border Height="Auto"  Width="Auto" Margin="5,5,5,5"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
-
-                    <TextBlock    Canvas.Left="1296" TextWrapping="Wrap" Canvas.Top="410" Height="Auto"  Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-1,0,0"><Run Text="1.Не подключен  датчик уровня емкостей 4305 и 4103 (отсутвует в проектной документации,"/><Run Text="влияние:"/><Run Text="невозможно проверить поддержание "/><Run Text="ур"/><Run Text="овня"/><Run Text=" в емкостях"/><Run Text=")"/><Run Text="."/><LineBreak/><Run Text="2. "/><Run Text="Отсутствует"/><Run Text=" ПЧ на насосе 4310б(отсутвует в проектной документации,"/><Run Text="влияние:"/><Run Text="невозможно проверить поддержание расхода)"/><Run Text="."/><LineBreak/><Run Text="3.О"/><Run Text="тсутвует датчик расхода воды на выходе насоса(отсутвует в проектной документации,"/><Run Text="влияние:"/><Run Text="невозможно проверить поддержание расхода)."/><LineBreak/><Run Text="4"/><Run Text=".Отсутвует управление ПВС с RS485 ( нет спецификации для  управления ПВС,влияние: невозможно проверить автоматическое поддержание температуры воды). "/><LineBreak/><Run Text="5"/><Run Text=".Нет  диапазонов  измерений датчиков давления"/><Run Text=" ПВС, отсутвуют датчики давления на ф.прессах( влияние:не принимают участие в управление контурами"/><Run Text=", невозможен мониторинг пара"/><Run Text="м"/><Run Text="етров "/><Run Text=" те"/><Run Text="х"/><Run Text="нолог. "/><Run Text="процесса"/><Run Text=")."/><LineBreak/><Run Text="6"/><Run Text=". "/><Run Text="Н"/><Run Text="е подключены по проекту датчики температуры емкостей 4305 и 4103 ( влияние:не принимают участие в управление контурами"/><Run Text=", невозможен мониторинг пара"/><Run Text="м"/><Run Text="етров "/><Run Text=" те"/><Run Text="х"/><Run Text="нолог. "/><Run Text="процесса"/><Run Text=")"/></TextBlock>
-                </Border>
-            </ScrollViewer>
-
-        </Expander>
-        <Expander Canvas.Left="306"  Header="Описание Алгоритма, автор алгоритма:  н.л. ФМП ЦЛ     Мартьянов К.И." FontStyle="Italic" FontSize="18"  Height="512" Width="1592" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-2">
+        <!--<Expander Canvas.Left="306"  Header="Описание Алгоритма, автор алгоритма:  н.л. ФМП ЦЛ     Мартьянов К.И." FontStyle="Italic" FontSize="18"  Height="512" Width="1592" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-2">
 
             <ScrollViewer Width="auto">
                 <Border Height="Auto"  Width="Auto" Margin="5,5,5,5"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 ">
@@ -2994,7 +2984,7 @@
                 </Border>
             </ScrollViewer>
 
-        </Expander>
+        </Expander>-->
         <TextBlock    Canvas.Left="1770" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание расхода " Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
             <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="990" Canvas.Top="490" />

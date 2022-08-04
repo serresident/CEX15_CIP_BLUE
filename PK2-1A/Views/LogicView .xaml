@@ -58,16 +58,34 @@
                 <ColumnDefinition Width="19*"/>
                 <ColumnDefinition Width="81*"/>
             </Grid.ColumnDefinitions>
-     
+            <Grid.RowDefinitions>
+           
+            </Grid.RowDefinitions>
 
             <!-- If you want to use a specific version of WebView2 Runtime change EvergreenWebView2CreationProperties
             to BYOWebView2CreationProperties and follow the steps in MainWindow.xaml
             -->
             <wv2:WebView2
                 x:Name="webView"
-              
+              CoreWebView2InitializationCompleted="WebView2_CoreWebView2InitializationCompleted"
+                WebMessageReceived="webView2_WebMessageReceived"
                 Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102?orgId=1" Grid.ColumnSpan="2"
             />
+
+           
+       
+            <!--<Grid  Grid.Row="1" >
+                <wv2:WebView2  
+                x:Name="webView2"  
+              CoreWebView2InitializationCompleted="WebView21_CoreWebView2InitializationCompleted"
+                    WebMessageReceived="webView2_WebMessageReceived"
+                Source="http://stp10/d/pxzImb1Wk/meteostantsiia?viewPanel=10&amp;orgId=1&amp;refresh=5s" Grid.ColumnSpan="2"
+            />
+            </Grid>-->
+
+           
+
+
             <!-- The control event handlers are set in code behind so they can be reused when replacing the control after
             a WebView2 Runtime's browser process failure
             -->
