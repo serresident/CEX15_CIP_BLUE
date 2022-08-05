@@ -99,7 +99,7 @@ namespace WebView2WpfBrowser
             //}
         InitializeComponent();
             AttachControlEventHandlers(webView);
-             home = new Uri("http://127.0.0.1:3000");
+             home = new Uri("http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&from=now-6h&to=now&refresh=5s&viewPanel=24");
         }
 
         void AttachControlEventHandlers(WebView2 control)

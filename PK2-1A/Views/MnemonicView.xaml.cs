@@ -1,6 +1,9 @@
 ﻿using cip_blue.ViewModels;
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Json;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +20,7 @@ using System.Windows.Shapes;
 
 namespace cip_blue.Views
 {
+    
     /// <summary>
     /// Interaction logic for MnemonicView.xaml
     /// </summary>
@@ -25,8 +29,107 @@ namespace cip_blue.Views
         public MnemonicView()
         {
             InitializeComponent();
+            home = new Uri("http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&from=now-6h&to=now&refresh=5s&viewPanel=24");
+        }
+        public Uri home;
+        bool _isNavigating = false;
+        private async void WebView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
+        {
+
+            webView.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+            string script = File.ReadAllText("Mouse.js");
+            await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(script);
+            webView.ZoomFactor = 0.6;
+            //  IntPtr windowHandle = new WindowInteropHelper(sampleWindow).EnsureHandle();
+
+            //webView2.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+
+            //  webView2.CoreWebView2.Settings.IsScriptEnabled = false;
+            // webView2.CoreWebView2.Navigate("");
+
         }
 
+        bool IsWebViewValid()
+        {
+            try
+            {
+                return webView != null && webView.CoreWebView2 != null;
+            }
+            catch (Exception ex) when (ex is ObjectDisposedException || ex is InvalidOperationException)
+            {
+                return false;
+            }
+        }
+
+
+        void RefreshCmdCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsWebViewValid() && !_isNavigating;
+        }
+
+        void RefreshCmdExecuted(object target, ExecutedRoutedEventArgs e)
+        {
+            webView.Reload();
+        }
+        void GoToPageCmdCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = webView != null && !_isNavigating;
+        }
+
+        void HomeCmdCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = webView != null && !_isNavigating;
+        }
+
+        async void HomeCmdExecuted(object target, ExecutedRoutedEventArgs e)
+        {
+            await webView.EnsureCoreWebView2Async();
+
+            //var rawUrl = (string)e.Parameter;
+            //Uri uri = null;
+
+            //if (Uri.IsWellFormedUriString(rawUrl, UriKind.Absolute))
+            //{
+            //    uri = new Uri(rawUrl);
+            //}
+            //else if (!rawUrl.Contains(" ") && rawUrl.Contains("."))
+            //{
+            //    // An invalid URI contains a dot and no spaces, try tacking http:// on the front.
+            //    uri = new Uri("http://" + rawUrl);
+            //}
+            //else
+            //{
+            //    // Otherwise treat it as a web search.
+            //    uri = new Uri("https://bing.com/search?q=" +
+            //        String.Join("+", Uri.EscapeDataString(rawUrl).Split(new string[] { "%20" }, StringSplitOptions.RemoveEmptyEntries)));
+            //}
+
+            // Setting webView.Source will not trigger a navigation if the Source is the same
+            // as the previous Source.  CoreWebView.Navigate() will always trigger a navigation.
+            webView.CoreWebView2.Navigate(home.ToString());
+        }
+        private void webView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            //HwndSource hwnd = (HwndSource)PresentationSource.FromVisual(this);
+
+            //if (hwnd != null)
+            //{
+            //    hwnd.AddHook(new HwndSourceHook(WndProc));
+            //}
+
+
+          //  JsonObject jsonObject = JsonConvert.DeserializeObject<JsonObject>(e.WebMessageAsJson);
+
+            //switch (jsonObject[0].ToString())
+            //{
+            //    case "click":
+            //        //MessageBox.Show(jsonObject.Value);
+            //        break;
+
+            //}
+
+
+        }
 
     }
 

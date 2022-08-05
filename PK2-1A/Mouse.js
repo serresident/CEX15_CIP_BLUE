@@ -20,9 +20,10 @@ document.addEventListener('click', function (event)
 
 
 
-
+// выполнется толлько после загрузки html
 document.addEventListener('DOMContentLoaded', function () {
 document.body.id="gggg";
+
 
 // поддерживается ли pointerLock
 var havePointerLock = 'pointerLockElement' in document ||
@@ -132,6 +133,8 @@ window.addEventListener('load', function () {
 
    
 });
+
+//отключение клика
 document.addEventListener("click", handler, true);
 
 function handler(e) {
@@ -150,5 +153,22 @@ var showMenu = document.getElementsByClassName("selectElement");
 for (var i = 0; i < showMenu.length; ++i) {
     showMenu[i].addEventListener("mousedown", cancelDropDown, false);
 } 
+
+/// отключить выделение
+onselectstart = (e) => {
+    e.preventDefault()
+    console.log("nope!")
+}
+
+/* disable right click */
+//document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.addEventListener('dragstart', (e) => {
+    e.preventDefault()
+})
+
+document.addEventListener('drop', (e) => {
+    e.preventDefault()
+})
 
 

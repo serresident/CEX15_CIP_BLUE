@@ -12,6 +12,7 @@
              xmlns:helpers="clr-namespace:cip_blue.Helpers"
              xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
              xmlns:child="clr-namespace:cip_blue.Views.ChildWindows"
+               xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
              
             xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:convertors="clr-namespace:AITSW.WPFValueConverters;assembly=WPFValueConverters"
              mc:Ignorable="d" 
@@ -73,8 +74,6 @@
             <Setter Property="Control.Padding" Value="5"/>
 
         </Style>
-
-
         <Style TargetType="{x:Type TextBox}">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -96,10 +95,6 @@
 
             <Setter Property="Cursor" Value="Arrow"/>
         </Style>
-
-
-
-
         <Style TargetType="{x:Type WPF:Valve}">
             <Setter Property="ToolTip" Value="Зеленый=  сигнал на открытие &#xA; Если Красный= сигнал на закрытие  &#xA; Если Оранжевый= модуль управления не отвечает, обратитесь за диагностикой В КИПиА  "/>
         </Style>
@@ -111,12 +106,19 @@
 
 
         </Style>
-
-
         <converters1:PowerPercentConverter x:Key="PowerPercentConverter" />
-
         <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
+
+
+
     </UserControl.Resources>
+    <UserControl.CommandBindings>
+
+
+        <CommandBinding Command="NavigationCommands.Refresh" Executed="RefreshCmdExecuted" CanExecute="RefreshCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.GoToPage" Executed="HomeCmdExecuted" CanExecute="HomeCmdCanExecute"/>
+
+    </UserControl.CommandBindings>
 
     <Canvas  x:Name="ContentCanvas" Background="#FFF9EFDA"  >
 
@@ -2846,7 +2848,7 @@
             CheckedBackground="Green"
             UncheckedBackground ="LightPink" Canvas.Left="1803" Canvas.Top="744" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="41" Canvas.Top="760" Caption="LE_B4305 " Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="83" Height="40" Value="{Binding PD.LE_B4103_urovenVodi, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-       
+
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="265" Canvas.Top="670" Caption=" выход на NS_4310B" Unit="Гц"  ValueColor="Red" Foreground="White"  Width="147" Height="36" Value="{Binding PD.NSB4305_Control_out_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
@@ -2985,6 +2987,19 @@
             </ScrollViewer>
 
         </Expander>-->
+
+        <DockPanel Height="338" Width="606" Canvas.Left="180" Canvas.Top="-86" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <!-- If you want to use a specific version of WebView2 Runtime change EvergreenWebView2CreationProperties
+            to BYOWebView2CreationProperties and follow the steps in MainWindow.xaml
+            -->
+            <wv2:WebView2
+                x:Name="webView"
+              CoreWebView2InitializationCompleted="WebView2_CoreWebView2InitializationCompleted"
+                WebMessageReceived="webView2_WebMessageReceived"
+                Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&amp;from=now-6h&amp;to=now&amp;refresh=5s&amp;viewPanel=24" Margin="85,50,50,0" Grid.Column="2" Width="364" Height="196"
+            />
+        </DockPanel>
+        <Button Grid.Column="3"  Command="NavigationCommands.GoToPage" Content="Сброс" Canvas.Left="716" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBlock    Canvas.Left="1770" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание расхода " Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
             <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="990" Canvas.Top="490" />
