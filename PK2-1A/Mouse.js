@@ -10,6 +10,17 @@ document.addEventListener('click', function (event)
 
 
 }); 
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
 document.body.id="gggg";
 
@@ -35,6 +46,9 @@ var isLocked = function(){
          requestedElement === document.mozPointerLockElement ||
          requestedElement === document.webkitPointerLockElement;
 }
+    requestedElement.requestPointerLock();
+    document.addEventListener("mousemove", moveCallback, false);
+    document.body.classList.add('locked');
 
 requestedElement.addEventListener('click', function(){
   if(!isLocked()){
@@ -86,4 +100,55 @@ var moveCallback = function(e) {
 
 
 });
+
+
+window.addEventListener('load', function () {
+    document.body.id = "gggg";
+
+    // поддерживается ли pointerLock
+    var havePointerLock = 'pointerLockElement' in document ||
+        'mozPointerLockElement' in document ||
+        'webkitPointerLockElement' in document;
+
+    // Элемент для которого будем включать pointerLock
+    var requestedElement = document.getElementById('gggg');
+
+    // Танцы с префиксами
+    requestedElement.requestPointerLock = requestedElement.requestPointerLock ||
+        requestedElement.mozRequestPointerLock ||
+        requestedElement.webkitRequestPointerLock;
+
+    document.exitPointerLock = document.exitPointerLock ||
+        document.mozExitPointerLock ||
+        document.webkitExitPointerLock;
+
+    var isLocked = function () {
+        return requestedElement === document.pointerLockElement ||
+            requestedElement === document.mozPointerLockElement ||
+            requestedElement === document.webkitPointerLockElement;
+    }
+    requestedElement.requestPointerLock();
+ 
+
+   
+});
+document.addEventListener("click", handler, true);
+
+function handler(e) {
+    e.stopPropagation();
+    e.preventDefault();
+}
+
+function cancelDropDown(ev) {
+    ev.preventDefault();
+}
+
+var showMenu = document.getElementsByClassName("selectElement");
+
+// ...
+
+for (var i = 0; i < showMenu.length; ++i) {
+    showMenu[i].addEventListener("mousedown", cancelDropDown, false);
+} 
+
 
