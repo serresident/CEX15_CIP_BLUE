@@ -120,7 +120,7 @@
 
     </UserControl.CommandBindings>
 
-    <Canvas  x:Name="ContentCanvas" Background="#FFF9EFDA"  >
+    <Canvas  x:Name="ContentCanvas" Background="#FFF7F8FA"  >
 
 
 
@@ -2988,18 +2988,29 @@
 
         </Expander>-->
 
-        <DockPanel Height="338" Width="606" Canvas.Left="180" Canvas.Top="-86" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <DockPanel Height="338" Width="606" Canvas.Left="865" Canvas.Top="-92" HorizontalAlignment="Left" VerticalAlignment="Top">
             <!-- If you want to use a specific version of WebView2 Runtime change EvergreenWebView2CreationProperties
             to BYOWebView2CreationProperties and follow the steps in MainWindow.xaml
             -->
             <wv2:WebView2
-                x:Name="webView"
+                x:Name="webView" ZoomFactor="0.6"
               CoreWebView2InitializationCompleted="WebView2_CoreWebView2InitializationCompleted"
                 WebMessageReceived="webView2_WebMessageReceived"
-                Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&amp;from=now-6h&amp;to=now&amp;refresh=5s&amp;viewPanel=24" Margin="85,50,50,0" Grid.Column="2" Width="364" Height="196"
+                Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&amp;from=now-12h&amp;to=now&amp;refresh=5s&amp;viewPanel=24" Margin="85,50,50,0" Grid.Column="2" Width="364" Height="196"
             />
         </DockPanel>
-        <Button Grid.Column="3"  Command="NavigationCommands.GoToPage" Content="Сброс" Canvas.Left="716" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <DockPanel Height="338" Width="606" Canvas.Left="192" Canvas.Top="-91" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <!-- If you want to use a specific version of WebView2 Runtime change EvergreenWebView2CreationProperties
+            to BYOWebView2CreationProperties and follow the steps in MainWindow.xaml
+            -->
+            <wv2:WebView2
+                x:Name="webView1" ZoomFactor="0.6"
+              CoreWebView2InitializationCompleted="WebView2_CoreWebView2InitializationCompleted"
+                WebMessageReceived="webView2_WebMessageReceived"
+                Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&amp;refresh=5s&amp;viewPanel=33" Margin="85,50,50,0" Grid.Column="2" Width="364" Height="196"
+            />
+        </DockPanel>
+        <Button Grid.Column="3"  Command="NavigationCommands.GoToPage" Content="Сброс" Canvas.Left="1376" Canvas.Top="7" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible"/>
         <TextBlock    Canvas.Left="1770" TextWrapping="Wrap" Canvas.Top="726"  Text="Поддержание расхода " Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"  >
             <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="990" Canvas.Top="490" />
@@ -3007,6 +3018,33 @@
             <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
 
         </xctk:WindowContainer>
+        <Button  Command="NavigationCommands.GoToPage" Content="Сброс" Canvas.Left="708" Canvas.Top="14" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible"/>
+        <GroupBox Style="{StaticResource HmiGroupBox}" Width="120" BorderBrush="#FF0E78B8" BorderThickness="2" Foreground="#FF272525" Canvas.Left="1767" Canvas.Top="860" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <GroupBox.Header>
+                <TextBlock Text="FQ_4305b , Л"/>
+            </GroupBox.Header>
+            <StackPanel>
+
+
+                <!--<TextBlock Grid.Row="1"  TextWrapping="Wrap" Text="Уст"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+                <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
+
+
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_160a}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
+                <xctk:ToggleSwitch Width="64" Height="24" 
+                    IsEnabled="{Binding PD.FQ_B4305_counter, Converter={StaticResource BooleanNegateConverter}}"
+                    CornerRadius="2"
+                    IsChecked="{Binding PD.Reset_WaterCount_160a1, Mode=TwoWay}"
+                    ThumbHeight = "25"
+                    ThumbWidth = "20"
+                    CheckedContent = "Успешно"
+                    UncheckedContent = "Сброс"
+                    CheckedBackground="Green"
+                    UncheckedBackground ="LightPink" Margin="0,3,0,0"/>
+
+            </StackPanel>
+        </GroupBox>
     </Canvas>
 
 

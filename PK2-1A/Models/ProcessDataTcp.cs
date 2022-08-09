@@ -161,6 +161,7 @@ namespace cip_blue.Models
 
         public Single LE_B4305 { get { return getValue<Single>(); } }  //ad=
         public Single FQ_B4305 { get { return getValue<Single>(); } }  //ad=
+        public Single FQ_B4305_counter { get { return getValue<Single>(); } }  //ad=
 
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк

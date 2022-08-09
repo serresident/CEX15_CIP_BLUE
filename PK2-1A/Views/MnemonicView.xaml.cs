@@ -30,16 +30,19 @@ namespace cip_blue.Views
         {
             InitializeComponent();
             home = new Uri("http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&from=now-6h&to=now&refresh=5s&viewPanel=24");
+            home1 = new Uri("http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&refresh=5s&viewPanel=33");
         }
         public Uri home;
+        public Uri home1;
         bool _isNavigating = false;
         private async void WebView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
+            var vhod= (Microsoft.Web.WebView2.Wpf.WebView2)sender;
 
-            webView.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+            vhod.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
             string script = File.ReadAllText("Mouse.js");
-            await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(script);
-            webView.ZoomFactor = 0.6;
+            await vhod.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(script);
+          //  webView.ZoomFactor = 0.6;
             //  IntPtr windowHandle = new WindowInteropHelper(sampleWindow).EnsureHandle();
 
             //webView2.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
@@ -83,8 +86,9 @@ namespace cip_blue.Views
 
         async void HomeCmdExecuted(object target, ExecutedRoutedEventArgs e)
         {
-            await webView.EnsureCoreWebView2Async();
 
+            await webView.EnsureCoreWebView2Async();
+            await webView1.EnsureCoreWebView2Async();
             //var rawUrl = (string)e.Parameter;
             //Uri uri = null;
 
@@ -107,6 +111,7 @@ namespace cip_blue.Views
             // Setting webView.Source will not trigger a navigation if the Source is the same
             // as the previous Source.  CoreWebView.Navigate() will always trigger a navigation.
             webView.CoreWebView2.Navigate(home.ToString());
+            webView1.CoreWebView2.Navigate(home1.ToString());
         }
         private void webView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
