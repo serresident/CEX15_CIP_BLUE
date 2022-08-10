@@ -85,9 +85,9 @@ namespace cip_blue.Views
     private async void WebView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
            
-            webView.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
-            string script = File.ReadAllText("Mouse.js");
-            await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(script);
+            //webView.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+            //string script = File.ReadAllText("Mouse.js");
+            //await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(script);
           //  IntPtr windowHandle = new WindowInteropHelper(sampleWindow).EnsureHandle();
 
             //webView2.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;

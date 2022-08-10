@@ -3033,7 +3033,7 @@
 
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_160a}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
                 <xctk:ToggleSwitch Width="64" Height="24" 
-                    IsEnabled="{Binding PD.FQ_B4305_counter, Converter={StaticResource BooleanNegateConverter}}"
+                    IsEnabled="{Binding PD.FQ_B4305_counter, Converter={StaticResource BooleanNegateConverter }}"
                     CornerRadius="2"
                     IsChecked="{Binding PD.Reset_WaterCount_160a1, Mode=TwoWay}"
                     ThumbHeight = "25"
