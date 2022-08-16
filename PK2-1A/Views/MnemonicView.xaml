@@ -3031,9 +3031,9 @@
                 <!--<TextBlock Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="{Binding SP_F67Z.Value, StringFormat=\{0:N0\}}"  FontSize="14" Foreground="Blue" TextAlignment="Center"/>-->
 
 
-                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.WaterCount_160a}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.FQ_B4305_counter}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
                 <xctk:ToggleSwitch Width="64" Height="24" 
-                    IsEnabled="{Binding PD.FQ_B4305_counter, Converter={StaticResource BooleanNegateConverter }}"
+                    
                     CornerRadius="2"
                     IsChecked="{Binding PD.Reset_WaterCount_160a1, Mode=TwoWay}"
                     ThumbHeight = "25"
