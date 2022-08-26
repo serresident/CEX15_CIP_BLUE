@@ -1,9 +1,11 @@
 ﻿using cip_blue.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace cip_blue.Models
 {
@@ -38,8 +40,15 @@ namespace cip_blue.Models
         public bool err_module_ad7 { get { return getValue<bool>(); } }
         public bool ttyS3_err_module_ad1 { get { return getValue<bool>(); } }
         public bool ttyS3_err_module_ad2 { get { return getValue<bool>(); } }
+        public bool ttyS3_err_module_ad3 { get { return getValue<bool>(); } }
+        public bool ttyS4_err_emis_mag270_ad1 { get { return getValue<bool>(); } }
 
-
+        public bool valve1_pvs_SQH { get { return getValue<bool>(); } }
+        public bool valve1_pvs_SQL { get { return getValue<bool>(); } }
+        public bool valve2_pvs_SQH { get { return getValue<bool>(); } }
+        public bool valve2_pvs_SQL { get { return getValue<bool>(); } }
+        public bool valve3_pvs_SQH { get { return getValue<bool>(); } }
+        public bool valve3_pvs_SQL { get { return getValue<bool>(); } }
 
         #endregion
 
@@ -49,7 +58,7 @@ namespace cip_blue.Models
 
         //line1_1  (ttyS2)       
         //owen mv110 16r ad=3
-       public bool Logging { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1;
+        public bool Logging { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1;
        public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
        public bool out_V4101_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=2 ch2
        public bool out_V4201_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=3 ch3
@@ -89,7 +98,20 @@ namespace cip_blue.Models
         public bool SW_Level_b4305 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool SW_Level_b4103 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
+        public bool  Valve1_pvs_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve1_pvs_man{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve1_pvs_auto{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve1_pvs_out{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
+        public bool  Valve2_pvs_mode{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve2_pvs_man{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve2_pvs_auto{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve2_pvs_out{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
+        public bool  Valve3_pvs_mode{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve3_pvs_man{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve3_pvs_auto{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool  Valve3_pvs_out{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
         //ad=54 
 
         #endregion
@@ -177,7 +199,11 @@ namespace cip_blue.Models
         //mu 110 8i ad=5       
         //    public UInt16 NC_P412_aout { get { return getValue<UInt16>(); } set { setValue<UInt16>(value); } }  // ad= 1 _ch 1 
         //mu 110 8i ad=5        //mu 110 8i ad=5        //mu 110 8i ad=5       	//mu 110 8i ad=5       
-
+        [Settings]
+        [Category("PID регулятор шнека")]
+        [DisplayName("Kp")]
+        [Description("Пропорц. коэф.")]
+        [PropertyOrder(2, UsageContextEnum.Categorized)]
         public Single time_delay { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad1
         public Single time_imp { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad3
         public Single Doza_Vodi_160a { get { return getValue<Single>(); } set { setValue<Single>(value); } }//ad5

@@ -47,6 +47,13 @@ namespace cip_blue.Behaviors
             }
         }
 
+        public static readonly DependencyProperty IsManModeProperty = DependencyProperty.Register("IsManMode", typeof(bool), typeof(DigitalActuatorHandlerBehavior), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, (d, e) => ((DigitalActuatorHandlerBehavior)d).Update()));
+        public bool IsManMode
+        {
+            get { return (bool)GetValue(IsManModeProperty); }
+            set { SetValue(IsManModeProperty, value); }
+        }
+
 
         private int hspacing = 10; // сдвиг метки( А -Р) по горизонтали
         public int HSpacing
@@ -166,7 +173,8 @@ namespace cip_blue.Behaviors
 
 
                 layout.Children.Add(popupCloseButton);
-              //  layout.Children.Add(popupCheckBox);
+                if(IsManMode)
+                 layout.Children.Add(popupCheckBox); // добавление чек бокса для рчного режима
                 layout.Children.Add(popupToggleSwitch);
                 popupBorder.Child = layout;
 

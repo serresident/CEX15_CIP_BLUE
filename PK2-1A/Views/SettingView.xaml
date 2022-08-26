@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:cip_blue.Views"
              xmlns:helpers="clr-namespace:cip_blue.Helpers"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-             
+    
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:Controls="clr-namespace:cip_blue.Controls" xmlns:b="http://schemas.microsoft.com/xaml/behaviors" xmlns:Behaviors="clr-namespace:cip_blue.Behaviors" x:Class="cip_blue.Views.SettingView"
              
              mc:Ignorable="d" 
@@ -634,6 +635,7 @@
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_b4305}" />
                         </b:Interaction.Behaviors>
                     </Controls:NumPadUpDown>
+                    
                 </Grid>
 
                 <!--//точка 3-->
@@ -643,6 +645,46 @@
                 <!--//остальные-->
 
             </Grid>
+
+            <xctk:PropertyGrid Grid.Row="1" Grid.Column="3" x:Name="PG" Margin="10" ShowPreview="False" ShowSearchBox="False" ShowSortOptions="False" ShowTitle="False" ShowHorizontalScrollBar="False" IsMiscCategoryLabelHidden="True"
+                           PropertyNameLeftPadding="15"
+                                      NameColumnWidth="380" FontSize="14" AutoGenerateProperties="False">
+                <xctk:PropertyGrid.EditorDefinitions>
+                    <xctk:EditorTemplateDefinition >
+                        <xctk:EditorTemplateDefinition.TargetProperties>
+                            <xctk:TargetPropertyType Type="{x:Type sys:Single}" />
+                        </xctk:EditorTemplateDefinition.TargetProperties>
+                        <xctk:EditorTemplateDefinition.EditingTemplate>
+                            <DataTemplate>
+                                <xctk:SingleUpDown Value="{Binding Value}" FormatString="{Binding FormatString}" Increment="0.1" UpdateValueOnEnterKey="True"  />
+                            </DataTemplate>
+                        </xctk:EditorTemplateDefinition.EditingTemplate>
+                    </xctk:EditorTemplateDefinition>
+
+                    <xctk:EditorTemplateDefinition>
+                        <xctk:EditorTemplateDefinition.TargetProperties>
+                            <xctk:TargetPropertyType Type="{x:Type sys:UInt16}" />
+                        </xctk:EditorTemplateDefinition.TargetProperties>
+                        <xctk:EditorTemplateDefinition.EditingTemplate>
+                            <DataTemplate>
+                                <xctk:UShortUpDown Value="{Binding Value}" FormatString="{Binding FormatString}" UpdateValueOnEnterKey="True"  />
+                            </DataTemplate>
+                        </xctk:EditorTemplateDefinition.EditingTemplate>
+                    </xctk:EditorTemplateDefinition>
+
+                    <xctk:EditorTemplateDefinition>
+                        <xctk:EditorTemplateDefinition.TargetProperties>
+                            <xctk:TargetPropertyType Type="{x:Type sys:Boolean}" />
+                        </xctk:EditorTemplateDefinition.TargetProperties>
+                        <xctk:EditorTemplateDefinition.EditingTemplate>
+                            <DataTemplate>
+                                <xctk:ToggleSwitch IsChecked="{Binding Value}" HorizontalAlignment="Center" Margin="1"/>
+                            </DataTemplate>
+                        </xctk:EditorTemplateDefinition.EditingTemplate>
+                    </xctk:EditorTemplateDefinition>
+
+                </xctk:PropertyGrid.EditorDefinitions>
+            </xctk:PropertyGrid>
 
         </Grid>
     </xctk:BusyIndicator>

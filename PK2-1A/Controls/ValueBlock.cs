@@ -39,7 +39,7 @@ namespace cip_blue.Controls
                     if (float.Parse(e.NewValue.ToString()) < float.Parse("-9998"))
                     {
                      
-                       (d as ValueBlock).ValueColor = Brushes.Gray;
+                       (d as ValueBlock).ValueColor = Brushes.Yellow;
                         (d as ValueBlock).SetCurrentValue(ValueProperty, "???");
 
                       //  (d as ValueBlock).ToolTip = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
