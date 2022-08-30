@@ -14,7 +14,26 @@ namespace cip_blue.Services
 
     public abstract class BackgroundService : IBackgroundService, IDisposable
     {
-        //private readonly Thread mainThread = null;
+     
+       // private PeriodicTimer _timer;
+        private CancellationTokenSource _cts=new CancellationTokenSource ();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private readonly Thread mainThread = null;
 
@@ -26,8 +45,10 @@ namespace cip_blue.Services
 
         //AsyncOperation IBackgroundService.ChangeVariable { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public BackgroundService()
+        public BackgroundService( TimeSpan intervalTask)
         {
+            //_timer = new PeriodicalTaskStarter (intervalTask);
+
             ChangeVariable = AsyncOperationManager.CreateOperation(null);
 
             mainThread = new Thread(new ThreadStart(Execute));
