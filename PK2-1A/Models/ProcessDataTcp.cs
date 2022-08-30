@@ -112,6 +112,8 @@ namespace cip_blue.Models
         public bool  Valve3_pvs_man{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool  Valve3_pvs_auto{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool  Valve3_pvs_out{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
+        public bool err_deltacp2000 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         //ad=54 
 
         #endregion
@@ -184,6 +186,9 @@ namespace cip_blue.Models
         public Single LE_B4305 { get { return getValue<Single>(); } }  //ad=
         public Single FQ_B4305 { get { return getValue<Single>(); } }  //ad=
         public Single FQ_B4305_counter { get { return getValue<Single>(); } }  //ad=
+        public Single NS4305_frq { get { return getValue<Single>(); } }
+        public Single NS4305_Amperage { get { return getValue<Single>(); } }
+        public UInt16 NS4305_delta_status { get { return getValue<UInt16>(); } }
 
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк

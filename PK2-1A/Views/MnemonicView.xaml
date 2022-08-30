@@ -1432,6 +1432,7 @@
         <WPF:Pump  Height="80"  Canvas.Left="398" Canvas.Top="831" Width="80" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Behaviors:Interaction.Behaviors >
                 <behaviors:HybridActuatorHandlerBehavior Dout="{Binding PD.NS_B4305_control_man, Mode=TwoWay}"   Units="Гц" HSpacing="20"  VSpacing="-10"  MaxValue="50"  IsMan="{Binding PD.NS_B4305_mode}" Out="{Binding PD.NSB4305_Control_man_frq}"/>
+                <behaviors:DigitalActuatorStatusBehavior  OffSignal ="{Binding PD.err_deltacp2000}" />
             </Behaviors:Interaction.Behaviors>
         </WPF:Pump>
         <TextBlock Canvas.Left="764" TextWrapping="Wrap" Text="B4305" Canvas.Top="672" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -1577,8 +1578,21 @@
                             </WPF:ControlColors>
                         </WPF:Lamp.Colors>
                     </WPF:Lamp>
+                    <TextBlock Text="Канал RS485 4" Foreground="Green"/>
+                    <WPF:Lamp Header="ПЧ Delta адрес 1 "  ToolTip="Если Красный = не отвечает, требуется диагностика службой КИПиА" Canvas.Left="19" Design="LEDSquare" Width="Auto" Height="16" Canvas.Top="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                        <WPF:Lamp.States>
+                            <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.err_deltacp2000}" />
+                        </WPF:Lamp.States>
+                        <WPF:Lamp.Colors>
+                            <WPF:ControlColors>
+                                <WPF:ControlColors.State4Coloring>
+                                    <WPF:ColoringColor Color1="Red" />
+                                </WPF:ControlColors.State4Coloring>
+                            </WPF:ControlColors>
+                        </WPF:Lamp.Colors>
+                    </WPF:Lamp>
                 </StackPanel>
-
+               
             </Grid>
 
         </Expander>
@@ -2775,7 +2789,7 @@
             UncheckedBackground ="LightPink" Canvas.Left="591" Canvas.Top="893" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Controls:ValueBlock FontFamily="Proxy 1" Canvas.Left="882" Canvas.Top="643" Caption="LE_B4305 " Unit="%"  ValueColor="LawnGreen" Foreground="#FF9AE2C9"  Width="84" Height="40" Value="{Binding PD.LE_B4305, Mode=OneWay, StringFormat=\{0:0#\}}" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="394" Canvas.Top="783" Caption=" выход на NS_4310B" Unit="Гц"  ValueColor="Red" Foreground="White"  Width="148" Height="36" Value="{Binding PD.NSB4305_Control_out_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="268" Canvas.Top="794" Caption=" выход на NS_4310B" Unit="Гц"  ValueColor="Red" Foreground="White"  Width="157" Height="36" Value="{Binding PD.NSB4305_Control_out_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
             IsChecked="{Binding PD.SW_Level_b4103, Mode=TwoWay}"
@@ -2828,7 +2842,7 @@
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_high_b4305}" />
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
-        <TextBlock Canvas.Left="356" TextWrapping="Wrap" Text="NS_B4310" Canvas.Top="833" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="381" TextWrapping="Wrap" Text="NS_B4310" Canvas.Top="832" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock    Canvas.Left="742" TextWrapping="Wrap" Canvas.Top="792" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="мин.уровень"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
         <TextBlock    Canvas.Left="842" TextWrapping="Wrap" Canvas.Top="792" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="86"><Run Text="м"/><Run Text="акс"/><Run Language="ru-ru" Text=". уровень"/><LineBreak/><Run/><Run Text=".уровень"/><LineBreak/><Run/></TextBlock>
         <TextBlock    Canvas.Left="1096" TextWrapping="Wrap" Canvas.Top="821" Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Language="ru-ru" Text="мин.уровень"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
@@ -2925,7 +2939,7 @@
                 Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&amp;from=now-12h&amp;to=now&amp;refresh=5s&amp;viewPanel=24" Margin="85,50,50,0" Grid.Column="2" Width="364" Height="199"
             />
         </DockPanel>
-        <DockPanel Height="338" Width="606" Canvas.Left="192" Canvas.Top="-91" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <DockPanel Height="338" Width="606" Canvas.Left="192" Canvas.Top="-87" HorizontalAlignment="Center" VerticalAlignment="Top">
             <!-- If you want to use a specific version of WebView2 Runtime change EvergreenWebView2CreationProperties
             to BYOWebView2CreationProperties and follow the steps in MainWindow.xaml
             -->
@@ -2952,8 +2966,8 @@
 
 
                 <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding PD.FQ_B4305_counter, StringFormat=0.000}"  FontSize="14"  Background="Black" Foreground="LawnGreen" TextAlignment="Center"/>
-                <xctk:ToggleSwitch Width="64" Height="24" 
-                    
+                <xctk:ToggleSwitch Width="64" Height="24"  
+                    Visibility="Collapsed"
                     CornerRadius="2"
                     IsChecked="{Binding PD.Reset_WaterCount_160a1, Mode=TwoWay}"
                     ThumbHeight = "25"
@@ -3003,6 +3017,8 @@
             <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1526" Canvas.Top="498"  />
 
         </xctk:WindowContainer>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="267" Canvas.Top="840" Caption="факт. частота" Unit="Гц"  ValueColor="LawnGreen" Foreground="Tomato"  Width="92" Height="36" Value="{Binding PD.NS4305_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="268" Canvas.Top="880" Caption=" Ток" Unit="А"  ValueColor="LawnGreen" Foreground="Yellow"  Width="90" Height="36" Value="{Binding PD.NS4305_Amperage, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Canvas>
 
 
