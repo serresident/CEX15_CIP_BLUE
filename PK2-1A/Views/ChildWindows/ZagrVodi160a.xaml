@@ -300,6 +300,7 @@
                 HorizontalAlignment="Center"
                 Command="{Binding ZagrVodi160a_StartCommand}"
                 Content="     Пуск"
+                ToolTip="Внимание! Согласно алгоритму после пуска загрузки, клапан на подачу воды в емкость &#10; авт. откроется только после достижения заданой температуры на выходе из смесителя "
                 DockPanel.Dock="Right"
                 IconLocation="Left">
                 <xctk:IconButton.Icon>
@@ -321,7 +322,7 @@
             Grid.Row="3"
             Grid.Column="0"
             Width="120"
-            ToolTip="Доза воды в литрах"
+            ToolTip="Доза воды в куб.м."
             Height="30"
             Margin="15,0,0,0"
             VerticalAlignment="Center"
@@ -330,7 +331,7 @@
             FontSize="16"
             FontWeight="Bold"
             
-            Increment="1"
+            Increment="0.1"
             Minimum="-1"
             Precision="0"
             UpdateValueOnEnterKey="True">
@@ -342,7 +343,7 @@
             Grid.Row="4"
             Grid.Column="0"
             Width="120"
-            ToolTip="Доза воды в литрах"
+            ToolTip="уставка тем. в градусах"
             Height="30"
             Margin="15,0,0,0"
             VerticalAlignment="Center"
@@ -356,7 +357,7 @@
             Precision="0"
             UpdateValueOnEnterKey="True">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Tzad_pvs}" />
+                <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.T_zagr_160b}" />
             </Behaviors:Interaction.Behaviors>
         </controls:NumPadUpDown>
 

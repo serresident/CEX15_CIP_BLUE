@@ -139,7 +139,7 @@
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="36"/>
                 </Grid.RowDefinitions>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Промывка 4201"   Grid.Row="0" Height="24"/>
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Промывка 4101"   Grid.Row="0" Height="24"/>
                 <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воды, мин:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
 
                 <Controls:NumPadUpDown   Grid.Row="2"
@@ -242,11 +242,11 @@
 
 
             <!--//k480B, ph-->
-            <Border  VerticalAlignment="Top" Height="600" Margin="5,5,5,5" Grid.Row="1" Grid.Column="0"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 "/>
+            <Border  VerticalAlignment="Top" Height="600"  Margin="5,5,5,5" Grid.Row="1" Grid.Column="0"  Background="#FFDDDCC8" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3 "/>
             <Grid Grid.Row="1" Grid.Column="0"  Margin="8,5,5,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="100"/>
 
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -272,7 +272,7 @@
                     <RowDefinition Height="28"/>
                     <RowDefinition Height="36"/>
                 </Grid.RowDefinitions>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Промывка 4101. Режим 1"   Grid.Row="0" Height="24"/>
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Промывка 4201. Режим 1"   Grid.Row="0" Height="24"/>
                 <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воды, мин:" Grid.ColumnSpan="1" Grid.Row="2" VerticalAlignment="Center" />
 
                 <Controls:NumPadUpDown   Grid.Row="2"
@@ -348,7 +348,7 @@
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4101_n1}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
-                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Left" Foreground="Blue" Text="Промывка 4101. Режим 2"   Grid.Row="7" Height="24" Margin="9,3,0,1"/>
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Left" Foreground="Blue" Text="Промывка 4201. Режим 2"   Grid.Row="7" Height="24" Margin="9,3,0,1"/>
                 <TextBlock FontWeight="Bold" FontSize="14"  Text="Таймер воды, мин:"   Grid.Row="8" VerticalAlignment="Center" />
                 <Controls:NumPadUpDown  
                     Grid.Column="1"   Grid.Row="8"
@@ -518,10 +518,10 @@
                      
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,1"
-                    Increment="1"
+                    Increment="0.1"
                     Minimum="0"
                     Maximum="100"
-                    Precision="1"
+                    Precision="0"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
                         <b:Interaction.Behaviors>
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_pvs}" />
@@ -536,9 +536,9 @@
                     
                     FontWeight="Bold"
                     Foreground="LawnGreen"
-                    Increment="1"
-                    Minimum="0"
-                    Maximum="5"
+                    Increment="0.01"
+                    Minimum="-10"
+                    Maximum="100"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
                         <b:Interaction.Behaviors>
@@ -555,7 +555,7 @@
                      
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,1"
-                    Increment="1"
+                    Increment="0.01"
                     Minimum="0"
                     Maximum="100"
                     Precision="1"
@@ -588,9 +588,9 @@
                     
                     FontWeight="Bold"
                     Foreground="LawnGreen"
-                    Increment="1"
+                   Increment="0.1"
                     Minimum="0"
-                    Maximum="5"
+                    Maximum="100"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
                         <b:Interaction.Behaviors>
@@ -607,9 +607,9 @@
                     
                     FontWeight="Bold"
                     Foreground="LawnGreen"
-                    Increment="1"
+                   Increment="0.01"
                     Minimum="0"
-                    Maximum="5"
+                    Maximum="100"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
                         <b:Interaction.Behaviors>
@@ -626,9 +626,9 @@
                     
                     FontWeight="Bold"
                     Foreground="LawnGreen"
-                    Increment="1"
+                    Increment="0.01"
                     Minimum="0"
-                    Maximum="5"
+                    Maximum="100"
                     Precision="1"
                     UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
                         <b:Interaction.Behaviors>

@@ -54,80 +54,89 @@ namespace cip_blue.Models
 
         //Coils
         #region Coils
-
+        public bool Logging{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
         //line1_1  (ttyS2)       
-        //owen mv110 16r ad=3
-        public bool Logging { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1;
-       public bool out_V4101_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
-       public bool out_V4101_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=2 ch2
-       public bool out_V4201_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=3 ch3
-       public bool out_V4201_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=4 ch4
-       public bool out_VB4305_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=5 ch5 в емкость 4305
-       public bool out_V160a_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=6 ch6 в емкость 160а
-       public bool out_VB4103_voda{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=7 ch7 в емкость 4103
-       public bool out_V160d_vozduh{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=8 ch8 воздух на насос 160д
-       public bool out_pusk_P4310b{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=9 ch9  пуск насоса 4310б
-       public bool out_stop_P4310b{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=10 ch10 стоп насоса 4310б
+        //mds dio 16bd ad=2      
+        public bool out_V4101_voda { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad= 1 ch1
+        public bool out_V4101_vozduh { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=2 ch2
+        public bool out_V4201_voda { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=3 ch3
+        public bool out_V4201_vozduh { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=4 ch4
+        public bool out_VB4305_voda { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=5 ch5 в емкость 4305
+        public bool out_V160a_voda { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=6 ch6 в емкость 160а
+        public bool out_VB4103_voda { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=7 ch7 в емкость 4103
+        public bool out_V160d_vozduh { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=8 ch8 воздух на насос 160д
+        public bool out_pusk_P4310b { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=9 ch9  пуск насоса 4310б
+        public bool out_stop_P4310b { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=10 ch10 стоп насоса 4310б
 
-       public bool rezerv11{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=11 ch11
-       public bool rezerv12{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=12 ch12
-       public bool rezerv13{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=13 ch13
-       public bool rezerv14_2{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=14 ch14
-       public bool rezerv15_2{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=15 ch15
-       public bool rezerv16_2{ get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=16 ch16
-       public bool Reset_WaterCount_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=17
+        public bool rezerv11 { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=11 ch11
+        public bool rezerv12 { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=12 ch12
+        public bool rezerv13 { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=13 ch13
+        public bool rezerv14 { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=14 ch14
+        public bool rezerv15_1 { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=15 ch15
+        public bool rezerv16_1 { get { return getValue<bool>(); } set { setValue<bool>(value); } }// ad=16 ch16
+
+        public bool Reset_WaterCount_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=17
         public bool Reset_WaterCount_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=18
         public bool Reset_WaterCount_160a { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=19
-        public bool switch_promivka4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool switch_promivka4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool switch_ZagrVodi_160a { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
+        public bool switch_promivka4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=20
+        public bool switch_promivka4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=21
+        public bool switch_ZagrVodi_160a { get { return getValue<bool>(); } set { setValue<bool>(value); } }//ad=22
         public bool choice_rejim_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
         public bool dop_uslovie_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool dop_uslovie_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
-        public bool TV1_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool SW_Mixer { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool TV1_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } } //ad=54 
+        public bool SW_Mixer { get { return getValue<bool>(); } set { setValue<bool>(value); } } //ad=54 
 
         public bool NS_B4305_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool NS_B4305_control_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool NS_B4305_control_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
         public bool SW_FQ_auto_b4305 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool SW_water160a { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
         public bool SW_Level_b4305 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool SW_Level_b4103 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
-        public bool  Valve1_pvs_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve1_pvs_man{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve1_pvs_auto{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve1_pvs_out{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve1_pvs_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve1_pvs_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve1_pvs_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve1_pvs_out { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
-        public bool  Valve2_pvs_mode{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve2_pvs_man{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve2_pvs_auto{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve2_pvs_out{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve2_pvs_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve2_pvs_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve2_pvs_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve2_pvs_out { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
-        public bool  Valve3_pvs_mode{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve3_pvs_man{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve3_pvs_auto{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        public bool  Valve3_pvs_out{ get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve3_pvs_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve3_pvs_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve3_pvs_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool Valve3_pvs_out { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+
 
         public bool err_deltacp2000 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
-        //ad=54 
-
-        #endregion
-
-        // Inputs Registers
-        #region Inputs Registers
+        public bool wait_pvs { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool trig_4305 { get { return getValue<bool>(); }set { setValue<bool>(value); } }
+public bool trig_4103 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
 
-        //[ArchivAttribute("Вес мерника WE_D470")]
-        //public Single WE_D470 { get { return getValue<Single>(); } }// ad= 1 _ch 1
+//ad=54 
 
-        //line1_1       
-        // mds8ui ad=5     
-        public Single PIT_F4101_davlSuspenz{ get { return getValue<Single>(); } }// ad= 1 _ch 1 давление подаваемой суспензии +
+#endregion
+
+// Inputs Registers
+#region Inputs Registers
+
+
+//[ArchivAttribute("Вес мерника WE_D470")]
+//public Single WE_D470 { get { return getValue<Single>(); } }// ad= 1 _ch 1
+
+//line1_1       
+// mds8ui ad=5     
+public Single PIT_F4101_davlSuspenz{ get { return getValue<Single>(); } }// ad= 1 _ch 1 давление подаваемой суспензии +
         public Single TE2_F4101_tempSuspenz{ get { return getValue<Single>(); } }// ad= 3 _ch 2  температура подаваемой суспензии +
         public Single PIT2_F4101_davlGydroPrivoda{ get { return getValue<Single>(); } }// ad= 5 _ch 3  давление гидропривода
         public Single TE_F4101_tempVodi{ get { return getValue<Single>(); } }// ad= 7  _ch 4  температура воды подаваемой  на промывку
@@ -189,6 +198,7 @@ namespace cip_blue.Models
         public Single NS4305_frq { get { return getValue<Single>(); } }
         public Single NS4305_Amperage { get { return getValue<Single>(); } }
         public UInt16 NS4305_delta_status { get { return getValue<UInt16>(); } }
+        public UInt16 empty33 { get { return getValue<UInt16>(); } }
 
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк

@@ -151,7 +151,7 @@
             <controls:NumPadUpDown
                  IsEnabled="{Binding PD.switch_promivka4201, Converter={StaticResource BooleanNegateConverter}}"
                  ToolTipService.ShowDuration="30000"
-                ToolTip="Введите Дозу воды для промывки. Доза Вводится в литрах, шаг стрелки 1000л"
+                ToolTip="Введите Дозу воды для промывки. Доза Вводится в куб.м., шаг стрелки 0,1 куб.м."
             Grid.Row="3"
             Grid.Column="0"
             Width="120"
@@ -164,9 +164,9 @@
             FontWeight="Bold"
              
             
-            Increment="1000"
+            Increment="0.1"
             Minimum="-1"
-            Precision="0"
+            Precision="1"
             UpdateValueOnEnterKey="True">
                 <Behaviors:Interaction.Behaviors>
                     <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_Fq_4201}" />
@@ -285,7 +285,7 @@
              
             FontWeight="Bold"
             Foreground="DarkCyan"
-            Text="Доза промывки, л" 
+            Text="Доза промывки, куб.м." 
             ToolTip="Уставка, отключение при достижении указанного значения"/>
 
             <TextBlock

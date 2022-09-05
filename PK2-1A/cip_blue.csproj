@@ -313,6 +313,7 @@
     <Compile Include="Controls\NumPadUtilities.cs" />
     <Compile Include="Controls\ValueBlock.cs" />
     <Compile Include="Converters\BoolToNumConverter.cs" />
+    <Compile Include="Converters\SingleSeondsToStringTime.cs" />
     <Compile Include="Converters\PowerPercentConverter.cs" />
     <Compile Include="Converters\WindowsStatetToBoolConverter.cs" />
     <Compile Include="Dialogs\NextDialog.xaml.cs">
