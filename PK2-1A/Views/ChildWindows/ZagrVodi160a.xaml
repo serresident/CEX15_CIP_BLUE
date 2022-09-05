@@ -11,13 +11,14 @@
     xmlns:convertors="clr-namespace:AITSW.WPFValueConverters;assembly=WPFValueConverters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:cip_blue.Views.ChildWindows"
+      xmlns:converters1="clr-namespace:cip_blue.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     d:DesignWidth="290"
     Background="Wheat"
     ResizeMode="NoResize"
     WindowBackground="LightGray"
-    mc:Ignorable="d" Height="258">
+    mc:Ignorable="d" Height="270">
 
     <xctk:ChildWindow.Resources>
         <Style x:Key="FocusVisual">
@@ -98,7 +99,7 @@
 
         <conv:BoolToNumConverter x:Key="BoolToNumConverter" />
         <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
-
+        <converters1:SingleSeondsToStringTime x:Key="SingleSeondsToStringTime" />
     </xctk:ChildWindow.Resources>
 
     <Grid>
@@ -107,6 +108,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
 
@@ -141,7 +145,7 @@
             IsEnabled="{Binding PD.ZagrVodaComm_Start, Converter={StaticResource BooleanNegateConverter}}"
             SelectedIndex="{Binding PD.ZagrVodaComm_Nemk}"
             Style="{StaticResource SelectTabControlStyle}">
-            
+
             <TabControl.ContentTemplate >
                 <DataTemplate>
                     <Grid DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
@@ -253,7 +257,7 @@
             Foreground="#FF646464"
             Text="{c:Binding '( PD.Load_water_160a_status == 2) ? загрузка завершена : 0 '}"
             Visibility="{c:Binding '( PD.ZagrARtVoda_TimeLeft > 0) ', FalseToVisibility=Collapsed}"/>
-        
+
         <TextBlock  HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="20"
@@ -360,6 +364,11 @@
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.T_zagr_160b}" />
             </Behaviors:Interaction.Behaviors>
         </controls:NumPadUpDown>
+
+        <TextBlock VerticalAlignment="Center" FontSize="24" Grid.Row="6" ToolTip="Осталось Час/ов: Минут/а" Margin="5,0,0,0" Grid.Column="1" Height="24" Width="200" Text="{Binding PD.time_left_load_160a, Converter={StaticResource SingleSeondsToStringTime}}" />
+
+        <ProgressBar Grid.Row="6"  Margin="5,0,0,5"   Maximum="{Binding PD.Doza_Vodi_160a,Mode=OneWay}" Value="{Binding PD.Fakt_Vodi_160a,Mode=OneWay}" Height="30" Width="160" />
+        <TextBlock VerticalAlignment="Center"  FontSize="16" Grid.Row="7" Margin="5,0,-86,0" Grid.ColumnSpan="1" Height="24" Width="200" Text="{Binding Status_load160a}" />
 
 
 

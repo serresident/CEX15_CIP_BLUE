@@ -200,6 +200,10 @@ public Single PIT_F4101_davlSuspenz{ get { return getValue<Single>(); } }// ad= 
         public UInt16 NS4305_delta_status { get { return getValue<UInt16>(); } }
         public UInt16 empty33 { get { return getValue<UInt16>(); } }
 
+        public Single time_left_load_160a { get { return getValue<Single>(); } }
+
+        
+
         public UInt16 JOURNAL = 0;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
         public bool testOn = false;//  заглушка проверки , убирает защиту от записи в бд при обрыви связи с плк
                                    //ad108  должен быть последним ,служит для определения успешного чтения регистров

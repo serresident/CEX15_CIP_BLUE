@@ -12,19 +12,23 @@ namespace cip_blue.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            String res = "";
+            try
+            {
+               
 
-          
+
+                TimeSpan time = TimeSpan.FromSeconds(Single.Parse(value.ToString()));
+                res = time.ToString("hh':'mm");
+            }
+            catch ( Exception ex)
+            {
+                res = "-";
+            }
            // TimeSpan time = TimeSpan.FromSeconds(totalSeconds);
            
-            String res = "";
-            
-            if (value != null && value.GetType() == typeof(Single))
-                try
-                {
-                    TimeSpan time = TimeSpan.FromSeconds((Single)value);
-                    res= time.ToString("hh':'mm");
-                }
-                catch { };
+        
+               
 
             return res;
         }

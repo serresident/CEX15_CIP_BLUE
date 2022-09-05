@@ -110,9 +110,10 @@
             <Setter Property="BorderThickness" Value="1" />
 
         </Style>
+        <converters1:SingleSeondsToStringTime x:Key="SingleSeondsToStringTime" />
         <converters1:PowerPercentConverter x:Key="PowerPercentConverter" />
         <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
-        <converters1:SingleSeondsToStringTime x:Key="SingleSeondsToStringTime" />
+
 
 
     </UserControl.Resources>
@@ -1422,7 +1423,7 @@
         <WPF:Pump  Height="80"  Canvas.Left="398" Canvas.Top="831" Width="80" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Behaviors:Interaction.Behaviors >
                 <behaviors:HybridActuatorHandlerBehavior Dout="{Binding PD.NS_B4305_control_man, Mode=TwoWay}"   Units="Гц" HSpacing="20"  VSpacing="-10"  MaxValue="50"  IsMan="{Binding PD.NS_B4305_mode}" Out="{Binding PD.NSB4305_Control_man_frq}"/>
-                <behaviors:DigitalActuatorStatusBehavior  OffSignal ="{Binding PD.err_deltacp2000}" />
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_deltacp2000}"  OnStatus="{c:Binding '(PD.NS4305_frq>0: True:False)'}" />
             </Behaviors:Interaction.Behaviors>
         </WPF:Pump>
         <TextBlock Canvas.Left="764" TextWrapping="Wrap" Text="B4305" Canvas.Top="672" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -1586,7 +1587,7 @@
             </Grid>
 
         </Expander>
-        <WPF:Lamp Header="" Canvas.Left="34" Design="LEDSquare" Width="16" Height="16" Canvas.Top="18" HorizontalAlignment="Left" VerticalAlignment="Top" DividerSize="Auto" LidSize="Auto"  >
+        <WPF:Lamp Header="" Canvas.Left="34" Design="PlaneVertical" Width="16" Height="16" Canvas.Top="18" HorizontalAlignment="Left" VerticalAlignment="Top" DividerSize="Auto" LidSize="Auto"  >
             <WPF:Lamp.States>
                 <WPF:StatesBitmask State4Bitmask="1" Value="{Binding Alarm_notanswerModule}" />
             </WPF:Lamp.States>
@@ -2951,14 +2952,9 @@
         <TextBlock Canvas.Left="708" TextWrapping="Wrap" Text="B4305" Canvas.Top="558" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Canvas.Left="1350" TextWrapping="Wrap" Text="160A" Canvas.Top="557" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="21" TextWrapping="Wrap" Text="Пароводосмеситель" Canvas.Top="553" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="13" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23"><Run Language="ru-ru" Text="ф. пресс 4201"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+       
         <TextBlock Canvas.Left="1016" TextWrapping="Wrap" Canvas.Top="13" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="ф. пресс 4101"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible" Canvas.Left="380" Canvas.Top="-151"  >
-            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="462" Canvas.Top="495" />
-            <child:ZagrVodi160a  Left="790" Top="786" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="605" Canvas.Top="556"  />
-            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="871" Canvas.Top="509"  />
 
-        </xctk:WindowContainer>
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="267" Canvas.Top="840" Caption="факт. частота" Unit="Гц"  ValueColor="LawnGreen" Foreground="Tomato"  Width="92" Height="36" Value="{Binding PD.NS4305_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="268" Canvas.Top="880" Caption=" Ток" Unit="А"  ValueColor="LawnGreen" Foreground="Yellow"  Width="90" Height="36" Value="{Binding PD.NS4305_Amperage, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <WPF:Tube Height="18" Canvas.Left="469" Canvas.Top="368" Width="34" RotateAngle="270                  " Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -3021,7 +3017,7 @@
                 </WPF:ControlColors>
             </WPF:Arrow.Colors>
         </WPF:Arrow>
-        <WPF:Lamp Header="" ToolTip="Ожидание наполнения емкости до зад.макс. ур."  Canvas.Left="715" Design="StackLightTop" Width="34" Height="37" Canvas.Top="589" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Left" VerticalAlignment="Top"  >
+        <WPF:Lamp Header="" ToolTip="Ожидание наполнения емкости до зад.макс. ур."  Canvas.Left="715" Design="LEDRound" Width="30" Height="30" Canvas.Top="589" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
             <WPF:Lamp.States>
                 <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.trig_4305}" />
             </WPF:Lamp.States>
@@ -3033,8 +3029,8 @@
                 </WPF:ControlColors>
             </WPF:Lamp.Colors>
         </WPF:Lamp>
-        
-        <WPF:Lamp Header="" ToolTip="Ожидание наполнения емкости до зад.макс. ур." Canvas.Left="1026" Design="LEDSquare" Width="16" Height="16" Canvas.Top="587" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Left" VerticalAlignment="Top"  >
+
+        <WPF:Lamp Header="" ToolTip="Ожидание наполнения емкости до зад.макс. ур." Canvas.Left="1026" Design="LEDRound" Width="30" Height="30" Canvas.Top="589" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Center" VerticalAlignment="Top"  >
             <WPF:Lamp.States>
                 <WPF:StatesBitmask State4Bitmask="1" Value="{Binding PD.trig_4103}" />
             </WPF:Lamp.States>
@@ -3046,38 +3042,12 @@
                 </WPF:ControlColors>
             </WPF:Lamp.Colors>
         </WPF:Lamp>
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"   >
+            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="462" Canvas.Top="495" />
+            <child:ZagrVodi160a  Left="790" Top="400" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="828" Canvas.Top="495"  />
+            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="871" Canvas.Top="495"  />
 
-        <xctk:BusyIndicator IsBusy="True">
-            <xctk:BusyIndicator.BusyContentTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="4">
-                        <TextBlock Text="{Binding PD.Doza_Vodi_160a}" FontWeight="Bold" HorizontalAlignment="Center" />
-                        <StackPanel Margin="4">
-                            <TextBlock Text="загрузка воды" />
-                            <ProgressBar Maximum="{Binding PD.Doza_Vodi_160a}" Value="{Binding PD.Fakt_Vodi_160a}" Height="15" />
-                        </StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                        </Grid>
-                    </StackPanel>
-                </DataTemplate>
-            </xctk:BusyIndicator.BusyContentTemplate>
-            <xctk:BusyIndicator.OverlayStyle>
-                <Style TargetType="Rectangle">
-                    <Setter Property="Fill" Value="#B1EB1D1D" />
-                </Style>
-            </xctk:BusyIndicator.OverlayStyle>
-            <xctk:BusyIndicator.ProgressBarStyle>
-                <Style TargetType="ProgressBar">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                </Style>
-            </xctk:BusyIndicator.ProgressBarStyle>
-
-           
-        </xctk:BusyIndicator>
+        </xctk:WindowContainer>
     </Canvas>
 
 

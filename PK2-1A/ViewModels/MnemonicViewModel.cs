@@ -191,6 +191,13 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref status_4101, value); }
         }
 
+        private string status_load160a = "0";
+        public string Status_load160a
+        {
+            get { return status_load160a; }
+            set { SetProperty(ref status_load160a, value); }
+        }
+
 
         private string status_4201 = "0";
         public string Status_4201
@@ -292,62 +299,6 @@ namespace cip_blue.ViewModels
         private bool canPromivka_4201_Stop() { return PD.switch_promivka4201; }
         private void promivka_4201_Stop() => PD.switch_promivka4201 = false;
 
-        //private void waterLoadingStart() => PD.ZagrVodaComm_Start = true;
-        //private bool canWaterLoadingStop() { return PD.ZagrVodaComm_Start; }
-        //private void waterLoadingStop() => PD.ZagrVodaComm_Start = false;
-
-        //private bool canHotWaterLoadingStart() { return !PD.ZagrKond460Comm_Start; }
-        //private void hotwaterLoadingStart() => PD.ZagrKond460Comm_Start = true;
-        //private bool canHotWaterLoadingStop() { return PD.ZagrKond460Comm_Start; }
-        //private void hotwaterLoadingStop() => PD.ZagrKond460Comm_Start = false;
-
-        //private bool canHot480WaterLoadingStart() { return !PD.ZagrKond480Comm_Start; }
-        //private void hot480waterLoadingStart() => PD.ZagrKond480Comm_Start = true;
-        //private bool canHot480WaterLoadingStop() { return PD.ZagrKond480Comm_Start; }
-        //private void hot480waterLoadingStop() => PD.ZagrKond480Comm_Start = false;
-
-        //private bool canUnloadFromR422Start() { return !PD.fromR422_xStart; }
-        //private void unloadFromR422Start() => PD.fromR422_xStart = true;
-        //private bool canUnloadFromR422Stop() { return PD.fromR422_xStart; }
-        //private void unloadFromR422stop() => PD.fromR422_xStart = false;
-
-        //private bool canOhlagd480Start() { return !PD.Ohlagd480_Start; }
-        //private void Ohlagd480Start() => PD.Ohlagd480_Start = true;
-        //private bool canOhlagd480Stop() { return PD.Ohlagd480_Start; }
-        //private void Ohlagd480stop() => PD.Ohlagd480_Start = false;
-
-
-        //private bool canRegPh480aStart() { return !PD.RegPH480A_Start; }
-        //private void RegPh480aStart() => PD.RegPH480A_Start = true;
-        //private bool canRegPh480aStop() { return PD.RegPH480A_Start; }
-        //private void RegPh480astop() => PD.RegPH480A_Start = false;
-
-        //private bool canRegPh480bStart() { return !PD.RegPH480B_Start; }
-        //private void RegPh480bStart() => PD.RegPH480B_Start = true;
-        //private bool canRegPh480bStop() { return PD.RegPH480B_Start; }
-        //private void RegPh480bstop() => PD.RegPH480B_Start = false;
-
-        //private bool canZagrMorfolin480Start() { return !PD.ZagrMorfolinK480_Start; }
-        //private void ZagrMorfolin480Start() => PD.ZagrMorfolinK480_Start = true;
-        //private bool canZagrMorfolin480Stop() { return PD.ZagrMorfolinK480_Start; }
-        //private void ZagrMorfolin480stop() => PD.ZagrMorfolinK480_Start = false;
-
-
-        //private bool canZagrDietil480Start() { return !PD.ZagrDietilK480_Start; }
-        //private void ZagrDietil480Start() => PD.ZagrDietilK480_Start = true;
-        //private bool canZagrDietil480Stop() { return PD.ZagrDietilK480_Start; }
-        //private void ZagrDietil480stop() => PD.ZagrDietilK480_Start = false;
-
-
-        //private bool canZagrDietilAmin480Start() { return !PD.ZagrDietilAminK480_Start; }
-        //private void ZagrDietilAmin480Start() => PD.ZagrDietilAminK480_Start = true;
-        //private bool canZagrDietilAmin480Stop() { return PD.ZagrDietilAminK480_Start; }
-        //private void ZagrDietilAmin480stop() => PD.ZagrDietilAminK480_Start = false;
-
-        //private bool canZagrAnilin480Start() { return !PD.ZagrAnilin480_Start; }
-        //private void ZagrAnilin480Start() => PD.ZagrAnilin480_Start = true;
-        //private bool canZagrAnilin480Stop() { return PD.ZagrAnilin480_Start; }
-        //private void ZagrAnilin480stop() => PD.ZagrAnilin480_Start = false;
 
         Single mem_count1;
         Single mem_count2;
@@ -361,7 +312,7 @@ namespace cip_blue.ViewModels
                     IsBusy = true;
 
                     internalUpdater.Start(() => internalUpdate(), null);
-                    
+
                     List<ThermoChartPoint> _points = new List<ThermoChartPoint>();
                     DateTime dt = DateTime.MinValue;
 
@@ -482,43 +433,17 @@ namespace cip_blue.ViewModels
             {
                 logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
             }
-           
-         
+            if (PD.Load_water_160a_status == 1)
+                Status_load160a = "Идет Загрузка Воды";
+            else if (PD.Load_water_160a_status == 22)
+                Status_load160a = "Загрузка завершена по условию";
+            else if (PD.Load_water_160a_status == 20)
+                Status_load160a = "Не введена доза, введите дозу";
+            else if (PD.Load_water_160a_status == 21)
+                Status_load160a = "Загрузка остановлена оператором";
+            else if (PD.Load_water_160a_status == 0)
+                Status_load160a = "Не было действий";
 
-
-            //WaterLoadingStartCommand.RaiseCanExecuteChanged();
-            //WaterLoadingStopCommand.RaiseCanExecuteChanged();
-
-            //HotWaterLoadingStartCommand.RaiseCanExecuteChanged();
-            //HotWaterLoadingStopCommand.RaiseCanExecuteChanged();
-
-            //Hot480WaterLoadingStartCommand.RaiseCanExecuteChanged();
-            //Hot480WaterLoadingStopCommand.RaiseCanExecuteChanged();
-
-            //UnloadFromR422StartCommand.RaiseCanExecuteChanged();
-            //UnloadFromR422StopCommand.RaiseCanExecuteChanged();
-
-            //Ohlagd480StartCommand.RaiseCanExecuteChanged();
-            //Ohlagd480StopCommand.RaiseCanExecuteChanged();
-
-            //RegPhK480aStartCommand.RaiseCanExecuteChanged();
-            //RegPhK480aStopCommand.RaiseCanExecuteChanged();
-
-
-            //RegPhK480bStartCommand.RaiseCanExecuteChanged();
-            //RegPhK480bStopCommand.RaiseCanExecuteChanged();
-
-            //ZagrMorfolin480StartCommand.RaiseCanExecuteChanged();
-            //ZagrMorfolin480StopCommand.RaiseCanExecuteChanged();
-
-            //ZagrDietil480StartCommand.RaiseCanExecuteChanged();
-            //ZagrDietil480StopCommand.RaiseCanExecuteChanged();
-
-            //ZagrDietilAmin480StartCommand.RaiseCanExecuteChanged();
-            //ZagrDietilAmin480StopCommand.RaiseCanExecuteChanged();
-
-            //ZagrAnilin480StartCommand.RaiseCanExecuteChanged();
-            //ZagrAnilin480StopCommand.RaiseCanExecuteChanged();
 
         }
 
