@@ -121,22 +121,27 @@ namespace cip_blue.Models
         public bool wait_pvs { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool trig_4305 { get { return getValue<bool>(); }set { setValue<bool>(value); } }
 public bool trig_4103 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool TV_P4310_open { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool TV_P4310_close { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool TV_P4310_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool TV_P4310_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool TV_P4310_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
 
-//ad=54 
+        //ad=54 
 
-#endregion
+        #endregion
 
-// Inputs Registers
-#region Inputs Registers
+        // Inputs Registers
+        #region Inputs Registers
 
 
-//[ArchivAttribute("Вес мерника WE_D470")]
-//public Single WE_D470 { get { return getValue<Single>(); } }// ad= 1 _ch 1
+        //[ArchivAttribute("Вес мерника WE_D470")]
+        //public Single WE_D470 { get { return getValue<Single>(); } }// ad= 1 _ch 1
 
-//line1_1       
-// mds8ui ad=5     
-public Single PIT_F4101_davlSuspenz{ get { return getValue<Single>(); } }// ad= 1 _ch 1 давление подаваемой суспензии +
+        //line1_1       
+        // mds8ui ad=5     
+        public Single PIT_F4101_davlSuspenz{ get { return getValue<Single>(); } }// ad= 1 _ch 1 давление подаваемой суспензии +
         public Single TE2_F4101_tempSuspenz{ get { return getValue<Single>(); } }// ad= 3 _ch 2  температура подаваемой суспензии +
         public Single PIT2_F4101_davlGydroPrivoda{ get { return getValue<Single>(); } }// ad= 5 _ch 3  давление гидропривода
         public Single TE_F4101_tempVodi{ get { return getValue<Single>(); } }// ad= 7  _ch 4  температура воды подаваемой  на промывку
