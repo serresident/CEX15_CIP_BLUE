@@ -56,7 +56,7 @@ found in the LICENSE file.
             -->
             <wv2:WebView2
                 x:Name="webView"
-                CreationProperties="{StaticResource EvergreenWebView2CreationProperties}"
+                
                 Source="http://localhost:3000" Grid.ColumnSpan="2"
             />
             <!-- The control event handlers are set in code behind so they can be reused when replacing the control after

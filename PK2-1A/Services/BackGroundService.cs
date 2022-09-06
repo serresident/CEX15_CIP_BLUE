@@ -56,6 +56,10 @@ namespace cip_blue.Services
 
         }
 
+        protected BackgroundService()
+        {
+        }
+
         protected abstract void Execute();
 
         public virtual void Start()

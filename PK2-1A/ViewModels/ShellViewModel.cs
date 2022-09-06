@@ -25,8 +25,7 @@ namespace cip_blue.ViewModels
         private PeriodicalTaskStarter modbusTask = new PeriodicalTaskStarter(TimeSpan.FromMilliseconds(50));
         private readonly ModbusTcpService modbusTcpService;
 
-        private PeriodicalTaskStarter journalTask = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
-        private readonly JournalService journalService;
+
 
         private PeriodicalTaskStarter archivTask = new PeriodicalTaskStarter(TimeSpan.FromSeconds(3));
         private readonly ArchivService archivService;
@@ -62,14 +61,14 @@ namespace cip_blue.ViewModels
         LogicViewModel recept;
         public DelegateCommand ShowSettingsDialogCommand { get; private set; }
 
-        public ShellViewModel( IDialogService dialogService, IEventAggregator eventAggregator, User user, ModbusTcpService modbusTcpService, ArchivService archivService, JournalService journalService,LogicService logicService)
+        public ShellViewModel( IDialogService dialogService, IEventAggregator eventAggregator, User user, ModbusTcpService modbusTcpService, ArchivService archivService,LogicService logicService)
         {
             this.dialogService = dialogService;
             this.eventAggregator = eventAggregator;
             this.User = user;
             this.modbusTcpService = modbusTcpService;
             this.archivService = archivService;
-            this.journalService = journalService;
+
             this.logicService = logicService;
           
 
@@ -121,7 +120,7 @@ namespace cip_blue.ViewModels
         {
            
             
-            journalTask.Stop();
+          
             archivTask.Stop();
             logicTask.Stop();
             modbusTcpService.ConnectedChangedHandler -= ConnectedChanged;

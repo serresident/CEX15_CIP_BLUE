@@ -1,4 +1,7 @@
 ﻿using belofor.Events;
+using cip_blue.Events;
+using cip_blue.Models;
+using cip_blue.Services;
 using EasyModbus;
 using EasyModbus.Exceptions;
 using NLog;
@@ -7,12 +10,8 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using belofor.Models;
-using belofor.Services;
+
 
 namespace PK2.Services
 {

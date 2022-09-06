@@ -98,13 +98,13 @@ namespace cip_blue
 
            // containerRegistry.RegisterSingleton<ModbusMasterService>();
             containerRegistry.RegisterSingleton<ArchivService>();
-            containerRegistry.RegisterSingleton<JournalService>();
+           ;
             containerRegistry.RegisterSingleton<LogicService>();
 
             // Shared View Model
             containerRegistry.RegisterSingleton<MnemonicViewModel>();
-            containerRegistry.RegisterSingleton<ArchivViewModel>();
-            containerRegistry.RegisterSingleton<JournalViewModel>();
+   
+    
             containerRegistry.RegisterSingleton<LogicViewModel>();
 
             // Navigation
@@ -114,8 +114,7 @@ namespace cip_blue
             //containerRegistry.RegisterForNavigation<ArchivView>("ArchivView");
             //containerRegistry.RegisterForNavigation<ArchivToolView>("ArchivToolView");
 
-            containerRegistry.RegisterForNavigation<JournalView>("JournalView");
-            containerRegistry.RegisterForNavigation<JournalToolView>("JournalToolView");
+  
 
             containerRegistry.RegisterForNavigation<SettingView>("SettingView");
             containerRegistry.RegisterForNavigation<SettingToolView>("SettingToolView");
