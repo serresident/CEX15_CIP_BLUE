@@ -458,6 +458,28 @@
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4101_n2}" />
                     </b:Interaction.Behaviors>
                 </Controls:NumPadUpDown>
+                <TextBlock  FontSize="14" FontWeight="Black"  HorizontalAlignment="Left" Foreground="Blue" Text="Загрузка в 160а"   Grid.Row="13" Height="24" Margin="9,3,0,1"/>
+
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Уст. предвар закр. , куб.м. :" Grid.Row="14" VerticalAlignment="Center" />
+                <Controls:NumPadUpDown   Grid.Row="14"
+                    Height="24"
+                    VerticalContentAlignment="Center"
+                    EnterClosesNumPad="True"
+                    FontSize="16"
+                     
+                    FontWeight="Bold"
+                    Foreground="LawnGreen" Margin="2,0,-2,0"
+                    Increment="1"
+                    Minimum="0"
+                    Maximum="100"
+                    Precision="1"
+                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center" Grid.Column="1">
+                    <b:Interaction.Behaviors>
+                        <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.predvaritel_zakr_160a}" />
+                    </b:Interaction.Behaviors>
+                </Controls:NumPadUpDown>
+
+
                 <!--//точка 3-->
                 <!--//точка 4-->
                 <!--//точка 5-->

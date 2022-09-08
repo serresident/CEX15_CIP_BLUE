@@ -1438,7 +1438,7 @@
         <WPF:Pump  Height="80"  Canvas.Left="398" Canvas.Top="831" Width="80" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Behaviors:Interaction.Behaviors >
                 <behaviors:HybridActuatorHandlerBehavior Dout="{Binding PD.NS_B4305_control_man, Mode=TwoWay}"   Units="Гц" HSpacing="20"  VSpacing="-10"  MaxValue="50"  IsMan="{Binding PD.NS_B4305_mode}" Out="{Binding PD.NSB4305_Control_man_frq}"/>
-                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_deltacp2000}"  OnStatus="{c:Binding (PD.NS4305_frq&gt;0: True:False)}" />
+                <behaviors:DigitalActuatorStatusBehavior  OffSignal="False"      OnSignal="{c:Binding '(PD.NS4305_frq  &gt;\= 1)'}" />
             </Behaviors:Interaction.Behaviors>
         </WPF:Pump>
         <TextBlock Canvas.Left="764" TextWrapping="Wrap" Text="B4305" Canvas.Top="672" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -2736,6 +2736,7 @@
         <TextBlock    Canvas.Left="573" TextWrapping="Wrap" Canvas.Top="821"  Text="Уставка расхода" Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
+                           IsEnabled="False"
             IsChecked="{Binding PD.SW_FQ_auto_b4305, Mode=TwoWay}"
             ThumbHeight = "25"
             ThumbWidth = "24"
@@ -2800,7 +2801,7 @@
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_high_b4305}" />
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
-        <TextBlock Canvas.Left="381" TextWrapping="Wrap" Text="NS_B4310" Canvas.Top="832" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="381" TextWrapping="Wrap" Text="NS_P4310" Canvas.Top="832" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock    Canvas.Left="742" TextWrapping="Wrap" Canvas.Top="792" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="мин.уровень"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
         <TextBlock    Canvas.Left="842" TextWrapping="Wrap" Canvas.Top="792" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="86"><Run Text="м"/><Run Text="акс"/><Run Language="ru-ru" Text=". уровень"/><LineBreak/><Run/><Run Text=".уровень"/><LineBreak/><Run/></TextBlock>
         <TextBlock    Canvas.Left="1096" TextWrapping="Wrap" Canvas.Top="821" Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Language="ru-ru" Text="мин.уровень"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
@@ -3071,6 +3072,7 @@
 
 
         </WPF:Valve>
+        <TextBlock    Canvas.Left="323" TextWrapping="Wrap" Canvas.Top="883"  Text="TV_P4310" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="13.153,12.778"/>
     </Canvas>
 
 
