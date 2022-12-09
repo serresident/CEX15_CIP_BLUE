@@ -5,14 +5,14 @@ using NLog;
 
 namespace cip_blue.Services
 {
-    public interface IBackgroundService
+    internal interface IBackgroundTaskStarterService
     {
         //AsyncOperation ChangeVariable { get; set; }
         void Start();
         void Stop();
     }
 
-    public abstract class BackgroundService : IBackgroundService, IDisposable
+    public abstract class BackgroundService : IBackgroundTaskStarterService, IDisposable
     {
      
        // private PeriodicTimer _timer;

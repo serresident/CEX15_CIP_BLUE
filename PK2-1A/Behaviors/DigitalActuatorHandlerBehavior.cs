@@ -203,8 +203,8 @@ namespace cip_blue.Behaviors
                 manualTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
 
                 manualActivateBorder.Child = manualTextBlock;
-                manualActivateBorder.Height = 14;
-                manualActivateBorder.Width = 14;
+                manualActivateBorder.Height = 32;
+                manualActivateBorder.Width = 32;
 
                 var left = Canvas.GetLeft(AssociatedObject);
                 Canvas.SetLeft(manualActivateBorder, left + HSpacing);
@@ -254,6 +254,8 @@ namespace cip_blue.Behaviors
                     manualActivateBorder.Visibility = Visibility.Visible;
                     manualActivateBorder.Background = Brushes.Yellow;
                     manualTextBlock.Text = "Р";
+                    manualTextBlock.FontSize = 32;
+                    manualTextBlock.ToolTip= "Ручной режим";
                 }
                 else
                 {

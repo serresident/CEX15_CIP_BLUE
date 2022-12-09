@@ -25,21 +25,38 @@ namespace cip_blue.Controls
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
           "Value", typeof(string), typeof(ValueBlock), new UIPropertyMetadata("0.0", onValueChanged));
 
-
+        float mem_plus;
         private static void onValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+          
+
 
             if (e.NewValue.ToString() != "???")
                 if (e.NewValue.ToString() != "NaN")
                     if (float.Parse(e.NewValue.ToString()) < float.Parse("-9998"))
                     {
-                     
-                       (d as ValueBlock).ValueColor = Brushes.Yellow;
+                       
+                        (d as ValueBlock).ValueColor = Brushes.Yellow;
                         (d as ValueBlock).SetCurrentValue(ValueProperty, "???");
 
-                      //  (d as ValueBlock).ToolTip = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
+
+                        if (float.Parse(e.NewValue.ToString()) == float.Parse("-10000"))
+                            (d as ValueBlock).ValueColor = Brushes.PaleVioletRed;
+
+                        //  (d as ValueBlock).ToolTip = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
                         ToolTip tt = new ToolTip();
+
+
                         tt.Content = "Сигнал вне диапазона 4-20ма.\n Требуется диагностика КИПиА";
+
+                        if (float.Parse(e.NewValue.ToString()) == float.Parse("-10000"))
+                        {
+                            tt.Content = "нет питания";
+                           
+                        }    
+                           
+
+
                         (d as ValueBlock).ToolTip = tt;
                         tt.Foreground = Brushes.Red;
                         //    tt.StaysOpen = true;

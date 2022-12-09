@@ -12,12 +12,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:cip_blue.Views.ChildWindows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-    d:DesignWidth="290"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+    d:DesignWidth="600"
     Background="Wheat"
     ResizeMode="NoResize"
     WindowBackground="LightGray"
-    mc:Ignorable="d" Height="258">
+    mc:Ignorable="d" Height="800">
 
     <xctk:ChildWindow.Resources>
         <Style x:Key="FocusVisual">
@@ -299,7 +299,15 @@
         </DockPanel>
 
 
-
+        <DockPanel Grid.ColumnSpan="2" Margin="-7,19,32,-269" Grid.RowSpan="6">
+            <wv2:WebView2
+                x:Name="webView1" ZoomFactor="0.6"
+            
+             
+                Source="http://stp10/d/DqT9rWj7k/tsip-f-pressov-4101-4102-andand-pvs?orgId=1&amp;refresh=5s&amp;viewPanel=33" Margin="85,50,50,0" Grid.Column="2" Width="560" Height="420"
+            />
+        </DockPanel>
 
     </Grid>
+
 </xctk:ChildWindow>

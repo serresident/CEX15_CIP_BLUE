@@ -15,7 +15,12 @@ using cip_blue.Repositories;
 using cip_blue.Services;
 using cip_blue.ViewModels;
 using cip_blue.Views;
-
+using InfluxDB.Client.Api.Domain;
+using Services;
+using User = cip_blue.Models.User;
+using System.Text.Json;
+using System.IO;
+using File = System.IO.File;
 
 namespace cip_blue
 {
@@ -24,6 +29,7 @@ namespace cip_blue
     /// </summary>
     public partial class App
     {
+        private static readonly CancellationTokenSource source = new();
         public App() : base()
         {
             string CultureName = Thread.CurrentThread.CurrentCulture.Name;
@@ -84,11 +90,12 @@ namespace cip_blue
         {
             return Container.Resolve<Shell>();
         }
-
+        
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<User>();
             containerRegistry.RegisterSingleton<ProcessDataTcp>();
+            containerRegistry.RegisterSingleton<ChartData>();
 
             containerRegistry.Register<ArchivRepository>();
             containerRegistry.Register<JournalRepository>();
@@ -129,6 +136,23 @@ namespace cip_blue
             containerRegistry.RegisterDialog<NextDialog, NextDialogViewModel>("next");
             containerRegistry.RegisterDialog<ConfigDialog, ConfigViewModel>("Config");
 
+
+        }
+        private void StartServices()
+        {
+
+            IService chartUpdateService = Container.Resolve<ChartUpdateService>();
+          //  IService clockUpdateService = Container.Resolve<ClockUpdateService>();
+    
+
+
+
+            IBackgroundTaskStarterService chartUpdateTask = new BackgroundInfiniteTask(chartUpdateService.DoWork, TimeSpan.FromSeconds(10), source);
+         //   IBackgroundTaskStarterService clockUpdateTask = new IBackgroundTaskStarterService(clockUpdateService.DoWork, TimeSpan.FromSeconds(1), source);
+
+            chartUpdateTask.Start();
+            //clockUpdateTask.Start();
+
         }
 
         protected override void ConfigureViewModelLocator()
@@ -164,11 +188,21 @@ namespace cip_blue
             regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("LogicView", "LogicToolView", "Grafana"));
             regionManager.RegisterViewWithRegion("NavigationRegion", () => nav("SettingView", "SettingToolView", "Настройки"));
             regionManager.RequestNavigate("ContentRegion", "MnemonicView");
+            StartServices();
         }
 
+ 
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            string fileName = "ChartData.json";
+           var t= Container.Resolve<ChartData>();
+            string ChartDataJson = JsonSerializer.Serialize(t);
+            File.WriteAllText(fileName, ChartDataJson);
+        }
 
         private void showErrorAndExit(string msg, string title)
         {
+           
             Xceed.Wpf.Toolkit.MessageBox.Show(msg, title, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
             Application.Current.Shutdown();
         }

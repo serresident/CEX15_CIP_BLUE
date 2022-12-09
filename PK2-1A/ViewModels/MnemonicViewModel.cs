@@ -23,7 +23,7 @@ namespace cip_blue.ViewModels
         private PeriodicalTaskStarter internalUpdater;
 
         private readonly ArchivRepository archivRepository;
-
+        public ChartData ChartData { get; set; }
 
 
 
@@ -254,7 +254,7 @@ namespace cip_blue.ViewModels
 
 
         public Dictionary<int, string> Dictionary_Status;
-        public MnemonicViewModel(ProcessDataTcp pd, ArchivRepository archivRepository)
+        public MnemonicViewModel(ProcessDataTcp pd, ArchivRepository archivRepository, ChartData chartData)
         {
             PD = pd;
             this.archivRepository = archivRepository;
@@ -262,17 +262,17 @@ namespace cip_blue.ViewModels
             Promivka_4101_StartCommand = new DelegateCommand(promivka_4101_Start, canPromivka_4101_Start);
             Promivka_4101_StopCommand = new DelegateCommand(promivka_4101_Stop, canPromivka_4101_Stop);
 
-             ZagrVodi160a_StartCommand = new DelegateCommand( ZagrVodi160a_Start, canZagrVodi160a_Start);
-             ZagrVodi160a_StopCommand = new DelegateCommand( ZagrVodi160a_Stop, canZagrVodi160a_Stop);
+            ZagrVodi160a_StartCommand = new DelegateCommand(ZagrVodi160a_Start, canZagrVodi160a_Start);
+            ZagrVodi160a_StopCommand = new DelegateCommand(ZagrVodi160a_Stop, canZagrVodi160a_Stop);
 
             Promivka_4201_StartCommand = new DelegateCommand(promivka_4201_Start, canPromivka_4201_Start);
             Promivka_4201_StopCommand = new DelegateCommand(promivka_4201_Stop, canPromivka_4201_Stop);
 
             Dictionary_Status = new Dictionary<int, string>() {
                 {0, "НЕ бЫЛО ЗАПУСКА"},
-                { 1, "Цикл промывки:1. Клапан воды открыт. Ожидание таймера на закрытие" }, 
+                { 1, "Цикл промывки:1. Клапан воды открыт. Ожидание таймера на закрытие" },
                 { 2, "Цикл промывки:2. Клапан воды закрыт. Ожидание таймера паузы 1" },
-                { 3, "Цикл промывки:3. Клапан воздуха открыт. Ожидание таймера на закрытие" }, 
+                { 3, "Цикл промывки:3. Клапан воздуха открыт. Ожидание таймера на закрытие" },
                 { 4, "Цикл промывки:4. Клапан воздуха закрыт. Ожидание таймера на перезапуск" },
                 { 5, "5. Финальная продувка воздухом" },
                 { 7, "Завершение по условию" },
@@ -282,6 +282,7 @@ namespace cip_blue.ViewModels
 
             chartUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
             internalUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
+            ChartData = chartData;
         }
 
         private bool canPromivka_4101_Start() { return !PD.switch_promivka4101; }

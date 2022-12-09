@@ -114,7 +114,78 @@
         <converters1:PowerPercentConverter x:Key="PowerPercentConverter" />
         <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
 
+        <CollectionViewSource x:Key="chartData"
+                              Source="{Binding ChartData.DataPoints}" />
+        <CollectionViewSource x:Key="chartData2"
+                              Source="{Binding ChartData.DataPoints2}" />
 
+        <DataTemplate x:Key="lineTemplate">
+            <Canvas Width="{Binding Path=W}"
+                    Height="{Binding Path=H}">
+                <Polyline Points="{Binding Path=Points}"
+                          StrokeThickness="5" />
+            </Canvas>
+        </DataTemplate>
+        <DataTemplate x:Key="series1Template">
+            <Canvas Width="{Binding Path=W}"
+                    Height="{Binding Path=H}">
+                <Polyline Points="{Binding Path=Points}"
+                          StrokeThickness="2">
+                    <Polyline.Stroke>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="0,1">
+                            <GradientStop Color="#FFC518C5"
+                                          Offset="1" />
+                            <GradientStop Color="Violet"
+                                          Offset="0.75" />
+                            <GradientStop Color="#FFC518C5"
+                                          Offset="0" />
+                        </LinearGradientBrush>
+                    </Polyline.Stroke>
+                </Polyline>
+            </Canvas>
+        </DataTemplate>
+        <DataTemplate x:Key="series2Template">
+            <Canvas Width="{Binding Path=W}"
+                    Height="{Binding Path=H}">
+                <Polyline Points="{Binding Path=Points}"
+                          StrokeThickness="2">
+                    <Polyline.Stroke>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="0,1">
+                            <GradientStop Color="Black"
+                                          Offset="1" />
+                            <GradientStop Color="#FF4E4646"
+                                          Offset="0.75" />
+                            <GradientStop Color="Black"
+                                          Offset="0" />
+                        </LinearGradientBrush>
+                    </Polyline.Stroke>
+                </Polyline>
+            </Canvas>
+        </DataTemplate>
+        <DataTemplate x:Key="dotTemplate">
+            <Grid>
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="LabelTemplateY">
+            <Border DockPanel.Dock="Top" BorderThickness="1" CornerRadius ="4">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Transparent" Offset="0.0" />
+                        <GradientStop Color="Transparent" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <TextBlock FontFamily="Comic Sans MS" FontSize="10" Margin="2,2,2,1"
+				  HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=Text}">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="Red"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </Border>
+        </DataTemplate>
 
     </UserControl.Resources>
     <UserControl.CommandBindings>
@@ -258,7 +329,7 @@
 
         <WPF:Tube Height="18" Canvas.Left="300" Canvas.Top="644" Width="24" RotateAngle="0" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
 
@@ -359,7 +430,7 @@
         <WPF:Tube Height="26" Canvas.Left="1448" Canvas.Top="595" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Center" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -369,7 +440,7 @@
         <WPF:Tube Height="32" Canvas.Left="1448" Canvas.Top="643" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Center" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -389,7 +460,7 @@
         <WPF:Tube Height="20" Canvas.Left="1168" Canvas.Top="615" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Center" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -551,7 +622,7 @@
         </Viewbox>
         <WPF:Tube Height="18" Canvas.Left="732" Canvas.Top="224" Width="24" RotateAngle="180" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
 
@@ -1285,7 +1356,7 @@
 
         <WPF:Tube Height="18" Canvas.Left="781" Canvas.Top="284" Width="24" RotateAngle="90" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Tube Height="12" Canvas.Left="751" Canvas.Top="245" Width="90" RotateAngle="90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -1300,13 +1371,13 @@
         </WPF:Tube>
         <WPF:Tube Height="24" Canvas.Left="733" Canvas.Top="208" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Tube Height="27" Canvas.Left="733" Canvas.Top="157" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -1323,7 +1394,7 @@
         <WPF:Tube Height="31" Canvas.Left="791" Canvas.Top="154" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -1438,7 +1509,8 @@
         <WPF:Pump  Height="80"  Canvas.Left="398" Canvas.Top="831" Width="80" Design="Vertical"   RotateAngle="270" FlangeThickness="3" FlangeWidth="5" TubeThickness="0.5*" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Behaviors:Interaction.Behaviors >
                 <behaviors:HybridActuatorHandlerBehavior Dout="{Binding PD.NS_B4305_control_man, Mode=TwoWay}"   Units="Гц" HSpacing="20"  VSpacing="-10"  MaxValue="50"  IsMan="{Binding PD.NS_B4305_mode}" Out="{Binding PD.NSB4305_Control_man_frq}"/>
-                <behaviors:DigitalActuatorStatusBehavior  OffSignal="False"      OnSignal="{c:Binding '(PD.NS4305_frq  &gt;\= 1)'}" />
+                <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.err_deltacp2000}" OnStatus="{c:Binding '(PD.NS4305_frq  &gt;\= 1)'}" OnColor1="Green" DefaultColor="Red"/>
+
             </Behaviors:Interaction.Behaviors>
         </WPF:Pump>
         <TextBlock Canvas.Left="764" TextWrapping="Wrap" Text="B4305" Canvas.Top="672" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -1448,7 +1520,7 @@
         <WPF:Tube Height="18" Canvas.Left="1168" Canvas.Top="581" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Center" VerticalAlignment="Top">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -1674,7 +1746,7 @@
         </Viewbox>
         <WPF:Tube Height="18" Canvas.Left="1552" Canvas.Top="216" Width="24" RotateAngle="180" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Tube Height="12" Canvas.Left="1562" Canvas.Top="222" Width="54" RenderTransformOrigin="0.5,0.5" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -2387,19 +2459,19 @@
         </Viewbox>
         <WPF:Tube Height="18" Canvas.Left="1600" Canvas.Top="276" Width="24" RotateAngle="90" Design="Arc90" FlangeLayout="None" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Tube Height="12" Canvas.Left="1570" Canvas.Top="237" Width="90" RotateAngle="90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <WPF:Tube Height="24" Canvas.Left="1553" Canvas.Top="200" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Tube Height="27" Canvas.Left="1553" Canvas.Top="149" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Center">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -2481,7 +2553,7 @@
         <WPF:Tube Height="27" Canvas.Left="1610" Canvas.Top="147" Width="10" FlangeWidth="3" FlangeThickness="2" Design="VerticalRoundEnd" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Center">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_3_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -2489,14 +2561,14 @@
         <WPF:Tube Height="20" Canvas.Left="784" Canvas.Top="626" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Center">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
         <WPF:Tube Height="18" Canvas.Left="784" Canvas.Top="592" Width="10" FlangeWidth="3" FlangeThickness="2" Design="Vertical" FlangeLayout="None" RotateAngle="180                    " HorizontalAlignment="Left" VerticalAlignment="Center">
 
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
 
         </WPF:Tube>
@@ -2663,6 +2735,7 @@
         </WPF:Tank>
         <TextBlock Canvas.Left="298" TextWrapping="Wrap" Canvas.Top="704" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="42"><Run Language="ru-ru" Text="ПВС"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
         <Controls:NumPadUpDown ToolTip="Уставка температуры"
+                               IsEnabled="False"
             Width="88"
             Height="30"
             VerticalContentAlignment="Center"
@@ -2674,22 +2747,23 @@
             Increment="1"
             Minimum="-1"
             Precision="0"
-            UpdateValueOnEnterKey="True" Canvas.Left="392" Canvas.Top="620" HorizontalAlignment="Left" VerticalAlignment="Center">
+            UpdateValueOnEnterKey="True" Canvas.Left="288" Canvas.Top="570" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.Tzad_pvs}" />
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
-        <TextBlock    Canvas.Left="376" TextWrapping="Wrap" Canvas.Top="594"  Text="Уставка температуры" HorizontalAlignment="Left" VerticalAlignment="Center" Height="18"/>
+        <TextBlock    Canvas.Left="276" TextWrapping="Wrap" Canvas.Top="549"  Text="Уставка температуры" HorizontalAlignment="Left" VerticalAlignment="Top" Height="18"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
+              IsEnabled="False"
             IsChecked="{Binding PD.SW_Mixer, Mode=TwoWay}"
             ThumbHeight = "25"
             ThumbWidth = "24"
             CheckedContent = "ВКЛ"
             UncheckedContent = "Выкл"
             CheckedBackground="Green"
-            UncheckedBackground ="LightPink" Canvas.Left="396" Canvas.Top="682" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBlock    Canvas.Left="350" TextWrapping="Wrap" Canvas.Top="664"  Text="Поддержание температуры " Height="18" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            UncheckedBackground ="LightPink" Canvas.Left="318" Canvas.Top="625" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock    Canvas.Left="279" TextWrapping="Wrap" Canvas.Top="604"  Text="Поддержание температуры " Height="18" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="136" Canvas.Top="664" Caption=" выход на TV1" Unit="%"  ValueColor="Red" Foreground="White"  Width="108" Height="40" Value="{Binding PD.TV1_Aout, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <WPF:Lamp Header="   ПУСК" Canvas.Left="496" Design="LEDSquare" Width="56" Height="20" Canvas.Top="869" DividerSize="Auto" LidSize="Auto"  HorizontalAlignment="Left" VerticalAlignment="Center"  >
             <WPF:Lamp.States>
@@ -2736,6 +2810,7 @@
         <TextBlock    Canvas.Left="573" TextWrapping="Wrap" Canvas.Top="821"  Text="Уставка расхода" Height="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
+                           ToolTip=" Для ручного управления перевидите насос в ручной режим"
                            IsEnabled="False"
             IsChecked="{Binding PD.SW_FQ_auto_b4305, Mode=TwoWay}"
             ThumbHeight = "25"
@@ -2971,11 +3046,11 @@
 
         <TextBlock Canvas.Left="1016" TextWrapping="Wrap" Canvas.Top="13" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="ru-ru" Text="ф. пресс 4101"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
 
-        <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="224" Canvas.Top="840" Caption="факт. частота" Unit="Гц"  ValueColor="LawnGreen" Foreground="Tomato"  Width="92" Height="36" Value="{Binding PD.NS4305_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Controls:ValueBlock   FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="224" Canvas.Top="840" Caption="факт. частота" Unit="Гц"  ValueColor="LawnGreen" Foreground="Tomato"  Width="92" Height="36" Value="{Binding PD.NS4305_frq, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Controls:ValueBlock  FontWeight="Bold" FontFamily="Proxy 1" Canvas.Left="225" Canvas.Top="880" Caption=" Ток" Unit="А"  ValueColor="LawnGreen" Foreground="Yellow"  Width="90" Height="36" Value="{Binding PD.NS4305_Amperage, Mode=OneWay, StringFormat=\{0:0.0\}}" Background="Black" RenderTransformOrigin="0.558,0.275" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <WPF:Tube Height="18" Canvas.Left="469" Canvas.Top="368" Width="34" RotateAngle="270                  " Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Arrow Height="29" Canvas.Left="44"  RotateAngle="0" Canvas.Top="702" Width="48" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -2998,7 +3073,7 @@
         </WPF:Arrow>
         <WPF:Tube Height="18" Canvas.Left="1285" Canvas.Top="355" Width="31" RotateAngle="270                  " Design="Arc90" FlangeLayout="None" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
-                <behaviors:DigitalOnStatusBehavior OnStatus="{Binding PD.VK480B_4_SQH}" OnColor1="DeepSkyBlue"/>
+                <behaviors:DigitalOnStatusBehavior  OnColor1="DeepSkyBlue"/>
             </Behaviors:Interaction.Behaviors>
         </WPF:Tube>
         <WPF:Arrow Height="34" Canvas.Left="472"  RotateAngle="90" Canvas.Top="389" Width="19" RenderTransformOrigin="0.681,0.135" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -3058,12 +3133,7 @@
                 </WPF:ControlColors>
             </WPF:Lamp.Colors>
         </WPF:Lamp>
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"   >
-            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="462" Canvas.Top="495" />
-            <child:ZagrVodi160a  Left="790" Top="400" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="828" Canvas.Top="495"  />
-            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="871" Canvas.Top="495"  />
 
-        </xctk:WindowContainer>
         <WPF:Valve Height="40" Canvas.Left="335" Canvas.Top="840" Width="30" Actor="Diaphram1"  RotateAngle="0" ActorSize="2*" ValveSize="2*" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior  NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.ttyS3_err_module_ad3}"  OnStatus="{c:Binding PD.TV_P4310_open}" OnColor1="Green" DefaultColor="Red"/>
@@ -3073,6 +3143,131 @@
 
         </WPF:Valve>
         <TextBlock    Canvas.Left="323" TextWrapping="Wrap" Canvas.Top="883"  Text="TV_P4310" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="13.153,12.778"/>
+        <xctk:Chart Width="251"
+                    ToolTip="Черный=уставка Т, фиолетовый=выход Т"
+                     Height="141"
+                     Canvas.Left="434"
+                     Canvas.Top="554"
+                     ShowLegend="False" HorizontalAlignment="Left" VerticalAlignment="Center"
+                     >
+
+            <xctk:Chart.Areas>
+                <xctk:Area x:Name="_area1"
+                            Title="Area #1"
+                            Background="#EEEEEE"
+                            >
+                    <xctk:Area.XAxis>
+                        <xctk:Axis LabelsType="DateTime"
+                                    ScaleMode="Automatic"
+                                    DateTimeFormat="H:mm"
+                                    Title="Время"
+                                    TitleMargin="7"
+                                    AxisLabelsLayout="ShowAll"
+                                    ShowArrow="False"
+                                    ShowAxis="True"
+                                   TicksCount="5"
+                                    ShowGridLines="True"
+                                    ShowTicks="True"
+                                    ShowTickLabels="True"
+                                    ShowAxisLabel="false"
+                                    Reversed="False"
+                                    IntersectMinValue="True"
+                                    LabelDecimalCount="{x:Null}" />
+                    </xctk:Area.XAxis>
+
+                    <xctk:Area.YAxis>
+                        <xctk:Axis x:Name="_yAxis"
+                                    LabelsType="Numeric"
+                                  
+                                    GraduationMode="Automatic"
+                                    CustomRangeStart="0"
+                                    CustomRangeEnd="150"
+                                    ScaleMode="Manual"
+                                   TicksCount="5"
+                                    Title="Уровень"
+                                    TitleMargin="10"
+                                    AxisLabelsLayout="ShowAll"
+                                    ShowArrow="False"
+                                    ShowAxis="True"
+                                    ShowGridLines="True"
+                                    ShowTicks="True"
+                                    ShowTickLabels="True"
+                                    ShowAxisLabel="False"
+                                    Reversed="False"
+                                   LabelTemplate="{StaticResource LabelTemplateY}"
+                                    IntersectMinValue="True"
+                                    LabelDecimalCount="{x:Null}" />
+                    </xctk:Area.YAxis>
+                    <xctk:Area.Series>
+                        <xctk:Series DataPointsSource="{Binding Source={StaticResource chartData}}"
+                                      x:Name="_series"
+                                      DefaultInterior="BlueViolet"
+                                      ShowPointsInLegend="false"
+                                      ShowHintLabels="false"
+                                      HintLineLength="20"
+                                      Template="{StaticResource ResourceKey=series1Template}"
+                                      MarkerTemplate="{StaticResource ResourceKey=dotTemplate}">
+                            <xctk:Series.DataPointBindings>
+                                <xctk:BindingInfo PropertyName="X">
+                                    <xctk:BindingInfo.Binding>
+                                        <Binding Path="Item2" />
+                                    </xctk:BindingInfo.Binding>
+                                </xctk:BindingInfo>
+                                <xctk:BindingInfo PropertyName="Y">
+                                    <xctk:BindingInfo.Binding>
+                                        <Binding Path="Item1" />
+                                    </xctk:BindingInfo.Binding>
+                                </xctk:BindingInfo>
+                            </xctk:Series.DataPointBindings>
+                            <xctk:Series.Layout>
+                                <xctk:LineLayout />
+                            </xctk:Series.Layout>
+                            <xctk:Series.DataPoints>
+                            </xctk:Series.DataPoints>
+                        </xctk:Series>
+
+                        <xctk:Series DataPointsSource="{Binding Source={StaticResource chartData2}}"
+                                      x:Name="_series2"
+                                      DefaultInterior="BlueViolet"
+                                      ShowPointsInLegend="false"
+                                      ShowHintLabels="false"
+                                      HintLineLength="20"
+                                      Template="{StaticResource ResourceKey=series2Template}"
+                                      MarkerTemplate="{StaticResource ResourceKey=dotTemplate}">
+                            <xctk:Series.DataPointBindings>
+                                <xctk:BindingInfo PropertyName="X">
+                                    <xctk:BindingInfo.Binding>
+                                        <Binding Path="Item2" />
+                                    </xctk:BindingInfo.Binding>
+                                </xctk:BindingInfo>
+                                <xctk:BindingInfo PropertyName="Y">
+                                    <xctk:BindingInfo.Binding>
+                                        <Binding Path="Item1" />
+                                    </xctk:BindingInfo.Binding>
+                                </xctk:BindingInfo>
+                            </xctk:Series.DataPointBindings>
+                            <xctk:Series.Layout>
+                                <xctk:LineLayout />
+                            </xctk:Series.Layout>
+                            <xctk:Series.DataPoints>
+                            </xctk:Series.DataPoints>
+                        </xctk:Series>
+
+
+                    </xctk:Area.Series>
+
+
+
+                </xctk:Area>
+            </xctk:Chart.Areas>
+        </xctk:Chart>
+
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"   >
+            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="462" Canvas.Top="495" />
+            <child:ZagrVodi160a  Left="790" Top="400" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="828" Canvas.Top="495"  />
+            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="871" Canvas.Top="495"  />
+
+        </xctk:WindowContainer>
     </Canvas>
 
 
