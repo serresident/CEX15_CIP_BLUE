@@ -1,8 +1,0 @@
-<Viewbox Stretch="Uniform" Width="64" Height="64" ToolTip="Arrows =&gt; Straight arrow 1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib">
-  <Viewbox.Tag>
-    <s:Int64>39992</s:Int64>
-  </Viewbox.Tag>
-  <Canvas Tag="#00000000,#FF000000,Shaded,180,None" LayoutTransform="-1,-1.22460635382238E-16,1.22460635382238E-16,-1,200,200" Width="434" Height="999">
-    <Polygon Points="218,27 407,395 282,395 282,971 153,971 153,395 27,395 218,27" Fill="#FF535353" Stroke="#FF000000" StrokeThickness="3" />
-  </Canvas>
-</Viewbox>
