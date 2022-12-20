@@ -64,7 +64,9 @@ namespace cip_blue.ViewModels
 		public SettingViewModel(ProcessDataTcp pd, JournalRepository journalRepository)
 		{
 			this.PD = pd;
-		}
+            IsBusy=true;
+
+        }
 
 		// Token: 0x06000079 RID: 121 RVA: 0x00003944 File Offset: 0x00001B44
 		public void OnLoading()

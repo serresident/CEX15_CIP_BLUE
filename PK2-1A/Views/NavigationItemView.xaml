@@ -7,5 +7,5 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
-        <RadioButton Height="40" Width="85" Margin="1" x:Name="NavigateRadioButton" GroupName="MainNavigation" Click="NavigateTo_Click" Style="{StaticResource NavigationToggleButton}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></RadioButton>
+        <RadioButton Height="40" Width="85" Margin="1" x:Name="NavigateRadioButton"  GroupName="MainNavigation" Click="NavigateTo_Click" Style="{StaticResource NavigationToggleButton}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></RadioButton>
 </UserControl>

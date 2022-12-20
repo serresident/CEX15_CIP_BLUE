@@ -1803,16 +1803,17 @@
                 </xctk:Area>
             </xctk:Chart.Areas>
         </xctk:Chart>
-
-        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"   >
-            <child:Promivka_4101  Left="1198" Top="502" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="462" Canvas.Top="495" />
-            <child:ZagrVodi160a  Left="790" Top="400" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="828" Canvas.Top="495"  />
-            <child:Promivka_4201  Left="1526" Top="498" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="871" Canvas.Top="495"  />
-
-        </xctk:WindowContainer>
         <Image Source="pack://application:,,,/Resource/pressFilter.png" Height="144" Canvas.Left="485"  Stretch="Fill" Canvas.Top="248" Width="301" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Image Source="pack://application:,,,/Resource/pressFilter.png" Height="144" Canvas.Left="1305"  Stretch="Fill" Canvas.Top="239" Width="301" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBlock Canvas.Left="468" TextWrapping="Wrap" Canvas.Top="407" FontSize="18" Foreground="#FF31333E" FontWeight="Bold" RenderTransformOrigin="0.733,0.125" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Language="ru-ru" Text="ф. пресс 4201"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+
+
+        <xctk:WindowContainer Width="1918" Height="1000" Visibility="Visible"   >
+            <child:Promivka_4101  Left="490" Top="230" Height="Auto" Width="300" Caption="Промывка ф. пресса 4201"  WindowState="{Binding Promivka_4101WndStatus}" Canvas.Left="505" Canvas.Top="242" />
+            <child:ZagrVodi160a  Left="1650" Top="550" Height="Auto" Width="240" Caption="Загр. арт.воды"  WindowState="{Binding ZagrVodi160aWndStatus}" Canvas.Left="1669" Canvas.Top="553"  />
+            <child:Promivka_4201  Left="1300" Top="230" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1318" Canvas.Top="231"  />
+
+        </xctk:WindowContainer>
     </Canvas>
 
 
