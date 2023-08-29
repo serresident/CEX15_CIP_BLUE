@@ -30,6 +30,30 @@ namespace cip_blue
 
             return result;
         }
+        public static bool ReadRetaneBool(string name)
+        {
+            string result = null;
+            bool resultBool = false;
+            try
+            {
+                var appSettings = ConfigurationManager.AppSettings;
+                result = appSettings[name] ;
+
+                if(result!=null)
+                {
+                    resultBool=bool.Parse(result);
+                }
+                // result = "1";
+                //MessageBox.Show(result);
+            }
+            catch (ConfigurationErrorsException e)
+            {
+                // MessageBox.Show(e.ToString()); 
+                //  logger.Error("ReadSetting" + e.ToString());
+            }
+
+            return resultBool;
+        }
 
         /// <summary>
         /// суммирует передаваемое значение к значению параметра в app.config (сумматор)
@@ -50,6 +74,38 @@ namespace cip_blue
                 if (settings[nameTag] == null)
                 {
                     settings.Add(nameTag, value.ToString( "0:0.0##"));
+                }
+                else
+                {
+                    settings[nameTag].Value = value.ToString();
+                }
+
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+
+            }
+            catch (ConfigurationErrorsException e)
+            {
+                //  MessageBox.Show("Error writing app settings" + e.Message);
+            }
+
+            //logger.Info(total+" total "+nameTag);
+
+
+        }
+        public static void WriteBoolRetane(bool value, string nameTag)
+        {
+             
+
+            try
+            {
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+
+
+                if (settings[nameTag] == null)
+                {
+                    settings.Add(nameTag, value.ToString());
                 }
                 else
                 {

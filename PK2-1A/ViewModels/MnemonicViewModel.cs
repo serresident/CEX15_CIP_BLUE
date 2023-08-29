@@ -168,7 +168,16 @@ namespace cip_blue.ViewModels
             set { SetProperty(ref reset_B, value); }
         }
 
-     
+
+
+        private bool man_mod = To_Config.ReadRetaneBool("Man_mode");
+        public bool Man_mode
+        {
+            get { return man_mod; }
+            set { SetProperty(ref man_mod, value); To_Config.WriteBoolRetane(value, "Man_mode"); }
+        }
+
+
         // счетчик Мэк 450
         private Single сount_fq450_mek;
         public Single Count_fq450_mek

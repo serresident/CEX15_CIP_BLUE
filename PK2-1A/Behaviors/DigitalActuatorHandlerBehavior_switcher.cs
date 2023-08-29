@@ -225,7 +225,8 @@ namespace cip_blue.Behaviors
 
         private void onClick(object sender, RoutedEventArgs e)
         {
-            popupPanel.IsOpen = !popupPanel.IsOpen;
+            if (To_Config.ReadRetaneBool("Man_mode"))
+                popupPanel.IsOpen = !popupPanel.IsOpen;
             //Out = true;
         }
 

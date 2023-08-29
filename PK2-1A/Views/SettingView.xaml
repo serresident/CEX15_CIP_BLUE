@@ -90,7 +90,7 @@
 
     </UserControl.Resources>
 
-    <xctk:BusyIndicator IsBusy="{Binding IsBusy}" >
+   
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -593,7 +593,10 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -657,8 +660,23 @@
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_b4305}" />
                         </b:Interaction.Behaviors>
                     </Controls:NumPadUpDown>
-                    
-                </Grid>
+
+                <TextBlock    FontSize="14" FontWeight="Black"  HorizontalAlignment="Center" Foreground="Blue" Text="Доп. настрйоки" Grid.ColumnSpan="2"  Grid.Row="5" Height="24"/>
+
+                <TextBlock FontWeight="Bold" FontSize="14"  Text="Ручной режим" Grid.Row="6" VerticalAlignment="Center" Foreground="#FF1D6762" />
+                <xctk:ToggleSwitch Width="64" Height="24"   Grid.Row="6" Grid.Column="1" 
+            CornerRadius="2"
+                          ToolTip="Срабатывает только если текущее значение уровня меньше макс. зад., иначе ждет снижения до мин. зад., включается и доливает до макс. зад. и так по кругу."
+                           ToolTipService.ShowDuration="20000"
+            IsChecked="{Binding Mnemonic.Man_mode, Mode=TwoWay}"
+            ThumbHeight = "25"
+            ThumbWidth = "24"
+            CheckedContent = "ВКЛ"
+            UncheckedContent = "Выкл"
+            CheckedBackground="Green"
+            UncheckedBackground ="LightPink" Canvas.Left="1214" Canvas.Top="885" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.573,1.319"/>
+
+            </Grid>
 
                 <!--//точка 3-->
                 <!--//точка 4-->
@@ -709,5 +727,5 @@
             </xctk:PropertyGrid>
 
         </Grid>
-    </xctk:BusyIndicator>
+    
 </UserControl>

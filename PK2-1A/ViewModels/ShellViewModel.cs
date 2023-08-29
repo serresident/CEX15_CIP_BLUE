@@ -76,12 +76,24 @@ namespace cip_blue.ViewModels
 
         }
 
-        private void ShowSettingsDialog()
+        public void ShowSettingsDialog()
         {
 
             dialogService.ShowDialog("settings");
           
 
+        }
+        bool set_access;
+        public bool Set_access
+        {
+            get
+            {
+                return this.set_access;
+            }
+            set
+            {
+                this.SetProperty<bool>(ref this.set_access, value, "Set_access");
+            }
         }
 
 
@@ -102,7 +114,12 @@ namespace cip_blue.ViewModels
                 if (r.Parameters.ContainsKey("password"))
                 {
                     if (r.Parameters.GetValue<string>("password") == "1515")
+                    {
                         User.IsAuthorized = true;
+                        Set_access = true;
+                        
+                    }
+                       
                 }
             });
         }

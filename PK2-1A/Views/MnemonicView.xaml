@@ -975,7 +975,7 @@
         <WPF:Valve Height="40" Canvas.Left="1170" Canvas.Top="585" Width="30" Actor="Piston"  RotateAngle="90" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-3.17550636385741E+18,1.02361766361803E+26" >
             <Behaviors:Interaction.Behaviors>
                 <behaviors:DigitalOnStatusBehavior NotConnectColoring="DarkOrange" IsNotFeedback="{Binding PD.ttyS3_err_module_ad3}" OnStatus="{c:Binding PD.Valve2_pvs_out}" OnColor1="Green" DefaultColor="Red"/>
-                <!--<behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0"  IsManMode="True"  IsMan="{Binding PD.Valve2_pvs_mode}" Out="{Binding PD.Valve2_pvs_man}"/>-->
+                <behaviors:DigitalActuatorHandlerBehavior HSpacing="30" VSpacing="0"  IsManMode="True"  IsMan="{Binding PD.Valve2_pvs_mode}" Out="{Binding PD.Valve2_pvs_man}"/>
                 <behaviors:Valve_status isNotFeedback="{Binding PD.ttyS3_err_module_ad3}" HSpacing="-6" HSpacing1="-6" VSpacing="4" VSpacing1="18"  RotareAnggeClose="-90" RotareAnggeOpen="90"  isOpenValve="{Binding PD.valve2_pvs_SQH}" isCloseValve="{Binding PD.valve2_pvs_SQL}" />
             </Behaviors:Interaction.Behaviors>
 
@@ -1814,6 +1814,10 @@
             <child:Promivka_4201  Left="1300" Top="230" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1318" Canvas.Top="231"  />
 
         </xctk:WindowContainer>
+        <TextBlock   Visibility="{c:Binding !Man_mode}" Canvas.Left="1355" TextWrapping="Wrap" Canvas.Top="858" Height="45" Width="340" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Foreground="#FFF7F7F7">
+            <TextBlock.Background>
+                <SolidColorBrush Color="#FFCC0909" Opacity="0.6"/>
+            </TextBlock.Background><Run Text="Ручной Режим деактив"/><Run Language="ru-ru" Text="и"/><Run Text="рован."/><Run Language="ru-ru" Text=" На основании  ТЗ от ЦЛ 31.07.23 Мартьянов К."/></TextBlock>
     </Canvas>
 
 

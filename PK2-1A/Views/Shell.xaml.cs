@@ -100,6 +100,8 @@ namespace cip_blue.Views
                         {
                             userAutorizationStatus = "Log In";
                             dc.User.IsAuthorized = false;
+                          
+                    
                         }
 
                         else
@@ -107,6 +109,7 @@ namespace cip_blue.Views
                             // userAutorizationStatus = "Log In";
                             dc.InputPassword();
                             userAutorizationStatus = dc.User.IsAuthorized ? "Log Out" : "Log In";
+                         
                         }
 
                         //dc.IsAuthorized = !dc.IsAuthorized;
@@ -125,7 +128,7 @@ namespace cip_blue.Views
                         break;
                 }
             }
-
+            control_panel.UpdateLayout();
             return IntPtr.Zero;
         }
 

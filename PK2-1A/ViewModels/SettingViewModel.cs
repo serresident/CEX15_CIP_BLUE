@@ -44,11 +44,17 @@ namespace cip_blue.ViewModels
 				this.SetProperty<ProcessDataTcp>(ref this._pd, value, "PD");
 			}
 		}
+        private bool man_mod = To_Config.ReadRetaneBool("Man_mode");
+        public bool Man_mode
+        {
+            get { return man_mod; }
+            set { SetProperty(ref man_mod, value); To_Config.WriteBoolRetane(value, "Man_mode"); }
+        }
 
-		// Token: 0x1700000F RID: 15
-		// (get) Token: 0x06000076 RID: 118 RVA: 0x00003904 File Offset: 0x00001B04
-		// (set) Token: 0x06000077 RID: 119 RVA: 0x0000391C File Offset: 0x00001B1C
-		public bool IsBusy
+        // Token: 0x1700000F RID: 15
+        // (get) Token: 0x06000076 RID: 118 RVA: 0x00003904 File Offset: 0x00001B04
+        // (set) Token: 0x06000077 RID: 119 RVA: 0x0000391C File Offset: 0x00001B1C
+        public bool IsBusy
 		{
 			get
 			{
@@ -60,12 +66,29 @@ namespace cip_blue.ViewModels
 			}
 		}
 
-		// Token: 0x06000078 RID: 120 RVA: 0x00003932 File Offset: 0x00001B32
-		public SettingViewModel(ProcessDataTcp pd, JournalRepository journalRepository)
+
+
+        // Token: 0x06000078 RID: 120 RVA: 0x00003932 File Offset: 0x00001B32
+
+
+        public MnemonicViewModel Mnemonic
+        {
+            get
+            {
+                return this._mnemonic;
+            }
+            set
+            {
+                this.SetProperty<MnemonicViewModel>(ref this._mnemonic, value, "Mnemonic");
+            }
+        }
+
+
+        public SettingViewModel(ProcessDataTcp pd, JournalRepository journalRepository, MnemonicViewModel mnemonic)
 		{
 			this.PD = pd;
             IsBusy=true;
-
+            Mnemonic=mnemonic;
         }
 
 		// Token: 0x06000079 RID: 121 RVA: 0x00003944 File Offset: 0x00001B44
@@ -102,5 +125,7 @@ namespace cip_blue.ViewModels
 
 		// Token: 0x0400003A RID: 58
 		private bool isBusy;
-	}
+        private bool set_access;
+        private MnemonicViewModel _mnemonic;
+    }
 }
