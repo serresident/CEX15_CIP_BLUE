@@ -23,7 +23,7 @@ namespace Services
         private readonly ProcessDataTcp _modbusData;
         private bool isStarted;
         private readonly Random random = new();
-
+        
 
         public ChartUpdateService(ProcessDataTcp modbusData, IEventAggregator eventAggregator, ChartData chartData)
         {
@@ -32,7 +32,7 @@ namespace Services
             _modbusData = modbusData;
             _chartData.DataPoints = new();
             _chartData.DataPoints2 = new();
-    }
+        }
         public void DoWork()
         {
             App.Current.Dispatcher.BeginInvoke((Action)delegate
@@ -71,6 +71,7 @@ namespace Services
                 }
                 else
                 {
+
                      _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.ToOADate()));
                      
                     if (_chartData.DataPoints.Count>360)
@@ -79,6 +80,8 @@ namespace Services
                     _chartData.DataPoints2?.Add(new Tuple<float, double>(_modbusData.Tzad_pvs, DateTime.Now.ToOADate()));
                     if (_chartData.DataPoints2.Count > 360)
                         _chartData.DataPoints2?.RemoveAt(0);
+                    //}
+                  //  _eventAggregator.GetEvent<ChartUpdateStartedEvent>().Publish();
 
                     //string fileName = "ChartData.json";
                     //string ChartDataJson = JsonSerializer.Serialize(_chartData);

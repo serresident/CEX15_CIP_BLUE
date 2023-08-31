@@ -128,7 +128,7 @@ namespace cip_blue.Views
                         break;
                 }
             }
-            control_panel.UpdateLayout();
+       
             return IntPtr.Zero;
         }
 

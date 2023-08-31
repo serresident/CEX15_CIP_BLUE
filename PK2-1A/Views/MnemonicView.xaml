@@ -115,9 +115,9 @@
         <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
 
         <CollectionViewSource x:Key="chartData"
-                              Source="{Binding ChartData.DataPoints}" />
+                              Source="{Binding ChartData.DataPoints.AsObservable}" />
         <CollectionViewSource x:Key="chartData2"
-                              Source="{Binding ChartData.DataPoints2}" />
+                              Source="{Binding ChartData.DataPoints2.AsObservable}" />
 
         <DataTemplate x:Key="lineTemplate">
             <Canvas Width="{Binding Path=W}"
@@ -1696,7 +1696,7 @@
             <xctk:Chart.Areas>
                 <xctk:Area x:Name="_area1"
                             Title="Area #1"
-                            Background="#EEEEEE"
+                         
                             >
                     <xctk:Area.XAxis>
                         <xctk:Axis LabelsType="DateTime"
@@ -1814,10 +1814,10 @@
             <child:Promivka_4201  Left="1300" Top="230" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1318" Canvas.Top="231"  />
 
         </xctk:WindowContainer>
-        <TextBlock   Visibility="{c:Binding !Man_mode}" Canvas.Left="1355" TextWrapping="Wrap" Canvas.Top="858" Height="45" Width="340" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Foreground="#FFF7F7F7">
+        <TextBlock   Visibility="{c:Binding !Man_mode}" Canvas.Left="1355" TextWrapping="Wrap" Canvas.Top="858" Height="85" Width="364" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Foreground="#FFF7F7F7">
             <TextBlock.Background>
                 <SolidColorBrush Color="#FFCC0909" Opacity="0.6"/>
-            </TextBlock.Background><Run Text="Ручной Режим деактив"/><Run Language="ru-ru" Text="и"/><Run Text="рован."/><Run Language="ru-ru" Text=" На основании  ТЗ от ЦЛ 31.07.23 Мартьянов К."/></TextBlock>
+            </TextBlock.Background><Run Text="Ручной Режим деактив"/><Run Language="ru-ru" Text="и"/><Run Text="рован."/><Run Language="ru-ru" Text=" На основании  ТЗ от ЦЛ 31.07.23 . Постановщик ТЗ :Мартьянов К.И. 53-70"/></TextBlock>
     </Canvas>
 
 

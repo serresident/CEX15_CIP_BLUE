@@ -26,6 +26,7 @@
 	<ItemGroup>
 	  <PackageReference Include="CalcBinding" Version="2.5.2" />
 	  <PackageReference Include="EasyModbusTCP" Version="5.6.0" />
+	  <PackageReference Include="Meziantou.Framework.WPF" Version="1.5.4" />
 	  <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1293.44" />
 	  <PackageReference Include="NLog" Version="5.0.4" />
 	  <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
@@ -74,6 +75,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="ChartData.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Mouse.js">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>

@@ -11,6 +11,9 @@ using cip_blue.Services;
 using Xceed.Wpf.Toolkit;
 using System.Net.NetworkInformation;
 using System.Reflection;
+using Microsoft.Xaml.Behaviors.Core;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace cip_blue.ViewModels
 {
@@ -265,6 +268,7 @@ namespace cip_blue.ViewModels
         public Dictionary<int, string> Dictionary_Status;
         public MnemonicViewModel(ProcessDataTcp pd, ArchivRepository archivRepository, ChartData chartData)
         {
+
             PD = pd;
             this.archivRepository = archivRepository;
 
@@ -292,7 +296,29 @@ namespace cip_blue.ViewModels
             chartUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
             internalUpdater = new PeriodicalTaskStarter(TimeSpan.FromSeconds(1));
             ChartData = chartData;
-        }
+
+            string _fileName = "ChartData.json";
+            string jsonString = "";
+
+       
+                using StreamReader data = File.OpenText(_fileName);
+                try
+                {
+
+
+                    string readData = data.ReadToEnd();
+                    ChartData? convertedData = JsonConvert.DeserializeObject<ChartData>(readData);
+                    ChartData.DataPoints = convertedData?.DataPoints;
+                    ChartData.DataPoints2 = convertedData?.DataPoints2;
+
+                }
+                catch (Exception ex)
+                {
+                    ChartData.DataPoints = new();
+                    ChartData.DataPoints2 = new();
+                    // _logger.Error("Error in ChartUpdate Service >>>> " + ex.Message);
+                }
+            }
 
         private bool canPromivka_4101_Start() { return !PD.switch_promivka4101; }
         private void promivka_4101_Start() => PD.switch_promivka4101 = true;

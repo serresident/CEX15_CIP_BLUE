@@ -194,10 +194,10 @@ namespace cip_blue
  
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            string fileName = "ChartData.json";
-           var t= Container.Resolve<ChartData>();
-            string ChartDataJson = JsonSerializer.Serialize(t);
-            File.WriteAllText(fileName, ChartDataJson);
+           // string fileName = "ChartData.json";
+           //var t= Container.Resolve<ChartData>();
+           // string ChartDataJson = JsonSerializer.Serialize(t);
+           // File.WriteAllText(fileName, ChartDataJson);
         }
 
         private void showErrorAndExit(string msg, string title)
