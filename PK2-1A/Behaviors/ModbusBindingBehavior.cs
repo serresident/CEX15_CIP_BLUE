@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Data;
 using cip_blue.Controls;
 using Xceed.Wpf.Toolkit;
+using System.Linq.Expressions;
 
 namespace cip_blue.Behaviors
 {
@@ -64,8 +65,22 @@ namespace cip_blue.Behaviors
 
         private void onValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            InternalValue = Decimal.ToSingle((decimal)e.NewValue);
-            ((NumPadUpDown)sender).UpdateValueOnEnterKey = true;
+            try
+            {
+                if (e != null)
+                {
+                    InternalValue = Decimal.ToSingle((decimal)e.NewValue);
+                    ((NumPadUpDown)sender).UpdateValueOnEnterKey = true;
+
+                }
+            }
+            catch(Exception ex) 
+            {
+                InternalValue = Decimal.ToSingle(0);
+                ((NumPadUpDown)sender).UpdateValueOnEnterKey = true;
+            }
+        
+         
         }
 
 

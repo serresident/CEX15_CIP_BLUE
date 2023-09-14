@@ -384,7 +384,11 @@
 
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.ColumnSpan="4">
-                            <Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
@@ -403,8 +407,9 @@
                             UncheckedContent = "ВЫКЛ"
                             CheckedBackground="DarkSeaGreen"
                             UncheckedBackground ="LightPink"></xctk:ToggleSwitch>
+                       
 
-                        </Grid>
+                    </Grid>
 
 
 

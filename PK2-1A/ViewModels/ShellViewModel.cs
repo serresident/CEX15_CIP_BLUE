@@ -128,9 +128,9 @@ namespace cip_blue.ViewModels
         {
             modbusTcpService.ConnectedChangedHandler += ConnectedChanged;
             modbusTask.Start(() => modbusTcpService.Worker(), () => modbusTcpService.AfterStop());
-          //  archivTask.Start(() => archivService.Worker(), null);
-           // journalTask.Start(() => journalService.Worker(), null);
-            //logicTask.Start(() => logicService.Worker(), null);
+          //archivTask.Start(() => archivService.Worker(),null);
+          //journalTask.Start(() => journalService.Worker(),null);
+          //logicTask.Start(() => logicService.Worker(),null);
         }
 
         internal void OnClosing()

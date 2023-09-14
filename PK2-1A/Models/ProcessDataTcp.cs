@@ -120,12 +120,13 @@ namespace cip_blue.Models
         public bool err_deltacp2000 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool wait_pvs { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool trig_4305 { get { return getValue<bool>(); }set { setValue<bool>(value); } }
-public bool trig_4103 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool trig_4103 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool TV_P4310_open { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool TV_P4310_close { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool TV_P4310_mode { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool TV_P4310_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool TV_P4310_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool no_purge_air_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
 
         //ad=54 
