@@ -1814,10 +1814,10 @@
             <child:Promivka_4201  Left="1300" Top="230" Height="Auto" Width="300" Caption="Промывка ф. пресса 4101"  WindowState="{Binding Promivka_4201WndStatus}" Canvas.Left="1318" Canvas.Top="231"  />
 
         </xctk:WindowContainer>
-        <TextBlock   Visibility="{c:Binding !Man_mode}" Canvas.Left="34" TextWrapping="Wrap" Canvas.Top="407" Height="59" Width="271" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Foreground="#FFF7F7F7">
+        <TextBlock   Visibility="{c:Binding !Man_mode}" Canvas.Left="34" TextWrapping="Wrap" Canvas.Top="407" Height="76" Width="356" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Foreground="#FFF7F7F7">
             <TextBlock.Background>
                 <SolidColorBrush Color="#FFCC0909" Opacity="0.6"/>
-            </TextBlock.Background><Run Text="Ручное управление исп. оборудованием выключено"/></TextBlock>
+            </TextBlock.Background><Run Text="Ручное управление исп. оборудованием выключено по в"/><Run Language="ru-ru" Text="о"/><Run Text="просам обращаться: Мартьнов К.И. 53-70 / 8-915-664-77-43 "/></TextBlock>
     </Canvas>
 
 

@@ -21,9 +21,9 @@ namespace cip_blue.Services
     public class ModbusTcpService
     {
 
- private readonly string ModbusClientIP = "192.168.3.127";
+ //private readonly string ModbusClientIP = "192.168.3.127";
 
- //private readonly string ModbusClientIP = "192.168.101.117";
+ private readonly string ModbusClientIP = "192.168.101.117";
      // private readonly string ModbusClientIP = "127.0.0.1";
         //private readonly string ModbusClientIP = "192.168.200.18";
         //private readonly int ModbusPort = 502;

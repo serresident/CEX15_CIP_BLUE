@@ -366,12 +366,12 @@
                 UncheckedContent = "ВЫКЛ"
                 CheckedBackground="DarkSeaGreen"
                 UncheckedBackground ="LightPink"></xctk:ToggleSwitch>
-                        <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Продувка:"></TextBlock>
+                        <TextBlock FontWeight="Bold" FontSize="12"  Foreground="Blue" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text=" Без Продувки :"></TextBlock>
 
                         <xctk:ToggleSwitch Width="64" Margin="5,0,0,5" Height="25" Grid.Row="1" Grid.Column="1"   
                                                 
                           ToolTip=" Включение/Отключение продувки"
-                                               IsEnabled="{Binding PD.switch_promivka4101, Converter={StaticResource BooleanNegateConverter}}"
+                                               IsEnabled="{Binding PD.switch_promivka4201, Converter={StaticResource BooleanNegateConverter}}"
                             CornerRadius="2"
                             IsChecked="{Binding PD.no_purge_air_4101 ,Mode=TwoWay}"
                             ThumbHeight = "25"
