@@ -49,7 +49,7 @@ namespace cip_blue.Repositories
             catch (Exception ex)
             {
                 res = null;
-                logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
+                //logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
             }
             return res;
         }
@@ -92,7 +92,7 @@ namespace cip_blue.Repositories
             catch (Exception ex)
             {
                 result = null;
-                logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
+                //logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
             }
             
 

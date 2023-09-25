@@ -102,7 +102,7 @@ namespace cip_blue.Services
 
                             catch (Exception ex)
                             {
-                                logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
+                                //logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
                             }
                             finally
                             {

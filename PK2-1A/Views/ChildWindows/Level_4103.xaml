@@ -245,7 +245,7 @@
             Increment="1"
             Minimum="-1"
             Precision="1"
-            UpdateValueOnEnterKey="True" CultureInfo="ru-RU">
+            UpdateValueOnEnterKey="True" CultureInfo="en-EN">
                 <Behaviors:Interaction.Behaviors>
                     <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.ZagrMorfolinK480_Xnom}" />
                 </Behaviors:Interaction.Behaviors>

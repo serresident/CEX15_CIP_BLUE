@@ -9,6 +9,8 @@ using cip_blue.Services;
 using Microsoft.Web.WebView2.Wpf;
 using System.Threading;
 using cip_blue.Events;
+using OneOf.Types;
+using Renci.SshNet;
 
 namespace cip_blue.ViewModels
 {
@@ -35,7 +37,7 @@ namespace cip_blue.ViewModels
 
         public User User { get; set; }
 
-        const string title = "Схема ЦИП ФЦМ пресс 4101/4201";
+        const string title = "Схема ЦИП ФЦМ пресс 4101/4201. Пароводосмеситель. Тел. 37-52 по вопросам работы программмного обеспечения установки.";
         private string _title;
         public string Title
         {
@@ -106,7 +108,22 @@ namespace cip_blue.ViewModels
         {
             eventAggregator.GetEvent<TcpConnect>().Unsubscribe((o) => IPStatus = o);
         }
+        string ipAddress="192.168.101.117";
+        internal void  SendCommandSSH(string ip,string username,string password,string command)
+        {
+            using (var client = new SshClient(ip, username, password))
+            {
 
+                client.Connect();
+
+                client.RunCommand(command);
+
+                
+
+                client.Disconnect();
+
+            }
+        }
         internal void InputPassword()
         {
             dialogService.ShowDialog("password", r =>
@@ -119,10 +136,29 @@ namespace cip_blue.ViewModels
                         Set_access = true;
                         
                     }
-                       
+                    else if (r.Parameters.GetValue<string>("password") == "stop")
+                    {
+                        SendCommandSSH(ipAddress, "root", "icpdasAsutp68","pkill -f cex15_cip_blue");
+                    }
+                    else if (r.Parameters.GetValue<string>("password") == "run")
+                    {
+
+                        SendCommandSSH(ipAddress, "root", "icpdasAsutp68", "nohup ./cex15_cip_blue>/dev/null 2>&1 &");
+                    }
+                    else if (r.Parameters.GetValue<string>("password") == "restart")
+                    {
+                        SendCommandSSH(ipAddress, "root", "icpdasAsutp68", "pkill -f cex15_cip_blue && nohup ./cex15_cip_blue>/dev/null 2>&1 &");
+                    }
+                    else if (r.Parameters.GetValue<string>("password") == "reboot")
+                    {
+                        SendCommandSSH(ipAddress, "root", "icpdasAsutp68", "reboot");
+                    }
+
+
                 }
             });
         }
+
 
         internal void OnLoad()
         {

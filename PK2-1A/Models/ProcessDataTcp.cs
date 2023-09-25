@@ -127,6 +127,7 @@ namespace cip_blue.Models
         public bool TV_P4310_man { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool TV_P4310_auto { get { return getValue<bool>(); } set { setValue<bool>(value); } }
         public bool no_purge_air_4101 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
+        public bool no_purge_air_4201 { get { return getValue<bool>(); } set { setValue<bool>(value); } }
 
 
         //ad=54 

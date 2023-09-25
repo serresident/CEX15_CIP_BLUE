@@ -69,7 +69,7 @@ namespace cip_blue.Behaviors
             {
                 if (e != null)
                 {
-                    InternalValue = Decimal.ToSingle((decimal)e.NewValue);
+                    InternalValue = Decimal.ToSingle(Decimal.Parse(e.NewValue.ToString()));
                     ((NumPadUpDown)sender).UpdateValueOnEnterKey = true;
 
                 }

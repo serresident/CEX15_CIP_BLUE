@@ -467,7 +467,7 @@ namespace cip_blue.ViewModels
             }
             catch(Exception ex)
             {
-                logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
+               // logger.Error(ex, this.GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
             }
             if (PD.Load_water_160a_status == 1)
                 Status_load160a = "Идет Загрузка Воды";

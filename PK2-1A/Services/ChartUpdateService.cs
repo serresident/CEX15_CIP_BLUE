@@ -11,7 +11,8 @@ using System.Text;
 using Throw;
 using System.Text.Json;
 using System.Windows.Shapes;
-using Newtonsoft.Json;
+using NLog;
+
 
 namespace Services
 {
@@ -23,7 +24,7 @@ namespace Services
         private readonly ProcessDataTcp _modbusData;
         private bool isStarted;
         private readonly Random random = new();
-        
+        private Logger logger = LogManager.GetCurrentClassLogger();
 
         public ChartUpdateService(ProcessDataTcp modbusData, IEventAggregator eventAggregator, ChartData chartData)
         {
@@ -32,7 +33,8 @@ namespace Services
             _modbusData = modbusData;
             _chartData.DataPoints = new();
             _chartData.DataPoints2 = new();
-        }
+      
+    }
         public void DoWork()
         {
             App.Current.Dispatcher.BeginInvoke((Action)delegate
@@ -46,9 +48,10 @@ namespace Services
                     try
                     {
 
-
                         string readData = data.ReadToEnd();
-                        ChartData? convertedData = JsonConvert.DeserializeObject<ChartData>(readData);
+                     //   ChartData? convertedData = JsonConvert.DeserializeObject<ChartData>(readData);
+
+                        ChartData? convertedData =System.Text.Json.JsonSerializer.Deserialize<ChartData>(readData);
                         _chartData.DataPoints = convertedData?.DataPoints;
                         _chartData.DataPoints2 = convertedData?.DataPoints2;
 
@@ -57,7 +60,8 @@ namespace Services
                     {
                         _chartData.DataPoints = new();
                         _chartData.DataPoints2 = new();
-                       // _logger.Error("Error in ChartUpdate Service >>>> " + ex.Message);
+                       logger.Error("Error in ChartUpdate Service Load from chart json >>>> " + ex.Message);
+                       
                     }
                     //for (int i = 0; i < 360; i++)
                     //{
@@ -65,27 +69,36 @@ namespace Services
                     //  _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.AddMinutes(i).ToOADate()));
                     //    _chartData.DataPoints2?.Add(new Tuple<float, double>(random.Next(20, 24), DateTime.Now.AddMinutes(i).ToOADate()));
                     //}
+                 
                     _eventAggregator.GetEvent<ChartUpdateStartedEvent>().Publish();
                     isStarted = true;
                     return;
                 }
                 else
                 {
+                    try
+                    {
+                        _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.ToOADate()));
 
-                     _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.ToOADate()));
-                     
-                    if (_chartData.DataPoints.Count>360)
-                    _chartData.DataPoints?.RemoveAt(0);
+                        if (_chartData.DataPoints.Count > 360)
+                            _chartData.DataPoints?.RemoveAt(0);
 
-                    _chartData.DataPoints2?.Add(new Tuple<float, double>(_modbusData.Tzad_pvs, DateTime.Now.ToOADate()));
-                    if (_chartData.DataPoints2.Count > 360)
-                        _chartData.DataPoints2?.RemoveAt(0);
-                    //}
-                  //  _eventAggregator.GetEvent<ChartUpdateStartedEvent>().Publish();
+                        _chartData.DataPoints2?.Add(new Tuple<float, double>(_modbusData.Tzad_pvs, DateTime.Now.ToOADate()));
+                        if (_chartData.DataPoints2.Count > 360)
+                            _chartData.DataPoints2?.RemoveAt(0);
+                        //}
+                        //  _eventAggregator.GetEvent<ChartUpdateStartedEvent>().Publish();
 
-                    //string fileName = "ChartData.json";
-                    //string ChartDataJson = JsonSerializer.Serialize(_chartData);
-                    //File.WriteAllText(fileName, ChartDataJson);
+                        string fileName = "ChartData.json";
+                        string ChartDataJson = System.Text.Json.JsonSerializer.Serialize(_chartData);
+                        File.WriteAllText(fileName, ChartDataJson);
+
+                    }
+                    catch ( Exception ex ) 
+                    {
+                       logger.Error("Error in ChartUpdate Service// delete/add  collection >>>> " + ex.Message);
+                    }
+
                 }
             });
 

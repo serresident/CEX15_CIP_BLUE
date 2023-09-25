@@ -97,14 +97,14 @@ namespace cip_blue
             containerRegistry.RegisterSingleton<ProcessDataTcp>();
             containerRegistry.RegisterSingleton<ChartData>();
 
-            containerRegistry.Register<ArchivRepository>();
+          //  containerRegistry.Register<ArchivRepository>();
             containerRegistry.Register<JournalRepository>();
 
             // Services
           containerRegistry.RegisterSingleton<ModbusTcpService>();
 
            // containerRegistry.RegisterSingleton<ModbusMasterService>();
-            containerRegistry.RegisterSingleton<ArchivService>();
+        //    containerRegistry.RegisterSingleton<ArchivService>();
            ;
             containerRegistry.RegisterSingleton<LogicService>();
 

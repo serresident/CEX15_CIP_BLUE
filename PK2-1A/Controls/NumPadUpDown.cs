@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,12 +83,24 @@ namespace cip_blue.Controls
             NumPadUpDown numPadUpDown = o as NumPadUpDown;
             if (numPadUpDown != null)
                 numPadUpDown.OnIsOpenChanged((bool)e.OldValue, (bool)e.NewValue);
+            else
+                numPadUpDown.IsOpen = false;
         }
 
         protected virtual void OnIsOpenChanged(bool oldValue, bool newValue)
         {
+            Decimal dec;
+
             if (newValue)
-                _initialValue = this.UpdateValueOnEnterKey ? this.ConvertTextToValue(this.TextBox.Text) : this.Value;
+
+            {
+                if(Decimal.TryParse(this.TextBox.Text.Replace(",", "."), out dec))
+                _initialValue = this.UpdateValueOnEnterKey ? dec : this.Value;
+               
+            }
+          
+
+
         }
 
         #endregion //IsOpen
@@ -116,6 +129,7 @@ namespace cip_blue.Controls
 
         static NumPadUpDown()
         {
+
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NumPadUpDown), new FrameworkPropertyMetadata(typeof(NumPadUpDown)));
         }
 
@@ -125,6 +139,7 @@ namespace cip_blue.Controls
             Mouse.AddPreviewMouseDownOutsideCapturedElementHandler(this, OnMouseDownOutsideCapturedElement);
             this.Foreground = Brushes.LawnGreen;
             this.Background = Brushes.Black;
+            this.CultureInfo = new CultureInfo("en-EN", true); ;
 
 
         }
@@ -165,7 +180,7 @@ namespace cip_blue.Controls
                 {
                     if (this.UpdateValueOnEnterKey)
                     {
-                        this.TextBox.Text = (_numPad.Value != null) ? _numPad.Value.Value.ToString(this.FormatString, this.CultureInfo) : null;
+                        this.TextBox.Text = (_numPad.Value != null) ? _numPad.Value.Value.ToString(this.FormatString, this.CultureInfo).Replace(",", ".") : null;
                     }
                     else
                     {
@@ -186,11 +201,30 @@ namespace cip_blue.Controls
 
         void NumPadPopup_Opened(object sender, EventArgs e)
         {
+            decimal dec;
             if (_numPad != null)
             {
-                var initValue = this.UpdateValueOnEnterKey ? this.ConvertTextToValue(this.TextBox.Text) : this.Value;
-                _numPad.InitializeToValue(initValue);
-                _numPad.Focus();
+                if (Decimal.TryParse(this.TextBox.Text.Replace(",", "."), out dec))
+                {
+                    var initValue = this.UpdateValueOnEnterKey ? dec : this.Value;
+                    _numPad.InitializeToValue(initValue);
+                    _numPad.Focus();
+
+                }
+                else
+                {
+                    this.Value = this.Value;
+                    _numPad.Focus();
+                    this.TextBox.Focus();
+                    this.TextBox.SelectAll();
+                    
+                    CloseNumPadUpDown();
+               
+
+
+                }
+
+              
             }
         }
 
@@ -211,18 +245,33 @@ namespace cip_blue.Controls
             if (!IsOpen)
             {
                 if (e.Key == Key.Enter)
+                
                 {
-                    //if (this.UpdateValueOnEnterKey)
-                    //{
-                    //    this.TextBox.Text = (_initialValue != null) ? _initialValue.Value.ToString(this.FormatString, this.CultureInfo) : null;
-                    //}
-                    //else
-                    //{
-                    //    this.Value = _initialValue;
-                    //}
-                    FocusManager.SetFocusedElement(FocusManager.GetFocusScope(this.TextBox), null); //!!!!!!!!!!!!
-                    Keyboard.ClearFocus();  //!!!!!!!!!!!!
-                    e.Handled = true;
+                    decimal dec;
+                    if (_numPad != null)
+                    {
+                        if (Decimal.TryParse(this.TextBox.Text.Replace(",", "."), out dec))
+                        {
+                            var initValue = this.UpdateValueOnEnterKey ? dec : this.Value;
+                            _numPad.InitializeToValue(initValue);
+                            _numPad.Focus();
+
+                        }
+                        else
+                        {
+                            this.Value = this.Value;
+                            _numPad.Focus();
+                            this.TextBox.Focus();
+                            this.TextBox.SelectAll();
+
+                            CloseNumPadUpDown();
+
+
+
+                        }
+
+
+                    }
                 }
 
                 if (KeyboardUtilities.IsKeyModifyingPopupState(e))
@@ -278,17 +327,17 @@ namespace cip_blue.Controls
 
         #endregion //Methods
 
-        //protected override void OnKeyDown(KeyEventArgs e)
-        //{
-        //    base.OnKeyDown(e);
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
 
-        //    if (e.Key != Key.Enter)
-        //        return;
+            if (e.Key != Key.Enter)
+                return;
 
-        //    FocusManager.SetFocusedElement(FocusManager.GetFocusScope(TextBox), null); //!!!!!!!!!!!!
-        //    Keyboard.ClearFocus();  //!!!!!!!!!!!!
+            FocusManager.SetFocusedElement(FocusManager.GetFocusScope(TextBox), null); //!!!!!!!!!!!!
+            Keyboard.ClearFocus();  //!!!!!!!!!!!!
 
-        //}
+        }
 
 
 

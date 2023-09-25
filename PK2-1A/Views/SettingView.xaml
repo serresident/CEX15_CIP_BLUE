@@ -33,7 +33,7 @@
                     Minimum="0"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center">-->
+                    UpdateValueOnEnterKey="True"    VerticalAlignment="Center">-->
         <!--
 
         </Style>-->
@@ -151,10 +151,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,1"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"  Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_promivki_4201_n1}" />
                     </b:Interaction.Behaviors>
@@ -169,10 +169,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="5"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                    UpdateValueOnEnterKey="True"    >
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi1_4201_n1}" />
                     </b:Interaction.Behaviors>
@@ -188,10 +188,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,1"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True" >
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_vozduha_4201_n1}" />
                     </b:Interaction.Behaviors>
@@ -206,10 +206,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,1"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"  Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4201_n1}" />
                     </b:Interaction.Behaviors>
@@ -223,10 +223,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,1"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"  Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4201_n1}" />
                     </b:Interaction.Behaviors>
@@ -285,10 +285,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,3,0,1"
                     Increment="1"
-                   Minimum="0"
-                    Maximum="100"
+                   Minimum="0.1"
+                    Maximum="9999"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1"  >
+                    UpdateValueOnEnterKey="True"  Grid.Column="1"  >
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_promivki_4101_n1}" />
                     </b:Interaction.Behaviors>
@@ -303,10 +303,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,0,0,4"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1"  >
+                    UpdateValueOnEnterKey="True"  Grid.Column="1"  >
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi1_4101_n1}" />
                     </b:Interaction.Behaviors>
@@ -322,10 +322,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,3"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True" >
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_vozduha_4101_n1}" />
                     </b:Interaction.Behaviors>
@@ -340,10 +340,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,2,0,2"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"  Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4101_n1}" />
                     </b:Interaction.Behaviors>
@@ -360,10 +360,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,3"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    UpdateValueOnEnterKey="True" >
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_promivki_4101_n2}" />
                     </b:Interaction.Behaviors>
@@ -380,10 +380,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,1,0,3"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1"  >
+                    UpdateValueOnEnterKey="True"  Grid.Column="1"  >
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi1_4101_n2}" />
                     </b:Interaction.Behaviors>
@@ -397,10 +397,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"    VerticalAlignment="Center" Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_vozduha_4101_n2}" />
                     </b:Interaction.Behaviors>
@@ -414,10 +414,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="1,0,-1,0"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Top" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"    VerticalAlignment="Top" Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_pauzi2_4101_n2}" />
                     </b:Interaction.Behaviors>
@@ -432,10 +432,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="0,3,0,1"
                     Increment="1"
-                    Minimum="0"
-                    Maximum="100"
+                    Minimum="0.1"
+                    Maximum="9999"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"  Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4101_n1}" />
                     </b:Interaction.Behaviors>
@@ -450,10 +450,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="2,0,-2,0"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"    VerticalAlignment="Center" Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.sp_vremya_produvki_4101_n2}" />
                     </b:Interaction.Behaviors>
@@ -470,10 +470,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen" Margin="2,0,-2,0"
                     Increment="1"
-                    Minimum="0"
+                    Minimum="0.1"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   VerticalAlignment="Center" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"    VerticalAlignment="Center" Grid.Column="1">
                     <b:Interaction.Behaviors>
                         <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.predvaritel_zakr_160a}" />
                     </b:Interaction.Behaviors>
@@ -544,7 +544,7 @@
                     Minimum="0"
                     Maximum="100"
                     Precision="0"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU" Grid.Column="1">
+                    UpdateValueOnEnterKey="True"  Grid.Column="1">
                         <b:Interaction.Behaviors>
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_pvs}" />
                         </b:Interaction.Behaviors>
@@ -562,7 +562,7 @@
                     Minimum="-10"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                    UpdateValueOnEnterKey="True"    >
                         <b:Interaction.Behaviors>
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_pvs}" />
                         </b:Interaction.Behaviors>
@@ -580,8 +580,8 @@
                     Increment="0.01"
                     Minimum="0"
                     Maximum="100"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU">
+                    Precision="0"
+                    UpdateValueOnEnterKey="True" >
                         <b:Interaction.Behaviors>
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_pvs}" />
                         </b:Interaction.Behaviors>
@@ -613,11 +613,12 @@
                     
                     FontWeight="Bold"
                     Foreground="LawnGreen"
-                   Increment="0.1"
-                    Minimum="0"
+                   Increment="0.01"
+                    Minimum="-100"
                     Maximum="100"
                     Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                    UpdateValueOnEnterKey="True"  
+                                               >
                         <b:Interaction.Behaviors>
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.KP_b4305}" />
                         </b:Interaction.Behaviors>
@@ -633,10 +634,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen"
                    Increment="0.01"
-                    Minimum="0"
+                    Minimum="-100"
                     Maximum="100"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                    Precision="2"
+                    UpdateValueOnEnterKey="True" VerticalAlignment="Top"    >
                         <b:Interaction.Behaviors>
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TN_b4305}" />
                         </b:Interaction.Behaviors>
@@ -652,10 +653,10 @@
                     FontWeight="Bold"
                     Foreground="LawnGreen"
                     Increment="0.01"
-                    Minimum="0"
+                    Minimum="-100"
                     Maximum="100"
-                    Precision="1"
-                    UpdateValueOnEnterKey="True"  CultureInfo="ru-RU"   >
+                    Precision="2"
+                    UpdateValueOnEnterKey="True"    >
                         <b:Interaction.Behaviors>
                             <Behaviors:ModbusBindingBehavior InternalValue="{Binding PD.TV_b4305}" />
                         </b:Interaction.Behaviors>

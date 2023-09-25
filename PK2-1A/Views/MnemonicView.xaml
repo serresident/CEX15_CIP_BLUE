@@ -1380,7 +1380,7 @@
         <xctk:ToggleSwitch Width="64" Height="24"    
             CornerRadius="2"
                            ToolTip=" Для ручного управления перевидите насос в ручной режим"
-                           IsEnabled="False"
+                           IsEnabled="True"
             IsChecked="{Binding PD.SW_FQ_auto_b4305, Mode=TwoWay}"
             ThumbHeight = "25"
             ThumbWidth = "24"
@@ -1515,12 +1515,15 @@
             Background="Black"
             Increment="1"
             Minimum="-1"
-            Precision="0"
-            UpdateValueOnEnterKey="True" Canvas.Left="1196" Canvas.Top="835" HorizontalAlignment="Center" VerticalAlignment="Top">
+                               Maximum="120"
+            Precision="2"
+                            CultureInfo="ru-RU"      
+            Canvas.Left="1196" Canvas.Top="835" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Behaviors:Interaction.Behaviors>
                 <behaviors:ModbusBindingBehavior InternalValue="{Binding PD.set_level_high_b4103}" />
             </Behaviors:Interaction.Behaviors>
         </Controls:NumPadUpDown>
+        
         <!--<Expander Canvas.Left="306"  Header="Описание Алгоритма, автор алгоритма:  н.л. ФМП ЦЛ     Мартьянов К.И." FontStyle="Italic" FontSize="18"  Height="512" Width="1592" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-2">
 
             <ScrollViewer Width="auto">
