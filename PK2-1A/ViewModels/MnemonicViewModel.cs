@@ -301,23 +301,23 @@ namespace cip_blue.ViewModels
             string jsonString = "";
 
        
-                using StreamReader data = File.OpenText(_fileName);
-                try
-                {
+                //using StreamReader data = File.OpenText(_fileName);
+                //try
+                //{
 
 
-                    string readData = data.ReadToEnd();
-                    ChartData? convertedData = JsonConvert.DeserializeObject<ChartData>(readData);
-                    ChartData.DataPoints = convertedData?.DataPoints;
-                    ChartData.DataPoints2 = convertedData?.DataPoints2;
+                //    string readData = data.ReadToEnd();
+                //    ChartData? convertedData = JsonConvert.DeserializeObject<ChartData>(readData);
+                //    ChartData.DataPoints = convertedData?.DataPoints;
+                //    ChartData.DataPoints2 = convertedData?.DataPoints2;
 
-                }
-                catch (Exception ex)
-                {
-                    ChartData.DataPoints = new();
-                    ChartData.DataPoints2 = new();
-                    // _logger.Error("Error in ChartUpdate Service >>>> " + ex.Message);
-                }
+                //}
+                //catch (Exception ex)
+                //{
+                //    ChartData.DataPoints = new();
+                //    ChartData.DataPoints2 = new();
+                //    // _logger.Error("Error in ChartUpdate Service >>>> " + ex.Message);
+                //}
             }
 
         private bool canPromivka_4101_Start() { return !PD.switch_promivka4101; }

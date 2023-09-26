@@ -12,7 +12,7 @@ using Throw;
 using System.Text.Json;
 using System.Windows.Shapes;
 using NLog;
-
+using Meziantou.Framework.WPF.Collections;
 
 namespace Services
 {
@@ -49,27 +49,29 @@ namespace Services
                     {
 
                         string readData = data.ReadToEnd();
-                     //   ChartData? convertedData = JsonConvert.DeserializeObject<ChartData>(readData);
+                        //   ChartData? convertedData = JsonConvert.DeserializeObject<ChartData>(readData);
 
-                        ChartData? convertedData =System.Text.Json.JsonSerializer.Deserialize<ChartData>(readData);
+                        ChartData? convertedData = System.Text.Json.JsonSerializer.Deserialize<ChartData>(readData);
                         _chartData.DataPoints = convertedData?.DataPoints;
                         _chartData.DataPoints2 = convertedData?.DataPoints2;
 
                     }
-                    catch( Exception ex)
+                    catch (Exception ex)
                     {
                         _chartData.DataPoints = new();
                         _chartData.DataPoints2 = new();
-                       logger.Error("Error in ChartUpdate Service Load from chart json >>>> " + ex.Message);
-                       
+                        logger.Error("Error in ChartUpdate Service Load from chart json >>>> " + ex.Message);
+
                     }
+
+                    if (_chartData.DataPoints2.Count != 360 || _chartData.DataPoints.Count != 360)
                     //for (int i = 0; i < 360; i++)
                     //{
 
-                    //  _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.AddMinutes(i).ToOADate()));
-                    //    _chartData.DataPoints2?.Add(new Tuple<float, double>(random.Next(20, 24), DateTime.Now.AddMinutes(i).ToOADate()));
+                    //    _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.AddMinutes(i).ToOADate()));
+                    //    _chartData.DataPoints2?.Add(new Tuple<float, double>(_modbusData.Tzad_pvs, DateTime.Now.AddMinutes(i).ToOADate()));
                     //}
-                 
+
                     _eventAggregator.GetEvent<ChartUpdateStartedEvent>().Publish();
                     isStarted = true;
                     return;
@@ -78,14 +80,48 @@ namespace Services
                 {
                     try
                     {
-                        _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.ToOADate()));
+                        if (_chartData.DataPoints.Count>1)
+                        {
+                            _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.ToOADate()));
+                            if (_chartData.DataPoints.Count > 360 && _chartData.DataPoints is not null)
+                                _chartData.DataPoints?.RemoveAt(0);
 
-                        if (_chartData.DataPoints.Count > 360)
-                            _chartData.DataPoints?.RemoveAt(0);
+                        }
+                        else
+                        {
+                            
+                            _chartData.DataPoints = new();
+                            for (int i = 0; i < 360; i++)
+                            {
 
-                        _chartData.DataPoints2?.Add(new Tuple<float, double>(_modbusData.Tzad_pvs, DateTime.Now.ToOADate()));
-                        if (_chartData.DataPoints2.Count > 360)
-                            _chartData.DataPoints2?.RemoveAt(0);
+
+                                _chartData.DataPoints?.Add(new Tuple<float, double>(_modbusData.TE2, DateTime.Now.AddMinutes(i).ToOADate()));
+                            }
+                        }
+                            
+
+                        if (_chartData.DataPoints2.Count > 1)
+                        {
+                            _chartData.DataPoints2.Add(new Tuple<float, double>(_modbusData.Tzad_pvs, DateTime.Now.ToOADate()));
+                            if (_chartData.DataPoints2.Count > 360 && _chartData.DataPoints2 is not null)
+                                _chartData.DataPoints2?.RemoveAt(0);
+
+                        }
+                        else
+                        {
+                           _chartData.DataPoints2 = new();
+                            for (int i = 0; i < 360; i++)
+                            {
+
+                               
+                                _chartData.DataPoints2?.Add(new Tuple<float, double>(_modbusData.PE1, DateTime.Now.AddMinutes(i).ToOADate()));
+                            }
+                        }
+                      
+
+               //   _chartData.DataPoints2.Clear();
+
+
                         //}
                         //  _eventAggregator.GetEvent<ChartUpdateStartedEvent>().Publish();
 
