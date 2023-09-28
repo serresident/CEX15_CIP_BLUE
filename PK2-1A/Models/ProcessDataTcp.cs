@@ -297,6 +297,8 @@ namespace cip_blue.Models
         public Single T_zagr_160b { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         public Single T_zagr_4305b { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         public Single T_zagr_4103b { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single scale_min_Conductance { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
+        public Single scale_max_Conductance { get { return getValue<Single>(); } set { setValue<Single>(value); } } // 
         #endregion
     }
 

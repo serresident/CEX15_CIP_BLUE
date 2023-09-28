@@ -147,10 +147,10 @@ namespace cip_blue
 
 
 
-            IBackgroundTaskStarterService chartUpdateTask = new BackgroundInfiniteTask(chartUpdateService.DoWork, TimeSpan.FromMilliseconds(900), source);
+            IBackgroundTaskStarterService chartUpdateTask = new BackgroundInfiniteTask(chartUpdateService.DoWork, TimeSpan.FromMilliseconds(1000), source);
          //   IBackgroundTaskStarterService clockUpdateTask = new IBackgroundTaskStarterService(clockUpdateService.DoWork, TimeSpan.FromSeconds(1), source);
 
-            chartUpdateTask.Start();
+           chartUpdateTask.Start();
             //clockUpdateTask.Start();
 
         }

@@ -115,9 +115,9 @@
         <convertors:BooleanNegateConverter x:Key="BooleanNegateConverter" />
 
         <CollectionViewSource x:Key="chartData"
-                              Source="{Binding ChartData.DataPoints.AsObservable}" />
+                              Source="{Binding ChartData.DataPoints}" />
         <CollectionViewSource x:Key="chartData2"
-                              Source="{Binding ChartData.DataPoints2.AsObservable}" />
+                              Source="{Binding ChartData.DataPoints2}" />
 
         <DataTemplate x:Key="lineTemplate">
             <Canvas Width="{Binding Path=W}"
